@@ -9,7 +9,7 @@
     public class ApplicationUserProfileService : IApplicationUserProfileService,
         IBaseGetService<ApplicationUser, string>
     {
-        protected readonly IDbRepository<ApplicationUser> users;
+        private readonly IDbRepository<ApplicationUser> users;
 
         public ApplicationUserProfileService(IDbRepository<ApplicationUser> users)
         {

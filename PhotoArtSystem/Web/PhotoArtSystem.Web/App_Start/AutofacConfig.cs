@@ -9,6 +9,7 @@
     using Data;
     using Data.Common.Repositories;
     using Services.ApplicationUser;
+    using Services.Photocourse;
     using Services.Web;
     using Services.Web.Contracts;
     using Web;
@@ -59,6 +60,9 @@
 
             var userServicesAssembly = Assembly.GetAssembly(typeof(ApplicationUserProfileService));
             builder.RegisterAssemblyTypes(userServicesAssembly).AsImplementedInterfaces();
+
+            var photocourseServiceAssembly = Assembly.GetAssembly(typeof(PhotocourseService));
+            builder.RegisterAssemblyTypes(photocourseServiceAssembly).AsImplementedInterfaces();
 
             builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
                 .AssignableTo<BaseController>().PropertiesAutowired();

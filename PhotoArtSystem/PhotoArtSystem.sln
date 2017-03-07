@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoArtSystem.Services.Com
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoArtSystem.Services.ApplicationUser", "Services\PhotoArtSystem.Services.ApplicationUser\PhotoArtSystem.Services.ApplicationUser.csproj", "{C1FE80CB-0F09-4C17-818D-6898489A848C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoArtSystem.Services.Photocourse", "Services\PhotoArtSystem.Services.Photocourse\PhotoArtSystem.Services.Photocourse.csproj", "{E80FE51D-F481-48DB-8F4C-2B6FD99F64B4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,6 +87,10 @@ Global
 		{C1FE80CB-0F09-4C17-818D-6898489A848C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1FE80CB-0F09-4C17-818D-6898489A848C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1FE80CB-0F09-4C17-818D-6898489A848C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E80FE51D-F481-48DB-8F4C-2B6FD99F64B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E80FE51D-F481-48DB-8F4C-2B6FD99F64B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E80FE51D-F481-48DB-8F4C-2B6FD99F64B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E80FE51D-F481-48DB-8F4C-2B6FD99F64B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -101,5 +107,6 @@ Global
 		{52023CB8-8D81-4097-999A-D3F5AC7F39FE} = {9BF8B18E-11DC-45B8-967B-21289359BFF5}
 		{F70892F7-DA64-4ACC-87E5-92287E7E7D6B} = {0DA09F31-C0E5-476A-AA9D-1D8A207EB114}
 		{C1FE80CB-0F09-4C17-818D-6898489A848C} = {0DA09F31-C0E5-476A-AA9D-1D8A207EB114}
+		{E80FE51D-F481-48DB-8F4C-2B6FD99F64B4} = {0DA09F31-C0E5-476A-AA9D-1D8A207EB114}
 	EndGlobalSection
 EndGlobal

@@ -345,6 +345,10 @@
       <Project>{f70892f7-da64-4acc-87e5-92287e7e7d6b}</Project>
       <Name>PhotoArtSystem.Services.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Services\PhotoArtSystem.Services.Photocourse\PhotoArtSystem.Services.Photocourse.csproj">
+      <Project>{e80fe51d-f481-48db-8f4c-2b6fd99f64b4}</Project>
+      <Name>PhotoArtSystem.Services.Photocourse</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Services\PhotoArtSystem.Services.Web\PhotoArtSystem.Services.Web.csproj">
       <Project>{102ebc87-8326-4c25-8f3a-84196d6ffb99}</Project>
       <Name>PhotoArtSystem.Services.Web</Name>

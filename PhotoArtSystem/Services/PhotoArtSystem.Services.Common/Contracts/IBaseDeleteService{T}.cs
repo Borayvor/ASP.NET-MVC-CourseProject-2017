@@ -12,7 +12,7 @@
         /// <summary>
         /// Delete <"T">. Not permanent.
         /// </summary>
-        /// <param name="entity"><"T"> to be deleted.</param>
+        /// <param name="entity"><"T"> to be deleted (Not permanent).</param>
         void Delete(T entity);
     }
 }
