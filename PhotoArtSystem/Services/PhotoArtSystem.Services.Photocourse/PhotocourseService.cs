@@ -22,7 +22,7 @@
 
         public IQueryable<Photocourse> GetAll()
         {
-            return this.photocourses.All();
+            return this.photocourses.All().OrderByDescending(x => x.CreatedOn);
         }
 
         public Photocourse GetById(Guid id)
