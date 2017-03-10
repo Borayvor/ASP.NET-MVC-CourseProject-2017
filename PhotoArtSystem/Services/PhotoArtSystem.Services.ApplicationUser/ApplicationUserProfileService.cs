@@ -9,9 +9,9 @@
     public class ApplicationUserProfileService : IApplicationUserProfileService,
         IBaseGetService<ApplicationUser, string>
     {
-        private readonly IDbRepository<ApplicationUser> users;
+        private readonly IEfDbRepository<ApplicationUser> users;
 
-        public ApplicationUserProfileService(IDbRepository<ApplicationUser> users)
+        public ApplicationUserProfileService(IEfDbRepository<ApplicationUser> users)
         {
             this.users = users;
         }

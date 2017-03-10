@@ -7,10 +7,10 @@
     using Models;
     using PhotoArtSystem.Common.DateTime;
 
-    public class DbRepository<T> : IDbRepository<T>
+    public class EfDbRepository<T> : IEfDbRepository<T>
         where T : class, IAuditInfo, IDeletableEntity
     {
-        public DbRepository(DbContext context)
+        public EfDbRepository(DbContext context)
         {
             if (context == null)
             {

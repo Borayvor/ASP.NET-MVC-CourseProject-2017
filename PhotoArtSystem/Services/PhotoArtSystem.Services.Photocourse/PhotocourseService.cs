@@ -8,9 +8,9 @@
 
     public class PhotocourseService : IPhotocourseService
     {
-        private readonly IDbRepository<Photocourse> photocourses;
+        private readonly IEfDbRepository<Photocourse> photocourses;
 
-        public PhotocourseService(IDbRepository<Photocourse> photocourses)
+        public PhotocourseService(IEfDbRepository<Photocourse> photocourses)
         {
             this.photocourses = photocourses;
         }

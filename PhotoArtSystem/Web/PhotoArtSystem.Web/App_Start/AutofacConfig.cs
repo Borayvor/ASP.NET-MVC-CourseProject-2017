@@ -54,8 +54,8 @@
                 .As<ICacheService>()
                 .InstancePerRequest();
 
-            builder.RegisterGeneric(typeof(DbRepository<>))
-                .As(typeof(IDbRepository<>))
+            builder.RegisterGeneric(typeof(EfDbRepository<>))
+                .As(typeof(IEfDbRepository<>))
                 .InstancePerRequest();
 
             var userServicesAssembly = Assembly.GetAssembly(typeof(ApplicationUserProfileService));
