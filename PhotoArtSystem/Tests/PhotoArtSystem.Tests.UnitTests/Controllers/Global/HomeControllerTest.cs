@@ -45,5 +45,12 @@
             // Assert
             Assert.IsNotNull(result);
         }
+
+        [Test]
+        public void DummyTest()
+        {
+            // Arrange & Act & Assert
+            Assert.IsTrue(true);
+        }
     }
 }
