@@ -41,6 +41,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoArtSystem.Tests.Integr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoArtSystem.Tests.UnitTests", "Tests\PhotoArtSystem.Tests.UnitTests\PhotoArtSystem.Tests.UnitTests.csproj", "{BA2D78AA-614A-4A77-8D9A-E8639D021AFE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoArtSystem.Tests.IMSTests", "Tests\PhotoArtSystem.Tests.IMSTests\PhotoArtSystem.Tests.IMSTests.csproj", "{07955047-10EA-4CE8-9154-7AF06E3D2D0C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,10 @@ Global
 		{BA2D78AA-614A-4A77-8D9A-E8639D021AFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA2D78AA-614A-4A77-8D9A-E8639D021AFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA2D78AA-614A-4A77-8D9A-E8639D021AFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07955047-10EA-4CE8-9154-7AF06E3D2D0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07955047-10EA-4CE8-9154-7AF06E3D2D0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07955047-10EA-4CE8-9154-7AF06E3D2D0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07955047-10EA-4CE8-9154-7AF06E3D2D0C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -117,5 +123,6 @@ Global
 		{67B8598F-74D8-406C-97B0-53CDD42AAE21} = {6A54E2BA-8060-404C-B0FE-44DB31754DB4}
 		{595881A9-83EB-4450-9579-EB00806D9C8A} = {9BF8B18E-11DC-45B8-967B-21289359BFF5}
 		{BA2D78AA-614A-4A77-8D9A-E8639D021AFE} = {9BF8B18E-11DC-45B8-967B-21289359BFF5}
+		{07955047-10EA-4CE8-9154-7AF06E3D2D0C} = {9BF8B18E-11DC-45B8-967B-21289359BFF5}
 	EndGlobalSection
 EndGlobal
