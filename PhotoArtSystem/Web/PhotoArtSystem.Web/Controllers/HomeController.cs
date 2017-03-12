@@ -6,8 +6,6 @@
     {
         public ActionResult Index()
         {
-            this.ViewBag.Message = "Your application home page.";
-
             return this.View();
         }
 

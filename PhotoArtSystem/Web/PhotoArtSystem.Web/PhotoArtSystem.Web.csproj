@@ -239,6 +239,7 @@
     <Compile Include="ViewModels\Manage\ManageLoginsViewModel.cs" />
     <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
+    <Compile Include="ViewModels\PhotocourseModels\PhotocourseHomeViewModel.cs" />
     <Compile Include="ViewModels\User\UserHomePageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

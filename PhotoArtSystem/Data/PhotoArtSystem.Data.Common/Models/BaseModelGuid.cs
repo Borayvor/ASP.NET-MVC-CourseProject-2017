@@ -2,7 +2,7 @@
 {
     using System;
 
-    public class BaseModelGuid : BaseModel<Guid>, IBaseModel<Guid>, IAuditInfo, IDeletableEntity
+    public abstract class BaseModelGuid : BaseModel<Guid>, IBaseModel<Guid>, IAuditInfo, IDeletableEntity
     {
         public BaseModelGuid()
         {

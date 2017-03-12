@@ -2,9 +2,12 @@
 {
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using Models;
 
     public interface IApplicationDbContext
     {
+        IDbSet<Photocourse> Photocourses { get; set; }
+
         DbSet<TEntity> Set<TEntity>()
             where TEntity : class;
 
