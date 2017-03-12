@@ -94,6 +94,7 @@
     <Compile Include="Data\EfDbRepositoryTests\Constructor_Should.cs" />
     <Compile Include="Mocks\DummyClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Photocourse\Constructor_Should.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -120,6 +121,10 @@
     <ProjectReference Include="..\..\Data\PhotoArtSystem.Data\PhotoArtSystem.Data.csproj">
       <Project>{154e4497-81d1-4437-96e2-1a51fdb8740a}</Project>
       <Name>PhotoArtSystem.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\PhotoArtSystem.Services.Photocourse\PhotoArtSystem.Services.Photocourse.csproj">
+      <Project>{e80fe51d-f481-48db-8f4c-2b6fd99f64b4}</Project>
+      <Name>PhotoArtSystem.Services.Photocourse</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Web\PhotoArtSystem.Web\PhotoArtSystem.Web.csproj">
       <Project>{1f68dbc4-280e-4e3a-9d04-4be895656516}</Project>

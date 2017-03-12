@@ -2,10 +2,12 @@
 {
     using System;
     using System.Linq;
+    using Bytes2you.Validation;
     using Contracts;
     using Data.Common.EfDbContexts;
     using Data.Common.Repositories;
     using Data.Models;
+    using PhotoArtSystem.Common.Constants;
 
     public class PhotocourseService : IPhotocourseService
     {
@@ -14,6 +16,9 @@
 
         public PhotocourseService(IEfDbContext context, IEfDbRepository<Photocourse> photocourses)
         {
+            Guard.WhenArgument(context, GlobalConstants.EfDbContextRequiredExceptionMessage).IsNull().Throw();
+            Guard.WhenArgument(photocourses, GlobalConstants.EfDbRepositoryPhotocourseRequiredExceptionMessage).IsNull().Throw();
+
             this.photocourses = photocourses;
             this.context = context;
         }
