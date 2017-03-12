@@ -77,6 +77,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\PhotoArtSystem.Common\PhotoArtSystem.Common.csproj">
+      <Project>{de595403-0a05-4c28-9fc0-e17da5b88b28}</Project>
+      <Name>PhotoArtSystem.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Data\PhotoArtSystem.Data.Models\PhotoArtSystem.Data.Models.csproj">
       <Project>{6a9e098f-b139-4d79-a0f0-e1307f916e13}</Project>
       <Name>PhotoArtSystem.Data.Models</Name>
