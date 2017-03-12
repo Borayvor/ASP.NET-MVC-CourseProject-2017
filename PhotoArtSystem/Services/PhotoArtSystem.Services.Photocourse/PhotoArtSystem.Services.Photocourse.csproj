@@ -46,6 +46,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\PhotoArtSystem.Common\PhotoArtSystem.Common.csproj">
+      <Project>{de595403-0a05-4c28-9fc0-e17da5b88b28}</Project>
+      <Name>PhotoArtSystem.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Data\PhotoArtSystem.Data.Common\PhotoArtSystem.Data.Common.csproj">
       <Project>{526e19b8-9113-4371-b2f7-76483b2c3fed}</Project>
       <Name>PhotoArtSystem.Data.Common</Name>

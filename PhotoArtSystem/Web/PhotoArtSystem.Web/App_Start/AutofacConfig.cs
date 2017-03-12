@@ -7,6 +7,7 @@
     using Autofac.Integration.Mvc;
     using Controllers;
     using Data;
+    using Data.Common.EfDbContexts;
     using Data.Common.Repositories;
     using Services.ApplicationUser;
     using Services.Photocourse;
@@ -50,13 +51,16 @@
                 .As<DbContext>()
                 .InstancePerRequest();
 
+            builder.RegisterGeneric(typeof(EfDbRepository<>))
+                .As(typeof(IEfDbRepository<>))
+                .InstancePerRequest();
+
             builder.Register(x => new HttpCacheService())
                 .As<ICacheService>()
                 .InstancePerRequest();
 
-            builder.RegisterGeneric(typeof(EfDbRepository<>))
-                .As(typeof(IEfDbRepository<>))
-                .InstancePerRequest();
+            var entityFrameworkDbContextAssembly = Assembly.GetAssembly(typeof(EfDbContext));
+            builder.RegisterAssemblyTypes(entityFrameworkDbContextAssembly).AsImplementedInterfaces();
 
             var userServicesAssembly = Assembly.GetAssembly(typeof(ApplicationUserProfileService));
             builder.RegisterAssemblyTypes(userServicesAssembly).AsImplementedInterfaces();

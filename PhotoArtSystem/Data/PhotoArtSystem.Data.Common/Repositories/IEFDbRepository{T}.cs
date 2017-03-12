@@ -19,7 +19,5 @@
         void Delete(T entity);
 
         void DeletePermanent(T entity);
-
-        void Save();
     }
 }

@@ -15,7 +15,7 @@
             Assert.That(
                 () => new EfDbRepository<DummyClass>(null),
                             Throws.ArgumentNullException.With.Message.Contains(
-                                GlobalConstants.EfDbRepositoryConstructorExceptionMessage));
+                                GlobalConstants.DbContextRequiredExceptionMessage));
         }
     }
 }

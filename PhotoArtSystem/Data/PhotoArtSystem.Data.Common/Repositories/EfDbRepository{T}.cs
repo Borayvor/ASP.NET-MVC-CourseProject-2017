@@ -14,7 +14,7 @@
         {
             if (context == null)
             {
-                throw new ArgumentNullException(GlobalConstants.EfDbRepositoryConstructorExceptionMessage);
+                throw new ArgumentNullException(GlobalConstants.DbContextRequiredExceptionMessage);
             }
 
             this.Context = context;
@@ -25,22 +25,22 @@
 
         private DbContext Context { get; set; }
 
-        public IQueryable<T> All()
+        public virtual IQueryable<T> All()
         {
             return this.DbSet.Where(x => !x.IsDeleted);
         }
 
-        public IQueryable<T> AllWithDeleted()
+        public virtual IQueryable<T> AllWithDeleted()
         {
             return this.DbSet;
         }
 
-        public T GetById(object id)
+        public virtual T GetById(object id)
         {
             return this.DbSet.Find(id);
         }
 
-        public void Create(T entity)
+        public virtual void Create(T entity)
         {
             this.DbSet.Add(entity);
         }
@@ -57,20 +57,15 @@
             entry.State = EntityState.Modified;
         }
 
-        public void Delete(T entity)
+        public virtual void Delete(T entity)
         {
             entity.IsDeleted = true;
             entity.DeletedOn = GlobalDateTimeInfo.GetDateTimeUtcNow();
         }
 
-        public void DeletePermanent(T entity)
+        public virtual void DeletePermanent(T entity)
         {
             this.DbSet.Remove(entity);
-        }
-
-        public void Save()
-        {
-            this.Context.SaveChanges();
         }
     }
 }
