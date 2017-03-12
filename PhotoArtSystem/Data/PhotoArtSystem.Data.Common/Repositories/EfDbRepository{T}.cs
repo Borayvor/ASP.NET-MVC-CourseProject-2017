@@ -3,8 +3,8 @@
     using System;
     using System.Data.Entity;
     using System.Linq;
-
     using Models;
+    using PhotoArtSystem.Common.Constants;
     using PhotoArtSystem.Common.DateTime;
 
     public class EfDbRepository<T> : IEfDbRepository<T>
@@ -14,7 +14,7 @@
         {
             if (context == null)
             {
-                throw new ArgumentException("An instance of DbContext is required to use this repository.");
+                throw new ArgumentNullException(GlobalConstants.EfDbRepositoryConstructorExceptionMessage);
             }
 
             this.Context = context;

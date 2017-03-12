@@ -35,6 +35,14 @@
       <HintPath>..\..\packages\Castle.Core.4.0.0\lib\net45\Castle.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
@@ -48,6 +56,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
@@ -82,6 +91,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\Global\HomeControllerTest.cs" />
+    <Compile Include="Data\EfDbRepositoryTests\Constructor_Should.cs" />
+    <Compile Include="Mocks\DummyClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -94,6 +105,22 @@
     <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\PhotoArtSystem.Common\PhotoArtSystem.Common.csproj">
+      <Project>{de595403-0a05-4c28-9fc0-e17da5b88b28}</Project>
+      <Name>PhotoArtSystem.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\PhotoArtSystem.Data.Common\PhotoArtSystem.Data.Common.csproj">
+      <Project>{526e19b8-9113-4371-b2f7-76483b2c3fed}</Project>
+      <Name>PhotoArtSystem.Data.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\PhotoArtSystem.Data.Models\PhotoArtSystem.Data.Models.csproj">
+      <Project>{6a9e098f-b139-4d79-a0f0-e1307f916e13}</Project>
+      <Name>PhotoArtSystem.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\PhotoArtSystem.Data\PhotoArtSystem.Data.csproj">
+      <Project>{154e4497-81d1-4437-96e2-1a51fdb8740a}</Project>
+      <Name>PhotoArtSystem.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Web\PhotoArtSystem.Web\PhotoArtSystem.Web.csproj">
       <Project>{1f68dbc4-280e-4e3a-9d04-4be895656516}</Project>
       <Name>PhotoArtSystem.Web</Name>
@@ -102,6 +129,7 @@
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
