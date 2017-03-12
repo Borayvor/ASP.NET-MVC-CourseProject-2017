@@ -16,8 +16,12 @@
 
         public PhotocourseService(IEfDbContext context, IEfDbRepository<Photocourse> photocourses)
         {
-            Guard.WhenArgument(context, GlobalConstants.EfDbContextRequiredExceptionMessage).IsNull().Throw();
-            Guard.WhenArgument(photocourses, GlobalConstants.EfDbRepositoryPhotocourseRequiredExceptionMessage).IsNull().Throw();
+            Guard.WhenArgument(
+                context,
+                GlobalConstants.EfDbContextRequiredExceptionMessage).IsNull().Throw();
+            Guard.WhenArgument(
+                photocourses,
+                GlobalConstants.EfDbRepositoryPhotocourseRequiredExceptionMessage).IsNull().Throw();
 
             this.photocourses = photocourses;
             this.context = context;

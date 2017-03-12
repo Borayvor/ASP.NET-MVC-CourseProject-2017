@@ -1,8 +1,8 @@
 ﻿namespace PhotoArtSystem.Data.Common.Repositories
 {
-    using System;
     using System.Data.Entity;
     using System.Linq;
+    using Bytes2you.Validation;
     using Models;
     using PhotoArtSystem.Common.Constants;
     using PhotoArtSystem.Common.DateTime;
@@ -12,10 +12,9 @@
     {
         public EfDbRepository(DbContext context)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(GlobalConstants.DbContextRequiredExceptionMessage);
-            }
+            Guard.WhenArgument(
+                context,
+                GlobalConstants.DbContextRequiredExceptionMessage).IsNull().Throw();
 
             this.Context = context;
             this.DbSet = this.Context.Set<T>();
