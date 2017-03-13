@@ -1,4 +1,4 @@
-﻿namespace PhotoArtSystem.Tests.UnitTests.Services.Photocourse
+﻿namespace PhotoArtSystem.Tests.UnitTests.Services.PhotocourseTests
 {
     using Common.Constants;
     using Moq;

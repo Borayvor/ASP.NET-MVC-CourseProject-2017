@@ -39,18 +39,24 @@
 
         public void Create(Photocourse entity)
         {
+            Guard.WhenArgument(entity, GlobalConstants.PhotocourseRequiredExceptionMessage).IsNull().Throw();
+
             this.photocourses.Create(entity);
             this.context.Save();
         }
 
         public void Update(Photocourse entity)
         {
+            Guard.WhenArgument(entity, GlobalConstants.PhotocourseRequiredExceptionMessage).IsNull().Throw();
+
             this.photocourses.Update(entity);
             this.context.Save();
         }
 
         public void Delete(Photocourse entity)
         {
+            Guard.WhenArgument(entity, GlobalConstants.PhotocourseRequiredExceptionMessage).IsNull().Throw();
+
             this.photocourses.Delete(entity);
             this.context.Save();
         }
