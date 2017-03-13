@@ -29,7 +29,7 @@
 
         public IQueryable<IPhotocourse> GetAll()
         {
-            return this.photocourses.All().OrderByDescending(x => x.CreatedOn);
+            return this.photocourses.GetAll().OrderByDescending(x => x.CreatedOn);
         }
 
         public IPhotocourse GetById(Guid id)

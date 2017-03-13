@@ -18,7 +18,7 @@
 
         public IQueryable<ApplicationUser> GetAll()
         {
-            return this.users.All().OrderByDescending(x => x.CreatedOn);
+            return this.users.GetAll().OrderByDescending(x => x.CreatedOn);
         }
 
         public ApplicationUser GetById(string id)

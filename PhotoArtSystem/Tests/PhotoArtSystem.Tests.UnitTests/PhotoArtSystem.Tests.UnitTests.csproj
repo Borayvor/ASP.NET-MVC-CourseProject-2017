@@ -101,6 +101,7 @@
     <Compile Include="Services\PhotocourseTests\Constructor_Should.cs" />
     <Compile Include="Services\PhotocourseTests\Create_Should.cs" />
     <Compile Include="Services\PhotocourseTests\Delete_Should.cs" />
+    <Compile Include="Services\PhotocourseTests\GetAll_Should.cs" />
     <Compile Include="Services\PhotocourseTests\GetById_Should.cs" />
     <Compile Include="Services\PhotocourseTests\Update_Should.cs" />
   </ItemGroup>

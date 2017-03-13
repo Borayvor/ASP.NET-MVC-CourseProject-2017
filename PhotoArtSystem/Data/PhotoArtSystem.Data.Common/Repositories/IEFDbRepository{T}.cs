@@ -6,9 +6,9 @@
     public interface IEfDbRepository<T>
         where T : class, IAuditInfo, IDeletableEntity
     {
-        IQueryable<T> All();
+        IQueryable<T> GetAll();
 
-        IQueryable<T> AllWithDeleted();
+        IQueryable<T> GetAllWithDeleted();
 
         T GetById(object id);
 
