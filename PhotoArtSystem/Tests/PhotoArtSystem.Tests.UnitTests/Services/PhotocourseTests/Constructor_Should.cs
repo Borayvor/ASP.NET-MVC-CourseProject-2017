@@ -1,11 +1,11 @@
-﻿namespace PhotoArtSystem.Tests.UnitTests.Services.Photocourse
+﻿namespace PhotoArtSystem.Tests.UnitTests.Services.PhotocourseTests
 {
     using Common.Constants;
     using Moq;
     using NUnit.Framework;
     using PhotoArtSystem.Data.Common.EfDbContexts;
     using PhotoArtSystem.Data.Common.Repositories;
-    using PhotoArtSystem.Data.Models;
+    using PhotoArtSystem.Data.Models.Contracts;
     using PhotoArtSystem.Services.Photocourse;
 
     [TestFixture]
@@ -15,7 +15,7 @@
         public void Throw_ArgumentNullException_WithProperMessage_When_EfDbContext_IsNull()
         {
             // Arange
-            var mockedIEfDbRepository = new Mock<IEfDbRepository<Photocourse>>();
+            var mockedIEfDbRepository = new Mock<IEfDbRepository<IPhotocourse>>();
 
             // Act & Assert
             Assert.That(
@@ -42,7 +42,7 @@
         {
             // Arange
             var mockedEfDbContext = new Mock<IEfDbContext>();
-            var mockedIEfDbRepository = new Mock<IEfDbRepository<Photocourse>>();
+            var mockedIEfDbRepository = new Mock<IEfDbRepository<IPhotocourse>>();
 
             // Act & Assert
             Assert.DoesNotThrow(() => new PhotocourseService(mockedEfDbContext.Object, mockedIEfDbRepository.Object));
