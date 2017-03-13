@@ -5,7 +5,6 @@
     using NUnit.Framework;
     using PhotoArtSystem.Data.Common.EfDbContexts;
     using PhotoArtSystem.Data.Common.Repositories;
-    using PhotoArtSystem.Data.Models;
     using PhotoArtSystem.Data.Models.Contracts;
     using PhotoArtSystem.Services.Photocourse;
 
@@ -31,12 +30,13 @@
         public void CallOnce_EfDbContextSave_When_Photocourse_IsNotNull()
         {
             // Arange
+            var mockedModel = new Mock<IPhotocourse>();
             var mockedEfDbContext = new Mock<IEfDbContext>();
             var mockedIEfDbRepository = new Mock<IEfDbRepository<IPhotocourse>>();
             var mockedPhotocourseService = new PhotocourseService(mockedEfDbContext.Object, mockedIEfDbRepository.Object);
 
             // Act
-            mockedPhotocourseService.Update(new Photocourse());
+            mockedPhotocourseService.Update(mockedModel.Object);
 
             // Assert
             mockedEfDbContext.Verify(x => x.Save(), Times.Once);
