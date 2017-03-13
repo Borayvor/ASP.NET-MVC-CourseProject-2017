@@ -1,12 +1,26 @@
 ﻿namespace PhotoArtSystem.Web.Controllers
 {
+    using System.Collections.Generic;
     using System.Web.Mvc;
+    using Data.Models;
+    using Services.Photocourse.Contracts;
+    using ViewModels.PhotocourseModels;
 
     public class HomeController : BaseController
     {
+        private readonly IPhotocourseService photocourseService;
+
+        public HomeController(IPhotocourseService photocourseService)
+        {
+            this.photocourseService = photocourseService;
+        }
+
         public ActionResult Index()
         {
-            return this.View();
+            var viewModel = this.Mapper
+                .Map<IEnumerable<Photocourse>, IEnumerable<PhotocourseHomeViewModel>>(this.photocourseService.GetAll());
+
+            return this.View(viewModel);
         }
 
         public ActionResult About()

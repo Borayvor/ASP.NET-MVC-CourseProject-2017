@@ -1,6 +1,6 @@
 ﻿namespace PhotoArtSystem.Services.Common.Contracts
 {
-    using System.Linq;
+    using System.Collections.Generic;
     using Data.Common.Models;
 
     /// <summary>
@@ -14,8 +14,8 @@
         /// <summary>
         /// Get all <"T">. Without ordinary deleted.
         /// </summary>
-        /// <returns> Return <"T"> as queryable. </returns>
-        IQueryable<T> GetAll();
+        /// <returns> Return <"T"> as enumerable. </returns>
+        IEnumerable<T> GetAll();
 
         /// <summary>
         /// Gets the <"T"> by id.
