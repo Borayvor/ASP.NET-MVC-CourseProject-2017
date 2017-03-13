@@ -6,6 +6,7 @@
     using PhotoArtSystem.Data.Common.EfDbContexts;
     using PhotoArtSystem.Data.Common.Repositories;
     using PhotoArtSystem.Data.Models;
+    using PhotoArtSystem.Data.Models.Contracts;
     using PhotoArtSystem.Services.Photocourse;
 
     [TestFixture]
@@ -16,7 +17,7 @@
         {
             // Arange
             var mockedEfDbContext = new Mock<IEfDbContext>();
-            var mockedIEfDbRepository = new Mock<IEfDbRepository<Photocourse>>();
+            var mockedIEfDbRepository = new Mock<IEfDbRepository<IPhotocourse>>();
             var mockedPhotocourseService = new PhotocourseService(mockedEfDbContext.Object, mockedIEfDbRepository.Object);
 
             // Act & Assert
@@ -31,7 +32,7 @@
         {
             // Arange
             var mockedEfDbContext = new Mock<IEfDbContext>();
-            var mockedIEfDbRepository = new Mock<IEfDbRepository<Photocourse>>();
+            var mockedIEfDbRepository = new Mock<IEfDbRepository<IPhotocourse>>();
             var mockedPhotocourseService = new PhotocourseService(mockedEfDbContext.Object, mockedIEfDbRepository.Object);
 
             // Act
