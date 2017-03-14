@@ -17,7 +17,7 @@
             int usersCount = context.Users.Count();
 
             // Assert
-            Assert.AreEqual(2, usersCount);
+            Assert.AreEqual(1, usersCount);
         }
     }
 }

@@ -18,7 +18,10 @@
         public ActionResult Index()
         {
             var viewModel = this.Mapper
-                .Map<IEnumerable<Photocourse>, IEnumerable<PhotocourseHomeViewModel>>(this.photocourseService.GetAll());
+                .Map<
+                    IEnumerable<Photocourse>,
+                    IEnumerable<PhotocourseHomeViewModel>
+                    >(this.photocourseService.GetAll());
 
             return this.View(viewModel);
         }
