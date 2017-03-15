@@ -55,6 +55,10 @@
       <HintPath>..\..\packages\NUnit.3.6.1\lib\net45\nunit.framework.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Ploeh.AutoFixture, Version=3.50.2.0, Culture=neutral, PublicKeyToken=b24654c590009d4f, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AutoFixture.3.50.2\lib\net40\Ploeh.AutoFixture.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -97,6 +101,8 @@
     <Compile Include="Services\PhotocourseTests\Constructor_Should.cs" />
     <Compile Include="Services\PhotocourseTests\Create_Should.cs" />
     <Compile Include="Services\PhotocourseTests\Delete_Should.cs" />
+    <Compile Include="Services\PhotocourseTests\GetAll_Should.cs" />
+    <Compile Include="Services\PhotocourseTests\GetById_Should.cs" />
     <Compile Include="Services\PhotocourseTests\Update_Should.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -124,6 +130,10 @@
     <ProjectReference Include="..\..\Data\PhotoArtSystem.Data\PhotoArtSystem.Data.csproj">
       <Project>{154e4497-81d1-4437-96e2-1a51fdb8740a}</Project>
       <Name>PhotoArtSystem.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\PhotoArtSystem.Services.Common\PhotoArtSystem.Services.Common.csproj">
+      <Project>{f70892f7-da64-4acc-87e5-92287e7e7d6b}</Project>
+      <Name>PhotoArtSystem.Services.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Services\PhotoArtSystem.Services.Photocourse\PhotoArtSystem.Services.Photocourse.csproj">
       <Project>{e80fe51d-f481-48db-8f4c-2b6fd99f64b4}</Project>

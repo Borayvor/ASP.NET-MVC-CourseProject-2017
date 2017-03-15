@@ -24,12 +24,12 @@
 
         private DbContext Context { get; set; }
 
-        public virtual IQueryable<T> All()
+        public virtual IQueryable<T> GetAll()
         {
             return this.DbSet.Where(x => !x.IsDeleted);
         }
 
-        public virtual IQueryable<T> AllWithDeleted()
+        public virtual IQueryable<T> GetAllWithDeleted()
         {
             return this.DbSet;
         }

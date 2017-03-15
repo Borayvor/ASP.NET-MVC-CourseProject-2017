@@ -2,12 +2,12 @@
 {
     using System;
     using Common.Contracts;
-    using Data.Models.Contracts;
+    using Data.Models;
 
-    public interface IPhotocourseService : IBaseCreateService<IPhotocourse>,
-        IBaseGetService<IPhotocourse, Guid>,
-        IBaseUpdateService<IPhotocourse>,
-        IBaseDeleteService<IPhotocourse>
+    public interface IPhotocourseService : IBaseCreateService<Photocourse>,
+        IBaseGetService<Photocourse, Guid>,
+        IBaseUpdateService<Photocourse>,
+        IBaseDeleteService<Photocourse>
     {
     }
 }

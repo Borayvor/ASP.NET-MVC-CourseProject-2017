@@ -1,5 +1,6 @@
 ﻿namespace PhotoArtSystem.Services.ApplicationUser
 {
+    using System.Collections.Generic;
     using System.Linq;
     using Common.Contracts;
     using Contracts;
@@ -16,9 +17,9 @@
             this.users = users;
         }
 
-        public IQueryable<ApplicationUser> GetAll()
+        public IEnumerable<ApplicationUser> GetAll()
         {
-            return this.users.All().OrderByDescending(x => x.CreatedOn);
+            return this.users.GetAll().OrderByDescending(x => x.CreatedOn).ToList();
         }
 
         public ApplicationUser GetById(string id)
