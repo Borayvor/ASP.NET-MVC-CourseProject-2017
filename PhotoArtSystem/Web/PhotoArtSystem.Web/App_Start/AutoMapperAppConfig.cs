@@ -1,7 +1,7 @@
 ﻿namespace PhotoArtSystem.Web.App_Start
 {
     using System.Reflection;
-    using PhotoArtSystem.Web.Infrastructure.Mapping;
+    using Infrastructure.Mapping;
 
     public class AutoMapperAppConfig
     {

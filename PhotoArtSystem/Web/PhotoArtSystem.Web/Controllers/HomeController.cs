@@ -4,18 +4,27 @@
     using System.Web.Mvc;
     using Data.Models;
     using Services.Photocourse.Contracts;
+    using Services.Web.Contracts;
     using ViewModels.PhotocourseModels;
 
     public class HomeController : BaseController
     {
         private readonly IPhotocourseService photocourseService;
 
-        public HomeController(IPhotocourseService photocourseService)
+        public HomeController(IPhotocourseService photocourseService, IAutoMapperService mapper, ICacheService cache)
+            : base(mapper, cache)
         {
             this.photocourseService = photocourseService;
         }
 
         public ActionResult Index()
+        {
+            return this.View();
+        }
+
+        [HttpGet]
+        [ChildActionOnly]
+        public ActionResult GetPhotocourses()
         {
             var viewModel = this.Mapper
                 .Map<
@@ -23,7 +32,12 @@
                     IEnumerable<PhotocourseHomeViewModel>
                     >(this.photocourseService.GetAll());
 
-            return this.View(viewModel);
+            var result = this.Cache.Get(
+                "Photocourses",
+                () => this.PartialView("_PhotocourseTestPartial", viewModel),
+                60 * 5);
+
+            return result;
         }
 
         public ActionResult About()

@@ -59,6 +59,9 @@
                 .As<ICacheService>()
                 .InstancePerRequest();
 
+            builder.Register(x => new AutoMapperService())
+                .As<IAutoMapperService>();
+
             var entityFrameworkDbContextAssembly = Assembly.GetAssembly(typeof(EfDbContext));
             builder.RegisterAssemblyTypes(entityFrameworkDbContextAssembly).AsImplementedInterfaces();
 

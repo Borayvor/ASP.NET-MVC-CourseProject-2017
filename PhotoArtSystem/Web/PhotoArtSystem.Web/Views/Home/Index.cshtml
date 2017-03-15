@@ -1,6 +1,4 @@
-﻿@using PhotoArtSystem.Web.ViewModels.PhotocourseModels
-@model IEnumerable<PhotocourseHomeViewModel>
-
+﻿@using PhotoArtSystem.Web.Controllers
 
 @{
     ViewBag.Title = "Home Page";
@@ -12,35 +10,4 @@
     <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
 </div>
 
-
-<div>
-    <h3>Users</h3>
-    <br />
-    <div class="row">
-        <div class="col-md-6">
-            Id
-        </div>
-        <div class="col-md-3">
-            Name
-        </div>
-       
-        <div class="col-md-3">
-            CreatedOn
-        </div>
-    </div>
-    <hr />
-    @foreach (var photocourse in Model)
-    {
-        <div class="row">
-            <div class="col-md-6">
-                @photocourse.Id
-            </div>
-            <div class="col-md-3">
-                @photocourse.Name
-            </div>            
-            <div class="col-md-3">
-                @photocourse.CreatedOn.ToLocalTime()
-            </div>
-        </div>
-    }
-</div>
+@(Html.Action<HomeController>(c => c.GetPhotocourses(), new { area = string.Empty }))

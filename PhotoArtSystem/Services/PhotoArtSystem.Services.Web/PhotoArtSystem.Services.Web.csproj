@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=5.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AutoMapper.5.2.0\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
@@ -43,13 +47,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\ICacheService.cs" />
+    <Compile Include="Contracts\IAutoMapperService.cs" />
     <Compile Include="HttpCacheService.cs" />
+    <Compile Include="AutoMapperService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\PhotoArtSystem.Common\PhotoArtSystem.Common.csproj">
       <Project>{de595403-0a05-4c28-9fc0-e17da5b88b28}</Project>
       <Name>PhotoArtSystem.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Web\PhotoArtSystem.Web.Infrastructure\PhotoArtSystem.Web.Infrastructure.csproj">
+      <Project>{906bcf66-f8e2-4437-9a19-068465ad1409}</Project>
+      <Name>PhotoArtSystem.Web.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
