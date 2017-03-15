@@ -24,6 +24,7 @@
 
         [HttpGet]
         [ChildActionOnly]
+        [OutputCache(Duration = 600, Location = System.Web.UI.OutputCacheLocation.Client)]
         public ActionResult GetPhotocourses()
         {
             var viewModel = this.Mapper
@@ -35,7 +36,7 @@
             var result = this.Cache.Get(
                 "Photocourses",
                 () => this.PartialView("_PhotocourseTestPartial", viewModel),
-                60 * 5);
+                60);
 
             return result;
         }
