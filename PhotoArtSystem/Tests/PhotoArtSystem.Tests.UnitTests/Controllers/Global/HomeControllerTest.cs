@@ -17,7 +17,7 @@
             HomeController controller = new HomeController(mockedPhotocourseService.Object);
 
             // Act
-            ViewResult result = controller.About() as ViewResult;
+            ViewResult result = controller.Index() as ViewResult;
 
             // Assert
             Assert.IsNotNull(result);
