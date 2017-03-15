@@ -1,0 +1,34 @@
+﻿@using PhotoArtSystem.Web.ViewModels.PhotocourseModels
+@model IEnumerable<PhotocourseHomeViewModel>
+
+<div>
+    <h3>Users</h3>
+    <br />
+    <div class="row">
+        <div class="col-md-6">
+            Id
+        </div>
+        <div class="col-md-3">
+            Name
+        </div>
+
+        <div class="col-md-3">
+            CreatedOn
+        </div>
+    </div>
+    <hr />
+    @foreach (var photocourse in Model)
+    {
+        <div class="row">
+            <div class="col-md-6">
+                @photocourse.Id
+            </div>
+            <div class="col-md-3">
+                @photocourse.Name
+            </div>
+            <div class="col-md-3">
+                @photocourse.CreatedOn.ToLocalTime()
+            </div>
+        </div>
+    }
+</div>

@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=5.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AutoMapper.5.2.0\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Castle.Core.4.0.0\lib\net45\Castle.Core.dll</HintPath>
       <Private>True</Private>
@@ -138,6 +142,10 @@
     <ProjectReference Include="..\..\Services\PhotoArtSystem.Services.Photocourse\PhotoArtSystem.Services.Photocourse.csproj">
       <Project>{e80fe51d-f481-48db-8f4c-2b6fd99f64b4}</Project>
       <Name>PhotoArtSystem.Services.Photocourse</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\PhotoArtSystem.Services.Web\PhotoArtSystem.Services.Web.csproj">
+      <Project>{102ebc87-8326-4c25-8f3a-84196d6ffb99}</Project>
+      <Name>PhotoArtSystem.Services.Web</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Web\PhotoArtSystem.Web\PhotoArtSystem.Web.csproj">
       <Project>{1f68dbc4-280e-4e3a-9d04-4be895656516}</Project>
