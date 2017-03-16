@@ -1,7 +1,7 @@
 ﻿@model System.Web.Mvc.HandleErrorInfo
 
 @{
-    ViewBag.Title = "Error 404";
+    ViewBag.Title = "Error 400";    
 }
 
 <div class="jumbotron error-class">
@@ -9,6 +9,7 @@
         <h1 class="text-danger">@ViewBag.Title</h1>
         <br />
         <h2 class="text-danger">An error occurred while processing your request.</h2>
+        <h3>@ViewBag.Path</h3>
     </div>
 </div>
 
