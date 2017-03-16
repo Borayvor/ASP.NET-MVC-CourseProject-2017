@@ -15,13 +15,12 @@
             ViewEnginesConfig.RegisterViewEngines();
             DatabaseConfig.RegisterDatabase();
             AutofacConfig.RegisterAutofac();
+            AutoMapperAppConfig.RegisterAutoMapper();
 
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-
-            AutoMapperAppConfig.RegisterAutoMapper();
         }
     }
 }

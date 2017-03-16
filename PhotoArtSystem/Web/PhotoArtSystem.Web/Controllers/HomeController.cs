@@ -35,7 +35,7 @@
             var result = this.Cache.Get(
                 "Photocourses",
                 () => this.PartialView("_PhotocourseTestPartial", viewModel),
-                60 * 5);
+                60);
 
             return result;
         }
