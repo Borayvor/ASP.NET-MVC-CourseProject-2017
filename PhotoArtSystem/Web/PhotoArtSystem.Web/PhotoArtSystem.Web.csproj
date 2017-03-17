@@ -329,6 +329,7 @@
     <Content Include="Views\Home\_PhotocourseTestPartial.cshtml" />
     <Content Include="Views\E\E404.cshtml" />
     <Content Include="Views\E\E500.cshtml" />
+    <Content Include="Views\Shared\_FooterPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

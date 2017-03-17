@@ -1,5 +1,6 @@
 ﻿namespace PhotoArtSystem.Data.Models.PhotocourseModels
 {
+    using System;
     using System.ComponentModel.DataAnnotations;
     using Common.Models;
     using PhotoArtSystem.Common.Constants;
@@ -10,5 +11,9 @@
         [MaxLength(ModelConstants.LessonNameMaxLength)]
         [MinLength(ModelConstants.LessonNameMinLength)]
         public string Name { get; set; }
+
+        public Guid PhotocourseId { get; set; }
+
+        public virtual Photocourse Photocourse { get; set; }
     }
 }

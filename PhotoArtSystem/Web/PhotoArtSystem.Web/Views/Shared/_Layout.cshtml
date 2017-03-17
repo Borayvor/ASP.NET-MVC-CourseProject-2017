@@ -1,27 +1,21 @@
-﻿@using PhotoArtSystem.Common.DateTime
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta name="description" content="The description of my page" />
-
     <title>@ViewBag.Title - My ASP.NET Application</title>
-
-    @Styles.Render("~/Content/toolsCss")    
-    @Styles.Render("~/Content/siteCss")      
+    @Styles.Render("~/Content/toolsCss")
+    @Styles.Render("~/Content/siteCss")
 </head>
 <body>
     @Html.Partial("_NavigationPartial")
-    <div class="container body-content">
+    <div class="body-content-left-right-padding">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @GlobalDateTimeInfo.GetDateTimeUtcNow().ToLocalTime().Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+        @Html.Partial("_FooterPartial")
+    </div>   
 
+    @* -- Scripts -- *@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryUnobtrusive")
     @Scripts.Render("~/bundles/bootstrap")
