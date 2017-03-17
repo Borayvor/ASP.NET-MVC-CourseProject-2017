@@ -7,8 +7,8 @@
     <ProjectGuid>{E80FE51D-F481-48DB-8F4C-2B6FD99F64B4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PhotoArtSystem.Services.Photocourse</RootNamespace>
-    <AssemblyName>PhotoArtSystem.Services.Photocourse</AssemblyName>
+    <RootNamespace>PhotoArtSystem.Services.Photocourses</RootNamespace>
+    <AssemblyName>PhotoArtSystem.Services.Photocourses</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

@@ -6,8 +6,8 @@
     using AutoMapper;
     using Moq;
     using NUnit.Framework;
-    using PhotoArtSystem.Data.Models;
-    using PhotoArtSystem.Services.Photocourse.Contracts;
+    using PhotoArtSystem.Data.Models.PhotocourseModels;
+    using PhotoArtSystem.Services.Photocourses.Contracts;
     using PhotoArtSystem.Services.Web.Contracts;
     using Web.Controllers;
 

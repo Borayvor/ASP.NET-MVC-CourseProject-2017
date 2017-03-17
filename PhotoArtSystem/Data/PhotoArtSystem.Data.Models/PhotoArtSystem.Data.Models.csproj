@@ -59,9 +59,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationUser.cs" />
-    <Compile Include="Lesson.cs" />
-    <Compile Include="Photocourse.cs" />
+    <Compile Include="OriginalImage.cs" />
+    <Compile Include="PhotocourseModels\Lesson.cs" />
+    <Compile Include="PhotocourseModels\Photocourse.cs" />
+    <Compile Include="PhotocourseModels\PhotocourseGroup.cs" />
+    <Compile Include="ImageLink.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Types\FileSizeType.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

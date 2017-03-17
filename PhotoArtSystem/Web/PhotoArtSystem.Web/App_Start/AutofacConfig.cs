@@ -10,7 +10,7 @@
     using Data.Common.EfDbContexts;
     using Data.Common.Repositories;
     using Services.ApplicationUser;
-    using Services.Photocourse;
+    using Services.Photocourses;
     using Services.Web;
     using Services.Web.Contracts;
     using Web;

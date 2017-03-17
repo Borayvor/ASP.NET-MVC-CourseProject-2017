@@ -5,14 +5,14 @@
     <h3>Users</h3>
     <br />
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-xs-6">
             Id
         </div>
-        <div class="col-md-3">
+        <div class="col-xs-3">
             Name
         </div>
 
-        <div class="col-md-3">
+        <div class="col-xs-3">
             CreatedOn
         </div>
     </div>
@@ -20,13 +20,13 @@
     @foreach (var photocourse in Model)
     {
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-xs-6">
                 @photocourse.Id
             </div>
-            <div class="col-md-3">
+            <div class="col-xs-3">
                 @photocourse.Name
             </div>
-            <div class="col-md-3">
+            <div class="col-xs-3">
                 @photocourse.CreatedOn.ToLocalTime()
             </div>
         </div>
