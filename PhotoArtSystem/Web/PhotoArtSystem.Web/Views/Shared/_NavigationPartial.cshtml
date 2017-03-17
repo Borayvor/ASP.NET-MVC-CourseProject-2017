@@ -9,11 +9,10 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand photoartsystem-navbar-brand" href="@(Url.Action<HomeController>(c => c.Index()))">
-                <div class="logo-background">
-                    <img src="~/Images/logo.png" />
-                </div>                
-            </a>           
+                <img src="~/Images/logo.png" />
+            </a>
         </div>
+
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li>@(Html.ActionLink<HomeController>(HtmlConstants.HomeLinkName, c => c.Index()))</li>
