@@ -6,6 +6,7 @@
     using Common.Models;
     using Microsoft.AspNet.Identity.EntityFramework;
     using Models;
+    using Models.PhotocourseModels;
     using PhotoArtSystem.Common.DateTime;
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IApplicationDbContext

@@ -1,4 +1,4 @@
-﻿namespace PhotoArtSystem.Data.Models
+﻿namespace PhotoArtSystem.Data.Models.PhotocourseModels
 {
     using System;
     using System.Collections.Generic;
@@ -30,6 +30,12 @@
         public DateTime StartDate { get; set; }
 
         public DateTime EndDate { get; set; }
+
+        public string Teacher { get; set; }
+
+        [RegularExpression(@"^\d+\.\d{0,2}$")]
+        [Range(0, double.MaxValue)]
+        public double Price { get; set; }
 
         public virtual ICollection<Lesson> Lessons
         {

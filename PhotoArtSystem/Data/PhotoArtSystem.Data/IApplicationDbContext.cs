@@ -2,7 +2,7 @@
 {
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    using Models;
+    using Models.PhotocourseModels;
 
     public interface IApplicationDbContext
     {

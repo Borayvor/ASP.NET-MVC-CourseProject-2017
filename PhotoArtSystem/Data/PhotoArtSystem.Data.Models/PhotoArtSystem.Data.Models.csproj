@@ -59,8 +59,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationUser.cs" />
-    <Compile Include="Lesson.cs" />
-    <Compile Include="Photocourse.cs" />
+    <Compile Include="PhotocourseModels\Lesson.cs" />
+    <Compile Include="PhotocourseModels\Photocourse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

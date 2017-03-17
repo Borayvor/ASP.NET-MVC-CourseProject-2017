@@ -5,8 +5,8 @@
     using NUnit.Framework;
     using PhotoArtSystem.Data.Common.EfDbContexts;
     using PhotoArtSystem.Data.Common.Repositories;
-    using PhotoArtSystem.Data.Models;
-    using PhotoArtSystem.Services.Photocourse;
+    using PhotoArtSystem.Data.Models.PhotocourseModels;
+    using PhotoArtSystem.Services.Photocourses;
     using Ploeh.AutoFixture;
 
     [TestFixture]
