@@ -7,8 +7,8 @@
     <ProjectGuid>{8FB97068-4B1B-4807-9ACA-63126D053A09}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PhotoArtSystem.CloudStorages.Firebase</RootNamespace>
-    <AssemblyName>PhotoArtSystem.CloudStorages.Firebase</AssemblyName>
+    <RootNamespace>PhotoArtSystem.CloudStorages.FirebaseApi</RootNamespace>
+    <AssemblyName>PhotoArtSystem.CloudStorages.FirebaseApi</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
