@@ -47,6 +47,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoArtSystem.CloudStorage
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoArtSystem.CloudStorages.FirebaseApi", "CloudStorages\PhotoArtSystem.CloudStorages.Firebase\PhotoArtSystem.CloudStorages.FirebaseApi.csproj", "{8FB97068-4B1B-4807-9ACA-63126D053A09}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoArtSystem.Services.PhotoArtServices", "Services\PhotoArtSystem.Services.PhotoArtServices\PhotoArtSystem.Services.PhotoArtServices.csproj", "{63D16CF9-1BB3-4019-8102-1DFAB0220364}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -113,6 +115,10 @@ Global
 		{8FB97068-4B1B-4807-9ACA-63126D053A09}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FB97068-4B1B-4807-9ACA-63126D053A09}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FB97068-4B1B-4807-9ACA-63126D053A09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63D16CF9-1BB3-4019-8102-1DFAB0220364}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63D16CF9-1BB3-4019-8102-1DFAB0220364}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63D16CF9-1BB3-4019-8102-1DFAB0220364}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63D16CF9-1BB3-4019-8102-1DFAB0220364}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -133,5 +139,6 @@ Global
 		{E80FE51D-F481-48DB-8F4C-2B6FD99F64B4} = {0DA09F31-C0E5-476A-AA9D-1D8A207EB114}
 		{02E3F3A6-28B7-4B9D-9AE4-CA92BC6DEA7E} = {C5E9560E-B77D-4E6B-AB24-C511A2FD2E64}
 		{8FB97068-4B1B-4807-9ACA-63126D053A09} = {C5E9560E-B77D-4E6B-AB24-C511A2FD2E64}
+		{63D16CF9-1BB3-4019-8102-1DFAB0220364} = {0DA09F31-C0E5-476A-AA9D-1D8A207EB114}
 	EndGlobalSection
 EndGlobal

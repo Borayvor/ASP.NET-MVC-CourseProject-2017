@@ -26,7 +26,7 @@
             ////this.RunFireBase(stream, filename, filetype, path);
 
             // TODO: Implement UploadFile
-            return "";
+            return string.Empty;
         }
 
         public string UploadFile(byte[] bytes, string filename, string filetype, string path = "/")
@@ -60,17 +60,14 @@
             // you can use CancellationTokenSource to cancel the upload midway
             var cancellation = new CancellationTokenSource();
 
+            // when you cancel the upload, exception is thrown. By default no exception is thrown
             var client = new FirebaseStorage(
                 Bucket,
-                new FirebaseStorageOptions
-                {
-                    AuthTokenAsyncFactory = () => Task.FromResult(authTask.FirebaseToken),
-                    ThrowOnCancel = true // when you cancel the upload, exception is thrown. By default no exception is thrown
-                });
+                new FirebaseStorageOptions { AuthTokenAsyncFactory = () => Task.FromResult(authTask.FirebaseToken), ThrowOnCancel = true });
 
             var taskInOut = client
-                .Child("data")
-                .Child("random")
+                .Child("fileNameDir")
+                .Child("fileSizeDir")
                 .Child("file.png")
                 .PutAsync(stream, cancellation.Token);
 

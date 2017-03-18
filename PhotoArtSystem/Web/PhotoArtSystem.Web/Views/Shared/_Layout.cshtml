@@ -4,16 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta name="description" content="The description of my page" />
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/toolsCss")
     @Styles.Render("~/Content/siteCss")
 </head>
 <body>
     @Html.Partial("_NavigationPartial")
-    <div class="body-content-left-right-padding">
-        @RenderBody()
-        @Html.Partial("_FooterPartial")
-    </div>   
+    @RenderBody()
+    @Html.Partial("_FooterPartial")
 
     @* -- Scripts -- *@
     @Scripts.Render("~/bundles/jquery")

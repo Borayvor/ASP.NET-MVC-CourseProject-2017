@@ -58,5 +58,32 @@
             //// End add.
             context.SaveChanges();
         }
+
+        internal static void SeedPhotoArtServices(ApplicationDbContext context)
+        {
+            if (context.PhotoArtServices.Any())
+            {
+                return;
+            }
+
+            var photocourseService = new PhotoArtService()
+            {
+                Name = "Photo courses",
+                Description = "Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel. \n\rTincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel."
+            };
+
+            context.PhotoArtServices.Add(photocourseService);
+
+            var teambuildingService = new PhotoArtService()
+            {
+                Name = "Team building",
+                Description = "Vehicula ut laoreet ac, tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel."
+            };
+
+            context.PhotoArtServices.Add(teambuildingService);
+
+            //// End add.
+            context.SaveChanges();
+        }
     }
 }

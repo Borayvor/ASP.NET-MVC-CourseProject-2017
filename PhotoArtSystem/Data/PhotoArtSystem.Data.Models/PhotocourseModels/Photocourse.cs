@@ -32,6 +32,10 @@
         [MaxLength(ModelConstants.PhotocourseOtherInfoMaxLength)]
         public string OtherInfo { get; set; }
 
+        public int PhotoArtServiceId { get; set; }
+
+        public virtual PhotoArtService PhotoArtService { get; set; }
+
         public virtual ICollection<Lesson> Lessons
         {
             get { return this.lessons; }

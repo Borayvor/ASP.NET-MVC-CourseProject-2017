@@ -1,4 +1,4 @@
-﻿namespace PhotoArtSystem.Web.ViewModels.User
+﻿namespace PhotoArtSystem.Web.ViewModels.UserModels
 {
     using System.ComponentModel.DataAnnotations;
     using Data.Models;
