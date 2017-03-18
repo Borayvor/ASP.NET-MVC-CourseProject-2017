@@ -271,6 +271,12 @@
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Images\500px.png" />
+    <Content Include="Images\facebook.png" />
+    <Content Include="Images\film.png" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\pinterest.png" />
+    <Content Include="Images\twitter.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />

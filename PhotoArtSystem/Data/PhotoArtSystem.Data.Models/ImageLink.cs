@@ -4,8 +4,8 @@
     using System.ComponentModel.DataAnnotations;
     using Common.Models;
     using PhotoArtSystem.Common.Constants;
+    using PhotoArtSystem.Common.EnumTypes;
     using PhotocourseModels;
-    using Types;
 
     public class ImageLink : BaseModelGuid, IBaseModel<Guid>, IAuditInfo, IDeletableEntity
     {
