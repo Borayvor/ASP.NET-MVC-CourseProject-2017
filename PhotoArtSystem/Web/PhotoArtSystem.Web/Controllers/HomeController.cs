@@ -16,6 +16,9 @@
             : base(mapper, cache)
         {
             this.photoArtServiceService = photoArtServiceService;
+
+            this.ViewBag.Slide1 = "/Images/cover14.jpg";
+            this.ViewBag.Slide2 = "/Images/Photo_Kurs_Plovdiv.png";
         }
 
         public ActionResult Index()

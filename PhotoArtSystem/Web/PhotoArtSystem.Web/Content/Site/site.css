@@ -20,4 +20,10 @@
     position: relative; }
   body .photoArtSystem-home-content {
     margin-top: 20px; }
+  body #vegas-container {
+    width: 100%; }
+    body #vegas-container .help-bottom {
+      height: 70%; }
+    body #vegas-container img {
+      width: 100%; }
 
