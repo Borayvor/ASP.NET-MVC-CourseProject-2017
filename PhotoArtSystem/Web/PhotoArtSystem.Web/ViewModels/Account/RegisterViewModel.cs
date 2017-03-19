@@ -11,6 +11,16 @@
         public string Email { get; set; }
 
         [Required]
+        [MaxLength(ModelConstants.ApplicationUserFirstNameMaxLength)]
+        [MinLength(ModelConstants.ApplicationUserFirstNameMinLength)]
+        public string FirstName { get; set; }
+
+        [Required]
+        [MaxLength(ModelConstants.ApplicationUserLastNameMaxLength)]
+        [MinLength(ModelConstants.ApplicationUserLastNameMinLength)]
+        public string LastName { get; set; }
+
+        [Required]
         [StringLength(AuthConstants.PasswordMaxLength, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = AuthConstants.PasswordMinLength)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]

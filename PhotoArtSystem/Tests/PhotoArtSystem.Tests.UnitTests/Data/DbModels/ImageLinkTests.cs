@@ -45,7 +45,6 @@
             Assert.AreEqual(expectedPhotocourse, imageLink.Photocourse);
             Assert.AreEqual(expectedPhotocourseGroupId, imageLink.PhotocourseGroupId);
             Assert.AreEqual(expectedPhotocourseGroup, imageLink.PhotocourseGroup);
-
         }
     }
 }
