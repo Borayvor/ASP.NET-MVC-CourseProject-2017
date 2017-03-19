@@ -3,7 +3,7 @@
     using System;
     using PhotoArtSystem.Data.Common.Models;
 
-    public class DummyClass : BaseModelGuid, IBaseModel<Guid>, IAuditInfo, IDeletableEntity
+    public class DummyGuidClass : BaseModelGuid, IBaseModel<Guid>, IAuditInfo, IDeletableEntity
     {
     }
 }

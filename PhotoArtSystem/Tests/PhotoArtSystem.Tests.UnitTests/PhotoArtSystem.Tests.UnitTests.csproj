@@ -99,8 +99,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\Global\HomeControllerTest.cs" />
+    <Compile Include="Data\DbModels\BaseModelGuidTests.cs" />
+    <Compile Include="Data\DbModels\BaseModelIntClassTests.cs" />
+    <Compile Include="Data\DbModels\OriginalImageTests.cs" />
     <Compile Include="Data\EfDbRepositoryTests\Constructor_Should.cs" />
-    <Compile Include="Mocks\DummyClass.cs" />
+    <Compile Include="Mocks\DummyGuidClass.cs" />
+    <Compile Include="Mocks\DummyIntClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\PhotocourseTests\Constructor_Should.cs" />
     <Compile Include="Services\PhotocourseTests\Create_Should.cs" />
