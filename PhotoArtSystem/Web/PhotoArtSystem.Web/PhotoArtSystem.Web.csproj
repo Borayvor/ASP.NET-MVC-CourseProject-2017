@@ -286,7 +286,7 @@
     <Content Include="Content\Site\_home-photoArtServices.scss" />
     <Content Include="Content\Vegas\vegas.min.css.map" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
-    <Content Include="Images\500px.png" />
+    <Content Include="Images\960px.png" />
     <Content Include="Images\cover14.jpg" />
     <Content Include="Images\facebook.png" />
     <Content Include="Images\film.png" />
@@ -294,6 +294,7 @@
     <Content Include="Images\logoOriginal.png" />
     <Content Include="Images\Photo_Kurs_Plovdiv.png" />
     <Content Include="Images\pinterest.png" />
+    <Content Include="Images\site500px.png" />
     <Content Include="Images\twitter.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
