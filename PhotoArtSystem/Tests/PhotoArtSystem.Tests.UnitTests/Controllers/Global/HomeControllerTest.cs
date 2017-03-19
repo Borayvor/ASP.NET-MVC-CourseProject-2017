@@ -1,69 +1,74 @@
 ﻿namespace PhotoArtSystem.Tests.UnitTests.Controllers.Global
 {
+    using System.Web.Mvc;
+    using Moq;
     using NUnit.Framework;
+    using PhotoArtSystem.Services.PhotoArtServices.Contracts;
+    using PhotoArtSystem.Services.Web.Contracts;
+    using Web.Controllers;
 
     [TestFixture]
     public class HomeControllerTest
     {
-        ////[Test]
-        ////public void Index_ViewResult_Should_NotBeNull_WhenArgumentsAreNotNull()
-        ////{
-        ////    // Arrange
-        ////    var mockedPhotocourseService = new Mock<IPhotocourseService>();
-        ////    var mockedAutoMapperService = new Mock<IAutoMapperService>();
-        ////    var mockedHttpCacheService = new Mock<ICacheService>();
+        [Test]
+        public void Index_ViewResult_Should_NotBeNull_WhenArgumentsAreNotNull()
+        {
+            // Arrange
+            var mockedPhotocourseService = new Mock<IPhotoArtServiceService>();
+            var mockedAutoMapperService = new Mock<IAutoMapperService>();
+            var mockedHttpCacheService = new Mock<ICacheService>();
 
-        ////    HomeController controller = new HomeController(
-        ////        mockedPhotocourseService.Object,
-        ////        mockedAutoMapperService.Object,
-        ////        mockedHttpCacheService.Object);
+            HomeController controller = new HomeController(
+                mockedPhotocourseService.Object,
+                mockedAutoMapperService.Object,
+                mockedHttpCacheService.Object);
 
-        ////    // Act
-        ////    ViewResult result = controller.Index() as ViewResult;
+            // Act
+            ViewResult result = controller.Index() as ViewResult;
 
-        ////    // Assert
-        ////    Assert.IsNotNull(result);
-        ////}
+            // Assert
+            Assert.IsNotNull(result);
+        }
 
-        ////[Test]
-        ////public void About_ViewResult_Should_NotBeNull_WhenArgumentsAreNotNull()
-        ////{
-        ////    // Arrange
-        ////    var mockedPhotocourseService = new Mock<IPhotocourseService>();
-        ////    var mockedAutoMapperService = new Mock<IAutoMapperService>();
-        ////    var mockedHttpCacheService = new Mock<ICacheService>();
+        [Test]
+        public void About_ViewResult_Should_NotBeNull_WhenArgumentsAreNotNull()
+        {
+            // Arrange
+            var mockedPhotocourseService = new Mock<IPhotoArtServiceService>();
+            var mockedAutoMapperService = new Mock<IAutoMapperService>();
+            var mockedHttpCacheService = new Mock<ICacheService>();
 
-        ////    HomeController controller = new HomeController(
-        ////        mockedPhotocourseService.Object,
-        ////        mockedAutoMapperService.Object,
-        ////        mockedHttpCacheService.Object);
+            HomeController controller = new HomeController(
+                mockedPhotocourseService.Object,
+                mockedAutoMapperService.Object,
+                mockedHttpCacheService.Object);
 
-        ////    // Act
-        ////    ViewResult result = controller.About() as ViewResult;
+            // Act
+            ViewResult result = controller.About() as ViewResult;
 
-        ////    // Assert
-        ////    Assert.IsNotNull(result);
-        ////}
+            // Assert
+            Assert.IsNotNull(result);
+        }
 
-        ////[Test]
-        ////public void Contact_ViewResult_Should_NotBeNull_WhenArgumentsAreNotNull()
-        ////{
-        ////    // Arrange
-        ////    var mockedPhotocourseService = new Mock<IPhotocourseService>();
-        ////    var mockedAutoMapperService = new Mock<IAutoMapperService>();
-        ////    var mockedHttpCacheService = new Mock<ICacheService>();
+        [Test]
+        public void Contact_ViewResult_Should_NotBeNull_WhenArgumentsAreNotNull()
+        {
+            // Arrange
+            var mockedPhotocourseService = new Mock<IPhotoArtServiceService>();
+            var mockedAutoMapperService = new Mock<IAutoMapperService>();
+            var mockedHttpCacheService = new Mock<ICacheService>();
 
-        ////    HomeController controller = new HomeController(
-        ////        mockedPhotocourseService.Object,
-        ////        mockedAutoMapperService.Object,
-        ////        mockedHttpCacheService.Object);
+            HomeController controller = new HomeController(
+                mockedPhotocourseService.Object,
+                mockedAutoMapperService.Object,
+                mockedHttpCacheService.Object);
 
-        ////    // Act
-        ////    ViewResult result = controller.Contact() as ViewResult;
+            // Act
+            ViewResult result = controller.Contact() as ViewResult;
 
-        ////    // Assert
-        ////    Assert.IsNotNull(result);
-        ////}
+            // Assert
+            Assert.IsNotNull(result);
+        }
 
         ////[Test]
         ////public void GetPhotocourses_PartialViewResult_Should_NotBeNull_WhenArgumentsAreNotNull()

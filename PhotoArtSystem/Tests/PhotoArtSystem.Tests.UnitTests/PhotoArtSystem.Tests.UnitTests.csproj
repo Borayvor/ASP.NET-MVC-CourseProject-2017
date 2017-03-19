@@ -139,9 +139,17 @@
       <Project>{154e4497-81d1-4437-96e2-1a51fdb8740a}</Project>
       <Name>PhotoArtSystem.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Services\PhotoArtSystem.Services.ApplicationUser\PhotoArtSystem.Services.ApplicationUser.csproj">
+      <Project>{c1fe80cb-0f09-4c17-818d-6898489a848c}</Project>
+      <Name>PhotoArtSystem.Services.ApplicationUser</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Services\PhotoArtSystem.Services.Common\PhotoArtSystem.Services.Common.csproj">
       <Project>{f70892f7-da64-4acc-87e5-92287e7e7d6b}</Project>
       <Name>PhotoArtSystem.Services.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\PhotoArtSystem.Services.PhotoArtServices\PhotoArtSystem.Services.PhotoArtServices.csproj">
+      <Project>{63d16cf9-1bb3-4019-8102-1dfab0220364}</Project>
+      <Name>PhotoArtSystem.Services.PhotoArtServices</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Services\PhotoArtSystem.Services.Photocourses\PhotoArtSystem.Services.Photocourses.csproj">
       <Project>{e80fe51d-f481-48db-8f4c-2b6fd99f64b4}</Project>
