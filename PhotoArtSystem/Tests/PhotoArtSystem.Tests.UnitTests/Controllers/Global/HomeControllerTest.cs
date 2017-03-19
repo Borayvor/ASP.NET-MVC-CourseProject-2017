@@ -11,7 +11,7 @@
     public class HomeControllerTest
     {
         [Test]
-        public void Index_ViewResult_Should_NotBeNull_WhenArgumentsAreNotNull()
+        public void Index_ViewResult_Should_NotBeNull_WhenControllerArgumentsAreNotNull()
         {
             // Arrange
             var mockedPhotocourseService = new Mock<IPhotoArtServiceService>();
@@ -31,7 +31,7 @@
         }
 
         [Test]
-        public void About_ViewResult_Should_NotBeNull_WhenArgumentsAreNotNull()
+        public void About_ViewResult_Should_NotBeNull_WhenControllerArgumentsAreNotNull()
         {
             // Arrange
             var mockedPhotocourseService = new Mock<IPhotoArtServiceService>();
@@ -51,7 +51,7 @@
         }
 
         [Test]
-        public void Contact_ViewResult_Should_NotBeNull_WhenArgumentsAreNotNull()
+        public void Contact_ViewResult_Should_NotBeNull_WhenControllerArgumentsAreNotNull()
         {
             // Arrange
             var mockedPhotocourseService = new Mock<IPhotoArtServiceService>();

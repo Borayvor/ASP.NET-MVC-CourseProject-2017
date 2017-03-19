@@ -2,28 +2,30 @@
 {
     using System;
     using System.IO;
-    using System.Threading;
-    using System.Threading.Tasks;
     using Common.Validators;
     using Contracts;
-    using Firebase.Auth;
-    using Firebase.Storage;
 
     public class FirebaseCloudStorage :
         ICloudStorage, IImageCloudStorage, IVideoCloudStorage
     {
-        private const string ApiKey = "AIzaSyDtgXR3Tmmnn1g6eFRXzVCFceiAxeR_uWI";
-        private const string Bucket = "photoartsystem.appspot.com";
-        private const string AuthEmail = "testuser@testuser.com";
-        private const string AuthPassword = "testuser!@#";
+        ////private const string ApiKey = "AIzaSyDtgXR3Tmmnn1g6eFRXzVCFceiAxeR_uWI";
+        ////private const string Bucket = "photoartsystem.appspot.com";
+        ////private const string AuthEmail = "testuser@testuser.com";
+        ////private const string AuthPassword = "testuser!@#";
+
+        ////private readonly FirebaseAuthProvider auth;
+        ////private readonly FirebaseStorage client;
+
+        ////public FirebaseCloudStorage()
+        ////{
+        ////    this.auth = new FirebaseAuthProvider(new FirebaseConfig(ApiKey));
+        ////}
 
         public string UploadFile(Stream stream, string filename, string filetype, string path = "/")
         {
             UploadFileValidator.ValidateStream(stream);
             UploadFileValidator.ValidateFileName(filename);
             UploadFileValidator.ValidateFileType(filetype);
-
-            ////this.RunFireBase(stream, filename, filetype, path);
 
             // TODO: Implement UploadFile
             return string.Empty;
@@ -52,33 +54,32 @@
             throw new NotImplementedException();
         }
 
-        private async Task RunFireBase(Stream stream, string filename, string filetype, string path = "/")
-        {
-            var auth = new FirebaseAuthProvider(new FirebaseConfig(ApiKey));
-            var authTask = await auth.SignInWithEmailAndPasswordAsync(AuthEmail, AuthPassword);
+        ////private async Task RunFireBase(Stream stream, string filename, string filetype, string path = "/")
+        ////{
+        ////    var authTask = await this.auth.SignInWithEmailAndPasswordAsync(AuthEmail, AuthPassword);
 
-            // you can use CancellationTokenSource to cancel the upload midway
-            var cancellation = new CancellationTokenSource();
+        ////    // you can use CancellationTokenSource to cancel the upload midway
+        ////    var cancellation = new CancellationTokenSource();
 
-            // when you cancel the upload, exception is thrown. By default no exception is thrown
-            var client = new FirebaseStorage(
-                Bucket,
-                new FirebaseStorageOptions { AuthTokenAsyncFactory = () => Task.FromResult(authTask.FirebaseToken), ThrowOnCancel = true });
+        ////    // when you cancel the upload, exception is thrown. By default no exception is thrown
+        ////    var client = new FirebaseStorage(
+        ////        Bucket,
+        ////        new FirebaseStorageOptions { AuthTokenAsyncFactory = () => Task.FromResult(authTask.FirebaseToken), ThrowOnCancel = true });
 
-            var taskInOut = client
-                .Child("fileNameDir")
-                .Child("fileSizeDir")
-                .Child("file.png")
-                .PutAsync(stream, cancellation.Token);
+        ////    var taskInOut = client
+        ////        .Child("fileNameDir")
+        ////        .Child("fileSizeDir")
+        ////        .Child("file.png")
+        ////        .PutAsync(stream, cancellation.Token);
 
-            // Track progress of the upload
-            taskInOut.Progress.ProgressChanged += (s, e) => Console.WriteLine($"Progress: {e.Percentage} %");
+        ////    // Track progress of the upload
+        ////    taskInOut.Progress.ProgressChanged += (s, e) => Console.WriteLine($"Progress: {e.Percentage} %");
 
-            // cancel the upload
-            cancellation.Cancel();
+        ////    // cancel the upload
+        ////    cancellation.Cancel();
 
-            // Await the task to wait until upload is completed and get the download url
-            var downloadUrl = await taskInOut;
-        }
+        ////    // Await the task to wait until upload is completed and get the download url
+        ////    var downloadUrl = await taskInOut;
+        ////}
     }
 }

@@ -13,7 +13,7 @@
     public class GetById_Should
     {
         [Test]
-        public void CallEfDbRepository_GetAll_MethodOnce()
+        public void CallEfDbRepository_GetById_MethodOnce()
         {
             // Arange
             Fixture fixture = new Fixture();
