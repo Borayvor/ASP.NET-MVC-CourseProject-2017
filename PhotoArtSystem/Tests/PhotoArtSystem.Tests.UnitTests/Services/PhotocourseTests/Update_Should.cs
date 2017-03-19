@@ -33,10 +33,10 @@
             ////var mockedModel = new Mock<IPhotocourse>();
             var mockedEfDbContext = new Mock<IEfDbContext>();
             var mockedIEfDbRepository = new Mock<IEfDbRepository<Photocourse>>();
-            var mockedPhotocourseService = new PhotocourseService(mockedEfDbContext.Object, mockedIEfDbRepository.Object);
+            var service = new PhotocourseService(mockedEfDbContext.Object, mockedIEfDbRepository.Object);
 
             // Act
-            mockedPhotocourseService.Update(new Photocourse());
+            service.Update(new Photocourse());
 
             // Assert
             mockedEfDbContext.Verify(x => x.Save(), Times.Once);

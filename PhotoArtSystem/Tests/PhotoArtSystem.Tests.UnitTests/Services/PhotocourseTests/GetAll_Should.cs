@@ -13,7 +13,7 @@
     public class GetAll_Should
     {
         [Test]
-        public void CallRepository_GetAll_MethodOnce()
+        public void CallEfDbRepository_GetAll_MethodOnce()
         {
             // Arange
             var mockedEfDbContext = new Mock<IEfDbContext>();
@@ -29,7 +29,7 @@
         }
 
         [Test]
-        public void ReturnProperlyResultFromRepository_GetAll_Method()
+        public void ReturnProperlyResultFromEfDbRepository_GetAll_Method()
         {
             // Arange
             var expected = new List<Photocourse>()

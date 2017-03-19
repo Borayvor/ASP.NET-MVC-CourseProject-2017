@@ -102,7 +102,12 @@
     <Compile Include="Data\DbModels\BaseModelGuidTests.cs" />
     <Compile Include="Data\DbModels\BaseModelIntClassTests.cs" />
     <Compile Include="Data\DbModels\OriginalImageTests.cs" />
+    <Compile Include="Data\EfDbContextsTests\Constructor_Should.cs" />
+    <Compile Include="Data\EfDbContextsTests\Save_Should.cs" />
     <Compile Include="Data\EfDbRepositoryTests\Constructor_Should.cs" />
+    <Compile Include="Data\EfDbRepositoryTests\GetAllWithDeleted_Should.cs" />
+    <Compile Include="Data\EfDbRepositoryTests\GetAll_Should.cs" />
+    <Compile Include="Data\EfDbRepositoryTests\GetById_Should.cs" />
     <Compile Include="Mocks\DummyGuidClass.cs" />
     <Compile Include="Mocks\DummyIntClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

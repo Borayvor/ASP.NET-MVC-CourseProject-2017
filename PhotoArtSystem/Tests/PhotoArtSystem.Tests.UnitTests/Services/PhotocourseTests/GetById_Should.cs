@@ -13,7 +13,25 @@
     public class GetById_Should
     {
         [Test]
-        public void ReturnProperlyResultFromRepository()
+        public void CallEfDbRepository_GetAll_MethodOnce()
+        {
+            // Arange
+            Fixture fixture = new Fixture();
+            var id = fixture.Create<Guid>();
+            var mockedEfDbContext = new Mock<IEfDbContext>();
+            var mockedIEfDbRepository = new Mock<IEfDbRepository<Photocourse>>();
+
+            var service = new PhotocourseService(mockedEfDbContext.Object, mockedIEfDbRepository.Object);
+
+            // Act
+            var result = service.GetById(id);
+
+            // Assert
+            mockedIEfDbRepository.Verify(x => x.GetById(id), Times.Once);
+        }
+
+        [Test]
+        public void ReturnProperlyResultFromEfDbRepository()
         {
             // Arange
             Fixture fixture = new Fixture();
