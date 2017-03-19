@@ -1,12 +1,12 @@
-﻿namespace PhotoArtSystem.Tests.UnitTests.Services.PhotocourseTests
+﻿namespace PhotoArtSystem.Tests.UnitTests.Services.PhotoArtServiceServiceTests
 {
     using Common.Constants;
     using Moq;
     using NUnit.Framework;
     using PhotoArtSystem.Data.Common.EfDbContexts;
     using PhotoArtSystem.Data.Common.Repositories;
-    using PhotoArtSystem.Data.Models.PhotocourseModels;
-    using PhotoArtSystem.Services.Photocourses;
+    using PhotoArtSystem.Data.Models;
+    using PhotoArtSystem.Services.PhotoArtServices;
 
     [TestFixture]
     public class Update_Should
@@ -16,14 +16,14 @@
         {
             // Arange
             var mockedEfDbContext = new Mock<IEfDbContext>();
-            var mockedIEfDbRepository = new Mock<IEfDbRepository<Photocourse>>();
-            var service = new PhotocourseService(mockedEfDbContext.Object, mockedIEfDbRepository.Object);
+            var mockedIEfDbRepository = new Mock<IEfDbRepository<PhotoArtService>>();
+            var service = new PhotoArtServiceService(mockedEfDbContext.Object, mockedIEfDbRepository.Object);
 
             // Act & Assert
             Assert.That(
                 () => service.Update(null),
                             Throws.ArgumentNullException.With.Message.Contains(
-                                GlobalConstants.PhotocourseRequiredExceptionMessage));
+                                GlobalConstants.PhotoArtServiceRequiredExceptionMessage));
         }
 
         [Test]
@@ -31,11 +31,11 @@
         {
             // Arange
             var mockedEfDbContext = new Mock<IEfDbContext>();
-            var mockedIEfDbRepository = new Mock<IEfDbRepository<Photocourse>>();
-            var service = new PhotocourseService(mockedEfDbContext.Object, mockedIEfDbRepository.Object);
+            var mockedIEfDbRepository = new Mock<IEfDbRepository<PhotoArtService>>();
+            var service = new PhotoArtServiceService(mockedEfDbContext.Object, mockedIEfDbRepository.Object);
 
             // Act
-            service.Update(new Photocourse());
+            service.Update(new PhotoArtService());
 
             // Assert
             mockedEfDbContext.Verify(x => x.Save(), Times.Once);

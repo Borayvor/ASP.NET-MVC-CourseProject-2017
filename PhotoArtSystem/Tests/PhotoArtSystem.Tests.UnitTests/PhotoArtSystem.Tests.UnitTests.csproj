@@ -66,6 +66,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
       <Private>True</Private>
@@ -102,10 +103,20 @@
     <Compile Include="Data\DbModels\BaseModelGuidTests.cs" />
     <Compile Include="Data\DbModels\BaseModelIntClassTests.cs" />
     <Compile Include="Data\DbModels\OriginalImageTests.cs" />
+    <Compile Include="Data\EfDbContextsTests\Constructor_Should.cs" />
+    <Compile Include="Data\EfDbContextsTests\Save_Should.cs" />
     <Compile Include="Data\EfDbRepositoryTests\Constructor_Should.cs" />
     <Compile Include="Mocks\DummyGuidClass.cs" />
     <Compile Include="Mocks\DummyIntClass.cs" />
+    <Compile Include="Mocks\MockedHttpRequest.cs" />
+    <Compile Include="Mocks\MockedHttpResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\PhotoArtServiceServiceTests\Constructor_Should.cs" />
+    <Compile Include="Services\PhotoArtServiceServiceTests\Create_Should.cs" />
+    <Compile Include="Services\PhotoArtServiceServiceTests\Delete_Should.cs" />
+    <Compile Include="Services\PhotoArtServiceServiceTests\GetAll_Should.cs" />
+    <Compile Include="Services\PhotoArtServiceServiceTests\GetById_Should.cs" />
+    <Compile Include="Services\PhotoArtServiceServiceTests\Update_Should.cs" />
     <Compile Include="Services\PhotocourseTests\Constructor_Should.cs" />
     <Compile Include="Services\PhotocourseTests\Create_Should.cs" />
     <Compile Include="Services\PhotocourseTests\Delete_Should.cs" />

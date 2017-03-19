@@ -17,11 +17,11 @@
             // Arange
             var mockedEfDbContext = new Mock<IEfDbContext>();
             var mockedIEfDbRepository = new Mock<IEfDbRepository<Photocourse>>();
-            var mockedPhotocourseService = new PhotocourseService(mockedEfDbContext.Object, mockedIEfDbRepository.Object);
+            var service = new PhotocourseService(mockedEfDbContext.Object, mockedIEfDbRepository.Object);
 
             // Act & Assert
             Assert.That(
-                () => mockedPhotocourseService.Delete(null),
+                () => service.Delete(null),
                             Throws.ArgumentNullException.With.Message.Contains(
                                 GlobalConstants.PhotocourseRequiredExceptionMessage));
         }
@@ -30,13 +30,12 @@
         public void CallOnce_EfDbContextSave_When_Photocourse_IsNotNull()
         {
             // Arange
-            ////var mockedModel = new Mock<IPhotocourse>();
             var mockedEfDbContext = new Mock<IEfDbContext>();
             var mockedIEfDbRepository = new Mock<IEfDbRepository<Photocourse>>();
-            var mockedPhotocourseService = new PhotocourseService(mockedEfDbContext.Object, mockedIEfDbRepository.Object);
+            var service = new PhotocourseService(mockedEfDbContext.Object, mockedIEfDbRepository.Object);
 
             // Act
-            mockedPhotocourseService.Delete(new Photocourse());
+            service.Delete(new Photocourse());
 
             // Assert
             mockedEfDbContext.Verify(x => x.Save(), Times.Once);

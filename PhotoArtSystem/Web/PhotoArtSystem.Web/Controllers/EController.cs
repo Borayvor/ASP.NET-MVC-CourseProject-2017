@@ -10,7 +10,7 @@
         {
         }
 
-        public ActionResult E500()
+        public ActionResult E500(string aspxerrorpath)
         {
             this.Response.StatusCode = 500;
 
