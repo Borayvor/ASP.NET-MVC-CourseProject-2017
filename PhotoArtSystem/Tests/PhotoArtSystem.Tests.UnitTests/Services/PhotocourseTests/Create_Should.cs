@@ -17,11 +17,11 @@
             // Arange
             var mockedEfDbContext = new Mock<IEfDbContext>();
             var mockedIEfDbRepository = new Mock<IEfDbRepository<Photocourse>>();
-            var objectPhotocourseService = new PhotocourseService(mockedEfDbContext.Object, mockedIEfDbRepository.Object);
+            var service = new PhotocourseService(mockedEfDbContext.Object, mockedIEfDbRepository.Object);
 
             // Act & Assert
             Assert.That(
-                () => objectPhotocourseService.Create(null),
+                () => service.Create(null),
                             Throws.ArgumentNullException.With.Message.Contains(
                                 GlobalConstants.PhotocourseRequiredExceptionMessage));
         }

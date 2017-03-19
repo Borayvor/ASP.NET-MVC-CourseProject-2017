@@ -11,37 +11,37 @@
 
     public class PhotoArtServiceService : IPhotoArtServiceService
     {
-        private readonly IEfDbRepository<PhotoArtService> photoArtServices;
+        private readonly IEfDbRepository<PhotoArtService> photoArtServicesRepo;
         private readonly IEfDbContext context;
 
-        public PhotoArtServiceService(IEfDbContext context, IEfDbRepository<PhotoArtService> photoArtServices)
+        public PhotoArtServiceService(IEfDbContext context, IEfDbRepository<PhotoArtService> photoArtServicesRepo)
         {
             Guard.WhenArgument(
                 context,
                 GlobalConstants.EfDbContextRequiredExceptionMessage).IsNull().Throw();
             Guard.WhenArgument(
-                photoArtServices,
+                photoArtServicesRepo,
                 GlobalConstants.EfDbRepositoryPhotoArtServiceRequiredExceptionMessage).IsNull().Throw();
 
-            this.photoArtServices = photoArtServices;
+            this.photoArtServicesRepo = photoArtServicesRepo;
             this.context = context;
         }
 
         public IEnumerable<PhotoArtService> GetAll()
         {
-            return this.photoArtServices.GetAll().OrderByDescending(x => x.CreatedOn).ToList();
+            return this.photoArtServicesRepo.GetAll().OrderByDescending(x => x.CreatedOn).ToList();
         }
 
         public PhotoArtService GetById(int id)
         {
-            return this.photoArtServices.GetById(id);
+            return this.photoArtServicesRepo.GetById(id);
         }
 
         public void Create(PhotoArtService entity)
         {
             Guard.WhenArgument(entity, GlobalConstants.PhotoArtServiceRequiredExceptionMessage).IsNull().Throw();
 
-            this.photoArtServices.Create(entity);
+            this.photoArtServicesRepo.Create(entity);
             this.context.Save();
         }
 
@@ -49,7 +49,7 @@
         {
             Guard.WhenArgument(entity, GlobalConstants.PhotoArtServiceRequiredExceptionMessage).IsNull().Throw();
 
-            this.photoArtServices.Update(entity);
+            this.photoArtServicesRepo.Update(entity);
             this.context.Save();
         }
 
@@ -57,7 +57,7 @@
         {
             Guard.WhenArgument(entity, GlobalConstants.PhotoArtServiceRequiredExceptionMessage).IsNull().Throw();
 
-            this.photoArtServices.Delete(entity);
+            this.photoArtServicesRepo.Delete(entity);
             this.context.Save();
         }
     }
