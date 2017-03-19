@@ -13,7 +13,7 @@
         {
             // Arange, Act & Assert
             Assert.That(
-                () => new EfDbRepository<DummyClass>(null),
+                () => new EfDbRepository<DummyGuidClass>(null),
                             Throws.ArgumentNullException.With.Message.Contains(
                                 GlobalConstants.DbContextRequiredExceptionMessage));
         }

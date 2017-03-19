@@ -1,0 +1,20 @@
+﻿@using PhotoArtSystem.Web.ViewModels.PhotoArtServiceModels
+@model IEnumerable<PhotoArtServiceHomeViewModel>
+
+<div class="photoArtSystem-home-content">
+    @foreach (var PhotoArtService in Model)
+    {
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="text-center">@PhotoArtService.Name</h3>
+                    </div>
+                    <div class="panel-body">
+                        @PhotoArtService.Description
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

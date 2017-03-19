@@ -11,6 +11,12 @@
         public const int ApplicationUserLastNameMaxLength = 100;
         public const int ApplicationUserLastNameMinLength = 2;
 
+        // PhotoArtService
+        public const int PhotoArtServiceNameMaxLength = 100;
+        public const int PhotoArtServiceNameMinLength = 2;
+        public const int PhotoArtServiceDescriptionMaxLength = 2000;
+        public const int PhotoArtServiceDescriptionMinLength = 2;
+
         // Photocourse
         public const int PhotocourseNameMaxLength = 100;
         public const int PhotocourseNameMinLength = 2;

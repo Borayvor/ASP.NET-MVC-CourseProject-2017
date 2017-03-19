@@ -16,6 +16,8 @@
         {
         }
 
+        public IDbSet<PhotoArtService> PhotoArtServices { get; set; }
+
         public IDbSet<Lesson> Lessons { get; set; }
 
         public IDbSet<OriginalImage> OriginalImages { get; set; }

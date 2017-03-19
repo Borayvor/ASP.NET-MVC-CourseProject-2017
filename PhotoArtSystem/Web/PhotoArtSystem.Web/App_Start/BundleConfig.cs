@@ -33,6 +33,12 @@
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/owlCarousel").Include(
+                      "~/Scripts/owl.carousel.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/vegas").Include(
+                      "~/Scripts/Vegas/vegas.js"));
         }
 
         private static void RegisterStyles(BundleCollection bundles)
@@ -41,7 +47,10 @@
                 .Include("~/Content/Site/site.css"));
 
             bundles.Add(new StyleBundle("~/Content/toolsCss")
-                .Include("~/Content/bootstrap.css"));
+                .Include(
+                "~/Content/bootstrap.css",
+                "~/Content/owl.carousel.css",
+                "~/Content/Vegas/vegas.css"));
         }
     }
 }

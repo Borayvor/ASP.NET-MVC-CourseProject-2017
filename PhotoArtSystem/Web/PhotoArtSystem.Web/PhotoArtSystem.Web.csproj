@@ -240,20 +240,33 @@
     <Compile Include="ViewModels\Manage\ManageLoginsViewModel.cs" />
     <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
+    <Compile Include="ViewModels\PhotoArtServiceModels\PhotoArtServiceHomeViewModel.cs" />
     <Compile Include="ViewModels\PhotocourseModels\PhotocourseHomeViewModel.cs" />
-    <Compile Include="ViewModels\User\UserHomePageViewModel.cs" />
+    <Compile Include="ViewModels\UserModels\UserHomePageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\owl.carousel.css" />
     <Content Include="Content\Site\site.css">
       <DependentUpon>site.scss</DependentUpon>
     </Content>
     <Content Include="Content\Site\site.min.css">
       <DependentUpon>site.css</DependentUpon>
     </Content>
+    <Content Include="Content\Vegas\overlays\01.png" />
+    <Content Include="Content\Vegas\overlays\02.png" />
+    <Content Include="Content\Vegas\overlays\03.png" />
+    <Content Include="Content\Vegas\overlays\04.png" />
+    <Content Include="Content\Vegas\overlays\05.png" />
+    <Content Include="Content\Vegas\overlays\06.png" />
+    <Content Include="Content\Vegas\overlays\07.png" />
+    <Content Include="Content\Vegas\overlays\08.png" />
+    <Content Include="Content\Vegas\overlays\09.png" />
+    <Content Include="Content\Vegas\vegas.css" />
+    <Content Include="Content\Vegas\vegas.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -270,11 +283,16 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
+    <Content Include="Content\Site\_home-photoArtServices.scss" />
+    <Content Include="Content\Vegas\vegas.min.css.map" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Images\500px.png" />
+    <Content Include="Images\cover14.jpg" />
     <Content Include="Images\facebook.png" />
     <Content Include="Images\film.png" />
     <Content Include="Images\logo.png" />
+    <Content Include="Images\logoOriginal.png" />
+    <Content Include="Images\Photo_Kurs_Plovdiv.png" />
     <Content Include="Images\pinterest.png" />
     <Content Include="Images\twitter.png" />
     <Content Include="Scripts\bootstrap.js" />
@@ -290,10 +308,13 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\owl.carousel.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\Vegas\vegas.js" />
+    <Content Include="Scripts\Vegas\vegas.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -332,10 +353,11 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_NavigationPartial.cshtml" />
-    <Content Include="Views\Home\_PhotocourseTestPartial.cshtml" />
     <Content Include="Views\E\E404.cshtml" />
     <Content Include="Views\E\E500.cshtml" />
     <Content Include="Views\Shared\_FooterPartial.cshtml" />
+    <Content Include="Views\Home\_PhotoArtServicesPartial.cshtml" />
+    <Content Include="Scripts\Vegas\vegas.min.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -367,6 +389,10 @@
     <ProjectReference Include="..\..\Services\PhotoArtSystem.Services.Common\PhotoArtSystem.Services.Common.csproj">
       <Project>{f70892f7-da64-4acc-87e5-92287e7e7d6b}</Project>
       <Name>PhotoArtSystem.Services.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\PhotoArtSystem.Services.PhotoArtServices\PhotoArtSystem.Services.PhotoArtServices.csproj">
+      <Project>{63d16cf9-1bb3-4019-8102-1dfab0220364}</Project>
+      <Name>PhotoArtSystem.Services.PhotoArtServices</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Services\PhotoArtSystem.Services.Photocourses\PhotoArtSystem.Services.Photocourses.csproj">
       <Project>{e80fe51d-f481-48db-8f4c-2b6fd99f64b4}</Project>

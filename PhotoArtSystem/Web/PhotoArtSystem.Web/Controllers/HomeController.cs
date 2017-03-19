@@ -2,19 +2,23 @@
 {
     using System.Collections.Generic;
     using System.Web.Mvc;
-    using Data.Models.PhotocourseModels;
-    using Services.Photocourses.Contracts;
+    using Common.Constants;
+    using Data.Models;
+    using Services.PhotoArtServices.Contracts;
     using Services.Web.Contracts;
-    using ViewModels.PhotocourseModels;
+    using ViewModels.PhotoArtServiceModels;
 
     public class HomeController : BaseController
     {
-        private readonly IPhotocourseService photocourseService;
+        private readonly IPhotoArtServiceService photoArtServiceService;
 
-        public HomeController(IPhotocourseService photocourseService, IAutoMapperService mapper, ICacheService cache)
+        public HomeController(IPhotoArtServiceService photoArtServiceService, IAutoMapperService mapper, ICacheService cache)
             : base(mapper, cache)
         {
-            this.photocourseService = photocourseService;
+            this.photoArtServiceService = photoArtServiceService;
+
+            this.ViewBag.Slide1 = "/Images/cover14.jpg";
+            this.ViewBag.Slide2 = "/Images/Photo_Kurs_Plovdiv.png";
         }
 
         public ActionResult Index()
@@ -24,20 +28,18 @@
 
         [HttpGet]
         [ChildActionOnly]
-        public ActionResult GetPhotocourses()
+        public ActionResult GetPhotoArtServices()
         {
-            var viewModel = this.Mapper
-                .Map<
-                    IEnumerable<Photocourse>,
-                    IEnumerable<PhotocourseHomeViewModel>
-                    >(this.photocourseService.GetAll());
+            var photoArtServices = this.photoArtServiceService.GetAll();
 
-            var result = this.Cache.Get(
-                "Photocourses",
-                () => this.PartialView("_PhotocourseTestPartial", viewModel),
-                60);
-
-            return result;
+            return this.ExceptionHandlerActionResult(
+                () => this.Mapper
+                .Map<IEnumerable<PhotoArtService>,
+                    IEnumerable<PhotoArtServiceHomeViewModel>>(photoArtServices),
+                (photoArtServiceModel) => this.Cache.Get(
+                    "PhotoArtServices",
+                    () => this.PartialView("_PhotoArtServicesPartial", photoArtServiceModel),
+                    GlobalConstants.PhotoArtServicesPartialCacheDuration));
         }
 
         public ActionResult About()

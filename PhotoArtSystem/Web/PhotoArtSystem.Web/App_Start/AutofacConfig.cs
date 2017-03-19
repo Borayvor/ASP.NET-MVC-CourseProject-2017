@@ -10,6 +10,7 @@
     using Data.Common.EfDbContexts;
     using Data.Common.Repositories;
     using Services.ApplicationUser;
+    using Services.PhotoArtServices;
     using Services.Photocourses;
     using Services.Web;
     using Services.Web.Contracts;
@@ -67,6 +68,9 @@
 
             var userServicesAssembly = Assembly.GetAssembly(typeof(ApplicationUserProfileService));
             builder.RegisterAssemblyTypes(userServicesAssembly).AsImplementedInterfaces();
+
+            var photoArtServiceServiceAssembly = Assembly.GetAssembly(typeof(PhotoArtServiceService));
+            builder.RegisterAssemblyTypes(photoArtServiceServiceAssembly).AsImplementedInterfaces();
 
             var photocourseServiceAssembly = Assembly.GetAssembly(typeof(PhotocourseService));
             builder.RegisterAssemblyTypes(photocourseServiceAssembly).AsImplementedInterfaces();

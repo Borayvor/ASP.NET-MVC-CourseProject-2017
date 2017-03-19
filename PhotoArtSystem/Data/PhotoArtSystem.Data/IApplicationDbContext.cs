@@ -7,6 +7,8 @@
 
     public interface IApplicationDbContext
     {
+        IDbSet<PhotoArtService> PhotoArtServices { get; set; }
+
         IDbSet<Photocourse> Photocourses { get; set; }
 
         IDbSet<PhotocourseGroup> PhotocourseGroups { get; set; }
