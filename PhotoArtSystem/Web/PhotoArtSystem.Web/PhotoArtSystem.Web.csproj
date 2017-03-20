@@ -365,7 +365,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Controllers\" />
-    <Folder Include="Areas\Administration\Models\" />
+    <Folder Include="Areas\Administration\ViewModels\" />
     <Folder Include="Areas\Administration\Views\Shared\" />
     <Folder Include="Views\Shared\DisplayTemplates\" />
     <Folder Include="Views\Shared\EditorTemplates\" />
