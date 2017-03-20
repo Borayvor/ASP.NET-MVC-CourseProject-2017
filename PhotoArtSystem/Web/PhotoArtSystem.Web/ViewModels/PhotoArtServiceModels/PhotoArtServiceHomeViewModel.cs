@@ -3,7 +3,7 @@
     using Data.Models;
     using Infrastructure.Mapping;
 
-    public class PhotoArtServiceHomeViewModel : BaseViewModel<int>, IMapFrom<PhotoArtService>
+    public class PhotoArtServiceHomeViewModel : BaseDbKeyViewModel<int>, IMapFrom<PhotoArtService>
     {
         public string Name { get; set; }
 

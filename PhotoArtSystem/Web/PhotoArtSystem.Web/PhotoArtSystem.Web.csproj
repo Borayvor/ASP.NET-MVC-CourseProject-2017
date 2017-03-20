@@ -219,6 +219,7 @@
     <Compile Include="Controllers\EController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Manage\ManageController.cs" />
+    <Compile Include="Controllers\PhotocourseController.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -232,7 +233,9 @@
     <Compile Include="ViewModels\Account\ResetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Account\SendCodeViewModel.cs" />
     <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
-    <Compile Include="ViewModels\BaseViewModel{T}.cs" />
+    <Compile Include="ViewModels\BaseCreatedOnViewModel{T}.cs" />
+    <Compile Include="ViewModels\BaseDbKeyViewModel{T}.cs" />
+    <Compile Include="ViewModels\BaseInfoViewModel{T}.cs" />
     <Compile Include="ViewModels\Manage\AddPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\Manage\ChangePasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\ConfigureTwoFactorViewModel.cs" />
@@ -241,8 +244,9 @@
     <Compile Include="ViewModels\Manage\ManageLoginsViewModel.cs" />
     <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
+    <Compile Include="ViewModels\PaginationViewModel.cs" />
     <Compile Include="ViewModels\PhotoArtServiceModels\PhotoArtServiceHomeViewModel.cs" />
-    <Compile Include="ViewModels\PhotocourseModels\PhotocourseHomeViewModel.cs" />
+    <Compile Include="ViewModels\PhotocourseModels\PhotocourseViewModel.cs" />
     <Compile Include="ViewModels\UserModels\UserHomePageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -361,6 +365,9 @@
     <Content Include="Views\Shared\_FooterPartial.cshtml" />
     <Content Include="Views\Home\_PhotoArtServicesPartial.cshtml" />
     <Content Include="Scripts\Vegas\vegas.min.js.map" />
+    <Content Include="Views\Photocourse\Index.cshtml" />
+    <Content Include="Views\Photocourse\_PhotocoursePartial.cshtml" />
+    <Content Include="Views\Shared\_PaginationPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

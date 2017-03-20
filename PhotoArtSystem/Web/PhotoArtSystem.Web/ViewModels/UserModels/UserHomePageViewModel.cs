@@ -4,7 +4,7 @@
     using Data.Models;
     using Infrastructure.Mapping;
 
-    public class UserHomePageViewModel : BaseViewModel<string>, IMapFrom<ApplicationUser>
+    public class UserHomePageViewModel : BaseDbKeyViewModel<string>, IMapFrom<ApplicationUser>
     {
         [Display(Name = "User name")]
         public string UserName { get; set; }

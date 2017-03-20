@@ -4,8 +4,15 @@
     {
         public const string StringEmpty = "";
 
+        // Cache duration
         public const int PhotoArtServicesPartialCacheDuration = 60 * 60 * 24; // sec * min * hours
+        public const int PhotocoursePartialCacheDuration = 60 * 60 * 24; // sec * min * hours
 
+        // Cache item names
+        public const string PhotoArtServicesCacheName = "PhotoArtServices";
+        public const string PhotocourseCacheName = "Photocourse_";
+
+        // Exception messages
         public const string DbContextRequiredExceptionMessage = "An instance of DbContext is required !";
         public const string EfDbContextRequiredExceptionMessage = "An instance of EfDbContext is required !";
 

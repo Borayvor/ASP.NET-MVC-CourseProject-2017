@@ -10,6 +10,10 @@
       padding: 0;
       padding-left: 15px;
       padding-right: 15px; }
+    body .photoartsystem-navigation .open > a {
+      background-color: #c4c8c8 !important; }
+    body .photoartsystem-navigation .dropdown-menu {
+      background-color: #e7e9e9 !important; }
     body .photoartsystem-navigation a {
       color: black !important;
       text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.75), 0 0 1em white, 0 0 0.7em white; }

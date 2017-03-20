@@ -3,7 +3,6 @@
     using System.Collections.Generic;
     using System.Web.Mvc;
     using Common.Constants;
-    using Data.Models;
     using Services.PhotoArtServices.Contracts;
     using Services.Web.Contracts;
     using ViewModels.PhotoArtServiceModels;
@@ -34,10 +33,9 @@
 
             return this.ExceptionHandlerActionResult(
                 () => this.Mapper
-                .Map<IEnumerable<PhotoArtService>,
-                    IEnumerable<PhotoArtServiceHomeViewModel>>(photoArtServices),
+                .Map<IEnumerable<PhotoArtServiceHomeViewModel>>(photoArtServices),
                 (photoArtServiceModel) => this.Cache.Get(
-                    "PhotoArtServices",
+                    GlobalConstants.PhotoArtServicesCacheName,
                     () => this.PartialView("_PhotoArtServicesPartial", photoArtServiceModel),
                     GlobalConstants.PhotoArtServicesPartialCacheDuration));
         }
