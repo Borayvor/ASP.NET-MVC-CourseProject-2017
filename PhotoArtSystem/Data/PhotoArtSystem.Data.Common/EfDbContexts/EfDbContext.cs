@@ -2,6 +2,7 @@
 {
     using System;
     using System.Data.Entity;
+    using System.Threading.Tasks;
     using PhotoArtSystem.Common.Constants;
 
     public class EfDbContext : IEfDbContext
@@ -21,6 +22,11 @@
         public void Save()
         {
             this.Context.SaveChanges();
+        }
+
+        public Task<int> SaveAsync()
+        {
+            return this.Context.SaveChangesAsync();
         }
     }
 }
