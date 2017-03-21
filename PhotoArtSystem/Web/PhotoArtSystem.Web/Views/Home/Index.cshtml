@@ -10,7 +10,7 @@
     @Scripts.Render("~/bundles/vegas")
     <script>
         (function () {
-            $("#vegas-container").vegas({
+            $("body").vegas({
                 preload: true,
                 delay: 7000,
                 transitionDuration: 3500,
@@ -20,6 +20,6 @@
                 ],
                 overlay: true
             });
-        }())        
+        }())
     </script>
 }

@@ -1,3 +1,5 @@
-﻿@model Guid?
+﻿@{
+    ViewBag.Title = "All photo courses";
+}
 
-@(Html.Action<PhotocourseController>(c => c.GetPhotocourse(Model)))
+@(Html.Action<PhotocourseController>(c => c.GetAllPhotocourses()))

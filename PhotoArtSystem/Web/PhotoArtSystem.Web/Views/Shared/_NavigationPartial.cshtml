@@ -17,18 +17,7 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li>@(Html.ActionLink<HomeController>(HtmlConstants.HomeLinkName, c => c.Index()))</li>
-                <li class="dropdown">
-                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Photocourses <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        @*@foreach (var item in collection)
-                            {
-                                 <li>@(Html.ActionLink<PhotocourseController>(HtmlConstants.PhotosBeginnerLinkName, c => c.Index()))</li>
-                            }*@
-                        @*<li>@(Html.ActionLink<PhotocourseController>(HtmlConstants.PhotosBeginnerLinkName, c => c.Index()))</li>
-                        <li>@(Html.ActionLink<PhotocourseController>(HtmlConstants.PhotosAdvancedLinkName, c => c.Index()))</li>*@
-                    </ul>
-                </li>
-                <li>@(Html.ActionLink<HomeController>(HtmlConstants.AboutLinkName, c => c.About()))</li>
+                <li>@(Html.ActionLink<PhotocourseController>(HtmlConstants.PhotocoursesLinkName, c => c.Index()))</li>                                
                 <li>@(Html.ActionLink<HomeController>(HtmlConstants.ContactLinkName, c => c.Contact()))</li>
             </ul>
             @Html.Partial("_LoginPartial")

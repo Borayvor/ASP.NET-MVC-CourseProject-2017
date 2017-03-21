@@ -24,9 +24,17 @@
     position: relative; }
   body .photoArtSystem-home-content {
     margin-top: 20px; }
-  body #vegas-container {
-    width: 100%; }
-    body #vegas-container img {
-      width: 100%;
-      height: auto; }
+  body .home-window {
+    min-height: 650px;
+    position: relative;
+    overflow: hidden; }
+  @media (max-width: 1199px) {
+    body .home-window {
+      min-height: 550px; } }
+  @media (max-width: 991px) {
+    body .home-window {
+      min-height: 450px; } }
+  @media (max-width: 767px) {
+    body .home-window {
+      min-height: 350px; } }
 

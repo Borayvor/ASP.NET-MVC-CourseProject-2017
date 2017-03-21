@@ -45,8 +45,8 @@
             modelBuilder.Entity<ImageLink>().HasKey(m => m.Id);
 
             modelBuilder.Entity<PhotocourseGroup>()
-                .HasRequired(m => m.ImageLink)
-                .WithRequiredPrincipal(m => m.PhotocourseGroup);
+                .HasRequired(t => t.ImageLink)
+                .WithOptional(t => t.PhotocourseGroup);
 
             base.OnModelCreating(modelBuilder);
         }
