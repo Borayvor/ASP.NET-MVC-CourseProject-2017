@@ -105,7 +105,7 @@
                 return;
             }
 
-            var photocourseId = context.Photocourses.FirstOrDefault().Id;
+            var photocourseId1 = context.Photocourses.FirstOrDefault().Id;
 
             var imageLink1 = new Image()
             {
@@ -113,10 +113,12 @@
                 FileExtension = "jpg",
                 UrlPath = "https://dl.dropboxusercontent.com/1/view/zkg913bztl4zrla/Apps/EntertainmentSystem/91cee43d-0904-4b58-983a-565e09ccd433.jpg",
                 FileSize = FileSizeType.Width1200,
-                PhotocourseId = photocourseId
+                PhotocourseId = photocourseId1
             };
 
             context.ImageLinks.Add(imageLink1);
+
+            var photocourseId2 = context.Photocourses.FirstOrDefault(x => x.Id != photocourseId1).Id;
 
             var imageLink2 = new Image()
             {
@@ -124,7 +126,7 @@
                 FileExtension = "jpg",
                 UrlPath = "https://dl.dropboxusercontent.com/1/view/i1j0hpk6lpv2mjt/Apps/EntertainmentSystem/bb3f265e-6e89-4d66-9007-b0edeec2796e.jpg",
                 FileSize = FileSizeType.Width1200,
-                PhotocourseId = photocourseId
+                PhotocourseId = photocourseId2
             };
 
             context.ImageLinks.Add(imageLink2);

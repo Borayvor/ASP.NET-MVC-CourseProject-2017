@@ -8,7 +8,7 @@
         <article class="col-md-3 col-sm-4 col-xs-6">
             <a href="@(Url.Action<PhotocourseController>(c => c.Details(@photocourse.Id)))">
                 <div>                    
-                    <img src="@photocourse.MainImage" class="img-thumbnail img-responsive" />
+                    @*<img src="@photocourse.MainImage" class="img-thumbnail img-responsive" />*@
                     <div class="photoartsystem-card-text">                        
                         <h2 class="photoartsystem-card-title">@photocourse.Name</h2>
                         <div class="photoartsystem-card-description">
