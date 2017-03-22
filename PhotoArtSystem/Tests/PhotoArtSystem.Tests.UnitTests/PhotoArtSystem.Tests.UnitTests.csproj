@@ -102,11 +102,8 @@
     <Compile Include="Controllers\Global\HomeControllerTest.cs" />
     <Compile Include="Data\DbModels\BaseModelGuidTests.cs" />
     <Compile Include="Data\DbModels\BaseModelIntClassTests.cs" />
-    <Compile Include="Data\DbModels\ImageLinkTests.cs" />
-    <Compile Include="Data\DbModels\LessonTests.cs" />
+    <Compile Include="Data\DbModels\FileInfoTests.cs" />
     <Compile Include="Data\DbModels\OriginalImageTests.cs" />
-    <Compile Include="Data\DbModels\PhotoArtServiceTests.cs" />
-    <Compile Include="Data\DbModels\PhotocourseGroupTests.cs" />
     <Compile Include="Data\DbModels\PhotocourseTests.cs" />
     <Compile Include="Data\EfDbContextsTests\Constructor_Should.cs" />
     <Compile Include="Data\EfDbContextsTests\Save_Should.cs" />
@@ -116,12 +113,6 @@
     <Compile Include="Mocks\MockedHttpRequest.cs" />
     <Compile Include="Mocks\MockedHttpResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\PhotoArtServiceServiceTests\Constructor_Should.cs" />
-    <Compile Include="Services\PhotoArtServiceServiceTests\Create_Should.cs" />
-    <Compile Include="Services\PhotoArtServiceServiceTests\Delete_Should.cs" />
-    <Compile Include="Services\PhotoArtServiceServiceTests\GetAll_Should.cs" />
-    <Compile Include="Services\PhotoArtServiceServiceTests\GetById_Should.cs" />
-    <Compile Include="Services\PhotoArtServiceServiceTests\Update_Should.cs" />
     <Compile Include="Services\PhotocourseTests\Constructor_Should.cs" />
     <Compile Include="Services\PhotocourseTests\Create_Should.cs" />
     <Compile Include="Services\PhotocourseTests\Delete_Should.cs" />
@@ -162,10 +153,6 @@
     <ProjectReference Include="..\..\Services\PhotoArtSystem.Services.Common\PhotoArtSystem.Services.Common.csproj">
       <Project>{f70892f7-da64-4acc-87e5-92287e7e7d6b}</Project>
       <Name>PhotoArtSystem.Services.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Services\PhotoArtSystem.Services.PhotoArtServices\PhotoArtSystem.Services.PhotoArtServices.csproj">
-      <Project>{63d16cf9-1bb3-4019-8102-1dfab0220364}</Project>
-      <Name>PhotoArtSystem.Services.PhotoArtServices</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Services\PhotoArtSystem.Services.Photocourses\PhotoArtSystem.Services.Photocourses.csproj">
       <Project>{e80fe51d-f481-48db-8f4c-2b6fd99f64b4}</Project>

@@ -12,20 +12,15 @@
         {
             // Arrange
             Fixture fixture = new Fixture();
-            var expectedFileName = fixture.Create<string>();
-            var expectedContentType = fixture.Create<string>();
+
             var expectedContent = fixture.Create<byte[]>();
 
             var originalImage = new OriginalImage
             {
-                FileName = expectedFileName,
-                ContentType = expectedContentType,
                 Content = expectedContent
             };
 
             // Act & Assert
-            Assert.AreEqual(expectedFileName, originalImage.FileName);
-            Assert.AreEqual(expectedContentType, originalImage.ContentType);
             Assert.AreEqual(expectedContent, originalImage.Content);
         }
     }

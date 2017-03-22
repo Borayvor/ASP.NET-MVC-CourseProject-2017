@@ -245,7 +245,6 @@
     <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\PaginationViewModel.cs" />
-    <Compile Include="ViewModels\PhotoArtServiceModels\PhotoArtServiceHomeViewModel.cs" />
     <Compile Include="ViewModels\PhotocourseModels\PhotocourseDetailsViewModel.cs" />
     <Compile Include="ViewModels\PhotocourseModels\PhotocourseViewModel.cs" />
     <Compile Include="ViewModels\UserModels\UserHomePageViewModel.cs" />
@@ -363,7 +362,6 @@
     <Content Include="Views\E\E404.cshtml" />
     <Content Include="Views\E\E500.cshtml" />
     <Content Include="Views\Shared\_FooterPartial.cshtml" />
-    <Content Include="Views\Home\_PhotoArtServicesPartial.cshtml" />
     <Content Include="Scripts\Vegas\vegas.min.js.map" />
     <Content Include="Views\Photocourse\Index.cshtml" />
     <Content Include="Views\Photocourse\_PhotocoursePartial.cshtml" />
@@ -408,10 +406,6 @@
     <ProjectReference Include="..\..\Services\PhotoArtSystem.Services.Common\PhotoArtSystem.Services.Common.csproj">
       <Project>{f70892f7-da64-4acc-87e5-92287e7e7d6b}</Project>
       <Name>PhotoArtSystem.Services.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Services\PhotoArtSystem.Services.PhotoArtServices\PhotoArtSystem.Services.PhotoArtServices.csproj">
-      <Project>{63d16cf9-1bb3-4019-8102-1dfab0220364}</Project>
-      <Name>PhotoArtSystem.Services.PhotoArtServices</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Services\PhotoArtSystem.Services.Photocourses\PhotoArtSystem.Services.Photocourses.csproj">
       <Project>{e80fe51d-f481-48db-8f4c-2b6fd99f64b4}</Project>

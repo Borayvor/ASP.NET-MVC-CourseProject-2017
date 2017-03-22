@@ -71,7 +71,8 @@
             var photocourseService = new PhotoArtService()
             {
                 Name = "Photo courses",
-                Description = "Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel. \n\rTincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel."
+                Description = "Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel. \n\rTincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.",
+                Image = "https://www.dropbox.com/s/cn1kfrh5q9ddikt/cover14.jpg?dl=0"
             };
 
             context.PhotoArtServices.Add(photocourseService);
@@ -79,7 +80,8 @@
             var teambuildingService = new PhotoArtService()
             {
                 Name = "Team building",
-                Description = "Vehicula ut laoreet ac, tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel."
+                Description = "Vehicula ut laoreet ac, tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.",
+                Image = "https://www.dropbox.com/s/17m1quk772bxj49/Photo_Kurs_Plovdiv.png?dl=0"
             };
 
             context.PhotoArtServices.Add(teambuildingService);
@@ -126,7 +128,7 @@
 
             var photocourseId = context.Photocourses.FirstOrDefault().Id;
 
-            var imageLink1 = new ImageLink()
+            var imageLink1 = new Image()
             {
                 FileName = "World-of-Warcraft-Legion-Cinematic-Trailer-3.jpg",
                 Content = "https://dl.dropboxusercontent.com/1/view/zkg913bztl4zrla/Apps/EntertainmentSystem/91cee43d-0904-4b58-983a-565e09ccd433.jpg",
@@ -136,7 +138,7 @@
 
             context.ImageLinks.Add(imageLink1);
 
-            var imageLink2 = new ImageLink()
+            var imageLink2 = new Image()
             {
                 FileName = "Warcraft-Movie-Mobile-Wallpapers-1200x675.jpg",
                 Content = "https://dl.dropboxusercontent.com/1/view/i1j0hpk6lpv2mjt/Apps/EntertainmentSystem/bb3f265e-6e89-4d66-9007-b0edeec2796e.jpg",

@@ -11,8 +11,8 @@
         public string Email { get; set; }
 
         [Required]
-        [MaxLength(ModelConstants.ApplicationUserFirstNameMaxLength)]
-        [MinLength(ModelConstants.ApplicationUserFirstNameMinLength)]
+        [MaxLength(ModelConstants.ApplicationUserNamesMaxLength)]
+        [MinLength(ModelConstants.ApplicationUserNamesMinLength)]
         public string FirstName { get; set; }
 
         [Required]

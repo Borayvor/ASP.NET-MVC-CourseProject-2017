@@ -1,10 +1,8 @@
 ﻿namespace PhotoArtSystem.Tests.UnitTests.Data.DbModels
 {
     using System.Collections.Generic;
-    using Moq;
     using NUnit.Framework;
     using PhotoArtSystem.Data.Models;
-    using PhotoArtSystem.Data.Models.PhotocourseModels;
     using Ploeh.AutoFixture;
 
     [TestFixture]
@@ -19,27 +17,21 @@
             var expectedDescription = fixture.Create<string>();
             var expectedOtherInfo = fixture.Create<string>();
             var expectedPhotoArtServiceId = fixture.Create<int>();
-            var mockedPhotoArtService = new Mock<PhotoArtService>();
-            var expectedPhotoArtService = mockedPhotoArtService.Object;
 
+            // TODO: change tests
             var photocourse = new Photocourse
             {
                 Name = expectedName,
                 Description = expectedDescription,
-                OtherInfo = expectedOtherInfo,
-                PhotoArtServiceId = expectedPhotoArtServiceId,
-                PhotoArtService = expectedPhotoArtService
+                OtherInfo = expectedOtherInfo
             };
 
             // Act & Assert
             Assert.AreEqual(expectedName, photocourse.Name);
             Assert.AreEqual(expectedDescription, photocourse.Description);
             Assert.AreEqual(expectedOtherInfo, photocourse.OtherInfo);
-            Assert.AreEqual(expectedPhotoArtServiceId, photocourse.PhotoArtServiceId);
-            Assert.AreEqual(expectedPhotoArtService, photocourse.PhotoArtService);
-            Assert.IsInstanceOf<HashSet<Lesson>>(photocourse.Lessons);
-            Assert.IsInstanceOf<HashSet<ImageLink>>(photocourse.Images);
-            Assert.IsInstanceOf<HashSet<PhotocourseGroup>>(photocourse.Groups);
+            Assert.IsInstanceOf<HashSet<Image>>(photocourse.Images);
+            Assert.IsInstanceOf<HashSet<Student>>(photocourse.Groups);
         }
     }
 }

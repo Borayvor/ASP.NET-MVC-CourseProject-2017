@@ -4,12 +4,13 @@
     ViewBag.Title = "Home Page";
 }
 
-@(Html.Action<HomeController>(c => c.GetPhotoArtServices()))
+
 
 @section scripts{
     @Scripts.Render("~/bundles/vegas")
-    <script>
-        (function () {
+    @*<script>
+        (function () {            
+
             $("body").vegas({
                 preload: true,
                 delay: 7000,
@@ -21,5 +22,5 @@
                 overlay: true
             });
         }())
-    </script>
+    </script>*@
 }

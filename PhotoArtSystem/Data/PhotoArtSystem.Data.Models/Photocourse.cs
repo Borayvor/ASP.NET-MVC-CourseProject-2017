@@ -1,4 +1,4 @@
-﻿namespace PhotoArtSystem.Data.Models.PhotocourseModels
+﻿namespace PhotoArtSystem.Data.Models
 {
     using System;
     using System.Collections.Generic;
@@ -8,21 +8,24 @@
 
     public class Photocourse : BaseModelGuid, IBaseModel<Guid>, IAuditInfo, IDeletableEntity
     {
-        private ICollection<Lesson> lessons;
-        private ICollection<ImageLink> images;
-        private ICollection<PhotocourseGroup> groups;
+        private ICollection<Image> images;
+        private ICollection<Student> groups;
 
         public Photocourse()
         {
-            this.lessons = new HashSet<Lesson>();
-            this.images = new HashSet<ImageLink>();
-            this.groups = new HashSet<PhotocourseGroup>();
+            this.images = new HashSet<Image>();
+            this.groups = new HashSet<Student>();
         }
 
         [Required]
         [MaxLength(ModelConstants.PhotocourseNameMaxLength)]
         [MinLength(ModelConstants.PhotocourseNameMinLength)]
         public string Name { get; set; }
+
+        [Required]
+        [MaxLength(ModelConstants.PhotocourseDescriptionShortMaxLength)]
+        [MinLength(ModelConstants.PhotocourseDescriptionShortMinLength)]
+        public string DescriptionShort { get; set; }
 
         [Required]
         [MaxLength(ModelConstants.PhotocourseDescriptionMaxLength)]
@@ -32,23 +35,24 @@
         [MaxLength(ModelConstants.PhotocourseOtherInfoMaxLength)]
         public string OtherInfo { get; set; }
 
-        public int PhotoArtServiceId { get; set; }
+        public ushort DurationHours { get; set; }
 
-        public virtual PhotoArtService PhotoArtService { get; set; }
+        public DateTime StartDate { get; set; }
 
-        public virtual ICollection<Lesson> Lessons
-        {
-            get { return this.lessons; }
-            set { this.lessons = value; }
-        }
+        public DateTime EndDate { get; set; }
 
-        public virtual ICollection<ImageLink> Images
+        public string Teacher { get; set; }
+
+        [Range(1, 50)]
+        public int MaxStudents { get; set; }
+
+        public virtual ICollection<Image> Images
         {
             get { return this.images; }
             set { this.images = value; }
         }
 
-        public virtual ICollection<PhotocourseGroup> Groups
+        public virtual ICollection<Student> Groups
         {
             get { return this.groups; }
             set { this.groups = value; }
