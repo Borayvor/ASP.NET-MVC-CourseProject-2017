@@ -21,12 +21,12 @@
 
         public bool IsTeacher { get; set; }
 
-        [MaxLength(ModelConstants.ApplicationUserFirstNameMaxLength)]
-        [MinLength(ModelConstants.ApplicationUserFirstNameMinLength)]
+        [MaxLength(ModelConstants.ApplicationUserNamesMaxLength)]
+        [MinLength(ModelConstants.ApplicationUserNamesMinLength)]
         public string FirstName { get; set; }
 
-        [MaxLength(ModelConstants.ApplicationUserLastNameMaxLength)]
-        [MinLength(ModelConstants.ApplicationUserLastNameMinLength)]
+        [MaxLength(ModelConstants.ApplicationUserNamesMaxLength)]
+        [MinLength(ModelConstants.ApplicationUserNamesMinLength)]
         public string LastName { get; set; }
 
         public DateTime CreatedOn { get; set; }

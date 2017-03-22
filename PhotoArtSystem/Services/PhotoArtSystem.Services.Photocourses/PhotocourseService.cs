@@ -7,15 +7,15 @@
     using Contracts;
     using Data.Common.EfDbContexts;
     using Data.Common.Repositories;
-    using Data.Models.PhotocourseModels;
+    using Data.Models;
     using PhotoArtSystem.Common.Constants;
 
     public class PhotocourseService : IPhotocourseService
     {
-        private readonly IEfDbRepository<Photocourse> photocourses;
-        private readonly IEfDbContext context;
+        private readonly IPhotoArtSystemEfDbRepository<Photocourse> photocourses;
+        private readonly IEfDbContextSaveChanges context;
 
-        public PhotocourseService(IEfDbContext context, IEfDbRepository<Photocourse> photocourses)
+        public PhotocourseService(IEfDbContextSaveChanges context, IPhotoArtSystemEfDbRepository<Photocourse> photocourses)
         {
             Guard.WhenArgument(
                 context,

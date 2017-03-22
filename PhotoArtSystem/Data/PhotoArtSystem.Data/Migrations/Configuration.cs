@@ -16,7 +16,8 @@
             StaticDataSeeder.SeedRoles(context);
             StaticDataSeeder.SeedUsers(context);
 
-            StaticDataSeeder.SeedPhotoArtServices(context);
+            StaticDataSeeder.SeedPhotocourses(context);
+            StaticDataSeeder.SeedImages(context);
         }
     }
 }

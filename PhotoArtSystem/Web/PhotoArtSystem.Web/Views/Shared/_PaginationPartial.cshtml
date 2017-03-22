@@ -1,0 +1,31 @@
+﻿@using PhotoArtSystem.Web.ViewModels
+@model PaginationViewModel
+
+<ul class="pagination">
+    @if (Model.Pager.CurrentPage > 1)
+    {
+        <li>
+            <a href="@(Model.Url)">First</a>
+        </li>
+        <li>
+            <a href="@(Model.Url + (Model.Pager.CurrentPage - 1))">Previous</a>
+        </li>
+    }
+
+    @for (var page = Model.Pager.StartPage; page <= Model.Pager.EndPage; page++)
+    {
+        <li class="@(page == Model.Pager.CurrentPage ? "active" : string.Empty)">
+            <a href="@(Model.Url + page)">@page</a>
+        </li>
+    }
+
+    @if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
+    {
+        <li>
+            <a href="@(Model.Url + (Model.Pager.CurrentPage + 1))">Next</a>
+        </li>
+        <li>
+            <a href="@(Model.Url + (Model.Pager.TotalPages))">Last</a>
+        </li>
+    }
+</ul>

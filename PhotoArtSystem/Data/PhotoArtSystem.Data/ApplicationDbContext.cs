@@ -6,7 +6,6 @@
     using Common.Models;
     using Microsoft.AspNet.Identity.EntityFramework;
     using Models;
-    using Models.PhotocourseModels;
     using PhotoArtSystem.Common.DateTime;
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IApplicationDbContext
@@ -16,17 +15,13 @@
         {
         }
 
-        public IDbSet<PhotoArtService> PhotoArtServices { get; set; }
-
-        public IDbSet<Lesson> Lessons { get; set; }
-
-        public IDbSet<OriginalImage> OriginalImages { get; set; }
-
-        public IDbSet<PhotocourseGroup> PhotocourseGroups { get; set; }
-
         public IDbSet<Photocourse> Photocourses { get; set; }
 
-        public IDbSet<ImageLink> ImageLinks { get; set; }
+        public IDbSet<Student> PhotocourseGroups { get; set; }
+
+        public IDbSet<Image> ImageLinks { get; set; }
+
+        public IDbSet<OriginalImage> OriginalImages { get; set; }
 
         public static ApplicationDbContext Create()
         {
@@ -38,17 +33,6 @@
             this.ApplyAuditInfoRules();
 
             return base.SaveChanges();
-        }
-
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<ImageLink>().HasKey(m => m.Id);
-
-            modelBuilder.Entity<PhotocourseGroup>()
-                .HasRequired(m => m.ImageLink)
-                .WithRequiredPrincipal(m => m.PhotocourseGroup);
-
-            base.OnModelCreating(modelBuilder);
         }
 
         private void ApplyAuditInfoRules()

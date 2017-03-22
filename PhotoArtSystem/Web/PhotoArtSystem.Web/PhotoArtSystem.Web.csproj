@@ -213,11 +213,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\ViewEnginesConfig.cs" />
+    <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Controllers\Account\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\EController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Manage\ManageController.cs" />
+    <Compile Include="Controllers\PhotocourseController.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -231,7 +233,9 @@
     <Compile Include="ViewModels\Account\ResetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Account\SendCodeViewModel.cs" />
     <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
-    <Compile Include="ViewModels\BaseViewModel{T}.cs" />
+    <Compile Include="ViewModels\BaseCreatedOnViewModel{T}.cs" />
+    <Compile Include="ViewModels\BaseDbKeyViewModel{T}.cs" />
+    <Compile Include="ViewModels\BaseInfoViewModel{T}.cs" />
     <Compile Include="ViewModels\Manage\AddPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\Manage\ChangePasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\ConfigureTwoFactorViewModel.cs" />
@@ -240,8 +244,9 @@
     <Compile Include="ViewModels\Manage\ManageLoginsViewModel.cs" />
     <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
-    <Compile Include="ViewModels\PhotoArtServiceModels\PhotoArtServiceHomeViewModel.cs" />
-    <Compile Include="ViewModels\PhotocourseModels\PhotocourseHomeViewModel.cs" />
+    <Compile Include="ViewModels\PaginationViewModel.cs" />
+    <Compile Include="ViewModels\PhotocourseModels\PhotocourseDetailsViewModel.cs" />
+    <Compile Include="ViewModels\PhotocourseModels\PhotocourseViewModel.cs" />
     <Compile Include="ViewModels\UserModels\UserHomePageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -279,6 +284,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\Site\site.scss" />
+    <Content Include="Areas\Administration\Views\web.config" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -330,7 +336,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\E\E400.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
@@ -357,11 +362,22 @@
     <Content Include="Views\E\E404.cshtml" />
     <Content Include="Views\E\E500.cshtml" />
     <Content Include="Views\Shared\_FooterPartial.cshtml" />
-    <Content Include="Views\Home\_PhotoArtServicesPartial.cshtml" />
     <Content Include="Scripts\Vegas\vegas.min.js.map" />
+    <Content Include="Views\Photocourse\Index.cshtml" />
+    <Content Include="Views\Photocourse\_PhotocoursePartial.cshtml" />
+    <Content Include="Views\Shared\_PaginationPartial.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\EmailAddress.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Password.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
+    <Content Include="Views\Photocourse\Details.cshtml" />
+    <Content Include="Views\Photocourse\_PhotocoursesAllPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Administration\Controllers\" />
+    <Folder Include="Areas\Administration\ViewModels\" />
+    <Folder Include="Areas\Administration\Views\Shared\" />
+    <Folder Include="Views\Shared\DisplayTemplates\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -390,10 +406,6 @@
     <ProjectReference Include="..\..\Services\PhotoArtSystem.Services.Common\PhotoArtSystem.Services.Common.csproj">
       <Project>{f70892f7-da64-4acc-87e5-92287e7e7d6b}</Project>
       <Name>PhotoArtSystem.Services.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Services\PhotoArtSystem.Services.PhotoArtServices\PhotoArtSystem.Services.PhotoArtServices.csproj">
-      <Project>{63d16cf9-1bb3-4019-8102-1dfab0220364}</Project>
-      <Name>PhotoArtSystem.Services.PhotoArtServices</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Services\PhotoArtSystem.Services.Photocourses\PhotoArtSystem.Services.Photocourses.csproj">
       <Project>{e80fe51d-f481-48db-8f4c-2b6fd99f64b4}</Project>

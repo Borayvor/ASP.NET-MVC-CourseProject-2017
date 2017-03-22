@@ -1,4 +1,5 @@
 ﻿@using PhotoArtSystem.Web.Controllers
+
 <div class="navbar navbar-inverse navbar-fixed-top photoartsystem-navigation">
     <div class="container">
         <div class="navbar-header">
@@ -16,7 +17,7 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li>@(Html.ActionLink<HomeController>(HtmlConstants.HomeLinkName, c => c.Index()))</li>
-                <li>@(Html.ActionLink<HomeController>(HtmlConstants.AboutLinkName, c => c.About()))</li>
+                <li>@(Html.ActionLink<PhotocourseController>(HtmlConstants.PhotocoursesLinkName, c => c.Index()))</li>                                
                 <li>@(Html.ActionLink<HomeController>(HtmlConstants.ContactLinkName, c => c.Contact()))</li>
             </ul>
             @Html.Partial("_LoginPartial")

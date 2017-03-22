@@ -1,7 +1,7 @@
 ﻿body {
   padding-top: 50px;
   background-color: floralwhite; }
-  body .left-right-padding-15 {
+  body .photoartsystem-padding-sides-15 {
     padding-left: 15px;
     padding-right: 15px; }
   body .photoartsystem-navigation {
@@ -10,6 +10,10 @@
       padding: 0;
       padding-left: 15px;
       padding-right: 15px; }
+    body .photoartsystem-navigation .open > a {
+      background-color: #c4c8c8 !important; }
+    body .photoartsystem-navigation .dropdown-menu {
+      background-color: #e7e9e9 !important; }
     body .photoartsystem-navigation a {
       color: black !important;
       text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.75), 0 0 1em white, 0 0 0.7em white; }
@@ -20,9 +24,17 @@
     position: relative; }
   body .photoArtSystem-home-content {
     margin-top: 20px; }
-  body #vegas-container {
-    width: 100%; }
-    body #vegas-container img {
-      width: 100%;
-      height: auto; }
+  body .home-window {
+    min-height: 650px;
+    position: relative;
+    overflow: hidden; }
+  @media (max-width: 1199px) {
+    body .home-window {
+      min-height: 550px; } }
+  @media (max-width: 991px) {
+    body .home-window {
+      min-height: 450px; } }
+  @media (max-width: 767px) {
+    body .home-window {
+      min-height: 350px; } }
 

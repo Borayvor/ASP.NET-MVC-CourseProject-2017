@@ -1,15 +1,9 @@
 ﻿namespace PhotoArtSystem.Web.Controllers
 {
     using System.Web.Mvc;
-    using Services.Web.Contracts;
 
-    public class EController : BaseController
+    public class EController : Controller
     {
-        public EController(IAutoMapperService mapper, ICacheService cache)
-            : base(mapper, cache)
-        {
-        }
-
         public ActionResult E500(string aspxerrorpath)
         {
             this.Response.StatusCode = 500;

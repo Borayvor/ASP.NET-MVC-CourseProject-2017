@@ -4,8 +4,17 @@
     {
         public const string StringEmpty = "";
 
-        public const int PhotoArtServicesPartialCacheDuration = 60 * 60 * 24; // sec * min * hours
+        // Cache duration
+        public const int PhotoArtServicesPartialCacheDuration = 0; //// * 60 * 24; // sec * min * hours
+        public const int PhotocoursePartialCacheDuration = 0; //// * 60 * 24; // sec * min * hours
+        public const int PhotocoursesAllPartialCacheDuration = 0; //// * 60 * 24; // sec * min * hours
 
+        // Cache item names
+        public const string PhotoArtServicesCacheName = "PhotoArtServices";
+        public const string PhotocoursesAllCacheName = "PhotocoursesAll";
+        public const string PhotocourseCacheName = "Photocourse_";
+
+        // Exception messages
         public const string DbContextRequiredExceptionMessage = "An instance of DbContext is required !";
         public const string EfDbContextRequiredExceptionMessage = "An instance of EfDbContext is required !";
 

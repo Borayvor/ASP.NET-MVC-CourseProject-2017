@@ -4,22 +4,5 @@
     ViewBag.Title = "Home Page";
 }
 
-@(Html.Action<HomeController>(c => c.GetPhotoArtServices(), new { area = string.Empty }))
 
-@section scripts{
-    @Scripts.Render("~/bundles/vegas")
-    <script>
-        (function () {
-            $("#vegas-container").vegas({
-                preload: true,
-                delay: 7000,
-                transitionDuration: 3500,
-                slides: [
-                    { src: '@ViewBag.Slide1' },
-                    { src: '@ViewBag.Slide2' }
-                ],
-                overlay: true
-            });
-        }())        
-    </script>
-}
+

@@ -3,7 +3,6 @@
     using System.Web.Mvc;
     using Moq;
     using NUnit.Framework;
-    using PhotoArtSystem.Services.PhotoArtServices.Contracts;
     using PhotoArtSystem.Services.Web.Contracts;
     using Web.Controllers;
 
@@ -14,12 +13,10 @@
         public void Index_ViewResult_Should_NotBeNull_WhenControllerArgumentsAreNotNull()
         {
             // Arrange
-            var mockedPhotocourseService = new Mock<IPhotoArtServiceService>();
             var mockedAutoMapperService = new Mock<IAutoMapperService>();
             var mockedHttpCacheService = new Mock<ICacheService>();
 
             HomeController controller = new HomeController(
-                mockedPhotocourseService.Object,
                 mockedAutoMapperService.Object,
                 mockedHttpCacheService.Object);
 
@@ -31,35 +28,13 @@
         }
 
         [Test]
-        public void About_ViewResult_Should_NotBeNull_WhenControllerArgumentsAreNotNull()
-        {
-            // Arrange
-            var mockedPhotocourseService = new Mock<IPhotoArtServiceService>();
-            var mockedAutoMapperService = new Mock<IAutoMapperService>();
-            var mockedHttpCacheService = new Mock<ICacheService>();
-
-            HomeController controller = new HomeController(
-                mockedPhotocourseService.Object,
-                mockedAutoMapperService.Object,
-                mockedHttpCacheService.Object);
-
-            // Act
-            ViewResult result = controller.About() as ViewResult;
-
-            // Assert
-            Assert.IsNotNull(result);
-        }
-
-        [Test]
         public void Contact_ViewResult_Should_NotBeNull_WhenControllerArgumentsAreNotNull()
         {
             // Arrange
-            var mockedPhotocourseService = new Mock<IPhotoArtServiceService>();
             var mockedAutoMapperService = new Mock<IAutoMapperService>();
             var mockedHttpCacheService = new Mock<ICacheService>();
 
             HomeController controller = new HomeController(
-                mockedPhotocourseService.Object,
                 mockedAutoMapperService.Object,
                 mockedHttpCacheService.Object);
 

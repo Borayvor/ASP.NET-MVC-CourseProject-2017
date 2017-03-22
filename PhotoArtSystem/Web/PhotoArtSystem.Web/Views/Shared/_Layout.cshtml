@@ -10,8 +10,10 @@
 </head>
 <body>
     @Html.Partial("_NavigationPartial")
-    @RenderBody()
-    @Html.Partial("_FooterPartial")
+    <div class="photoartsystem-padding-sides-15">
+        @RenderBody()
+        @Html.Partial("_FooterPartial")
+    </div>       
 
     @* -- Scripts -- *@
     @Scripts.Render("~/bundles/jquery")

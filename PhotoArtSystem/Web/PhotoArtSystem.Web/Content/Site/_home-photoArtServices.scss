@@ -4,11 +4,26 @@
     margin-top: 20px;
 }
 
-#vegas-container {
-    width: 100%;
+.home-window {    
+    min-height: 650px;
+    position: relative;
+    overflow: hidden;
+}
 
-    img{
-        width: 100%;
-        height: auto;
+@media (max-width: 1199px) {
+    .home-window {
+        min-height: 550px;
+    }
+}
+
+@media (max-width: 991px) {
+    .home-window {
+        min-height: 450px;
+    }
+}
+
+@media (max-width: 767px) {
+    .home-window {
+        min-height: 350px;
     }
 }

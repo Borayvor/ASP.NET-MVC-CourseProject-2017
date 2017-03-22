@@ -10,7 +10,6 @@
     using Data.Common.EfDbContexts;
     using Data.Common.Repositories;
     using Services.ApplicationUser;
-    using Services.PhotoArtServices;
     using Services.Photocourses;
     using Services.Web;
     using Services.Web.Contracts;
@@ -52,8 +51,8 @@
                 .As<DbContext>()
                 .InstancePerRequest();
 
-            builder.RegisterGeneric(typeof(EfDbRepository<>))
-                .As(typeof(IEfDbRepository<>))
+            builder.RegisterGeneric(typeof(PhotoArtSystemEfDbRepository<>))
+                .As(typeof(IPhotoArtSystemEfDbRepository<>))
                 .InstancePerRequest();
 
             builder.Register(x => new HttpCacheService())
@@ -63,14 +62,11 @@
             builder.Register(x => new AutoMapperService())
                 .As<IAutoMapperService>();
 
-            var entityFrameworkDbContextAssembly = Assembly.GetAssembly(typeof(EfDbContext));
+            var entityFrameworkDbContextAssembly = Assembly.GetAssembly(typeof(EfDbContextSaveChanges));
             builder.RegisterAssemblyTypes(entityFrameworkDbContextAssembly).AsImplementedInterfaces();
 
             var userServicesAssembly = Assembly.GetAssembly(typeof(ApplicationUserProfileService));
             builder.RegisterAssemblyTypes(userServicesAssembly).AsImplementedInterfaces();
-
-            var photoArtServiceServiceAssembly = Assembly.GetAssembly(typeof(PhotoArtServiceService));
-            builder.RegisterAssemblyTypes(photoArtServiceServiceAssembly).AsImplementedInterfaces();
 
             var photocourseServiceAssembly = Assembly.GetAssembly(typeof(PhotocourseService));
             builder.RegisterAssemblyTypes(photocourseServiceAssembly).AsImplementedInterfaces();
