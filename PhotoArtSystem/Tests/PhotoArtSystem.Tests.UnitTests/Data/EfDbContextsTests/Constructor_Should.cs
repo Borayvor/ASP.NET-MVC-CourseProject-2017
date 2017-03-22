@@ -12,7 +12,7 @@
         {
             // Arange, Act & Assert
             Assert.That(
-                () => new EfDbContext(null),
+                () => new EfDbContextSaveChanges(null),
                             Throws.ArgumentNullException.With.Message.Contains(
                                 GlobalConstants.DbContextRequiredExceptionMessage));
         }

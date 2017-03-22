@@ -15,7 +15,7 @@
             var mockedDbContext = new Mock<DbContext>();
             mockedDbContext.Setup(x => x.SaveChanges()).Verifiable();
 
-            var context = new EfDbContext(mockedDbContext.Object);
+            var context = new EfDbContextSaveChanges(mockedDbContext.Object);
 
             // Act
             context.Save();

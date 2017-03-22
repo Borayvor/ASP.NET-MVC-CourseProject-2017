@@ -5,7 +5,7 @@
     using NUnit.Framework;
     using PhotoArtSystem.Data.Common.EfDbContexts;
     using PhotoArtSystem.Data.Common.Repositories;
-    using PhotoArtSystem.Data.Models.PhotocourseModels;
+    using PhotoArtSystem.Data.Models;
     using PhotoArtSystem.Services.Photocourses;
 
     [TestFixture]
@@ -15,7 +15,7 @@
         public void Throw_ArgumentNullException_WithProperMessage_When_EfDbContext_IsNull()
         {
             // Arange
-            var mockedIEfDbRepository = new Mock<IEfDbRepository<Photocourse>>();
+            var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<Photocourse>>();
 
             // Act & Assert
             Assert.That(
@@ -28,7 +28,7 @@
         public void Throw_ArgumentNullException_WithProperMessage_When_EfDbRepositoryOfPhotocourse_IsNull()
         {
             // Arange
-            var mockedEfDbContext = new Mock<IEfDbContext>();
+            var mockedEfDbContext = new Mock<IEfDbContextSaveChanges>();
 
             // Act & Assert
             Assert.That(
@@ -41,8 +41,8 @@
         public void NotThrow_WhenArguments_AreValid()
         {
             // Arange
-            var mockedEfDbContext = new Mock<IEfDbContext>();
-            var mockedIEfDbRepository = new Mock<IEfDbRepository<Photocourse>>();
+            var mockedEfDbContext = new Mock<IEfDbContextSaveChanges>();
+            var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<Photocourse>>();
 
             // Act & Assert
             Assert.DoesNotThrow(() => new PhotocourseService(mockedEfDbContext.Object, mockedIEfDbRepository.Object));

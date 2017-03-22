@@ -5,7 +5,7 @@
     using NUnit.Framework;
     using PhotoArtSystem.Data.Common.EfDbContexts;
     using PhotoArtSystem.Data.Common.Repositories;
-    using PhotoArtSystem.Data.Models.PhotocourseModels;
+    using PhotoArtSystem.Data.Models;
     using PhotoArtSystem.Services.Photocourses;
     using Ploeh.AutoFixture;
 
@@ -18,8 +18,8 @@
             // Arange
             Fixture fixture = new Fixture();
             var id = fixture.Create<Guid>();
-            var mockedEfDbContext = new Mock<IEfDbContext>();
-            var mockedIEfDbRepository = new Mock<IEfDbRepository<Photocourse>>();
+            var mockedEfDbContext = new Mock<IEfDbContextSaveChanges>();
+            var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<Photocourse>>();
 
             var service = new PhotocourseService(mockedEfDbContext.Object, mockedIEfDbRepository.Object);
 
@@ -37,8 +37,8 @@
             Fixture fixture = new Fixture();
             var id = fixture.Create<Guid>();
             var mockedModel = new Photocourse();
-            var mockedEfDbContext = new Mock<IEfDbContext>();
-            var mockedIEfDbRepository = new Mock<IEfDbRepository<Photocourse>>();
+            var mockedEfDbContext = new Mock<IEfDbContextSaveChanges>();
+            var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<Photocourse>>();
             mockedIEfDbRepository.Setup(x => x.GetById(id)).Returns(mockedModel);
 
             var service = new PhotocourseService(mockedEfDbContext.Object, mockedIEfDbRepository.Object);

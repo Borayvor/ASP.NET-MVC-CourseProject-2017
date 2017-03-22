@@ -15,7 +15,7 @@
         {
             // Arange, Act & Assert
             Assert.That(
-                () => new EfDbRepository<DummyGuidClass>(null),
+                () => new PhotoArtSystemEfDbRepository<DummyGuidClass>(null),
                             Throws.ArgumentNullException.With.Message.Contains(
                                 GlobalConstants.DbContextRequiredExceptionMessage));
         }
@@ -27,7 +27,7 @@
             var mockedDbContext = new Mock<DbContext>();
 
             // Act & Assert
-            Assert.DoesNotThrow(() => new EfDbRepository<DummyGuidClass>(mockedDbContext.Object));
+            Assert.DoesNotThrow(() => new PhotoArtSystemEfDbRepository<DummyGuidClass>(mockedDbContext.Object));
         }
     }
 }

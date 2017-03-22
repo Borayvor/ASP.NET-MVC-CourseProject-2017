@@ -2,7 +2,7 @@
 {
     using System;
     using Common.Contracts;
-    using Data.Models.PhotocourseModels;
+    using Data.Models;
 
     public interface IPhotocourseService : IBaseCreateService<Photocourse>,
         IBaseGetService<Photocourse, Guid>,

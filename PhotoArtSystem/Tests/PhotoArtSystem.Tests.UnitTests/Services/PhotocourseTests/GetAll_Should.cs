@@ -6,7 +6,7 @@
     using NUnit.Framework;
     using PhotoArtSystem.Data.Common.EfDbContexts;
     using PhotoArtSystem.Data.Common.Repositories;
-    using PhotoArtSystem.Data.Models.PhotocourseModels;
+    using PhotoArtSystem.Data.Models;
     using PhotoArtSystem.Services.Photocourses;
 
     [TestFixture]
@@ -16,8 +16,8 @@
         public void CallEfDbRepository_GetAll_MethodOnce()
         {
             // Arange
-            var mockedEfDbContext = new Mock<IEfDbContext>();
-            var mockedIEfDbRepository = new Mock<IEfDbRepository<Photocourse>>();
+            var mockedEfDbContext = new Mock<IEfDbContextSaveChanges>();
+            var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<Photocourse>>();
 
             var service = new PhotocourseService(mockedEfDbContext.Object, mockedIEfDbRepository.Object);
 
@@ -36,8 +36,8 @@
             {
                 new Photocourse()
             };
-            var mockedEfDbContext = new Mock<IEfDbContext>();
-            var mockedIEfDbRepository = new Mock<IEfDbRepository<Photocourse>>();
+            var mockedEfDbContext = new Mock<IEfDbContextSaveChanges>();
+            var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<Photocourse>>();
             mockedIEfDbRepository.Setup(x => x.GetAll()).Returns(expected.AsQueryable());
 
             var service = new PhotocourseService(mockedEfDbContext.Object, mockedIEfDbRepository.Object);

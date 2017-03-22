@@ -5,9 +5,9 @@
     using System.Threading.Tasks;
     using PhotoArtSystem.Common.Constants;
 
-    public class EfDbContext : IEfDbContext
+    public class EfDbContextSaveChanges : IEfDbContextSaveChanges
     {
-        public EfDbContext(DbContext context)
+        public EfDbContextSaveChanges(DbContext context)
         {
             if (context == null)
             {

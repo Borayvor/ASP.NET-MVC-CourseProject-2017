@@ -2,7 +2,7 @@
 {
     using System.Threading.Tasks;
 
-    public interface IEfDbContext
+    public interface IEfDbContextSaveChanges
     {
         void Save();
 

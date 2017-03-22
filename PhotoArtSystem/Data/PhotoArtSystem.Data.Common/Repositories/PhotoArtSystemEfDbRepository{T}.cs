@@ -7,10 +7,10 @@
     using PhotoArtSystem.Common.Constants;
     using PhotoArtSystem.Common.DateTime;
 
-    public class EfDbRepository<T> : IEfDbRepository<T>
+    public class PhotoArtSystemEfDbRepository<T> : IPhotoArtSystemEfDbRepository<T>
         where T : class, IAuditInfo, IDeletableEntity
     {
-        public EfDbRepository(DbContext context)
+        public PhotoArtSystemEfDbRepository(DbContext context)
         {
             Guard.WhenArgument(
                 context,
@@ -31,7 +31,7 @@
 
         public virtual IQueryable<T> GetAllWithDeleted()
         {
-            return this.DbSet;
+            return this.DbSet.AsQueryable();
         }
 
         public virtual T GetById(object id)
@@ -41,7 +41,16 @@
 
         public virtual void Create(T entity)
         {
-            this.DbSet.Add(entity);
+            var entry = this.Context.Entry(entity);
+
+            if (entry.State != EntityState.Detached)
+            {
+                entry.State = EntityState.Added;
+            }
+            else
+            {
+                this.DbSet.Add(entity);
+            }
         }
 
         public virtual void Update(T entity)
@@ -64,7 +73,17 @@
 
         public virtual void DeletePermanent(T entity)
         {
-            this.DbSet.Remove(entity);
+            var entry = this.Context.Entry(entity);
+
+            if (entry.State != EntityState.Deleted)
+            {
+                entry.State = EntityState.Deleted;
+            }
+            else
+            {
+                this.DbSet.Attach(entity);
+                this.DbSet.Remove(entity);
+            }
         }
     }
 }

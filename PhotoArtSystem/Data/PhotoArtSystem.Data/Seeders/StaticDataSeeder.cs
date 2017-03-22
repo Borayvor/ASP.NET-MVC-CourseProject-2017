@@ -5,7 +5,6 @@
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using Models;
-    using Models.PhotocourseModels;
     using PhotoArtSystem.Common.Constants;
     using PhotoArtSystem.Common.EnumTypes;
 
@@ -61,35 +60,6 @@
             context.SaveChanges();
         }
 
-        internal static void SeedPhotoArtServices(ApplicationDbContext context)
-        {
-            if (context.PhotoArtServices.Any())
-            {
-                return;
-            }
-
-            var photocourseService = new PhotoArtService()
-            {
-                Name = "Photo courses",
-                Description = "Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel. \n\rTincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.",
-                Image = "https://www.dropbox.com/s/cn1kfrh5q9ddikt/cover14.jpg?dl=0"
-            };
-
-            context.PhotoArtServices.Add(photocourseService);
-
-            var teambuildingService = new PhotoArtService()
-            {
-                Name = "Team building",
-                Description = "Vehicula ut laoreet ac, tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.",
-                Image = "https://www.dropbox.com/s/17m1quk772bxj49/Photo_Kurs_Plovdiv.png?dl=0"
-            };
-
-            context.PhotoArtServices.Add(teambuildingService);
-
-            //// End add.
-            context.SaveChanges();
-        }
-
         internal static void SeedPhotocourses(ApplicationDbContext context)
         {
             if (context.Photocourses.Any())
@@ -100,8 +70,7 @@
             var photocourses1 = new Photocourse()
             {
                 Name = "Photo courses 1",
-                Description = "Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel. \n\rTincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.",
-                PhotoArtServiceId = 1
+                Description = "Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel. \n\rTincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel."
             };
 
             context.Photocourses.Add(photocourses1);
@@ -109,8 +78,7 @@
             var photocourses2 = new Photocourse()
             {
                 Name = "Photo courses 2",
-                Description = "Vehicula ut laoreet ac, tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.",
-                PhotoArtServiceId = 1
+                Description = "Vehicula ut laoreet ac, tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel."
             };
 
             context.Photocourses.Add(photocourses2);
@@ -131,7 +99,6 @@
             var imageLink1 = new Image()
             {
                 FileName = "World-of-Warcraft-Legion-Cinematic-Trailer-3.jpg",
-                Content = "https://dl.dropboxusercontent.com/1/view/zkg913bztl4zrla/Apps/EntertainmentSystem/91cee43d-0904-4b58-983a-565e09ccd433.jpg",
                 FileSize = FileSizeType.Width1200,
                 PhotocourseId = photocourseId
             };
@@ -141,7 +108,6 @@
             var imageLink2 = new Image()
             {
                 FileName = "Warcraft-Movie-Mobile-Wallpapers-1200x675.jpg",
-                Content = "https://dl.dropboxusercontent.com/1/view/i1j0hpk6lpv2mjt/Apps/EntertainmentSystem/bb3f265e-6e89-4d66-9007-b0edeec2796e.jpg",
                 FileSize = FileSizeType.Width1200,
                 PhotocourseId = photocourseId
             };
