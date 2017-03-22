@@ -7,7 +7,7 @@
     using PhotoArtSystem.Common.Constants;
     using PhotoArtSystem.Common.EnumTypes;
 
-    public class FileInfo : BaseModelGuid, IBaseModel<Guid>, IAuditInfo, IDeletableEntity
+    public abstract class FileInfo : BaseModelGuid, IBaseModel<Guid>, IAuditInfo, IDeletableEntity
     {
         [Required]
         [Index]

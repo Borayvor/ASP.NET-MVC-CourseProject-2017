@@ -1,4 +1,4 @@
-﻿namespace PhotoArtSystem.Tests.UnitTests.Data.EfDbContextsTests
+﻿namespace PhotoArtSystem.Tests.UnitTests.Data.EfDbContextSaveChangesTests
 {
     using Common.Constants;
     using NUnit.Framework;

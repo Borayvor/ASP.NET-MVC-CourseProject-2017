@@ -41,6 +41,7 @@
 
         public DateTime EndDate { get; set; }
 
+        [MaxLength(ModelConstants.PhotocourseTeacherMaxLength)]
         public string Teacher { get; set; }
 
         [Range(1, 50)]

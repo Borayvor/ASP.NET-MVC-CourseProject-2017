@@ -17,7 +17,7 @@
             StaticDataSeeder.SeedUsers(context);
 
             StaticDataSeeder.SeedPhotocourses(context);
-            StaticDataSeeder.SeedImageLinks(context);
+            StaticDataSeeder.SeedImages(context);
         }
     }
 }

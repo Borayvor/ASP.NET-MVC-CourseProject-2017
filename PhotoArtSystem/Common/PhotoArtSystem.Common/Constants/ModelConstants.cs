@@ -9,6 +9,12 @@
         public const int ApplicationUserNamesMaxLength = 100;
         public const int ApplicationUserNamesMinLength = 2;
 
+        // MainInfo
+        public const int MainInfoTitleMaxLength = 200;
+        public const int MainInfoTitleMinLength = 2;
+        public const int MainInfoDescriptionMaxLength = 1000;
+        public const int MainInfoDescriptionMinLength = 2;
+
         // Photocourse
         public const int PhotocourseNameMaxLength = 100;
         public const int PhotocourseNameMinLength = 2;
@@ -17,6 +23,7 @@
         public const int PhotocourseDescriptionMaxLength = 2500;
         public const int PhotocourseDescriptionMinLength = 2;
         public const int PhotocourseOtherInfoMaxLength = 2000;
+        public const int PhotocourseTeacherMaxLength = 201;
 
         // FileInfo
         public const int FileInfoUrlPathMaxLength = 1000;
