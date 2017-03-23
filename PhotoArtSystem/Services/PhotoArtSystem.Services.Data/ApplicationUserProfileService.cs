@@ -2,29 +2,34 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using Common.Contracts;
+    using Common;
+    using Common.Models;
     using Contracts;
     using PhotoArtSystem.Data.Common.Repositories;
     using PhotoArtSystem.Data.Models;
+    using PhotoArtSystem.Web.Infrastructure.Mapping;
+    using Web.Contracts;
 
-    public class ApplicationUserProfileService : IApplicationUserProfileService,
-        IBaseGetService<ApplicationUser, string>
+    public class ApplicationUserProfileService : BaseService, IApplicationUserProfileService
     {
         private readonly IPhotoArtSystemEfDbRepository<ApplicationUser> users;
 
-        public ApplicationUserProfileService(IPhotoArtSystemEfDbRepository<ApplicationUser> users)
+        public ApplicationUserProfileService(IAutoMapperService mapper, IPhotoArtSystemEfDbRepository<ApplicationUser> users)
+             : base(mapper)
         {
             this.users = users;
         }
 
-        public IEnumerable<ApplicationUser> GetAll()
+        public IEnumerable<ApplicationUserModel> GetAll()
         {
-            return this.users.GetAll().OrderByDescending(x => x.CreatedOn).ToList();
+            return this.users.GetAll().OrderByDescending(x => x.CreatedOn).To<ApplicationUserModel>().ToList();
         }
 
-        public ApplicationUser GetById(string id)
+        public ApplicationUserModel GetById(string id)
         {
-            return this.users.GetById(id);
+            var user = this.users.GetById(id);
+
+            return this.Mapper.Map<ApplicationUserModel>(user);
         }
     }
 }

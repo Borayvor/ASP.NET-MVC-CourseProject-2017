@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=5.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AutoMapper.5.2.0\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,11 +45,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contracts\IBaseCreateService{T}.cs" />
-    <Compile Include="Contracts\IBaseDeleteService{T}.cs" />
-    <Compile Include="Contracts\IBaseGetService{T,I}.cs" />
-    <Compile Include="Contracts\IBaseUpdateService{T}.cs" />
+    <Compile Include="BaseService.cs" />
+    <Compile Include="Contracts\IBaseCreateService{T,M}.cs" />
+    <Compile Include="Contracts\IBaseDeleteService{T,M}.cs" />
+    <Compile Include="Contracts\IBaseGetService{T,I,M}.cs" />
+    <Compile Include="Contracts\IBaseUpdateService{T,M}.cs" />
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Models\ApplicationUserModel.cs" />
+    <Compile Include="Models\BaseModelModel{TKey}.cs" />
+    <Compile Include="Models\FileInfoModel.cs" />
+    <Compile Include="Models\ImageModel.cs" />
+    <Compile Include="Models\MainInfo.cs" />
+    <Compile Include="Models\PhotocourseModel.cs" />
+    <Compile Include="Models\StudentModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -59,6 +71,14 @@
     <ProjectReference Include="..\..\Data\PhotoArtSystem.Data.Models\PhotoArtSystem.Data.Models.csproj">
       <Project>{6a9e098f-b139-4d79-a0f0-e1307f916e13}</Project>
       <Name>PhotoArtSystem.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Web\PhotoArtSystem.Web.Infrastructure\PhotoArtSystem.Web.Infrastructure.csproj">
+      <Project>{906bcf66-f8e2-4437-9a19-068465ad1409}</Project>
+      <Name>PhotoArtSystem.Web.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PhotoArtSystem.Services.Web\PhotoArtSystem.Services.Web.csproj">
+      <Project>{102ebc87-8326-4c25-8f3a-84196d6ffb99}</Project>
+      <Name>PhotoArtSystem.Services.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

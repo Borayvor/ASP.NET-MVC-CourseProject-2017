@@ -4,18 +4,23 @@
     using System.Collections.Generic;
     using System.Linq;
     using Bytes2you.Validation;
+    using Common;
+    using Common.Models;
     using Contracts;
     using PhotoArtSystem.Common.Constants;
     using PhotoArtSystem.Data.Common.EfDbContexts;
     using PhotoArtSystem.Data.Common.Repositories;
     using PhotoArtSystem.Data.Models;
+    using PhotoArtSystem.Web.Infrastructure.Mapping;
+    using Web.Contracts;
 
-    public class PhotocourseService : IPhotocourseService
+    public class PhotocourseService : BaseService, IPhotocourseService
     {
         private readonly IPhotoArtSystemEfDbRepository<Photocourse> photocourses;
         private readonly IEfDbContextSaveChanges context;
 
-        public PhotocourseService(IEfDbContextSaveChanges context, IPhotoArtSystemEfDbRepository<Photocourse> photocourses)
+        public PhotocourseService(IAutoMapperService mapper, IEfDbContextSaveChanges context, IPhotoArtSystemEfDbRepository<Photocourse> photocourses)
+            : base(mapper)
         {
             Guard.WhenArgument(
                 context,
@@ -28,37 +33,45 @@
             this.context = context;
         }
 
-        public IEnumerable<Photocourse> GetAll()
+        public IEnumerable<PhotocourseModel> GetAll()
         {
-            return this.photocourses.GetAll().OrderByDescending(x => x.CreatedOn).ToList();
+            return this.photocourses.GetAll().OrderByDescending(x => x.CreatedOn).To<PhotocourseModel>().ToList();
         }
 
-        public Photocourse GetById(Guid id)
+        public PhotocourseModel GetById(Guid id)
         {
-            return this.photocourses.GetById(id);
+            var photocourse = this.photocourses.GetById(id);
+
+            return this.Mapper.Map<PhotocourseModel>(photocourse);
         }
 
-        public void Create(Photocourse entity)
+        public void Create(PhotocourseModel entity)
         {
             Guard.WhenArgument(entity, GlobalConstants.PhotocourseRequiredExceptionMessage).IsNull().Throw();
 
-            this.photocourses.Create(entity);
+            var photocourse = this.Mapper.Map<Photocourse>(entity);
+
+            this.photocourses.Create(photocourse);
             this.context.Save();
         }
 
-        public void Update(Photocourse entity)
+        public void Update(PhotocourseModel entity)
         {
             Guard.WhenArgument(entity, GlobalConstants.PhotocourseRequiredExceptionMessage).IsNull().Throw();
 
-            this.photocourses.Update(entity);
+            var photocourse = this.Mapper.Map<Photocourse>(entity);
+
+            this.photocourses.Update(photocourse);
             this.context.Save();
         }
 
-        public void Delete(Photocourse entity)
+        public void Delete(PhotocourseModel entity)
         {
             Guard.WhenArgument(entity, GlobalConstants.PhotocourseRequiredExceptionMessage).IsNull().Throw();
 
-            this.photocourses.Delete(entity);
+            var photocourse = this.Mapper.Map<Photocourse>(entity);
+
+            this.photocourses.Delete(photocourse);
             this.context.Save();
         }
     }

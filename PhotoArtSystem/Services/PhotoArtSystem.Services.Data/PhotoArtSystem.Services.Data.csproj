@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=5.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AutoMapper.5.2.0\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Bytes2you.Validation, Version=2.0.0.0, Culture=neutral, PublicKeyToken=a7d501dd757e0442, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Bytes2you.Validation.2.0.0.0\lib\portable-win+net40+sl40+wp+Xbox40\Bytes2you.Validation.dll</HintPath>
       <Private>True</Private>
@@ -82,9 +86,17 @@
       <Project>{6a9e098f-b139-4d79-a0f0-e1307f916e13}</Project>
       <Name>PhotoArtSystem.Data.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Web\PhotoArtSystem.Web.Infrastructure\PhotoArtSystem.Web.Infrastructure.csproj">
+      <Project>{906bcf66-f8e2-4437-9a19-068465ad1409}</Project>
+      <Name>PhotoArtSystem.Web.Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PhotoArtSystem.Services.Common\PhotoArtSystem.Services.Common.csproj">
       <Project>{f70892f7-da64-4acc-87e5-92287e7e7d6b}</Project>
       <Name>PhotoArtSystem.Services.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PhotoArtSystem.Services.Web\PhotoArtSystem.Services.Web.csproj">
+      <Project>{102ebc87-8326-4c25-8f3a-84196d6ffb99}</Project>
+      <Name>PhotoArtSystem.Services.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

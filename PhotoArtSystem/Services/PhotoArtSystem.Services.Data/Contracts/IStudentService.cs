@@ -2,12 +2,13 @@
 {
     using System;
     using Common.Contracts;
+    using Common.Models;
     using PhotoArtSystem.Data.Models;
 
-    public interface IStudentService : IBaseCreateService<Student>,
-        IBaseGetService<Student, Guid>,
-        IBaseUpdateService<Student>,
-        IBaseDeleteService<Student>
+    public interface IStudentService : IBaseCreateService<Student, StudentModel>,
+        IBaseGetService<Student, Guid, StudentModel>,
+        IBaseUpdateService<Student, StudentModel>,
+        IBaseDeleteService<Student, StudentModel>
     {
     }
 }
