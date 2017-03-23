@@ -4,10 +4,9 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using Common.Models;
-    using Contracts;
     using PhotoArtSystem.Common.Constants;
 
-    public class Photocourse : BaseModelGuid, IPhotocourse, IBaseModel<Guid>, IAuditInfo, IDeletableEntity
+    public class Photocourse : BaseModelGuid, IBaseModel<Guid>, IAuditInfo, IDeletableEntity
     {
         private ICollection<Image> images;
         private ICollection<Student> students;

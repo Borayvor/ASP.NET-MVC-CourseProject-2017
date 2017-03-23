@@ -6,7 +6,7 @@
     using PhotoArtSystem.Data.Common.EfDbContexts;
     using PhotoArtSystem.Data.Common.Repositories;
     using PhotoArtSystem.Data.Models;
-    using PhotoArtSystem.Services.Photocourses;
+    using PhotoArtSystem.Services.Data;
 
     [TestFixture]
     public class Delete_Should

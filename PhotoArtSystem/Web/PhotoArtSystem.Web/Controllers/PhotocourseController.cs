@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.Web.Mvc;
     using Common.Constants;
-    using Services.Photocourses.Contracts;
+    using Services.Data.Contracts;
     using Services.Web.Contracts;
     using ViewModels.PhotocourseModels;
 

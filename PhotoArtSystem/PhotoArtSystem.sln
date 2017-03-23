@@ -29,8 +29,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoArtSystem.Web.Infrastr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoArtSystem.Services.Common", "Services\PhotoArtSystem.Services.Common\PhotoArtSystem.Services.Common.csproj", "{F70892F7-DA64-4ACC-87E5-92287E7E7D6B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoArtSystem.Services.ApplicationUser", "Services\PhotoArtSystem.Services.ApplicationUser\PhotoArtSystem.Services.ApplicationUser.csproj", "{C1FE80CB-0F09-4C17-818D-6898489A848C}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cover", "Cover", "{6A54E2BA-8060-404C-B0FE-44DB31754DB4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoArtSystem.Cover.CoverPackages", "Cover\PhotoArtSystem.Cover.CoverPackages\PhotoArtSystem.Cover.CoverPackages.csproj", "{67B8598F-74D8-406C-97B0-53CDD42AAE21}"
@@ -39,13 +37,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoArtSystem.Tests.Integr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoArtSystem.Tests.UnitTests", "Tests\PhotoArtSystem.Tests.UnitTests\PhotoArtSystem.Tests.UnitTests.csproj", "{BA2D78AA-614A-4A77-8D9A-E8639D021AFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoArtSystem.Services.Photocourses", "Services\PhotoArtSystem.Services.Photocourses\PhotoArtSystem.Services.Photocourses.csproj", "{E80FE51D-F481-48DB-8F4C-2B6FD99F64B4}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CloudStorages", "CloudStorages", "{C5E9560E-B77D-4E6B-AB24-C511A2FD2E64}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoArtSystem.CloudStorages.Contracts", "CloudStorages\PhotoArtSystem.CloudStorages.Contracts\PhotoArtSystem.CloudStorages.Contracts.csproj", "{02E3F3A6-28B7-4B9D-9AE4-CA92BC6DEA7E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoArtSystem.CloudStorages.FirebaseApi", "CloudStorages\PhotoArtSystem.CloudStorages.Firebase\PhotoArtSystem.CloudStorages.FirebaseApi.csproj", "{8FB97068-4B1B-4807-9ACA-63126D053A09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoArtSystem.Services.Data", "Services\PhotoArtSystem.Services.Data\PhotoArtSystem.Services.Data.csproj", "{0678E417-B113-4242-AB11-94238343BF4F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -85,10 +83,6 @@ Global
 		{F70892F7-DA64-4ACC-87E5-92287E7E7D6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F70892F7-DA64-4ACC-87E5-92287E7E7D6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F70892F7-DA64-4ACC-87E5-92287E7E7D6B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C1FE80CB-0F09-4C17-818D-6898489A848C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C1FE80CB-0F09-4C17-818D-6898489A848C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C1FE80CB-0F09-4C17-818D-6898489A848C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C1FE80CB-0F09-4C17-818D-6898489A848C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{67B8598F-74D8-406C-97B0-53CDD42AAE21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{67B8598F-74D8-406C-97B0-53CDD42AAE21}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67B8598F-74D8-406C-97B0-53CDD42AAE21}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -101,10 +95,6 @@ Global
 		{BA2D78AA-614A-4A77-8D9A-E8639D021AFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA2D78AA-614A-4A77-8D9A-E8639D021AFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA2D78AA-614A-4A77-8D9A-E8639D021AFE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E80FE51D-F481-48DB-8F4C-2B6FD99F64B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E80FE51D-F481-48DB-8F4C-2B6FD99F64B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E80FE51D-F481-48DB-8F4C-2B6FD99F64B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E80FE51D-F481-48DB-8F4C-2B6FD99F64B4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{02E3F3A6-28B7-4B9D-9AE4-CA92BC6DEA7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{02E3F3A6-28B7-4B9D-9AE4-CA92BC6DEA7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02E3F3A6-28B7-4B9D-9AE4-CA92BC6DEA7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -113,6 +103,10 @@ Global
 		{8FB97068-4B1B-4807-9ACA-63126D053A09}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FB97068-4B1B-4807-9ACA-63126D053A09}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FB97068-4B1B-4807-9ACA-63126D053A09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0678E417-B113-4242-AB11-94238343BF4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0678E417-B113-4242-AB11-94238343BF4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0678E417-B113-4242-AB11-94238343BF4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0678E417-B113-4242-AB11-94238343BF4F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -126,12 +120,11 @@ Global
 		{526E19B8-9113-4371-B2F7-76483B2C3FED} = {5B68551D-5BB3-4460-B068-2A64A2448407}
 		{906BCF66-F8E2-4437-9A19-068465AD1409} = {80A40105-0D79-4B64-A865-FEFE380986BC}
 		{F70892F7-DA64-4ACC-87E5-92287E7E7D6B} = {0DA09F31-C0E5-476A-AA9D-1D8A207EB114}
-		{C1FE80CB-0F09-4C17-818D-6898489A848C} = {0DA09F31-C0E5-476A-AA9D-1D8A207EB114}
 		{67B8598F-74D8-406C-97B0-53CDD42AAE21} = {6A54E2BA-8060-404C-B0FE-44DB31754DB4}
 		{595881A9-83EB-4450-9579-EB00806D9C8A} = {9BF8B18E-11DC-45B8-967B-21289359BFF5}
 		{BA2D78AA-614A-4A77-8D9A-E8639D021AFE} = {9BF8B18E-11DC-45B8-967B-21289359BFF5}
-		{E80FE51D-F481-48DB-8F4C-2B6FD99F64B4} = {0DA09F31-C0E5-476A-AA9D-1D8A207EB114}
 		{02E3F3A6-28B7-4B9D-9AE4-CA92BC6DEA7E} = {C5E9560E-B77D-4E6B-AB24-C511A2FD2E64}
 		{8FB97068-4B1B-4807-9ACA-63126D053A09} = {C5E9560E-B77D-4E6B-AB24-C511A2FD2E64}
+		{0678E417-B113-4242-AB11-94238343BF4F} = {0DA09F31-C0E5-476A-AA9D-1D8A207EB114}
 	EndGlobalSection
 EndGlobal

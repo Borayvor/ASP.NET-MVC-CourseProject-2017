@@ -1,7 +1,7 @@
-﻿namespace PhotoArtSystem.Services.ApplicationUser.Contracts
+﻿namespace PhotoArtSystem.Services.Data.Contracts
 {
     using Common.Contracts;
-    using Data.Models;
+    using PhotoArtSystem.Data.Models;
 
     public interface IApplicationUserProfileService : IBaseGetService<ApplicationUser, string>
     {

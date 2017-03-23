@@ -1,14 +1,14 @@
-﻿namespace PhotoArtSystem.Services.Photocourses
+﻿namespace PhotoArtSystem.Services.Data
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using Bytes2you.Validation;
     using Contracts;
-    using Data.Common.EfDbContexts;
-    using Data.Common.Repositories;
-    using Data.Models;
     using PhotoArtSystem.Common.Constants;
+    using PhotoArtSystem.Data.Common.EfDbContexts;
+    using PhotoArtSystem.Data.Common.Repositories;
+    using PhotoArtSystem.Data.Models;
 
     public class PhotocourseService : IPhotocourseService
     {

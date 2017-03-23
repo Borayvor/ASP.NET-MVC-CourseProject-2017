@@ -46,7 +46,6 @@
     <Compile Include="Contracts\IBaseGetService{T,I}.cs" />
     <Compile Include="Contracts\IBaseUpdateService{T}.cs" />
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="Models\ImageModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

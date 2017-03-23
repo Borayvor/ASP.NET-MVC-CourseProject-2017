@@ -3,10 +3,9 @@
     using System;
     using System.ComponentModel.DataAnnotations.Schema;
     using Common.Models;
-    using Contracts;
 
     [Table("Images")]
-    public class Image : FileInfo, IImage, IFileInfo, IBaseModel<Guid>, IAuditInfo, IDeletableEntity
+    public class Image : FileInfo, IBaseModel<Guid>, IAuditInfo, IDeletableEntity
     {
         public Guid PhotocourseId { get; set; }
 

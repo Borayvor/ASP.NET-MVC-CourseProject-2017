@@ -22,8 +22,8 @@
         public const string EfDbRepositoryPhotocourseRequiredExceptionMessage = "An instance of EfDbRepository of Photocourse is required !";
         public const string PhotocourseRequiredExceptionMessage = "An instance of Photocourse is required !";
 
-        // PhotoArtServiceService
-        public const string EfDbRepositoryPhotoArtServiceRequiredExceptionMessage = "An instance of EfDbRepository of PhotoArtService is required !";
-        public const string PhotoArtServiceRequiredExceptionMessage = "An instance of PhotoArtService is required !";
+        // StudentService
+        public const string EfDbRepositoryStudentRequiredExceptionMessage = "An instance of EfDbRepository of Student is required !";
+        public const string StudentServiceRequiredExceptionMessage = "An instance of StudentService is required !";
     }
 }

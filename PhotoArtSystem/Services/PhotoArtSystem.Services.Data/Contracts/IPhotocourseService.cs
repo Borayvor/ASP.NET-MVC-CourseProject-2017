@@ -1,8 +1,8 @@
-﻿namespace PhotoArtSystem.Services.Photocourses.Contracts
+﻿namespace PhotoArtSystem.Services.Data.Contracts
 {
     using System;
     using Common.Contracts;
-    using Data.Models;
+    using PhotoArtSystem.Data.Models;
 
     public interface IPhotocourseService : IBaseCreateService<Photocourse>,
         IBaseGetService<Photocourse, Guid>,
