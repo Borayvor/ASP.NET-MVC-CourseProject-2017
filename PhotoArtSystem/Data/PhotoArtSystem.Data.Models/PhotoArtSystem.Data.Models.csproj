@@ -66,6 +66,7 @@
     <Compile Include="Contracts\IOriginalImage.cs" />
     <Compile Include="Contracts\IPhotocourse.cs" />
     <Compile Include="Contracts\IStudent.cs" />
+    <Compile Include="EnumTypes\FileSizeType.cs" />
     <Compile Include="FileInfo.cs" />
     <Compile Include="MainInfo.cs" />
     <Compile Include="OriginalImage.cs" />

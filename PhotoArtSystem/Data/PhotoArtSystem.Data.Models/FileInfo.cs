@@ -5,8 +5,8 @@
     using System.ComponentModel.DataAnnotations.Schema;
     using Common.Models;
     using Contracts;
+    using EnumTypes;
     using PhotoArtSystem.Common.Constants;
-    using PhotoArtSystem.Common.EnumTypes;
 
     public abstract class FileInfo : BaseModelGuid, IFileInfo, IBaseModel<Guid>, IAuditInfo, IDeletableEntity
     {

@@ -6,7 +6,7 @@
     using Contracts;
 
     [Table("Images")]
-    public class Image : FileInfo, IImage, IBaseModel<Guid>, IAuditInfo, IDeletableEntity
+    public class Image : FileInfo, IImage, IFileInfo, IBaseModel<Guid>, IAuditInfo, IDeletableEntity
     {
         public Guid PhotocourseId { get; set; }
 

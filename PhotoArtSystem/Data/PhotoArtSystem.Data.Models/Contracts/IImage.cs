@@ -3,7 +3,7 @@
     using System;
     using Common.Models;
 
-    public interface IImage : IBaseModel<Guid>, IAuditInfo, IDeletableEntity
+    public interface IImage : IFileInfo, IBaseModel<Guid>, IAuditInfo, IDeletableEntity
     {
         Guid PhotocourseId { get; set; }
 

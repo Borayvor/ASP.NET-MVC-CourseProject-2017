@@ -1,4 +1,4 @@
-﻿namespace PhotoArtSystem.Common.EnumTypes
+﻿namespace PhotoArtSystem.Data.Models.EnumTypes
 {
     public enum FileSizeType
     {

@@ -47,7 +47,6 @@
     <Compile Include="Constants\ModelConstants.cs" />
     <Compile Include="DateTime\GlobalDateTimeInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="EnumTypes\FileSizeType.cs" />
     <Compile Include="Validators\UploadFileValidator.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -2,7 +2,7 @@
 {
     using System;
     using Common.Models;
-    using PhotoArtSystem.Common.EnumTypes;
+    using EnumTypes;
 
     public interface IFileInfo : IBaseModel<Guid>, IAuditInfo, IDeletableEntity
     {

@@ -6,8 +6,8 @@
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using Models;
+    using Models.EnumTypes;
     using PhotoArtSystem.Common.Constants;
-    using PhotoArtSystem.Common.EnumTypes;
 
     internal static class StaticDataSeeder
     {
