@@ -4,17 +4,18 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using Common.Models;
+    using Contracts;
     using PhotoArtSystem.Common.Constants;
 
-    public class Photocourse : BaseModelGuid, IBaseModel<Guid>, IAuditInfo, IDeletableEntity
+    public class Photocourse : BaseModelGuid, IPhotocourse, IBaseModel<Guid>, IAuditInfo, IDeletableEntity
     {
         private ICollection<Image> images;
-        private ICollection<Student> groups;
+        private ICollection<Student> students;
 
         public Photocourse()
         {
             this.images = new HashSet<Image>();
-            this.groups = new HashSet<Student>();
+            this.students = new HashSet<Student>();
         }
 
         [Required]
@@ -53,10 +54,10 @@
             set { this.images = value; }
         }
 
-        public virtual ICollection<Student> Groups
+        public virtual ICollection<Student> Students
         {
-            get { return this.groups; }
-            set { this.groups = value; }
+            get { return this.students; }
+            set { this.students = value; }
         }
     }
 }

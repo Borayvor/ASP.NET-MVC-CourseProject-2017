@@ -4,10 +4,11 @@
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using Common.Models;
+    using Contracts;
     using PhotoArtSystem.Common.Constants;
     using PhotoArtSystem.Common.EnumTypes;
 
-    public abstract class FileInfo : BaseModelGuid, IBaseModel<Guid>, IAuditInfo, IDeletableEntity
+    public abstract class FileInfo : BaseModelGuid, IFileInfo, IBaseModel<Guid>, IAuditInfo, IDeletableEntity
     {
         [Required]
         [Index]

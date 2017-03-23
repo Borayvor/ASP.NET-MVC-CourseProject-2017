@@ -4,9 +4,10 @@
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using Common.Models;
+    using Contracts;
     using PhotoArtSystem.Common.Constants;
 
-    public class Student : BaseModelGuid, IBaseModel<Guid>, IAuditInfo, IDeletableEntity
+    public class Student : BaseModelGuid, IStudent, IBaseModel<Guid>, IAuditInfo, IDeletableEntity
     {
         [Index]
         [MaxLength(ModelConstants.ApplicationUserNamesMaxLength)]
