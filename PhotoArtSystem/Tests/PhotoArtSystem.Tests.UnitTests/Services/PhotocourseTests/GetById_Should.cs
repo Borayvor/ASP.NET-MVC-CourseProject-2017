@@ -1,8 +1,7 @@
 ﻿namespace PhotoArtSystem.Tests.UnitTests.Services.PhotocourseTests
 {
-    // TODO: implement GetById_Should
-
     ////using System;
+    ////using AutoMapper;
     ////using Moq;
     ////using NUnit.Framework;
     ////using PhotoArtSystem.Data.Common.EfDbContexts;
@@ -20,10 +19,14 @@
     ////        // Arange
     ////        Fixture fixture = new Fixture();
     ////        var id = fixture.Create<Guid>();
+    ////        var mockedModel = new Mock<Photocourse>();
+    ////        var mockedMapper = new Mock<IMapper>();
     ////        var mockedEfDbContext = new Mock<IEfDbContextSaveChanges>();
     ////        var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<Photocourse>>();
 
-    ////        var service = new PhotocourseService(mockedEfDbContext.Object, mockedIEfDbRepository.Object);
+    ////        mockedIEfDbRepository.Setup(x => x.GetById(id)).Returns(mockedModel.Object);
+
+    ////        var service = new PhotocourseService(mockedMapper.Object, mockedEfDbContext.Object, mockedIEfDbRepository.Object);
 
     ////        // Act
     ////        var result = service.GetById(id);
@@ -38,18 +41,19 @@
     ////        // Arange
     ////        Fixture fixture = new Fixture();
     ////        var id = fixture.Create<Guid>();
-    ////        var mockedModel = new Photocourse();
+    ////        var mockedModel = new Mock<Photocourse>();
+    ////        var mockedMapper = new Mock<IMapper>();
     ////        var mockedEfDbContext = new Mock<IEfDbContextSaveChanges>();
     ////        var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<Photocourse>>();
-    ////        mockedIEfDbRepository.Setup(x => x.GetById(id)).Returns(mockedModel);
+    ////        mockedIEfDbRepository.Setup(x => x.GetById(id)).Returns(mockedModel.Object);
 
-    ////        var service = new PhotocourseService(mockedEfDbContext.Object, mockedIEfDbRepository.Object);
+    ////        var service = new PhotocourseService(mockedMapper.Object, mockedEfDbContext.Object, mockedIEfDbRepository.Object);
 
     ////        // Act
     ////        var result = service.GetById(id);
 
     ////        // Assert
-    ////        Assert.AreSame(mockedModel, result);
+    ////        Assert.AreSame(mockedModel.Object, result);
     ////    }
     ////}
 }

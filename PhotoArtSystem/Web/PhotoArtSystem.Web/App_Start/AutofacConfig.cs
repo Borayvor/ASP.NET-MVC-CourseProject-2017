@@ -72,7 +72,8 @@
                 .As<IDateTimeProvider>();
 
             builder.Register(c => AutoMapperConfig.Configuration.CreateMapper())
-                .As<IMapper>();
+                .As<IMapper>()
+                .InstancePerLifetimeScope();
 
             var userServicesAssembly = Assembly.GetAssembly(typeof(ApplicationUserProfileService));
             builder.RegisterAssemblyTypes(userServicesAssembly).AsImplementedInterfaces();

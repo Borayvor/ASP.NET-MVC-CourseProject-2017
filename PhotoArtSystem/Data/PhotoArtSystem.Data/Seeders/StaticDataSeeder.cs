@@ -100,7 +100,7 @@
 
         internal static void SeedImages(ApplicationDbContext context)
         {
-            if (context.ImageLinks.Any())
+            if (context.Images.Any())
             {
                 return;
             }
@@ -116,7 +116,7 @@
                 PhotocourseId = photocourseId1
             };
 
-            context.ImageLinks.Add(imageLink1);
+            context.Images.Add(imageLink1);
 
             var photocourseId2 = context.Photocourses.FirstOrDefault(x => x.Id != photocourseId1).Id;
 
@@ -129,7 +129,7 @@
                 PhotocourseId = photocourseId2
             };
 
-            context.ImageLinks.Add(imageLink2);
+            context.Images.Add(imageLink2);
 
             //// End add.
             context.SaveChanges();

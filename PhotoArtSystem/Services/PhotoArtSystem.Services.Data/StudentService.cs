@@ -3,8 +3,6 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using AutoMapper;
-    using AutoMapper.QueryableExtensions;
     using Bytes2you.Validation;
     using Contracts;
     using PhotoArtSystem.Common.Constants;
@@ -12,14 +10,15 @@
     using PhotoArtSystem.Data.Common.Repositories;
     using PhotoArtSystem.Data.Models;
     using PhotoArtSystem.Data.Models.TransitionalModels;
+    using Web.Contracts;
 
     public class StudentService : IStudentService
     {
-        private readonly IMapper mapper;
+        private readonly IAutoMapperService mapper;
         private readonly IPhotoArtSystemEfDbRepository<Student> students;
         private readonly IEfDbContextSaveChanges context;
 
-        public StudentService(IMapper mapper, IEfDbContextSaveChanges context, IPhotoArtSystemEfDbRepository<Student> students)
+        public StudentService(IAutoMapperService mapper, IEfDbContextSaveChanges context, IPhotoArtSystemEfDbRepository<Student> students)
         {
             Guard.WhenArgument(
                 context,
@@ -35,23 +34,16 @@
 
         public IEnumerable<StudentTransitional> GetAll()
         {
-            var students = this.students.GetAll().OrderByDescending(x => x.CreatedOn);
-
-            var result = this.students
-                .GetAll()
-                .OrderByDescending(x => x.CreatedOn)
-                .ProjectTo<StudentTransitional>(this.mapper.ConfigurationProvider)
-                .ToList();
+            var studentsAll = this.students.GetAll().ToList();
+            var result = this.mapper.Map<IEnumerable<StudentTransitional>>(studentsAll);
 
             return result;
         }
 
         public StudentTransitional GetById(Guid id)
         {
-            var result = this.students
-                .GetAll()
-                .ProjectTo<StudentTransitional>(this.mapper.ConfigurationProvider)
-                .FirstOrDefault(x => x.Id == id);
+            var student = this.students.GetById(id);
+            var result = this.mapper.Map<StudentTransitional>(student);
 
             return result;
         }

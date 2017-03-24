@@ -2,11 +2,10 @@
 {
     using System;
     using System.Collections.Generic;
-    using Common.Models;
     using Models;
     using Web.Infrastructure.Mapping;
 
-    public class PhotocourseTransitional : BaseModelTransitional<Guid>, IBaseModel<Guid>, IAuditInfo, IDeletableEntity,
+    public class PhotocourseTransitional : BaseModelTransitional<Guid>,
         IMapFrom<Photocourse>, IMapTo<Photocourse>
     {
         public string Name { get; set; }
@@ -27,8 +26,8 @@
 
         public int MaxStudents { get; set; }
 
-        public IEnumerable<ImageTransitional> Images { get; set; }
+        public IEnumerable<Image> Images { get; set; }
 
-        public IEnumerable<StudentTransitional> Students { get; set; }
+        public IEnumerable<Student> Students { get; set; }
     }
 }

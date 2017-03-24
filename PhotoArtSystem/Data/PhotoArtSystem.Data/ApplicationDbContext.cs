@@ -17,9 +17,9 @@
 
         public IDbSet<Photocourse> Photocourses { get; set; }
 
-        public IDbSet<Student> PhotocourseGroups { get; set; }
+        public IDbSet<Student> Students { get; set; }
 
-        public IDbSet<Image> ImageLinks { get; set; }
+        public IDbSet<Image> Images { get; set; }
 
         public IDbSet<OriginalImage> OriginalImages { get; set; }
 

@@ -1,13 +1,13 @@
 ﻿namespace PhotoArtSystem.Tests.UnitTests.Services.PhotocourseTests
 {
-    // TODO: implement Delete_Should
-
+    ////using AutoMapper;
     ////using Common.Constants;
     ////using Moq;
     ////using NUnit.Framework;
     ////using PhotoArtSystem.Data.Common.EfDbContexts;
     ////using PhotoArtSystem.Data.Common.Repositories;
     ////using PhotoArtSystem.Data.Models;
+    ////using PhotoArtSystem.Data.Models.TransitionalModels;
     ////using PhotoArtSystem.Services.Data;
 
     ////[TestFixture]
@@ -17,9 +17,10 @@
     ////    public void Throw_ArgumentNullException_WithProperMessage_When_Photocourse_IsNull()
     ////    {
     ////        // Arange
+    ////        var mockedMapper = new Mock<IMapper>();
     ////        var mockedEfDbContext = new Mock<IEfDbContextSaveChanges>();
     ////        var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<Photocourse>>();
-    ////        var service = new PhotocourseService(mockedEfDbContext.Object, mockedIEfDbRepository.Object);
+    ////        var service = new PhotocourseService(mockedMapper.Object, mockedEfDbContext.Object, mockedIEfDbRepository.Object);
 
     ////        // Act & Assert
     ////        Assert.That(
@@ -32,12 +33,13 @@
     ////    public void CallOnce_EfDbContextSave_When_Photocourse_IsNotNull()
     ////    {
     ////        // Arange
+    ////        var mockedMapper = new Mock<IMapper>();
     ////        var mockedEfDbContext = new Mock<IEfDbContextSaveChanges>();
     ////        var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<Photocourse>>();
-    ////        var service = new PhotocourseService(mockedEfDbContext.Object, mockedIEfDbRepository.Object);
+    ////        var service = new PhotocourseService(mockedMapper.Object, mockedEfDbContext.Object, mockedIEfDbRepository.Object);
 
     ////        // Act
-    ////        service.Delete(new Photocourse());
+    ////        service.Delete(new PhotocourseTransitional());
 
     ////        // Assert
     ////        mockedEfDbContext.Verify(x => x.Save(), Times.Once);

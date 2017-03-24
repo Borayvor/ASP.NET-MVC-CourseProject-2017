@@ -1,9 +1,8 @@
 ﻿namespace PhotoArtSystem.Tests.UnitTests.Services.PhotocourseTests
 {
-    // TODO: implement GetAll_Should
-
     ////using System.Collections.Generic;
     ////using System.Linq;
+    ////using AutoMapper;
     ////using Moq;
     ////using NUnit.Framework;
     ////using PhotoArtSystem.Data.Common.EfDbContexts;
@@ -18,10 +17,16 @@
     ////    public void CallEfDbRepository_GetAll_MethodOnce()
     ////    {
     ////        // Arange
+
+    ////        // TODO: implement
+    ////        var mockedMapper = new Mock<IMapper>();
+    ////        var mockedQueriable = new Mock<IQueryable<Photocourse>>();
     ////        var mockedEfDbContext = new Mock<IEfDbContextSaveChanges>();
     ////        var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<Photocourse>>();
 
-    ////        var service = new PhotocourseService(mockedEfDbContext.Object, mockedIEfDbRepository.Object);
+    ////        mockedIEfDbRepository.Setup(x => x.GetAll()).Returns(mockedQueriable.Object);
+
+    ////        var service = new PhotocourseService(mockedMapper.Object, mockedEfDbContext.Object, mockedIEfDbRepository.Object);
 
     ////        // Act
     ////        service.GetAll();
@@ -38,11 +43,13 @@
     ////        {
     ////            new Photocourse()
     ////        };
+
+    ////        var mockedMapper = new Mock<IMapper>();
     ////        var mockedEfDbContext = new Mock<IEfDbContextSaveChanges>();
     ////        var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<Photocourse>>();
     ////        mockedIEfDbRepository.Setup(x => x.GetAll()).Returns(expected.AsQueryable());
 
-    ////        var service = new PhotocourseService(mockedEfDbContext.Object, mockedIEfDbRepository.Object);
+    ////        var service = new PhotocourseService(mockedMapper.Object, mockedEfDbContext.Object, mockedIEfDbRepository.Object);
 
     ////        // Act
     ////        var actual = service.GetAll();

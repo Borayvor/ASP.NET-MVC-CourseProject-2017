@@ -21,6 +21,7 @@
         // PhotocourseService
         public const string EfDbRepositoryPhotocourseRequiredExceptionMessage = "An instance of EfDbRepository of Photocourse is required !";
         public const string PhotocourseRequiredExceptionMessage = "An instance of Photocourse is required !";
+        public const string MapperRequiredExceptionMessage = "An instance of Mapper is required !";
 
         // StudentService
         public const string EfDbRepositoryStudentRequiredExceptionMessage = "An instance of EfDbRepository of Student is required !";

@@ -3,8 +3,6 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using AutoMapper;
-    using AutoMapper.QueryableExtensions;
     using Bytes2you.Validation;
     using Common.Constants;
     using Contracts;
@@ -12,15 +10,19 @@
     using PhotoArtSystem.Data.Common.Repositories;
     using PhotoArtSystem.Data.Models;
     using PhotoArtSystem.Data.Models.TransitionalModels;
+    using Web.Contracts;
 
     public class PhotocourseService : IPhotocourseService
     {
-        private readonly IMapper mapper;
+        private readonly IAutoMapperService mapper;
         private readonly IPhotoArtSystemEfDbRepository<Photocourse> photocourses;
         private readonly IEfDbContextSaveChanges context;
 
-        public PhotocourseService(IMapper mapper, IEfDbContextSaveChanges context, IPhotoArtSystemEfDbRepository<Photocourse> photocourses)
+        public PhotocourseService(IAutoMapperService mapper, IEfDbContextSaveChanges context, IPhotoArtSystemEfDbRepository<Photocourse> photocourses)
         {
+            Guard.WhenArgument(
+                mapper,
+                GlobalConstants.MapperRequiredExceptionMessage).IsNull().Throw();
             Guard.WhenArgument(
                 context,
                 GlobalConstants.EfDbContextRequiredExceptionMessage).IsNull().Throw();
@@ -29,27 +31,22 @@
                 GlobalConstants.EfDbRepositoryPhotocourseRequiredExceptionMessage).IsNull().Throw();
 
             this.mapper = mapper;
-            this.photocourses = photocourses;
             this.context = context;
+            this.photocourses = photocourses;
         }
 
         public IEnumerable<PhotocourseTransitional> GetAll()
         {
-            var result = this.photocourses
-                .GetAll()
-                .OrderByDescending(x => x.CreatedOn)
-                .ProjectTo<PhotocourseTransitional>(this.mapper.ConfigurationProvider)
-                .ToList();
+            var photocoursesAll = this.photocourses.GetAll().ToList();
+            var result = this.mapper.Map<IEnumerable<PhotocourseTransitional>>(photocoursesAll);
 
             return result;
         }
 
         public PhotocourseTransitional GetById(Guid id)
         {
-            var result = this.photocourses
-                .GetAll()
-                .ProjectTo<PhotocourseTransitional>(this.mapper.ConfigurationProvider)
-                .FirstOrDefault(x => x.Id == id);
+            var photocourse = this.photocourses.GetById(id);
+            var result = this.mapper.Map<PhotocourseTransitional>(photocourse);
 
             return result;
         }
