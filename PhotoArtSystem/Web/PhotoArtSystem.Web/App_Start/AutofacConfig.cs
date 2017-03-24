@@ -10,10 +10,10 @@
     using Data;
     using Data.Common.EfDbContexts;
     using Data.Common.Repositories;
+    using Infrastructure.Mapping;
     using Services.Data;
     using Services.Web;
     using Services.Web.Contracts;
-    using Services.Web.Mapping;
     using Web;
 
     public static class AutofacConfig
@@ -63,13 +63,12 @@
             builder.Register(x => new DateTimeProvider())
                 .As<IDateTimeProvider>();
 
-            builder.Register(c => AutoMapperConfig.Configuration(Assembly.GetExecutingAssembly()).CreateMapper())
+            builder.Register(c => AutoMapperConfig.Configuration.CreateMapper())
                 .As<IMapper>();
 
             builder.RegisterType<AutoMapperService>()
                 .As<IAutoMapperService>()
-                .InstancePerRequest()
-                .PropertiesAutowired();
+                .InstancePerRequest();
 
             var entityFrameworkDbContextAssembly = Assembly.GetAssembly(typeof(EfDbContextSaveChanges));
             builder.RegisterAssemblyTypes(entityFrameworkDbContextAssembly).AsImplementedInterfaces();

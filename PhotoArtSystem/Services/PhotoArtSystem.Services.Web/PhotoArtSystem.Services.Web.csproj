@@ -52,16 +52,16 @@
     <Compile Include="DateTimeProvider.cs" />
     <Compile Include="HttpCacheService.cs" />
     <Compile Include="AutoMapperService.cs" />
-    <Compile Include="Mapping\AutoMapperConfig.cs" />
-    <Compile Include="Mapping\IHaveCustomMappings.cs" />
-    <Compile Include="Mapping\IMapFrom{T}.cs" />
-    <Compile Include="Mapping\IMapTo{T}.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\PhotoArtSystem.Common\PhotoArtSystem.Common.csproj">
       <Project>{de595403-0a05-4c28-9fc0-e17da5b88b28}</Project>
       <Name>PhotoArtSystem.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Web\PhotoArtSystem.Web.Infrastructure\PhotoArtSystem.Web.Infrastructure.csproj">
+      <Project>{906BCF66-F8E2-4437-9A19-068465AD1409}</Project>
+      <Name>PhotoArtSystem.Web.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

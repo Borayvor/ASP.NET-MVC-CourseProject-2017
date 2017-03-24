@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using Common.Models;
     using Models;
-    using Services.Web.Mapping;
+    using Web.Infrastructure.Mapping;
 
     public class PhotocourseTransitional : BaseModelTransitional<Guid>, IBaseModel<Guid>, IAuditInfo, IDeletableEntity,
         IMapFrom<Photocourse>, IMapTo<Photocourse>
@@ -17,11 +17,11 @@
 
         public string OtherInfo { get; set; }
 
-        public ushort DurationHours { get; set; }
-
         public DateTime StartDate { get; set; }
 
         public DateTime EndDate { get; set; }
+
+        public int DurationHours { get; set; }
 
         public string Teacher { get; set; }
 

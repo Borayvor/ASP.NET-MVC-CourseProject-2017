@@ -3,6 +3,8 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using AutoMapper;
+    using AutoMapper.QueryableExtensions;
     using Bytes2you.Validation;
     using Contracts;
     using PhotoArtSystem.Common.Constants;
@@ -10,15 +12,14 @@
     using PhotoArtSystem.Data.Common.Repositories;
     using PhotoArtSystem.Data.Models;
     using PhotoArtSystem.Data.Models.TransitionalModels;
-    using Web.Contracts;
 
     public class StudentService : IStudentService
     {
-        private readonly IAutoMapperService mapper;
+        private readonly IMapper mapper;
         private readonly IPhotoArtSystemEfDbRepository<Student> students;
         private readonly IEfDbContextSaveChanges context;
 
-        public StudentService(IAutoMapperService mapper, IEfDbContextSaveChanges context, IPhotoArtSystemEfDbRepository<Student> students)
+        public StudentService(IMapper mapper, IEfDbContextSaveChanges context, IPhotoArtSystemEfDbRepository<Student> students)
         {
             Guard.WhenArgument(
                 context,
@@ -36,14 +37,23 @@
         {
             var students = this.students.GetAll().OrderByDescending(x => x.CreatedOn);
 
-            return this.mapper.Map<IEnumerable<StudentTransitional>>(students);
+            var result = this.students
+                .GetAll()
+                .OrderByDescending(x => x.CreatedOn)
+                .ProjectTo<StudentTransitional>(this.mapper.ConfigurationProvider)
+                .ToList();
+
+            return result;
         }
 
         public StudentTransitional GetById(Guid id)
         {
-            var student = this.students.GetById(id);
+            var result = this.students
+                .GetAll()
+                .ProjectTo<StudentTransitional>(this.mapper.ConfigurationProvider)
+                .FirstOrDefault(x => x.Id == id);
 
-            return this.mapper.Map<StudentTransitional>(student);
+            return result;
         }
 
         public void Create(StudentTransitional entity)

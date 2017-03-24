@@ -85,6 +85,11 @@
     <Compile Include="Filters\AjaxGetAttribute.cs" />
     <Compile Include="Filters\AjaxPostAttribute.cs" />
     <Compile Include="HtmlHelpers\Common.cs" />
+    <Compile Include="Mapping\AutoMapperConfig.cs" />
+    <Compile Include="Mapping\IHaveCustomMappings.cs" />
+    <Compile Include="Mapping\IMapFrom{T}.cs" />
+    <Compile Include="Mapping\IMapTo{T}.cs" />
+    <Compile Include="Mapping\QueryableExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sanitizer\HtmlSanitizerAdapter.cs" />
     <Compile Include="Sanitizer\ISanitizer.cs" />

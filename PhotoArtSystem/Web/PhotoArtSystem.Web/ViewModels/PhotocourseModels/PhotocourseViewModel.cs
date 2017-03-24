@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
     using Data.Models.TransitionalModels;
-    using Services.Web.Mapping;
+    using Infrastructure.Mapping;
 
     public class PhotocourseViewModel : BaseDbKeyViewModel<Guid>, IMapFrom<PhotocourseTransitional>
     {

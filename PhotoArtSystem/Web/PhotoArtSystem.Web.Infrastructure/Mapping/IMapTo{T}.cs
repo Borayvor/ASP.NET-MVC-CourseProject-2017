@@ -1,4 +1,4 @@
-﻿namespace PhotoArtSystem.Services.Web.Mapping
+﻿namespace PhotoArtSystem.Web.Infrastructure.Mapping
 {
     public interface IMapTo<T>
         where T : class

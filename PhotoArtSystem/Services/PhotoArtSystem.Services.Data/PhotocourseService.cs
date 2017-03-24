@@ -3,6 +3,8 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using AutoMapper;
+    using AutoMapper.QueryableExtensions;
     using Bytes2you.Validation;
     using Common.Constants;
     using Contracts;
@@ -10,15 +12,14 @@
     using PhotoArtSystem.Data.Common.Repositories;
     using PhotoArtSystem.Data.Models;
     using PhotoArtSystem.Data.Models.TransitionalModels;
-    using Web.Contracts;
 
     public class PhotocourseService : IPhotocourseService
     {
-        private readonly IAutoMapperService mapper;
+        private readonly IMapper mapper;
         private readonly IPhotoArtSystemEfDbRepository<Photocourse> photocourses;
         private readonly IEfDbContextSaveChanges context;
 
-        public PhotocourseService(IAutoMapperService mapper, IEfDbContextSaveChanges context, IPhotoArtSystemEfDbRepository<Photocourse> photocourses)
+        public PhotocourseService(IMapper mapper, IEfDbContextSaveChanges context, IPhotoArtSystemEfDbRepository<Photocourse> photocourses)
         {
             Guard.WhenArgument(
                 context,
@@ -34,16 +35,23 @@
 
         public IEnumerable<PhotocourseTransitional> GetAll()
         {
-            var photocources = this.photocourses.GetAll().OrderByDescending(x => x.CreatedOn);
+            var result = this.photocourses
+                .GetAll()
+                .OrderByDescending(x => x.CreatedOn)
+                .ProjectTo<PhotocourseTransitional>(this.mapper.ConfigurationProvider)
+                .ToList();
 
-            return this.mapper.Map<IEnumerable<PhotocourseTransitional>>(photocources);
+            return result;
         }
 
         public PhotocourseTransitional GetById(Guid id)
         {
-            var photocourse = this.photocourses.GetById(id);
+            var result = this.photocourses
+                .GetAll()
+                .ProjectTo<PhotocourseTransitional>(this.mapper.ConfigurationProvider)
+                .FirstOrDefault(x => x.Id == id);
 
-            return this.mapper.Map<PhotocourseTransitional>(photocourse);
+            return result;
         }
 
         public void Create(PhotocourseTransitional entity)

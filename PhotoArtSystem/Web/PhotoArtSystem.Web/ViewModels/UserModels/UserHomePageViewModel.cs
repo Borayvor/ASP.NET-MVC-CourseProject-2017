@@ -2,7 +2,7 @@
 {
     using System.ComponentModel.DataAnnotations;
     using Data.Models.TransitionalModels;
-    using Services.Web.Mapping;
+    using Infrastructure.Mapping;
 
     public class UserHomePageViewModel : BaseDbKeyViewModel<string>, IMapFrom<ApplicationUserTransitional>
     {

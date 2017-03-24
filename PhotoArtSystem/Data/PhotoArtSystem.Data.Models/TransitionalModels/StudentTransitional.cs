@@ -3,7 +3,7 @@
     using System;
     using Common.Models;
     using Models;
-    using Services.Web.Mapping;
+    using Web.Infrastructure.Mapping;
 
     public class StudentTransitional : BaseModelTransitional<Guid>, IBaseModel<Guid>, IAuditInfo, IDeletableEntity,
         IMapFrom<Student>, IMapTo<Student>

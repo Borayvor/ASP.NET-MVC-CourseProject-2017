@@ -2,7 +2,7 @@
 {
     using Common.Models;
     using Models;
-    using Services.Web.Mapping;
+    using Web.Infrastructure.Mapping;
 
     public class ApplicationUserTransitional : BaseModelTransitional<string>, IBaseModel<string>, IAuditInfo, IDeletableEntity,
         IMapFrom<ApplicationUser>, IMapTo<ApplicationUser>

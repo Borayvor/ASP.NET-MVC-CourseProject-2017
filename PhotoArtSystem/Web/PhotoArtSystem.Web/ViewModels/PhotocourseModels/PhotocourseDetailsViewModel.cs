@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using Data.Models;
     using Data.Models.TransitionalModels;
-    using Services.Web.Mapping;
+    using Infrastructure.Mapping;
 
     public class PhotocourseDetailsViewModel : BaseDbKeyViewModel<Guid>, IMapFrom<Photocourse>
     {

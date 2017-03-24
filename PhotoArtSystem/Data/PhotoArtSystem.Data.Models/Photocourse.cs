@@ -35,7 +35,8 @@
         [MaxLength(ModelConstants.PhotocourseOtherInfoMaxLength)]
         public string OtherInfo { get; set; }
 
-        public ushort DurationHours { get; set; }
+        [Range(1, 1000)]
+        public int DurationHours { get; set; }
 
         public DateTime StartDate { get; set; }
 

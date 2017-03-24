@@ -2,18 +2,19 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+    using AutoMapper;
+    using AutoMapper.QueryableExtensions;
     using Contracts;
     using PhotoArtSystem.Data.Common.Repositories;
     using PhotoArtSystem.Data.Models;
     using PhotoArtSystem.Data.Models.TransitionalModels;
-    using Web.Contracts;
 
     public class ApplicationUserProfileService : IApplicationUserProfileService
     {
-        private readonly IAutoMapperService mapper;
+        private readonly IMapper mapper;
         private readonly IPhotoArtSystemEfDbRepository<ApplicationUser> users;
 
-        public ApplicationUserProfileService(IAutoMapperService mapper, IPhotoArtSystemEfDbRepository<ApplicationUser> users)
+        public ApplicationUserProfileService(IMapper mapper, IPhotoArtSystemEfDbRepository<ApplicationUser> users)
         {
             this.mapper = mapper;
             this.users = users;
@@ -21,16 +22,23 @@
 
         public IEnumerable<ApplicationUserTransitional> GetAll()
         {
-            var users = this.users.GetAll().OrderByDescending(x => x.CreatedOn);
+            var result = this.users
+                .GetAll()
+                .OrderByDescending(x => x.CreatedOn)
+                .ProjectTo<ApplicationUserTransitional>(this.mapper.ConfigurationProvider)
+                .ToList();
 
-            return this.mapper.Map<IEnumerable<ApplicationUserTransitional>>(users);
+            return result;
         }
 
         public ApplicationUserTransitional GetById(string id)
         {
-            var user = this.users.GetById(id);
+            var result = this.users
+                .GetAll()
+                .ProjectTo<ApplicationUserTransitional>(this.mapper.ConfigurationProvider)
+                .FirstOrDefault(x => x.Id == id);
 
-            return this.mapper.Map<ApplicationUserTransitional>(user);
+            return result;
         }
     }
 }

@@ -39,10 +39,9 @@
         [ChildActionOnly]
         public ActionResult GetPhotocourse(Guid id)
         {
-            var photocourse = this.photocourseService.GetById(id);
-
             var result = this.ExceptionHandlerActionResult(
-                () => this.mapper.Map<PhotocourseDetailsViewModel>(photocourse),
+                () => this.mapper
+                .Map<PhotocourseDetailsViewModel>(this.photocourseService.GetById(id)),
                 (photocourseViewModel) => this.Cache.Get(
                     GlobalConstants.PhotocourseCacheName + id,
                     () => this.PartialView("_PhotocoursePartial", photocourseViewModel),
@@ -55,10 +54,9 @@
         [ChildActionOnly]
         public ActionResult GetAllPhotocourses()
         {
-            var photocourses = this.photocourseService.GetAll();
-
             var result = this.ExceptionHandlerActionResult(
-                () => this.mapper.Map<IEnumerable<PhotocourseViewModel>>(photocourses),
+                () => this.mapper
+                .Map<IEnumerable<PhotocourseViewModel>>(this.photocourseService.GetAll()),
                 (photocoursesAllViewModel) => this.Cache.Get(
                     GlobalConstants.PhotocoursesAllCacheName,
                     () => this.PartialView("_PhotocoursesAllPartial", photocoursesAllViewModel),

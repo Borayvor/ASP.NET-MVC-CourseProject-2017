@@ -1,4 +1,4 @@
-﻿namespace PhotoArtSystem.Services.Web.Mapping
+﻿namespace PhotoArtSystem.Web.Infrastructure.Mapping
 {
     using AutoMapper;
 

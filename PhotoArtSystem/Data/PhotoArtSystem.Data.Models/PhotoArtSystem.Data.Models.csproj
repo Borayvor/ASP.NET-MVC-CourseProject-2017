@@ -88,6 +88,10 @@
       <Project>{102ebc87-8326-4c25-8f3a-84196d6ffb99}</Project>
       <Name>PhotoArtSystem.Services.Web</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Web\PhotoArtSystem.Web.Infrastructure\PhotoArtSystem.Web.Infrastructure.csproj">
+      <Project>{906BCF66-F8E2-4437-9A19-068465AD1409}</Project>
+      <Name>PhotoArtSystem.Web.Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PhotoArtSystem.Data.Common\PhotoArtSystem.Data.Common.csproj">
       <Project>{526e19b8-9113-4371-b2f7-76483b2c3fed}</Project>
       <Name>PhotoArtSystem.Data.Common</Name>
