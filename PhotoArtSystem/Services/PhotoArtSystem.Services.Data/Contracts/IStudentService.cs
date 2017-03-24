@@ -1,14 +1,12 @@
 ﻿namespace PhotoArtSystem.Services.Data.Contracts
 {
     using System;
-    using Common.Contracts;
-    using Common.Models;
-    using PhotoArtSystem.Data.Models;
+    using PhotoArtSystem.Data.Models.TransitionalModels;
 
-    public interface IStudentService : IBaseCreateService<Student, StudentModel>,
-        IBaseGetService<Student, Guid, StudentModel>,
-        IBaseUpdateService<Student, StudentModel>,
-        IBaseDeleteService<Student, StudentModel>
+    public interface IStudentService : IBaseCreateService<StudentTransitional>,
+        IBaseGetService<StudentTransitional, Guid>,
+        IBaseUpdateService<StudentTransitional>,
+        IBaseDeleteService<StudentTransitional>
     {
     }
 }

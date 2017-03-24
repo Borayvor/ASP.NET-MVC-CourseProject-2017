@@ -1,10 +1,10 @@
 ﻿namespace PhotoArtSystem.Web.ViewModels.UserModels
 {
     using System.ComponentModel.DataAnnotations;
-    using Data.Models;
-    using Infrastructure.Mapping;
+    using Data.Models.TransitionalModels;
+    using Services.Web.Mapping;
 
-    public class UserHomePageViewModel : BaseDbKeyViewModel<string>, IMapFrom<ApplicationUser>
+    public class UserHomePageViewModel : BaseDbKeyViewModel<string>, IMapFrom<ApplicationUserTransitional>
     {
         [Display(Name = "User name")]
         public string UserName { get; set; }

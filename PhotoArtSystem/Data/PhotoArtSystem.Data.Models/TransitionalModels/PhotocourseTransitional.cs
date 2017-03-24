@@ -1,10 +1,13 @@
-﻿namespace PhotoArtSystem.Services.Common.Models
+﻿namespace PhotoArtSystem.Data.Models.TransitionalModels
 {
     using System;
     using System.Collections.Generic;
-    using Data.Common.Models;
+    using Common.Models;
+    using Models;
+    using Services.Web.Mapping;
 
-    public class PhotocourseModel : BaseModelModel<Guid>, IBaseModel<Guid>, IAuditInfo, IDeletableEntity
+    public class PhotocourseTransitional : BaseModelTransitional<Guid>, IBaseModel<Guid>, IAuditInfo, IDeletableEntity,
+        IMapFrom<Photocourse>, IMapTo<Photocourse>
     {
         public string Name { get; set; }
 
@@ -24,8 +27,8 @@
 
         public int MaxStudents { get; set; }
 
-        public IEnumerable<ImageModel> Images { get; set; }
+        public IEnumerable<ImageTransitional> Images { get; set; }
 
-        public IEnumerable<StudentModel> Students { get; set; }
+        public IEnumerable<StudentTransitional> Students { get; set; }
     }
 }

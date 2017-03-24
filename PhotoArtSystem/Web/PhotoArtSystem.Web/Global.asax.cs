@@ -15,7 +15,6 @@
             ViewEnginesConfig.RegisterViewEngines();
             DatabaseConfig.RegisterDatabase();
             AutofacConfig.RegisterAutofac();
-            AutoMapperAppConfig.RegisterAutoMapper();
 
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

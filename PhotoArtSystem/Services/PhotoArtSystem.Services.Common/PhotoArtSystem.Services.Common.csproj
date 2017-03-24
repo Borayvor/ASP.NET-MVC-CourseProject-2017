@@ -45,19 +45,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseService.cs" />
-    <Compile Include="Contracts\IBaseCreateService{T,M}.cs" />
-    <Compile Include="Contracts\IBaseDeleteService{T,M}.cs" />
-    <Compile Include="Contracts\IBaseGetService{T,I,M}.cs" />
-    <Compile Include="Contracts\IBaseUpdateService{T,M}.cs" />
-    <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="Models\ApplicationUserModel.cs" />
-    <Compile Include="Models\BaseModelModel{TKey}.cs" />
-    <Compile Include="Models\FileInfoModel.cs" />
-    <Compile Include="Models\ImageModel.cs" />
-    <Compile Include="Models\MainInfo.cs" />
-    <Compile Include="Models\PhotocourseModel.cs" />
-    <Compile Include="Models\StudentModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

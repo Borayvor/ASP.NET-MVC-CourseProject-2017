@@ -202,7 +202,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\AutofacConfig.cs" />
-    <Compile Include="App_Start\AutoMapperAppConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\DatabaseConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -233,9 +232,9 @@
     <Compile Include="ViewModels\Account\ResetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Account\SendCodeViewModel.cs" />
     <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
-    <Compile Include="ViewModels\BaseCreatedOnViewModel{T}.cs" />
-    <Compile Include="ViewModels\BaseDbKeyViewModel{T}.cs" />
-    <Compile Include="ViewModels\BaseInfoViewModel{T}.cs" />
+    <Compile Include="ViewModels\BaseCreatedOnViewModel{TKey}.cs" />
+    <Compile Include="ViewModels\BaseDbKeyViewModel{TKey}.cs" />
+    <Compile Include="ViewModels\BaseInfoViewModel{TKey}.cs" />
     <Compile Include="ViewModels\Manage\AddPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\Manage\ChangePasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\ConfigureTwoFactorViewModel.cs" />

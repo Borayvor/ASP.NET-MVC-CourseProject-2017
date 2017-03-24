@@ -16,7 +16,7 @@
         public ApplicationUser()
         {
             // This will prevent UserManager.CreateAsync from causing exception
-            this.CreatedOn = GlobalDateTimeInfo.GetDateTimeUtcNow();
+            this.CreatedOn = ServerDateTime.Now();
         }
 
         public bool IsTeacher { get; set; }

@@ -67,6 +67,10 @@
   <ItemGroup>
     <Compile Include="ApplicationUserProfileService.cs" />
     <Compile Include="Contracts\IApplicationUserProfileService.cs" />
+    <Compile Include="Contracts\IBaseCreateService{T}.cs" />
+    <Compile Include="Contracts\IBaseDeleteService{T}.cs" />
+    <Compile Include="Contracts\IBaseGetService{T,I}.cs" />
+    <Compile Include="Contracts\IBaseUpdateService{T}.cs" />
     <Compile Include="Contracts\IPhotocourseService.cs" />
     <Compile Include="Contracts\IStudentService.cs" />
     <Compile Include="PhotocourseService.cs" />

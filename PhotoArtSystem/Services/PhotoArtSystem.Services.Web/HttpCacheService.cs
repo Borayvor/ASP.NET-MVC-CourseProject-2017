@@ -24,7 +24,7 @@
                             itemName,
                             data,
                             null,
-                            GlobalDateTimeInfo.GetDateTimeUtcNow().AddSeconds(durationInSeconds),
+                            ServerDateTime.Now().AddSeconds(durationInSeconds),
                             Cache.NoSlidingExpiration);
                     }
                 }

@@ -2,7 +2,7 @@
 {
     using System;
 
-    public abstract class BaseInfoViewModel<T> : BaseCreatedOnViewModel<T>
+    public abstract class BaseInfoViewModel<TKey> : BaseCreatedOnViewModel<TKey>
     {
         public DateTime? ModifiedOn { get; set; }
 

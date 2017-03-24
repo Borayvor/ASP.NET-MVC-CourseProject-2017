@@ -10,14 +10,16 @@
 
     public class PhotocourseController : BaseController
     {
+        private readonly IAutoMapperService mapper;
         private readonly IPhotocourseService photocourseService;
 
         public PhotocourseController(
             IPhotocourseService photocourseService,
             IAutoMapperService mapper,
             ICacheService cache)
-            : base(mapper, cache)
+            : base(cache)
         {
+            this.mapper = mapper;
             this.photocourseService = photocourseService;
         }
 
@@ -40,7 +42,7 @@
             var photocourse = this.photocourseService.GetById(id);
 
             var result = this.ExceptionHandlerActionResult(
-                () => this.Mapper.Map<PhotocourseDetailsViewModel>(photocourse),
+                () => this.mapper.Map<PhotocourseDetailsViewModel>(photocourse),
                 (photocourseViewModel) => this.Cache.Get(
                     GlobalConstants.PhotocourseCacheName + id,
                     () => this.PartialView("_PhotocoursePartial", photocourseViewModel),
@@ -56,7 +58,7 @@
             var photocourses = this.photocourseService.GetAll();
 
             var result = this.ExceptionHandlerActionResult(
-                () => this.Mapper.Map<IEnumerable<PhotocourseViewModel>>(photocourses),
+                () => this.mapper.Map<IEnumerable<PhotocourseViewModel>>(photocourses),
                 (photocoursesAllViewModel) => this.Cache.Get(
                     GlobalConstants.PhotocoursesAllCacheName,
                     () => this.PartialView("_PhotocoursesAllPartial", photocoursesAllViewModel),

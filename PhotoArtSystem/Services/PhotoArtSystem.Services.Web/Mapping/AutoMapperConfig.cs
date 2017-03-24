@@ -1,4 +1,4 @@
-﻿namespace PhotoArtSystem.Web.Infrastructure.Mapping
+﻿namespace PhotoArtSystem.Services.Web.Mapping
 {
     using System;
     using System.Collections.Generic;
@@ -6,13 +6,11 @@
     using System.Reflection;
     using AutoMapper;
 
-    public class AutoMapperConfig
+    public static class AutoMapperConfig
     {
-        public static MapperConfiguration Configuration { get; private set; }
-
-        public void Execute(Assembly assembly)
+        public static MapperConfiguration Configuration(Assembly assembly)
         {
-            Configuration = new MapperConfiguration(
+            MapperConfiguration config = new MapperConfiguration(
                 cfg =>
                 {
                     var types = assembly.GetExportedTypes();
@@ -21,6 +19,8 @@
                     LoadReverseMappings(types, cfg);
                     LoadCustomMappings(types, cfg);
                 });
+
+            return config;
         }
 
         private static void LoadStandardMappings(IEnumerable<Type> types, IMapperConfigurationExpression configuration)

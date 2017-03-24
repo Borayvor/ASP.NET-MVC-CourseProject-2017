@@ -46,7 +46,7 @@
             var userManager = new UserManager<ApplicationUser>(userStore);
             userManager.PasswordValidator = new MinimumLengthValidator(AuthConstants.PasswordMinLength);
 
-            var userAdmin = new ApplicationUser
+            var userAdmin = new ApplicationUser()
             {
                 Email = AdministratorEmail,
                 UserName = AdministratorUsername

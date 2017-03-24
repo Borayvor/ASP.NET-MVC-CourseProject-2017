@@ -2,15 +2,15 @@
 {
     using System;
     using System.Collections.Generic;
-    using Data.Models;
-    using Infrastructure.Mapping;
+    using Data.Models.TransitionalModels;
+    using Services.Web.Mapping;
 
-    public class PhotocourseViewModel : BaseDbKeyViewModel<Guid>, IMapFrom<Photocourse>
+    public class PhotocourseViewModel : BaseDbKeyViewModel<Guid>, IMapFrom<PhotocourseTransitional>
     {
         public string Name { get; set; }
 
         public string Description { get; set; }
 
-        public IEnumerable<Image> Images { get; set; }
+        public IEnumerable<ImageTransitional> Images { get; set; }
     }
 }

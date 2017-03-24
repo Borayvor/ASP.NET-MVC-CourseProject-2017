@@ -1,9 +1,9 @@
-﻿namespace PhotoArtSystem.Services.Common.Models
+﻿namespace PhotoArtSystem.Data.Models.TransitionalModels
 {
     using System;
-    using Data.Common.Models;
+    using Common.Models;
 
-    public abstract class BaseModelModel<TKey> : IBaseModel<TKey>, IAuditInfo, IDeletableEntity
+    public abstract class BaseModelTransitional<TKey> : IBaseModel<TKey>, IAuditInfo, IDeletableEntity
     {
         public TKey Id { get; set; }
 

@@ -5,6 +5,7 @@
     using System.Web.Mvc;
     using Autofac;
     using Autofac.Integration.Mvc;
+    using AutoMapper;
     using Controllers;
     using Data;
     using Data.Common.EfDbContexts;
@@ -12,6 +13,7 @@
     using Services.Data;
     using Services.Web;
     using Services.Web.Contracts;
+    using Services.Web.Mapping;
     using Web;
 
     public static class AutofacConfig
@@ -58,8 +60,16 @@
                 .As<ICacheService>()
                 .InstancePerRequest();
 
-            builder.Register(x => new AutoMapperService())
-                .As<IAutoMapperService>();
+            builder.Register(x => new DateTimeProvider())
+                .As<IDateTimeProvider>();
+
+            builder.Register(c => AutoMapperConfig.Configuration(Assembly.GetExecutingAssembly()).CreateMapper())
+                .As<IMapper>();
+
+            builder.RegisterType<AutoMapperService>()
+                .As<IAutoMapperService>()
+                .InstancePerRequest()
+                .PropertiesAutowired();
 
             var entityFrameworkDbContextAssembly = Assembly.GetAssembly(typeof(EfDbContextSaveChanges));
             builder.RegisterAssemblyTypes(entityFrameworkDbContextAssembly).AsImplementedInterfaces();

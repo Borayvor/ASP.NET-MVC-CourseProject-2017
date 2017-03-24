@@ -68,7 +68,7 @@
         public virtual void Delete(T entity)
         {
             entity.IsDeleted = true;
-            entity.DeletedOn = GlobalDateTimeInfo.GetDateTimeUtcNow();
+            entity.DeletedOn = ServerDateTime.Now();
         }
 
         public virtual void DeletePermanent(T entity)

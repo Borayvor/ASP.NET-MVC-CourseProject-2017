@@ -1,10 +1,8 @@
 ﻿namespace PhotoArtSystem.Services.Data.Contracts
 {
-    using Common.Contracts;
-    using Common.Models;
-    using PhotoArtSystem.Data.Models;
+    using PhotoArtSystem.Data.Models.TransitionalModels;
 
-    public interface IApplicationUserProfileService : IBaseGetService<ApplicationUser, string, ApplicationUserModel>
+    public interface IApplicationUserProfileService : IBaseGetService<ApplicationUserTransitional, string>
     {
     }
 }

@@ -4,23 +4,21 @@
     using System.Collections.Generic;
     using System.Linq;
     using Bytes2you.Validation;
-    using Common;
-    using Common.Models;
     using Contracts;
     using PhotoArtSystem.Common.Constants;
     using PhotoArtSystem.Data.Common.EfDbContexts;
     using PhotoArtSystem.Data.Common.Repositories;
     using PhotoArtSystem.Data.Models;
-    using PhotoArtSystem.Web.Infrastructure.Mapping;
+    using PhotoArtSystem.Data.Models.TransitionalModels;
     using Web.Contracts;
 
-    public class StudentService : BaseService, IStudentService
+    public class StudentService : IStudentService
     {
+        private readonly IAutoMapperService mapper;
         private readonly IPhotoArtSystemEfDbRepository<Student> students;
         private readonly IEfDbContextSaveChanges context;
 
         public StudentService(IAutoMapperService mapper, IEfDbContextSaveChanges context, IPhotoArtSystemEfDbRepository<Student> students)
-            : base(mapper)
         {
             Guard.WhenArgument(
                 context,
@@ -29,47 +27,50 @@
                 students,
                 GlobalConstants.EfDbRepositoryStudentRequiredExceptionMessage).IsNull().Throw();
 
+            this.mapper = mapper;
             this.students = students;
             this.context = context;
         }
 
-        public IEnumerable<StudentModel> GetAll()
+        public IEnumerable<StudentTransitional> GetAll()
         {
-            return this.students.GetAll().OrderByDescending(x => x.CreatedOn).To<StudentModel>().ToList();
+            var students = this.students.GetAll().OrderByDescending(x => x.CreatedOn);
+
+            return this.mapper.Map<IEnumerable<StudentTransitional>>(students);
         }
 
-        public StudentModel GetById(Guid id)
+        public StudentTransitional GetById(Guid id)
         {
             var student = this.students.GetById(id);
 
-            return this.Mapper.Map<StudentModel>(student);
+            return this.mapper.Map<StudentTransitional>(student);
         }
 
-        public void Create(StudentModel entity)
+        public void Create(StudentTransitional entity)
         {
             Guard.WhenArgument(entity, GlobalConstants.StudentServiceRequiredExceptionMessage).IsNull().Throw();
 
-            var student = this.Mapper.Map<Student>(entity);
+            var student = this.mapper.Map<Student>(entity);
 
             this.students.Create(student);
             this.context.Save();
         }
 
-        public void Update(StudentModel entity)
+        public void Update(StudentTransitional entity)
         {
             Guard.WhenArgument(entity, GlobalConstants.StudentServiceRequiredExceptionMessage).IsNull().Throw();
 
-            var student = this.Mapper.Map<Student>(entity);
+            var student = this.mapper.Map<Student>(entity);
 
             this.students.Update(student);
             this.context.Save();
         }
 
-        public void Delete(StudentModel entity)
+        public void Delete(StudentTransitional entity)
         {
             Guard.WhenArgument(entity, GlobalConstants.StudentServiceRequiredExceptionMessage).IsNull().Throw();
 
-            var student = this.Mapper.Map<Student>(entity);
+            var student = this.mapper.Map<Student>(entity);
 
             this.students.Delete(student);
             this.context.Save();

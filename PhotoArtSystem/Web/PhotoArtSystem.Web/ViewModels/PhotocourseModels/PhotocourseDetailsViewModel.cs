@@ -3,14 +3,15 @@
     using System;
     using System.Collections.Generic;
     using Data.Models;
-    using Infrastructure.Mapping;
+    using Data.Models.TransitionalModels;
+    using Services.Web.Mapping;
 
     public class PhotocourseDetailsViewModel : BaseDbKeyViewModel<Guid>, IMapFrom<Photocourse>
     {
         public string OtherInfo { get; set; }
 
-        public IEnumerable<Image> Images { get; set; }
+        public IEnumerable<ImageTransitional> Images { get; set; }
 
-        public IEnumerable<Student> Groups { get; set; }
+        public IEnumerable<StudentTransitional> Groups { get; set; }
     }
 }
