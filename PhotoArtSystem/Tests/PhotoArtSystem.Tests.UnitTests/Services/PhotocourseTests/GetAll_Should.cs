@@ -1,5 +1,7 @@
 ﻿namespace PhotoArtSystem.Tests.UnitTests.Services.PhotocourseTests
 {
+    // TODO: implement GetAll_Should
+
     ////using System.Collections.Generic;
     ////using System.Linq;
     ////using Moq;

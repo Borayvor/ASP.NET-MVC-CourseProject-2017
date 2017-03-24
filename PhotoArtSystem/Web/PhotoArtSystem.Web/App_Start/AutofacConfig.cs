@@ -56,8 +56,16 @@
                 .As(typeof(IPhotoArtSystemEfDbRepository<>))
                 .InstancePerRequest();
 
+            builder.RegisterType<EfDbContextSaveChanges>()
+                .As<IEfDbContextSaveChanges>()
+                .InstancePerRequest();
+
             builder.Register(x => new HttpCacheService())
                 .As<ICacheService>()
+                .InstancePerRequest();
+
+            builder.RegisterType<AutoMapperService>()
+                .As<IAutoMapperService>()
                 .InstancePerRequest();
 
             builder.Register(x => new DateTimeProvider())
@@ -65,13 +73,6 @@
 
             builder.Register(c => AutoMapperConfig.Configuration.CreateMapper())
                 .As<IMapper>();
-
-            builder.RegisterType<AutoMapperService>()
-                .As<IAutoMapperService>()
-                .InstancePerRequest();
-
-            var entityFrameworkDbContextAssembly = Assembly.GetAssembly(typeof(EfDbContextSaveChanges));
-            builder.RegisterAssemblyTypes(entityFrameworkDbContextAssembly).AsImplementedInterfaces();
 
             var userServicesAssembly = Assembly.GetAssembly(typeof(ApplicationUserProfileService));
             builder.RegisterAssemblyTypes(userServicesAssembly).AsImplementedInterfaces();

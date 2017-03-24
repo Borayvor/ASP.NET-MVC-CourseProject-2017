@@ -1,5 +1,7 @@
 ﻿namespace PhotoArtSystem.Tests.UnitTests.Services.PhotocourseTests
 {
+    // TODO: implement GetById_Should
+
     ////using System;
     ////using Moq;
     ////using NUnit.Framework;

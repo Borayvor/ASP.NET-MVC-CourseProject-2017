@@ -1,5 +1,7 @@
 ﻿namespace PhotoArtSystem.Tests.UnitTests.Services.PhotocourseTests
 {
+    // TODO: implement Delete_Should
+
     ////using Common.Constants;
     ////using Moq;
     ////using NUnit.Framework;

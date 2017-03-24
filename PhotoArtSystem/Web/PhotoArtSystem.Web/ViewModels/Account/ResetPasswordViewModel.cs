@@ -8,6 +8,7 @@
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
+        [RegularExpression(AuthConstants.EmailRegEx)]
         public string Email { get; set; }
 
         [Required]
