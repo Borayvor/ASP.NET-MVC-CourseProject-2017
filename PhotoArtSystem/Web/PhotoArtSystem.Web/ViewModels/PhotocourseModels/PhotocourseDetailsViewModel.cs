@@ -2,11 +2,10 @@
 {
     using System;
     using System.Collections.Generic;
-    using Data.Models;
     using Data.Models.TransitionalModels;
     using Infrastructure.Mapping;
 
-    public class PhotocourseDetailsViewModel : BaseDbKeyViewModel<Guid>, IMapFrom<Photocourse>
+    public class PhotocourseDetailsViewModel : BaseDbKeyViewModel<Guid>, IMapFrom<PhotocourseTransitional>
     {
         public string OtherInfo { get; set; }
 
