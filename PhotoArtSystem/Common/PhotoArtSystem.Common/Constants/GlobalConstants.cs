@@ -4,15 +4,20 @@
     {
         public const string StringEmpty = "";
 
+        // TODO: Set Cache Duration !!!
         // Cache duration
         public const int PhotoArtServicesPartialCacheDuration = 0; //// * 60 * 24; // sec * min * hours
         public const int PhotocoursePartialCacheDuration = 0; //// * 60 * 24; // sec * min * hours
         public const int PhotocoursesAllPartialCacheDuration = 0; //// * 60 * 24; // sec * min * hours
+        public const int CarouselDataPartialCacheDuration = 0; //// * 60 * 24; // sec * min * hours
+        public const int MainInfoAllPartialCacheDuration = 0; //// * 60 * 24; // sec * min * hours
 
         // Cache item names
         public const string PhotoArtServicesCacheName = "PhotoArtServices";
         public const string PhotocoursesAllCacheName = "PhotocoursesAll";
         public const string PhotocourseCacheName = "Photocourse_";
+        public const string CarouselDataCacheName = "CarouselData";
+        public const string MainInfoAllCacheName = "MainInfoAll";
 
         // Validation messages
         public const string EmailNotValidValidationMessages = "The Email field is not a valid e-mail address.";

@@ -5,7 +5,11 @@ $nav_base_background_color: rgb(231, 233, 233);
 
 body {
     padding-top: 50px;
-    background-color: floralwhite;    
+    background-color: floralwhite; 
+    
+    .photoartsystem-error-class {
+        position: relative;
+    }   
 
     .photoartsystem-padding-sides-15 {
         padding-left: 15px;
@@ -43,8 +47,12 @@ body {
        
     }
 
-    .error-class {
-        position: relative;
+    .photoartsystem-content{
+        .photoartsystem-content-body{
+            padding-bottom: 30px;
+        }
+
+        padding-bottom: 30px;
     }
 
     @import "home-photoArtServices";

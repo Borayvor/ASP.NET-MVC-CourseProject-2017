@@ -10,8 +10,10 @@
 </head>
 <body>
     @Html.Partial("_NavigationPartial")
-    <div class="photoartsystem-padding-sides-15">
-        @RenderBody()
+    <div class="photoartsystem-content photoartsystem-padding-sides-15">
+        <div class="photoartsystem-content-body">
+            @RenderBody()
+        </div>       
         @Html.Partial("_FooterPartial")
     </div>       
 

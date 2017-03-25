@@ -8,6 +8,7 @@
 
     public class Student : BaseModelGuid, IBaseModel<Guid>, IAuditInfo, IDeletableEntity
     {
+        [Required]
         [Index]
         [MaxLength(ModelConstants.ApplicationUserNamesMaxLength)]
         [MinLength(ModelConstants.ApplicationUserNamesMinLength)]
@@ -17,6 +18,7 @@
         [MinLength(ModelConstants.ApplicationUserNamesMinLength)]
         public string MiddleName { get; set; }
 
+        [Required]
         [Index]
         [MaxLength(ModelConstants.ApplicationUserNamesMaxLength)]
         [MinLength(ModelConstants.ApplicationUserNamesMinLength)]

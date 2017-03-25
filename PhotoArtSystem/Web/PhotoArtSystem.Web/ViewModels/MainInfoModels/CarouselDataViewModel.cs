@@ -1,4 +1,4 @@
-﻿namespace PhotoArtSystem.Web.ViewModels.PhotocourseModels
+﻿namespace PhotoArtSystem.Web.ViewModels.MainInfoModels
 {
     using System;
     using System.Linq;
@@ -6,18 +6,16 @@
     using Data.Models.TransitionalModels;
     using Infrastructure.Mapping;
 
-    public class PhotocourseViewModel : BaseDbKeyViewModel<Guid>,
+    public class CarouselDataViewModel : BaseDbKeyViewModel<Guid>,
         IMapFrom<PhotocourseTransitional>, IHaveCustomMappings
     {
         public string Name { get; set; }
-
-        public string Description { get; set; }
 
         public string CoverImage { get; set; }
 
         public void CreateMappings(IMapperConfigurationExpression configuration)
         {
-            configuration.CreateMap<PhotocourseTransitional, PhotocourseViewModel>()
+            configuration.CreateMap<PhotocourseTransitional, CarouselDataViewModel>()
                 .ForMember(m => m.CoverImage, opt => opt.MapFrom(x => x.Images.FirstOrDefault().UrlPath));
         }
     }

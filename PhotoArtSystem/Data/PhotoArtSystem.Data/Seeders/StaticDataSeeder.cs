@@ -134,5 +134,63 @@
             //// End add.
             context.SaveChanges();
         }
+
+        internal static void SeedMainInfo(ApplicationDbContext context)
+        {
+            if (context.MainInfos.Any())
+            {
+                return;
+            }
+
+            var info_1 = new MainInfo()
+            {
+                Title = "Test Info 111",
+                Description = "Luctus placerat scelerisque euismod"
+            };
+
+            context.MainInfos.Add(info_1);
+
+            var info_2 = new MainInfo()
+            {
+                Title = "Test Info 222",
+                Description = "Tincidunt integer eu augue"
+            };
+
+            context.MainInfos.Add(info_2);
+
+            //// End add.
+            context.SaveChanges();
+        }
+
+        internal static void SeedStudents(ApplicationDbContext context)
+        {
+            if (context.Students.Any())
+            {
+                return;
+            }
+
+            var photocourseId = context.Photocourses.FirstOrDefault().Id;
+
+            var student_1 = new Student()
+            {
+                FirstName = "Student_1_fn",
+                LastName = "Student_1_ln",
+                PhotocourseId = photocourseId
+            };
+
+            context.Students.Add(student_1);
+
+            var student_2 = new Student()
+            {
+                FirstName = "Student_2_fn",
+                LastName = "Student_2_ln",
+                PhotocourseId = photocourseId
+            };
+
+            context.Students.Add(student_2);
+
+            //// End add.
+            context.SaveChanges();
+        }
     }
 }
