@@ -119,6 +119,12 @@
     <Compile Include="Services\PhotocourseTests\GetAll_Should.cs" />
     <Compile Include="Services\PhotocourseTests\GetById_Should.cs" />
     <Compile Include="Services\PhotocourseTests\Update_Should.cs" />
+    <Compile Include="Services\StudentServiceTests\Constructor_Should.cs" />
+    <Compile Include="Services\StudentServiceTests\Create_Should.cs" />
+    <Compile Include="Services\StudentServiceTests\Delete_Should.cs" />
+    <Compile Include="Services\StudentServiceTests\GetAll_Should.cs" />
+    <Compile Include="Services\StudentServiceTests\GetById_Should.cs" />
+    <Compile Include="Services\StudentServiceTests\Update_Should.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
