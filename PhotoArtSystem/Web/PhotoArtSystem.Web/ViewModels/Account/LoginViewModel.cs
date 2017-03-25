@@ -8,7 +8,7 @@
         [Required]
         [Display(Name = "Email")]
         [EmailAddress]
-        [RegularExpression(AuthConstants.EmailRegEx)]
+        [RegularExpression(AuthConstants.EmailRegEx, ErrorMessage = GlobalConstants.EmailNotValidValidationMessages)]
         public string Email { get; set; }
 
         [Required]
