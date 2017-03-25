@@ -49,7 +49,7 @@
             Assert.AreEqual(expectedTeacher, photocourse.Teacher);
             Assert.AreEqual(expectedMaxStudents, photocourse.MaxStudents);
             Assert.IsInstanceOf<HashSet<Image>>(photocourse.Images);
-            Assert.IsInstanceOf<HashSet<Student>>(photocourse.Groups);
+            Assert.IsInstanceOf<HashSet<Student>>(photocourse.Students);
         }
     }
 }

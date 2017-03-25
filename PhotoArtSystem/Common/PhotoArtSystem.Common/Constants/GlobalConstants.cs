@@ -18,12 +18,16 @@
         public const string DbContextRequiredExceptionMessage = "An instance of DbContext is required !";
         public const string EfDbContextRequiredExceptionMessage = "An instance of EfDbContext is required !";
 
+        // Validation messages
+        public const string EmailNotValidValidationMessages = "The Email field is not a valid e-mail address.";
+
         // PhotocourseService
         public const string EfDbRepositoryPhotocourseRequiredExceptionMessage = "An instance of EfDbRepository of Photocourse is required !";
         public const string PhotocourseRequiredExceptionMessage = "An instance of Photocourse is required !";
+        public const string MapperRequiredExceptionMessage = "An instance of Mapper is required !";
 
-        // PhotoArtServiceService
-        public const string EfDbRepositoryPhotoArtServiceRequiredExceptionMessage = "An instance of EfDbRepository of PhotoArtService is required !";
-        public const string PhotoArtServiceRequiredExceptionMessage = "An instance of PhotoArtService is required !";
+        // StudentService
+        public const string EfDbRepositoryStudentRequiredExceptionMessage = "An instance of EfDbRepository of Student is required !";
+        public const string StudentServiceRequiredExceptionMessage = "An instance of StudentService is required !";
     }
 }

@@ -59,8 +59,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationUser.cs" />
+    <Compile Include="EnumTypes\FileSizeType.cs" />
     <Compile Include="FileInfo.cs" />
     <Compile Include="MainInfo.cs" />
+    <Compile Include="TransitionalModels\ApplicationUserTransitional.cs" />
+    <Compile Include="TransitionalModels\BaseModelTransitional{TKey}.cs" />
+    <Compile Include="TransitionalModels\FileInfoTransitional.cs" />
+    <Compile Include="TransitionalModels\ImageTransitional.cs" />
+    <Compile Include="TransitionalModels\MainInfoTransitional.cs" />
+    <Compile Include="TransitionalModels\PhotocourseTransitional.cs" />
+    <Compile Include="TransitionalModels\StudentTransitional.cs" />
     <Compile Include="OriginalImage.cs" />
     <Compile Include="Photocourse.cs" />
     <Compile Include="Student.cs" />
@@ -75,6 +83,14 @@
     <ProjectReference Include="..\..\Common\PhotoArtSystem.Common\PhotoArtSystem.Common.csproj">
       <Project>{de595403-0a05-4c28-9fc0-e17da5b88b28}</Project>
       <Name>PhotoArtSystem.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\PhotoArtSystem.Services.Web\PhotoArtSystem.Services.Web.csproj">
+      <Project>{102ebc87-8326-4c25-8f3a-84196d6ffb99}</Project>
+      <Name>PhotoArtSystem.Services.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Web\PhotoArtSystem.Web.Infrastructure\PhotoArtSystem.Web.Infrastructure.csproj">
+      <Project>{906BCF66-F8E2-4437-9A19-068465AD1409}</Project>
+      <Name>PhotoArtSystem.Web.Infrastructure</Name>
     </ProjectReference>
     <ProjectReference Include="..\PhotoArtSystem.Data.Common\PhotoArtSystem.Data.Common.csproj">
       <Project>{526e19b8-9113-4371-b2f7-76483b2c3fed}</Project>

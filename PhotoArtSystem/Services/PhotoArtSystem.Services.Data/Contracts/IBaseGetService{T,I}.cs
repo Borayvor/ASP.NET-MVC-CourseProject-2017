@@ -1,7 +1,6 @@
-﻿namespace PhotoArtSystem.Services.Common.Contracts
+﻿namespace PhotoArtSystem.Services.Data.Contracts
 {
     using System.Collections.Generic;
-    using Data.Common.Models;
 
     /// <summary>
     /// Common Get service.
@@ -9,7 +8,7 @@
     /// <typeparam name="T">Must be IAuditInfo and IDeletableEntity.</typeparam>
     /// <typeparam name="I">Must be struct or string.</typeparam>
     public interface IBaseGetService<T, I>
-        where T : IAuditInfo, IDeletableEntity
+        where T : class
     {
         /// <summary>
         /// Get all <"T">. Without ordinary deleted.

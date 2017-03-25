@@ -6,7 +6,9 @@
     using PhotoArtSystem.Data.Common.EfDbContexts;
     using PhotoArtSystem.Data.Common.Repositories;
     using PhotoArtSystem.Data.Models;
-    using PhotoArtSystem.Services.Photocourses;
+    using PhotoArtSystem.Data.Models.TransitionalModels;
+    using PhotoArtSystem.Services.Data;
+    using PhotoArtSystem.Services.Web.Contracts;
     using Ploeh.AutoFixture;
 
     [TestFixture]
@@ -18,10 +20,14 @@
             // Arange
             Fixture fixture = new Fixture();
             var id = fixture.Create<Guid>();
+            var mockedModel = new Mock<Photocourse>();
+            var mockedMapper = new Mock<IAutoMapperService>();
             var mockedEfDbContext = new Mock<IEfDbContextSaveChanges>();
             var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<Photocourse>>();
 
-            var service = new PhotocourseService(mockedEfDbContext.Object, mockedIEfDbRepository.Object);
+            mockedIEfDbRepository.Setup(x => x.GetById(id)).Returns(mockedModel.Object);
+
+            var service = new PhotocourseService(mockedMapper.Object, mockedEfDbContext.Object, mockedIEfDbRepository.Object);
 
             // Act
             var result = service.GetById(id);
@@ -36,18 +42,24 @@
             // Arange
             Fixture fixture = new Fixture();
             var id = fixture.Create<Guid>();
-            var mockedModel = new Photocourse();
+            var mockedModel = new Mock<Photocourse>();
+            var expectedPhotocourseTransitional = new Mock<PhotocourseTransitional>();
+            var mockedMapper = new Mock<IAutoMapperService>();
+            mockedMapper
+               .Setup(x => x.Map<PhotocourseTransitional>(It.IsAny<Photocourse>()))
+               .Returns(expectedPhotocourseTransitional.Object);
+
             var mockedEfDbContext = new Mock<IEfDbContextSaveChanges>();
             var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<Photocourse>>();
-            mockedIEfDbRepository.Setup(x => x.GetById(id)).Returns(mockedModel);
+            mockedIEfDbRepository.Setup(x => x.GetById(id)).Returns(mockedModel.Object);
 
-            var service = new PhotocourseService(mockedEfDbContext.Object, mockedIEfDbRepository.Object);
+            var service = new PhotocourseService(mockedMapper.Object, mockedEfDbContext.Object, mockedIEfDbRepository.Object);
 
             // Act
             var result = service.GetById(id);
 
             // Assert
-            Assert.AreSame(mockedModel, result);
+            Assert.AreSame(expectedPhotocourseTransitional.Object, result);
         }
     }
 }

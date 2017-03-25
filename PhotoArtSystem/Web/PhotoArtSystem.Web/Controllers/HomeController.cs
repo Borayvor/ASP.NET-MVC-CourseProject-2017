@@ -5,9 +5,12 @@
 
     public class HomeController : BaseController
     {
+        private readonly IAutoMapperService mapper;
+
         public HomeController(IAutoMapperService mapper, ICacheService cache)
-            : base(mapper, cache)
+            : base(cache)
         {
+            this.mapper = mapper;
         }
 
         public ActionResult Index()

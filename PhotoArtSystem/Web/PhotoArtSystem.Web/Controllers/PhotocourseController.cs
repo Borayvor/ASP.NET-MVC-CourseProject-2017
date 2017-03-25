@@ -4,20 +4,22 @@
     using System.Collections.Generic;
     using System.Web.Mvc;
     using Common.Constants;
-    using Services.Photocourses.Contracts;
+    using Services.Data.Contracts;
     using Services.Web.Contracts;
     using ViewModels.PhotocourseModels;
 
     public class PhotocourseController : BaseController
     {
+        private readonly IAutoMapperService mapper;
         private readonly IPhotocourseService photocourseService;
 
         public PhotocourseController(
             IPhotocourseService photocourseService,
             IAutoMapperService mapper,
             ICacheService cache)
-            : base(mapper, cache)
+            : base(cache)
         {
+            this.mapper = mapper;
             this.photocourseService = photocourseService;
         }
 
@@ -37,10 +39,9 @@
         [ChildActionOnly]
         public ActionResult GetPhotocourse(Guid id)
         {
-            var photocourse = this.photocourseService.GetById(id);
-
             var result = this.ExceptionHandlerActionResult(
-                () => this.Mapper.Map<PhotocourseDetailsViewModel>(photocourse),
+                () => this.mapper
+                .Map<PhotocourseDetailsViewModel>(this.photocourseService.GetById(id)),
                 (photocourseViewModel) => this.Cache.Get(
                     GlobalConstants.PhotocourseCacheName + id,
                     () => this.PartialView("_PhotocoursePartial", photocourseViewModel),
@@ -53,10 +54,9 @@
         [ChildActionOnly]
         public ActionResult GetAllPhotocourses()
         {
-            var photocourses = this.photocourseService.GetAll();
-
             var result = this.ExceptionHandlerActionResult(
-                () => this.Mapper.Map<IEnumerable<PhotocourseViewModel>>(photocourses),
+                () => this.mapper
+                .Map<IEnumerable<PhotocourseViewModel>>(this.photocourseService.GetAll()),
                 (photocoursesAllViewModel) => this.Cache.Get(
                     GlobalConstants.PhotocoursesAllCacheName,
                     () => this.PartialView("_PhotocoursesAllPartial", photocoursesAllViewModel),

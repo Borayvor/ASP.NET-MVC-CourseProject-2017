@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C1FE80CB-0F09-4C17-818D-6898489A848C}</ProjectGuid>
+    <ProjectGuid>{0678E417-B113-4242-AB11-94238343BF4F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PhotoArtSystem.Services.ApplicationUser</RootNamespace>
-    <AssemblyName>PhotoArtSystem.Services.ApplicationUser</AssemblyName>
+    <RootNamespace>PhotoArtSystem.Services.Data</RootNamespace>
+    <AssemblyName>PhotoArtSystem.Services.Data</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=5.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AutoMapper.5.2.0\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Bytes2you.Validation, Version=2.0.0.0, Culture=neutral, PublicKeyToken=a7d501dd757e0442, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Bytes2you.Validation.2.0.0.0\lib\portable-win+net40+sl40+wp+Xbox40\Bytes2you.Validation.dll</HintPath>
       <Private>True</Private>
@@ -64,9 +68,21 @@
   <ItemGroup>
     <Compile Include="ApplicationUserProfileService.cs" />
     <Compile Include="Contracts\IApplicationUserProfileService.cs" />
+    <Compile Include="Contracts\IBaseCreateService{T}.cs" />
+    <Compile Include="Contracts\IBaseDeleteService{T}.cs" />
+    <Compile Include="Contracts\IBaseGetService{T,I}.cs" />
+    <Compile Include="Contracts\IBaseUpdateService{T}.cs" />
+    <Compile Include="Contracts\IPhotocourseService.cs" />
+    <Compile Include="Contracts\IStudentService.cs" />
+    <Compile Include="PhotocourseService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StudentService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\PhotoArtSystem.Common\PhotoArtSystem.Common.csproj">
+      <Project>{de595403-0a05-4c28-9fc0-e17da5b88b28}</Project>
+      <Name>PhotoArtSystem.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Data\PhotoArtSystem.Data.Common\PhotoArtSystem.Data.Common.csproj">
       <Project>{526e19b8-9113-4371-b2f7-76483b2c3fed}</Project>
       <Name>PhotoArtSystem.Data.Common</Name>
@@ -75,14 +91,27 @@
       <Project>{6a9e098f-b139-4d79-a0f0-e1307f916e13}</Project>
       <Name>PhotoArtSystem.Data.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Web\PhotoArtSystem.Web.Infrastructure\PhotoArtSystem.Web.Infrastructure.csproj">
+      <Project>{906bcf66-f8e2-4437-9a19-068465ad1409}</Project>
+      <Name>PhotoArtSystem.Web.Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PhotoArtSystem.Services.Common\PhotoArtSystem.Services.Common.csproj">
       <Project>{f70892f7-da64-4acc-87e5-92287e7e7d6b}</Project>
       <Name>PhotoArtSystem.Services.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PhotoArtSystem.Services.Web\PhotoArtSystem.Services.Web.csproj">
+      <Project>{102ebc87-8326-4c25-8f3a-84196d6ffb99}</Project>
+      <Name>PhotoArtSystem.Services.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\Newtonsoft.Json.dll" />
+    <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

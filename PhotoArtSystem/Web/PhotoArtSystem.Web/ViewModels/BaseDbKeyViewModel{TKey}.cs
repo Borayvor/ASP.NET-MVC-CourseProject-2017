@@ -2,9 +2,9 @@
 {
     using System.Web.Mvc;
 
-    public abstract class BaseDbKeyViewModel<T>
+    public abstract class BaseDbKeyViewModel<TKey>
     {
         [HiddenInput(DisplayValue = false)]
-        public T Id { get; set; }
+        public TKey Id { get; set; }
     }
 }

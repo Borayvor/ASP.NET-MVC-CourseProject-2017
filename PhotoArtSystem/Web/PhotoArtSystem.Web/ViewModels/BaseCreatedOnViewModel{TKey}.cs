@@ -2,7 +2,7 @@
 {
     using System;
 
-    public abstract class BaseCreatedOnViewModel<T> : BaseDbKeyViewModel<T>
+    public abstract class BaseCreatedOnViewModel<TKey> : BaseDbKeyViewModel<TKey>
     {
         public DateTime CreatedOn { get; set; }
     }

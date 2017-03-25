@@ -11,12 +11,12 @@
     using PhotoArtSystem.Common.DateTime;
 
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
-    public class ApplicationUser : IdentityUser, IAuditInfo, IDeletableEntity
+    public class ApplicationUser : IdentityUser, IBaseModel<string>, IAuditInfo, IDeletableEntity
     {
         public ApplicationUser()
         {
             // This will prevent UserManager.CreateAsync from causing exception
-            this.CreatedOn = GlobalDateTimeInfo.GetDateTimeUtcNow();
+            this.CreatedOn = ServerDateTime.Now();
         }
 
         public bool IsTeacher { get; set; }

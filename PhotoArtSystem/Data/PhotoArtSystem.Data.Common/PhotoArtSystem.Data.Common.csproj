@@ -74,6 +74,10 @@
       <Project>{de595403-0a05-4c28-9fc0-e17da5b88b28}</Project>
       <Name>PhotoArtSystem.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Services\PhotoArtSystem.Services.Web\PhotoArtSystem.Services.Web.csproj">
+      <Project>{102ebc87-8326-4c25-8f3a-84196d6ffb99}</Project>
+      <Name>PhotoArtSystem.Services.Web</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\Newtonsoft.Json.dll" />

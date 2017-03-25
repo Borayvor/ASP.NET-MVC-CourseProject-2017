@@ -2,16 +2,19 @@
 {
     using AutoMapper;
     using Contracts;
-    using PhotoArtSystem.Web.Infrastructure.Mapping;
 
     public class AutoMapperService : IAutoMapperService
     {
-        public IMapper GetAutoMapper
+        private readonly IMapper mapper;
+
+        public AutoMapperService(IMapper mapper)
         {
-            get
-            {
-                return AutoMapperConfig.Configuration.CreateMapper();
-            }
+            this.mapper = mapper;
+        }
+
+        public TDestination Map<TDestination>(object source)
+        {
+            return this.mapper.Map<TDestination>(source);
         }
     }
 }

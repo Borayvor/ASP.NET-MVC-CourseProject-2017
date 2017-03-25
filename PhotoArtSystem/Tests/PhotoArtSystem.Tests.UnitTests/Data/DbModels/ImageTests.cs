@@ -1,9 +1,9 @@
 ﻿namespace PhotoArtSystem.Tests.UnitTests.Data.DbModels
 {
     using System;
-    using Common.EnumTypes;
     using NUnit.Framework;
     using PhotoArtSystem.Data.Models;
+    using PhotoArtSystem.Data.Models.EnumTypes;
     using Ploeh.AutoFixture;
 
     [TestFixture]

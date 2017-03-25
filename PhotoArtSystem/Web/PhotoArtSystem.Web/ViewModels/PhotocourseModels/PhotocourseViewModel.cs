@@ -1,13 +1,16 @@
 ﻿namespace PhotoArtSystem.Web.ViewModels.PhotocourseModels
 {
     using System;
-    using Data.Models;
+    using System.Collections.Generic;
+    using Data.Models.TransitionalModels;
     using Infrastructure.Mapping;
 
-    public class PhotocourseViewModel : BaseDbKeyViewModel<Guid>, IMapFrom<Photocourse>
+    public class PhotocourseViewModel : BaseDbKeyViewModel<Guid>, IMapFrom<PhotocourseTransitional>
     {
         public string Name { get; set; }
 
         public string Description { get; set; }
+
+        public IEnumerable<ImageTransitional> Images { get; set; }
     }
 }

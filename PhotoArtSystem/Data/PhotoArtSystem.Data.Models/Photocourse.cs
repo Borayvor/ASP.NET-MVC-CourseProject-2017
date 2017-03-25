@@ -9,12 +9,12 @@
     public class Photocourse : BaseModelGuid, IBaseModel<Guid>, IAuditInfo, IDeletableEntity
     {
         private ICollection<Image> images;
-        private ICollection<Student> groups;
+        private ICollection<Student> students;
 
         public Photocourse()
         {
             this.images = new HashSet<Image>();
-            this.groups = new HashSet<Student>();
+            this.students = new HashSet<Student>();
         }
 
         [Required]
@@ -35,7 +35,8 @@
         [MaxLength(ModelConstants.PhotocourseOtherInfoMaxLength)]
         public string OtherInfo { get; set; }
 
-        public ushort DurationHours { get; set; }
+        [Range(1, 1000)]
+        public int DurationHours { get; set; }
 
         public DateTime StartDate { get; set; }
 
@@ -53,10 +54,10 @@
             set { this.images = value; }
         }
 
-        public virtual ICollection<Student> Groups
+        public virtual ICollection<Student> Students
         {
-            get { return this.groups; }
-            set { this.groups = value; }
+            get { return this.students; }
+            set { this.students = value; }
         }
     }
 }

@@ -5,12 +5,13 @@
     using System.Web.Mvc;
     using Autofac;
     using Autofac.Integration.Mvc;
+    using AutoMapper;
     using Controllers;
     using Data;
     using Data.Common.EfDbContexts;
     using Data.Common.Repositories;
-    using Services.ApplicationUser;
-    using Services.Photocourses;
+    using Infrastructure.Mapping;
+    using Services.Data;
     using Services.Web;
     using Services.Web.Contracts;
     using Web;
@@ -55,21 +56,27 @@
                 .As(typeof(IPhotoArtSystemEfDbRepository<>))
                 .InstancePerRequest();
 
+            builder.RegisterType<EfDbContextSaveChanges>()
+                .As<IEfDbContextSaveChanges>()
+                .InstancePerRequest();
+
             builder.Register(x => new HttpCacheService())
                 .As<ICacheService>()
                 .InstancePerRequest();
 
-            builder.Register(x => new AutoMapperService())
-                .As<IAutoMapperService>();
+            builder.RegisterType<AutoMapperService>()
+                .As<IAutoMapperService>()
+                .InstancePerRequest();
 
-            var entityFrameworkDbContextAssembly = Assembly.GetAssembly(typeof(EfDbContextSaveChanges));
-            builder.RegisterAssemblyTypes(entityFrameworkDbContextAssembly).AsImplementedInterfaces();
+            builder.Register(x => new DateTimeProvider())
+                .As<IDateTimeProvider>();
+
+            builder.Register(c => AutoMapperConfig.Configuration.CreateMapper())
+                .As<IMapper>()
+                .InstancePerLifetimeScope();
 
             var userServicesAssembly = Assembly.GetAssembly(typeof(ApplicationUserProfileService));
             builder.RegisterAssemblyTypes(userServicesAssembly).AsImplementedInterfaces();
-
-            var photocourseServiceAssembly = Assembly.GetAssembly(typeof(PhotocourseService));
-            builder.RegisterAssemblyTypes(photocourseServiceAssembly).AsImplementedInterfaces();
 
             builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
                 .AssignableTo<BaseController>().PropertiesAutowired();

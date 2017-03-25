@@ -2,20 +2,16 @@
 {
     using System;
     using System.Web.Mvc;
-    using AutoMapper;
     using Services.Web.Contracts;
 
     public abstract class BaseController : Controller
     {
-        protected BaseController(IAutoMapperService mapper, ICacheService cache)
+        protected BaseController(ICacheService cache)
         {
-            this.Mapper = mapper.GetAutoMapper;
             this.Cache = cache;
         }
 
         public ICacheService Cache { get; }
-
-        protected IMapper Mapper { get; }
 
         protected ActionResult ExceptionHandlerActionResult<T>(Func<T> funcToPerform, Func<T, ActionResult> resultToReturn)
         {

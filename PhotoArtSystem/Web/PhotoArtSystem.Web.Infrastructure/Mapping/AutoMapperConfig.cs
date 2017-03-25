@@ -10,16 +10,20 @@
     {
         public static MapperConfiguration Configuration { get; private set; }
 
-        public void Execute(Assembly assembly)
+        public void Execute(Assembly assemblyWeb, Assembly assemblyDb)
         {
             Configuration = new MapperConfiguration(
                 cfg =>
                 {
-                    var types = assembly.GetExportedTypes();
+                    var typesWeb = assemblyWeb.GetExportedTypes();
+                    LoadStandardMappings(typesWeb, cfg);
+                    LoadReverseMappings(typesWeb, cfg);
+                    LoadCustomMappings(typesWeb, cfg);
 
-                    LoadStandardMappings(types, cfg);
-                    LoadReverseMappings(types, cfg);
-                    LoadCustomMappings(types, cfg);
+                    var typesDb = assemblyDb.GetExportedTypes();
+                    LoadStandardMappings(typesDb, cfg);
+                    LoadReverseMappings(typesDb, cfg);
+                    LoadCustomMappings(typesDb, cfg);
                 });
         }
 

@@ -2,9 +2,9 @@
 {
     using System;
 
-    public class GlobalDateTimeInfo
+    public class ServerDateTime
     {
-        public static DateTime GetDateTimeUtcNow()
+        public static DateTime Now()
         {
             return DateTime.UtcNow;
         }

@@ -1,9 +1,7 @@
 ﻿namespace PhotoArtSystem.Services.Web.Contracts
 {
-    using AutoMapper;
-
     public interface IAutoMapperService
     {
-        IMapper GetAutoMapper { get; }
+        TDestination Map<TDestination>(object source);
     }
 }

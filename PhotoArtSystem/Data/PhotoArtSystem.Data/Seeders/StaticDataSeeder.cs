@@ -6,8 +6,8 @@
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using Models;
+    using Models.EnumTypes;
     using PhotoArtSystem.Common.Constants;
-    using PhotoArtSystem.Common.EnumTypes;
 
     internal static class StaticDataSeeder
     {
@@ -46,7 +46,7 @@
             var userManager = new UserManager<ApplicationUser>(userStore);
             userManager.PasswordValidator = new MinimumLengthValidator(AuthConstants.PasswordMinLength);
 
-            var userAdmin = new ApplicationUser
+            var userAdmin = new ApplicationUser()
             {
                 Email = AdministratorEmail,
                 UserName = AdministratorUsername
@@ -100,7 +100,7 @@
 
         internal static void SeedImages(ApplicationDbContext context)
         {
-            if (context.ImageLinks.Any())
+            if (context.Images.Any())
             {
                 return;
             }
@@ -116,7 +116,7 @@
                 PhotocourseId = photocourseId1
             };
 
-            context.ImageLinks.Add(imageLink1);
+            context.Images.Add(imageLink1);
 
             var photocourseId2 = context.Photocourses.FirstOrDefault(x => x.Id != photocourseId1).Id;
 
@@ -129,7 +129,7 @@
                 PhotocourseId = photocourseId2
             };
 
-            context.ImageLinks.Add(imageLink2);
+            context.Images.Add(imageLink2);
 
             //// End add.
             context.SaveChanges();
