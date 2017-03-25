@@ -22,6 +22,10 @@
         public const string EfDbContextRequiredExceptionMessage = "An instance of EfDbContext is required !";
         public const string MapperRequiredExceptionMessage = "An instance of Mapper is required !";
 
+        // ApplicationUserProfileService Exception messages
+        public const string EfDbRepositoryApplicationUserRequiredExceptionMessage = "An instance of EfDbRepository of ApplicationUser is required !";
+        public const string ApplicationUserTransitionalRequiredExceptionMessage = "An instance of ApplicationUserTransitional is required !";
+
         // PhotocourseService Exception messages
         public const string EfDbRepositoryPhotocourseRequiredExceptionMessage = "An instance of EfDbRepository of Photocourse is required !";
         public const string PhotocourseTransitionalRequiredExceptionMessage = "An instance of PhotocourseTransitional is required !";

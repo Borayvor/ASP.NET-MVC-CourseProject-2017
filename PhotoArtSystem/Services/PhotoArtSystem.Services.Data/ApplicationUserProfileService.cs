@@ -2,6 +2,8 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+    using Bytes2you.Validation;
+    using Common.Constants;
     using Contracts;
     using PhotoArtSystem.Data.Common.Repositories;
     using PhotoArtSystem.Data.Models;
@@ -15,6 +17,13 @@
 
         public ApplicationUserProfileService(IAutoMapperService mapper, IPhotoArtSystemEfDbRepository<ApplicationUser> users)
         {
+            Guard.WhenArgument(
+                mapper,
+                GlobalConstants.MapperRequiredExceptionMessage).IsNull().Throw();
+            Guard.WhenArgument(
+                 users,
+                 GlobalConstants.EfDbRepositoryApplicationUserRequiredExceptionMessage).IsNull().Throw();
+
             this.mapper = mapper;
             this.users = users;
         }
