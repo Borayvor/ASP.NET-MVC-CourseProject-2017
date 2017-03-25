@@ -1,16 +1,24 @@
 ﻿namespace PhotoArtSystem.Web.ViewModels.PhotocourseModels
 {
     using System;
-    using System.Collections.Generic;
+    using System.Linq;
+    using AutoMapper;
     using Data.Models.TransitionalModels;
     using Infrastructure.Mapping;
 
-    public class PhotocourseViewModel : BaseDbKeyViewModel<Guid>, IMapFrom<PhotocourseTransitional>
+    public class PhotocourseViewModel : BaseDbKeyViewModel<Guid>,
+        IMapFrom<PhotocourseTransitional>, IHaveCustomMappings
     {
         public string Name { get; set; }
 
         public string Description { get; set; }
 
-        public IEnumerable<ImageTransitional> Images { get; set; }
+        public string CoverImage { get; set; }
+
+        public void CreateMappings(IMapperConfigurationExpression configuration)
+        {
+            configuration.CreateMap<PhotocourseTransitional, PhotocourseViewModel>()
+                .ForMember(m => m.CoverImage, opt => opt.MapFrom(x => x.Images.FirstOrDefault().UrlPath));
+        }
     }
 }

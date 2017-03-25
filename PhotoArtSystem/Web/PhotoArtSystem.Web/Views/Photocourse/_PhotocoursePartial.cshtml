@@ -1,2 +1,26 @@
-﻿
-<div>_PhotocoursePartial</div>
+﻿@using PhotoArtSystem.Web.ViewModels.PhotocourseModels
+@model PhotocourseDetailsViewModel
+
+<div class="row">
+    @foreach (var image in Model.Images)
+    {
+        <div class="col-sm-3">
+            <img src="@image.UrlPath" class="img-thumbnail img-responsive" />
+        </div>
+    }
+</div>
+<div class="row">
+    <div class="col-sm-8">@Model.OtherInfo</div>
+    <div class="col-sm-4">
+        <ul>
+            @foreach (var student in Model.Students)
+            {
+                <li>
+                    @student.FirstName
+                </li>
+            }
+        </ul>       
+    </div>
+</div>
+
+

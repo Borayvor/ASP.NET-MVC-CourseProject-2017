@@ -161,5 +161,36 @@
             //// End add.
             context.SaveChanges();
         }
+
+        internal static void SeedStudents(ApplicationDbContext context)
+        {
+            if (context.Students.Any())
+            {
+                return;
+            }
+
+            var photocourseId = context.Photocourses.FirstOrDefault().Id;
+
+            var student_1 = new Student()
+            {
+                FirstName = "Student_1_fn",
+                LastName = "Student_1_ln",
+                PhotocourseId = photocourseId
+            };
+
+            context.Students.Add(student_1);
+
+            var student_2 = new Student()
+            {
+                FirstName = "Student_2_fn",
+                LastName = "Student_2_ln",
+                PhotocourseId = photocourseId
+            };
+
+            context.Students.Add(student_2);
+
+            //// End add.
+            context.SaveChanges();
+        }
     }
 }

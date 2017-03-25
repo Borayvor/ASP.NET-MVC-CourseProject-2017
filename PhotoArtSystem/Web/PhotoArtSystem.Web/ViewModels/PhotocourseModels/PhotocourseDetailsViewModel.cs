@@ -11,6 +11,6 @@
 
         public IEnumerable<ImageTransitional> Images { get; set; }
 
-        public IEnumerable<StudentTransitional> Groups { get; set; }
+        public IEnumerable<StudentTransitional> Students { get; set; }
     }
 }
