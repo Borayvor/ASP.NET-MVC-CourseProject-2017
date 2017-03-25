@@ -14,20 +14,24 @@
         public const string PhotocoursesAllCacheName = "PhotocoursesAll";
         public const string PhotocourseCacheName = "Photocourse_";
 
-        // Exception messages
-        public const string DbContextRequiredExceptionMessage = "An instance of DbContext is required !";
-        public const string EfDbContextRequiredExceptionMessage = "An instance of EfDbContext is required !";
-
         // Validation messages
         public const string EmailNotValidValidationMessages = "The Email field is not a valid e-mail address.";
 
-        // PhotocourseService
-        public const string EfDbRepositoryPhotocourseRequiredExceptionMessage = "An instance of EfDbRepository of Photocourse is required !";
-        public const string PhotocourseRequiredExceptionMessage = "An instance of Photocourse is required !";
+        // Common Exception messages
+        public const string DbContextRequiredExceptionMessage = "An instance of DbContext is required !";
+        public const string EfDbContextRequiredExceptionMessage = "An instance of EfDbContext is required !";
         public const string MapperRequiredExceptionMessage = "An instance of Mapper is required !";
 
-        // StudentService
+        // PhotocourseService Exception messages
+        public const string EfDbRepositoryPhotocourseRequiredExceptionMessage = "An instance of EfDbRepository of Photocourse is required !";
+        public const string PhotocourseTransitionalRequiredExceptionMessage = "An instance of PhotocourseTransitional is required !";
+
+        // StudentService Exception messages
         public const string EfDbRepositoryStudentRequiredExceptionMessage = "An instance of EfDbRepository of Student is required !";
-        public const string StudentServiceRequiredExceptionMessage = "An instance of StudentService is required !";
+        public const string StudentTransitionalRequiredExceptionMessage = "An instance of StudentTransitional is required !";
+
+        // MainInfoService Exception messages
+        public const string EfDbRepositoryMainInfoRequiredExceptionMessage = "An instance of EfDbRepository of MainInfo is required !";
+        public const string MainInfoTransitionalRequiredExceptionMessage = "An instance of MainInfoTransitional is required !";
     }
 }

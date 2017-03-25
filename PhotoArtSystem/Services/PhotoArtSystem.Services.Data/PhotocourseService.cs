@@ -37,47 +37,47 @@
 
         public IEnumerable<PhotocourseTransitional> GetAll()
         {
-            var photocoursesAll = this.photocourses.GetAll().ToList();
-            var result = this.mapper.Map<IEnumerable<PhotocourseTransitional>>(photocoursesAll);
+            var entityDbList = this.photocourses.GetAll().ToList();
+            var result = this.mapper.Map<IEnumerable<PhotocourseTransitional>>(entityDbList);
 
             return result;
         }
 
         public PhotocourseTransitional GetById(Guid id)
         {
-            var photocourse = this.photocourses.GetById(id);
-            var result = this.mapper.Map<PhotocourseTransitional>(photocourse);
+            var entityDb = this.photocourses.GetById(id);
+            var result = this.mapper.Map<PhotocourseTransitional>(entityDb);
 
             return result;
         }
 
         public void Create(PhotocourseTransitional entity)
         {
-            Guard.WhenArgument(entity, GlobalConstants.PhotocourseRequiredExceptionMessage).IsNull().Throw();
+            Guard.WhenArgument(entity, GlobalConstants.PhotocourseTransitionalRequiredExceptionMessage).IsNull().Throw();
 
-            var photocourse = this.mapper.Map<Photocourse>(entity);
+            var entityDb = this.mapper.Map<Photocourse>(entity);
 
-            this.photocourses.Create(photocourse);
+            this.photocourses.Create(entityDb);
             this.context.Save();
         }
 
         public void Update(PhotocourseTransitional entity)
         {
-            Guard.WhenArgument(entity, GlobalConstants.PhotocourseRequiredExceptionMessage).IsNull().Throw();
+            Guard.WhenArgument(entity, GlobalConstants.PhotocourseTransitionalRequiredExceptionMessage).IsNull().Throw();
 
-            var photocourse = this.mapper.Map<Photocourse>(entity);
+            var entityDb = this.mapper.Map<Photocourse>(entity);
 
-            this.photocourses.Update(photocourse);
+            this.photocourses.Update(entityDb);
             this.context.Save();
         }
 
         public void Delete(PhotocourseTransitional entity)
         {
-            Guard.WhenArgument(entity, GlobalConstants.PhotocourseRequiredExceptionMessage).IsNull().Throw();
+            Guard.WhenArgument(entity, GlobalConstants.PhotocourseTransitionalRequiredExceptionMessage).IsNull().Throw();
 
-            var photocourse = this.mapper.Map<Photocourse>(entity);
+            var entityDb = this.mapper.Map<Photocourse>(entity);
 
-            this.photocourses.Delete(photocourse);
+            this.photocourses.Delete(entityDb);
             this.context.Save();
         }
     }

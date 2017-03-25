@@ -26,7 +26,7 @@
             Assert.That(
                 () => service.Delete(null),
                             Throws.ArgumentNullException.With.Message.Contains(
-                                GlobalConstants.PhotocourseRequiredExceptionMessage));
+                                GlobalConstants.PhotocourseTransitionalRequiredExceptionMessage));
         }
 
         [Test]

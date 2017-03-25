@@ -21,16 +21,16 @@
 
         public IEnumerable<ApplicationUserTransitional> GetAll()
         {
-            var applicationUsers = this.users.GetAll().ToList();
-            var result = this.mapper.Map<IEnumerable<ApplicationUserTransitional>>(applicationUsers);
+            var entityDbList = this.users.GetAll().ToList();
+            var result = this.mapper.Map<IEnumerable<ApplicationUserTransitional>>(entityDbList);
 
             return result;
         }
 
         public ApplicationUserTransitional GetById(string id)
         {
-            var applicationUser = this.users.GetById(id);
-            var result = this.mapper.Map<ApplicationUserTransitional>(applicationUser);
+            var entityDb = this.users.GetById(id);
+            var result = this.mapper.Map<ApplicationUserTransitional>(entityDb);
 
             return result;
         }
