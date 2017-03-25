@@ -14,7 +14,7 @@
     public class Delete_Should
     {
         [Test]
-        public void Throw_ArgumentNullException_WithProperMessage_When_Photocourse_IsNull()
+        public void Throw_ArgumentNullException_WithProperMessage_When_Student_IsNull()
         {
             // Arange
             var mockedMapper = new Mock<IAutoMapperService>();
@@ -30,7 +30,7 @@
         }
 
         [Test]
-        public void CallOnce_EfDbContextSave_When_Photocourse_IsNotNull()
+        public void CallOnce_EfDbContextSave_When_Student_IsNotNull()
         {
             // Arange
             var mockedMapper = new Mock<IAutoMapperService>();

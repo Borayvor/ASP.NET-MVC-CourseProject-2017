@@ -37,7 +37,7 @@
         }
 
         [Test]
-        public void ReturnProperlyResultFromEfDbRepository()
+        public void ReturnProperlyResult_From_EfDbRepository()
         {
             // Arange
             Fixture fixture = new Fixture();

@@ -32,7 +32,7 @@
         }
 
         [Test]
-        public void ReturnProperlyResultWhenPhotocourceListIsNotEmpty()
+        public void ReturnProperlyResult_When_Student_IsNotEmpty()
         {
             // Arange
             var entityList = new List<Student>();

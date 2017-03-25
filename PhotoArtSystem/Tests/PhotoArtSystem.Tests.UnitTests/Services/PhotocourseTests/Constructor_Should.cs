@@ -41,7 +41,7 @@
         }
 
         [Test]
-        public void Throw_ArgumentNullException_WithProperMessage_When_EfDbRepositoryOfPhotocourse_IsNull()
+        public void Throw_ArgumentNullException_WithProperMessage_When_EfDbRepositoryOf_Photocourse_IsNull()
         {
             // Arange
             var mockedMapper = new Mock<IAutoMapperService>();

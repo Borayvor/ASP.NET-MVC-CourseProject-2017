@@ -113,6 +113,12 @@
     <Compile Include="Mocks\MockedHttpRequest.cs" />
     <Compile Include="Mocks\MockedHttpResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\MainInfoServiceTests\Constructor_Should.cs" />
+    <Compile Include="Services\MainInfoServiceTests\Create_Should.cs" />
+    <Compile Include="Services\MainInfoServiceTests\Delete_Should.cs" />
+    <Compile Include="Services\MainInfoServiceTests\GetAll_Should.cs" />
+    <Compile Include="Services\MainInfoServiceTests\GetById_Should.cs" />
+    <Compile Include="Services\MainInfoServiceTests\Update_Should.cs" />
     <Compile Include="Services\PhotocourseTests\Constructor_Should.cs" />
     <Compile Include="Services\PhotocourseTests\Create_Should.cs" />
     <Compile Include="Services\PhotocourseTests\Delete_Should.cs" />
