@@ -1,4 +1,4 @@
-﻿namespace PhotoArtSystem.Tests.UnitTests.Services.PhotocourseTests
+﻿namespace PhotoArtSystem.Tests.UnitTests.Services.MainInfoServiceTests
 {
     using Common.Constants;
     using Moq;
@@ -11,35 +11,35 @@
     using PhotoArtSystem.Services.Web.Contracts;
 
     [TestFixture]
-    public class Create_Should
+    public class Delete_Should
     {
         [Test]
-        public void Throw_ArgumentNullException_WithProperMessage_When_Photocourse_IsNull()
+        public void Throw_ArgumentNullException_WithProperMessage_When_MainInfo_IsNull()
         {
             // Arange
             var mockedMapper = new Mock<IAutoMapperService>();
             var mockedEfDbContext = new Mock<IEfDbContextSaveChanges>();
-            var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<Photocourse>>();
-            var service = new PhotocourseService(mockedMapper.Object, mockedEfDbContext.Object, mockedIEfDbRepository.Object);
+            var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<MainInfo>>();
+            var service = new MainInfoService(mockedMapper.Object, mockedEfDbContext.Object, mockedIEfDbRepository.Object);
 
             // Act & Assert
             Assert.That(
-                () => service.Create(null),
+                () => service.Delete(null),
                             Throws.ArgumentNullException.With.Message.Contains(
-                                GlobalConstants.PhotocourseTransitionalRequiredExceptionMessage));
+                                GlobalConstants.MainInfoTransitionalRequiredExceptionMessage));
         }
 
         [Test]
-        public void CallOnce_EfDbContextSave_When_Photocourse_IsNotNull()
+        public void CallOnce_EfDbContextSave_When_MainInfo_IsNotNull()
         {
             // Arange
             var mockedMapper = new Mock<IAutoMapperService>();
             var mockedEfDbContext = new Mock<IEfDbContextSaveChanges>();
-            var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<Photocourse>>();
-            var service = new PhotocourseService(mockedMapper.Object, mockedEfDbContext.Object, mockedIEfDbRepository.Object);
+            var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<MainInfo>>();
+            var service = new MainInfoService(mockedMapper.Object, mockedEfDbContext.Object, mockedIEfDbRepository.Object);
 
             // Act
-            service.Create(new PhotocourseTransitional());
+            service.Delete(new MainInfoTransitional());
 
             // Assert
             mockedEfDbContext.Verify(x => x.Save(), Times.Once);

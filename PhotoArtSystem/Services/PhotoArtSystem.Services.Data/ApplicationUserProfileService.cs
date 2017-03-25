@@ -2,6 +2,8 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+    using Bytes2you.Validation;
+    using Common.Constants;
     using Contracts;
     using PhotoArtSystem.Data.Common.Repositories;
     using PhotoArtSystem.Data.Models;
@@ -15,22 +17,29 @@
 
         public ApplicationUserProfileService(IAutoMapperService mapper, IPhotoArtSystemEfDbRepository<ApplicationUser> users)
         {
+            Guard.WhenArgument(
+                mapper,
+                GlobalConstants.MapperRequiredExceptionMessage).IsNull().Throw();
+            Guard.WhenArgument(
+                 users,
+                 GlobalConstants.EfDbRepositoryApplicationUserRequiredExceptionMessage).IsNull().Throw();
+
             this.mapper = mapper;
             this.users = users;
         }
 
         public IEnumerable<ApplicationUserTransitional> GetAll()
         {
-            var applicationUsers = this.users.GetAll().ToList();
-            var result = this.mapper.Map<IEnumerable<ApplicationUserTransitional>>(applicationUsers);
+            var entityDbList = this.users.GetAll().ToList();
+            var result = this.mapper.Map<IEnumerable<ApplicationUserTransitional>>(entityDbList);
 
             return result;
         }
 
         public ApplicationUserTransitional GetById(string id)
         {
-            var applicationUser = this.users.GetById(id);
-            var result = this.mapper.Map<ApplicationUserTransitional>(applicationUser);
+            var entityDb = this.users.GetById(id);
+            var result = this.mapper.Map<ApplicationUserTransitional>(entityDb);
 
             return result;
         }

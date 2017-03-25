@@ -1,4 +1,4 @@
-﻿namespace PhotoArtSystem.Tests.UnitTests.Services.PhotocourseTests
+﻿namespace PhotoArtSystem.Tests.UnitTests.Services.MainInfoServiceTests
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -20,9 +20,9 @@
             // Arange
             var mockedMapper = new Mock<IAutoMapperService>();
             var mockedEfDbContext = new Mock<IEfDbContextSaveChanges>();
-            var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<Photocourse>>();
+            var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<MainInfo>>();
 
-            var service = new PhotocourseService(mockedMapper.Object, mockedEfDbContext.Object, mockedIEfDbRepository.Object);
+            var service = new MainInfoService(mockedMapper.Object, mockedEfDbContext.Object, mockedIEfDbRepository.Object);
 
             // Act
             service.GetAll();
@@ -32,25 +32,25 @@
         }
 
         [Test]
-        public void ReturnProperlyResult_When_Photocourse_IsNotEmpty()
+        public void ReturnProperlyResult_When_MainInfoList_IsNotEmpty()
         {
             // Arange
-            var entityList = new List<Photocourse>();
-            var mockedEntity = new Mock<PhotocourseTransitional>();
+            var entityList = new List<MainInfo>();
+            var mockedEntity = new Mock<MainInfoTransitional>();
 
-            var expected = new List<PhotocourseTransitional>();
+            var expected = new List<MainInfoTransitional>();
             expected.Add(mockedEntity.Object);
 
             var mockedMapper = new Mock<IAutoMapperService>();
             mockedMapper
-                .Setup(x => x.Map<IEnumerable<PhotocourseTransitional>>(It.IsAny<IEnumerable<Photocourse>>()))
+                .Setup(x => x.Map<IEnumerable<MainInfoTransitional>>(It.IsAny<IEnumerable<MainInfo>>()))
                 .Returns(expected);
 
             var mockedEfDbContext = new Mock<IEfDbContextSaveChanges>();
-            var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<Photocourse>>();
+            var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<MainInfo>>();
             mockedIEfDbRepository.Setup(x => x.GetAll()).Returns(entityList.AsQueryable());
 
-            var service = new PhotocourseService(mockedMapper.Object, mockedEfDbContext.Object, mockedIEfDbRepository.Object);
+            var service = new MainInfoService(mockedMapper.Object, mockedEfDbContext.Object, mockedIEfDbRepository.Object);
 
             // Act
             var actual = service.GetAll();

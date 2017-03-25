@@ -72,8 +72,10 @@
     <Compile Include="Contracts\IBaseDeleteService{T}.cs" />
     <Compile Include="Contracts\IBaseGetService{T,I}.cs" />
     <Compile Include="Contracts\IBaseUpdateService{T}.cs" />
+    <Compile Include="Contracts\IMainInfoService.cs" />
     <Compile Include="Contracts\IPhotocourseService.cs" />
     <Compile Include="Contracts\IStudentService.cs" />
+    <Compile Include="MainInfoService.cs" />
     <Compile Include="PhotocourseService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StudentService.cs" />

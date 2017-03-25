@@ -1,4 +1,4 @@
-﻿namespace PhotoArtSystem.Tests.UnitTests.Services.PhotocourseTests
+﻿namespace PhotoArtSystem.Tests.UnitTests.Services.StudentServiceTests
 {
     using Common.Constants;
     using Moq;
@@ -17,11 +17,11 @@
         {
             // Arange
             var mockedEfDbContext = new Mock<IEfDbContextSaveChanges>();
-            var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<Photocourse>>();
+            var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<Student>>();
 
             // Act & Assert
             Assert.That(
-                () => new PhotocourseService(null, mockedEfDbContext.Object, mockedIEfDbRepository.Object),
+                () => new StudentService(null, mockedEfDbContext.Object, mockedIEfDbRepository.Object),
                             Throws.ArgumentNullException.With.Message.Contains(
                                 GlobalConstants.MapperRequiredExceptionMessage));
         }
@@ -31,17 +31,17 @@
         {
             // Arange
             var mockedMapper = new Mock<IAutoMapperService>();
-            var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<Photocourse>>();
+            var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<Student>>();
 
             // Act & Assert
             Assert.That(
-                () => new PhotocourseService(mockedMapper.Object, null, mockedIEfDbRepository.Object),
+                () => new StudentService(mockedMapper.Object, null, mockedIEfDbRepository.Object),
                             Throws.ArgumentNullException.With.Message.Contains(
                                 GlobalConstants.EfDbContextRequiredExceptionMessage));
         }
 
         [Test]
-        public void Throw_ArgumentNullException_WithProperMessage_When_EfDbRepositoryOf_Photocourse_IsNull()
+        public void Throw_ArgumentNullException_WithProperMessage_When_EfDbRepositoryOf_Student_IsNull()
         {
             // Arange
             var mockedMapper = new Mock<IAutoMapperService>();
@@ -49,9 +49,9 @@
 
             // Act & Assert
             Assert.That(
-                () => new PhotocourseService(mockedMapper.Object, mockedEfDbContext.Object, null),
+                () => new StudentService(mockedMapper.Object, mockedEfDbContext.Object, null),
                             Throws.ArgumentNullException.With.Message.Contains(
-                                GlobalConstants.EfDbRepositoryPhotocourseRequiredExceptionMessage));
+                                GlobalConstants.EfDbRepositoryStudentRequiredExceptionMessage));
         }
 
         [Test]
@@ -60,10 +60,10 @@
             // Arange
             var mockedMapper = new Mock<IAutoMapperService>();
             var mockedEfDbContext = new Mock<IEfDbContextSaveChanges>();
-            var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<Photocourse>>();
+            var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<Student>>();
 
             // Act & Assert
-            Assert.DoesNotThrow(() => new PhotocourseService(
+            Assert.DoesNotThrow(() => new StudentService(
                 mockedMapper.Object,
                 mockedEfDbContext.Object,
                 mockedIEfDbRepository.Object));
