@@ -18,6 +18,7 @@
 
             StaticDataSeeder.SeedPhotocourses(context);
             StaticDataSeeder.SeedImages(context);
+            StaticDataSeeder.SeedMainInfo(context);
         }
     }
 }

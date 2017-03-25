@@ -4,5 +4,7 @@
     ViewBag.Title = "Home Page";
 }
 
-
-
+<div>
+    @(Html.Action<HomeController>(c => c.GetCarouselData()))
+    @(Html.Action<HomeController>(c => c.GetPhotoArtInfos()))
+</div>

@@ -1,0 +1,13 @@
+﻿@using PhotoArtSystem.Web.ViewModels.MainInfoModels
+@model IEnumerable<CarouselDataViewModel>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-3">
+            <h4 class="text-center">@item.Name</h4>
+            <img src="@item.CoverImage" class="img-thumbnail img-responsive" />
+        </div>
+    }
+</div>
+

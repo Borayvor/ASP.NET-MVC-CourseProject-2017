@@ -134,5 +134,32 @@
             //// End add.
             context.SaveChanges();
         }
+
+        internal static void SeedMainInfo(ApplicationDbContext context)
+        {
+            if (context.MainInfos.Any())
+            {
+                return;
+            }
+
+            var info_1 = new MainInfo()
+            {
+                Title = "Test Info 111",
+                Description = "Luctus placerat scelerisque euismod"
+            };
+
+            context.MainInfos.Add(info_1);
+
+            var info_2 = new MainInfo()
+            {
+                Title = "Test Info 222",
+                Description = "Tincidunt integer eu augue"
+            };
+
+            context.MainInfos.Add(info_2);
+
+            //// End add.
+            context.SaveChanges();
+        }
     }
 }

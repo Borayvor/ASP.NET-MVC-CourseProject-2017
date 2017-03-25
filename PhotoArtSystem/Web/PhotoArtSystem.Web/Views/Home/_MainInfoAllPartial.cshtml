@@ -1,0 +1,12 @@
+﻿@using PhotoArtSystem.Web.ViewModels.MainInfoModels
+@model IEnumerable<MainInfoViewModel>
+
+<div class="row">
+    @foreach (var info in Model)
+    {
+        <div class="col-sm-3">
+            <h4 class="text-center">@info.Title</h4>
+            <div>@info.Description</div>
+        </div>
+    }
+</div>

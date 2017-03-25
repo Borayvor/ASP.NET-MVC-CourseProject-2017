@@ -6,6 +6,8 @@
 
     public interface IApplicationDbContext
     {
+        IDbSet<MainInfo> MainInfos { get; set; }
+
         IDbSet<Photocourse> Photocourses { get; set; }
 
         IDbSet<Student> Students { get; set; }
