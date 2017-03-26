@@ -128,6 +128,7 @@
     <Compile Include="Services\AutoMapperServiceTests\Map_Should.cs" />
     <Compile Include="Services\DateTimeProviderTests\Now_Should.cs" />
     <Compile Include="Services\HttpCacheServiceTests\Get_Should.cs" />
+    <Compile Include="Services\HttpCacheServiceTests\Remove_Should.cs" />
     <Compile Include="Services\MainInfoServiceTests\Constructor_Should.cs" />
     <Compile Include="Services\MainInfoServiceTests\Create_Should.cs" />
     <Compile Include="Services\MainInfoServiceTests\Delete_Should.cs" />
