@@ -9,8 +9,8 @@
 
     public class HomeController : BaseController
     {
-        private readonly IPhotocourseService photocourseService;
         private readonly IMainInfoService mainInfoService;
+        private readonly IPhotocourseService photocourseService;
         private readonly IAutoMapperService mapper;
 
         public HomeController(IMainInfoService mainInfoService, IPhotocourseService photocourseService, IAutoMapperService mapper, ICacheService cache)
