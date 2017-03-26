@@ -1,7 +1,6 @@
 ﻿namespace PhotoArtSystem.Web.ViewModels.PhotocourseModels
 {
     using System;
-    using System.Linq;
     using AutoMapper;
     using Data.Models.TransitionalModels;
     using Infrastructure.Mapping;
@@ -18,7 +17,7 @@
         public void CreateMappings(IMapperConfigurationExpression configuration)
         {
             configuration.CreateMap<PhotocourseTransitional, PhotocourseViewModel>()
-                .ForMember(m => m.CoverImage, opt => opt.MapFrom(x => x.Images.FirstOrDefault().UrlPath));
+                .ForMember(m => m.CoverImage, opt => opt.MapFrom(x => x.MainImage.UrlPath));
         }
     }
 }

@@ -7,7 +7,7 @@
     public class ImageTransitional : FileInfoTransitional,
         IMapFrom<Image>, IMapTo<Image>
     {
-        public Guid PhotocourseId { get; set; }
+        public Guid? PhotocourseId { get; set; }
 
         public Photocourse Photocourse { get; set; }
     }
