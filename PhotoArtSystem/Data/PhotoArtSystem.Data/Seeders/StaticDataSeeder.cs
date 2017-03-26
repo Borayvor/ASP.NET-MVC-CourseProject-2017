@@ -9,9 +9,9 @@
     using Models.EnumTypes;
     using PhotoArtSystem.Common.Constants;
 
-    internal static class StaticDataSeeder
+    public static class StaticDataSeeder
     {
-        internal static void SeedRoles(ApplicationDbContext context)
+        public static void SeedRoles(ApplicationDbContext context)
         {
             if (context.Roles.Any())
             {
@@ -27,7 +27,7 @@
             context.SaveChanges();
         }
 
-        internal static void SeedUsers(ApplicationDbContext context)
+        public static void SeedUsers(ApplicationDbContext context)
         {
             if (context.Users.Any())
             {
@@ -61,7 +61,7 @@
             context.SaveChanges();
         }
 
-        internal static void SeedPhotocourses(ApplicationDbContext context)
+        public static void SeedPhotocourses(ApplicationDbContext context)
         {
             if (context.Photocourses.Any())
             {
@@ -98,7 +98,7 @@
             context.SaveChanges();
         }
 
-        internal static void SeedImages(ApplicationDbContext context)
+        public static void SeedImages(ApplicationDbContext context)
         {
             if (context.Images.Any())
             {
@@ -135,7 +135,7 @@
             context.SaveChanges();
         }
 
-        internal static void SeedMainInfo(ApplicationDbContext context)
+        public static void SeedMainInfo(ApplicationDbContext context)
         {
             if (context.MainInfos.Any())
             {
@@ -162,7 +162,7 @@
             context.SaveChanges();
         }
 
-        internal static void SeedStudents(ApplicationDbContext context)
+        public static void SeedStudents(ApplicationDbContext context)
         {
             if (context.Students.Any())
             {

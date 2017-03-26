@@ -1,15 +1,16 @@
 ﻿namespace PhotoArtSystem.Tests.IntegrationTests
 {
+    using System.Data.Entity;
+    using Data;
     using NUnit.Framework;
 
     [SetUpFixture]
     public class TestsInitializer
     {
-        // TODO: implement TestsInitializer
-        ////[OneTimeSetUp]
-        ////public static void AssemblyTestsInit(TestContext context)
-        ////{
-        ////    Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext, TestDbConfiguration>());
-        ////}
+        [OneTimeSetUp]
+        public static void AssemblyTestsInit()
+        {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext, TestDbConfiguration>());
+        }
     }
 }
