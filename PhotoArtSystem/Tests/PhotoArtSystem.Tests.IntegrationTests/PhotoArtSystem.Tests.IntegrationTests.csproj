@@ -72,6 +72,8 @@
   <ItemGroup>
     <Compile Include="DummyContextTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestDbConfiguration.cs" />
+    <Compile Include="TestsInitializer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
