@@ -23,7 +23,7 @@
             Assert.That(
                 () => new StudentService(null, mockedEfDbContext.Object, mockedIEfDbRepository.Object),
                             Throws.ArgumentNullException.With.Message.Contains(
-                                GlobalConstants.MapperRequiredExceptionMessage));
+                                GlobalConstants.AutoMapperServiceRequiredExceptionMessage));
         }
 
         [Test]

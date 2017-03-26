@@ -1,4 +1,4 @@
-﻿namespace PhotoArtSystem.Tests.UnitTests.Services.PhotocourseTests
+﻿namespace PhotoArtSystem.Tests.UnitTests.Services.PhotocourseServiceTests
 {
     using Common.Constants;
     using Moq;
@@ -23,7 +23,7 @@
             Assert.That(
                 () => new PhotocourseService(null, mockedEfDbContext.Object, mockedIEfDbRepository.Object),
                             Throws.ArgumentNullException.With.Message.Contains(
-                                GlobalConstants.MapperRequiredExceptionMessage));
+                                GlobalConstants.AutoMapperServiceRequiredExceptionMessage));
         }
 
         [Test]

@@ -6,11 +6,11 @@
 
         // TODO: Set Cache Duration !!!
         // Cache duration
-        public const int PhotoArtServicesPartialCacheDuration = 0; //// * 60 * 24; // sec * min * hours
-        public const int PhotocoursePartialCacheDuration = 0; //// * 60 * 24; // sec * min * hours
-        public const int PhotocoursesAllPartialCacheDuration = 0; //// * 60 * 24; // sec * min * hours
-        public const int CarouselDataPartialCacheDuration = 0; //// * 60 * 24; // sec * min * hours
-        public const int MainInfoAllPartialCacheDuration = 0; //// * 60 * 24; // sec * min * hours
+        public const uint PhotoArtServicesPartialCacheDuration = 0; //// * 60 * 24; // sec * min * hours
+        public const uint PhotocoursePartialCacheDuration = 0; //// * 60 * 24; // sec * min * hours
+        public const uint PhotocoursesAllPartialCacheDuration = 0; //// * 60 * 24; // sec * min * hours
+        public const uint CarouselDataPartialCacheDuration = 0; //// * 60 * 24; // sec * min * hours
+        public const uint MainInfoAllPartialCacheDuration = 0; //// * 60 * 24; // sec * min * hours
 
         // Cache item names
         public const string PhotoArtServicesCacheName = "PhotoArtServices";
@@ -25,7 +25,13 @@
         // Common Exception messages
         public const string DbContextRequiredExceptionMessage = "An instance of DbContext is required !";
         public const string EfDbContextRequiredExceptionMessage = "An instance of EfDbContext is required !";
+        public const string AutoMapperServiceRequiredExceptionMessage = "An instance of AutoMapperService is required !";
         public const string MapperRequiredExceptionMessage = "An instance of Mapper is required !";
+        public const string SourceObjectRequiredExceptionMessage = "An instance of Source object is required !";
+
+        // HttpCacheService Exception messages
+        public const string ItemNameRequiredExceptionMessage = "Item name is required !";
+        public const string DurationInSecondsMustExceptionMessage = "Duration in seconds must be positive integer !";
 
         // ApplicationUserProfileService Exception messages
         public const string EfDbRepositoryApplicationUserRequiredExceptionMessage = "An instance of EfDbRepository of ApplicationUser is required !";

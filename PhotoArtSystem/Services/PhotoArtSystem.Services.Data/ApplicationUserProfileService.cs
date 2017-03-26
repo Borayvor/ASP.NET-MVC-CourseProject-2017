@@ -19,7 +19,7 @@
         {
             Guard.WhenArgument(
                 mapper,
-                GlobalConstants.MapperRequiredExceptionMessage).IsNull().Throw();
+                GlobalConstants.AutoMapperServiceRequiredExceptionMessage).IsNull().Throw();
             Guard.WhenArgument(
                  users,
                  GlobalConstants.EfDbRepositoryApplicationUserRequiredExceptionMessage).IsNull().Throw();
