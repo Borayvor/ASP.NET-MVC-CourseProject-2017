@@ -1,4 +1,4 @@
-﻿namespace PhotoArtSystem.Tests.UnitTests.Services.PhotocourseTests
+﻿namespace PhotoArtSystem.Tests.UnitTests.Services.PhotocourseServiceTests
 {
     using Common.Constants;
     using Moq;
@@ -11,7 +11,7 @@
     using PhotoArtSystem.Services.Web.Contracts;
 
     [TestFixture]
-    public class Delete_Should
+    public class Update_Should
     {
         [Test]
         public void Throw_ArgumentNullException_WithProperMessage_When_Photocourse_IsNull()
@@ -24,7 +24,7 @@
 
             // Act & Assert
             Assert.That(
-                () => service.Delete(null),
+                () => service.Update(null),
                             Throws.ArgumentNullException.With.Message.Contains(
                                 GlobalConstants.PhotocourseTransitionalRequiredExceptionMessage));
         }
@@ -39,7 +39,7 @@
             var service = new PhotocourseService(mockedMapper.Object, mockedEfDbContext.Object, mockedIEfDbRepository.Object);
 
             // Act
-            service.Delete(new PhotocourseTransitional());
+            service.Update(new PhotocourseTransitional());
 
             // Assert
             mockedEfDbContext.Verify(x => x.Save(), Times.Once);

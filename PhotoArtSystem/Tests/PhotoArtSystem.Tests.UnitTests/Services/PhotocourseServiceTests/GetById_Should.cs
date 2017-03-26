@@ -1,4 +1,4 @@
-﻿namespace PhotoArtSystem.Tests.UnitTests.Services.PhotocourseTests
+﻿namespace PhotoArtSystem.Tests.UnitTests.Services.PhotocourseServiceTests
 {
     using System;
     using Moq;

@@ -22,7 +22,7 @@
         {
             Guard.WhenArgument(
                 mapper,
-                GlobalConstants.MapperRequiredExceptionMessage).IsNull().Throw();
+                GlobalConstants.AutoMapperServiceRequiredExceptionMessage).IsNull().Throw();
             Guard.WhenArgument(
                 context,
                 GlobalConstants.EfDbContextRequiredExceptionMessage).IsNull().Throw();

@@ -23,7 +23,7 @@
             Assert.That(
                 () => new ApplicationUserProfileService(null, mockedIEfDbRepository.Object),
                             Throws.ArgumentNullException.With.Message.Contains(
-                                GlobalConstants.MapperRequiredExceptionMessage));
+                                GlobalConstants.AutoMapperServiceRequiredExceptionMessage));
         }
 
         [Test]
