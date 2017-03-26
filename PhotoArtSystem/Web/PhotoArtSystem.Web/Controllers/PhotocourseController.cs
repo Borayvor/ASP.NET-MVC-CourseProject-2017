@@ -37,21 +37,6 @@
 
         [HttpGet]
         [ChildActionOnly]
-        public ActionResult GetPhotocourse(Guid id)
-        {
-            var result = this.ExceptionHandlerActionResult(
-                () => this.mapper
-                .Map<PhotocourseDetailsViewModel>(this.photocourseService.GetById(id)),
-                (photocourseViewModel) => this.Cache.Get(
-                    GlobalConstants.PhotocourseCacheName + id,
-                    () => this.PartialView("_PhotocoursePartial", photocourseViewModel),
-                    GlobalConstants.PhotocoursePartialCacheDuration));
-
-            return result;
-        }
-
-        [HttpGet]
-        [ChildActionOnly]
         public ActionResult GetAllPhotocourses()
         {
             var result = this.ExceptionHandlerActionResult(
@@ -61,6 +46,21 @@
                     GlobalConstants.PhotocoursesAllCacheName,
                     () => this.PartialView("_PhotocoursesAllPartial", photocoursesAllViewModel),
                     GlobalConstants.PhotocoursesAllPartialCacheDuration));
+
+            return result;
+        }
+
+        [HttpGet]
+        [ChildActionOnly]
+        public ActionResult GetPhotocourse(Guid id)
+        {
+            var result = this.ExceptionHandlerActionResult(
+                () => this.mapper
+                .Map<PhotocourseDetailsViewModel>(this.photocourseService.GetById(id)),
+                (photocourseViewModel) => this.Cache.Get(
+                    GlobalConstants.PhotocourseCacheName + id,
+                    () => this.PartialView("_PhotocoursePartial", photocourseViewModel),
+                    GlobalConstants.PhotocoursePartialCacheDuration));
 
             return result;
         }
