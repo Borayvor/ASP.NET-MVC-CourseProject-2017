@@ -8,23 +8,22 @@
     using PhotoArtSystem.Data.Models.TransitionalModels;
     using PhotoArtSystem.Services.Data.Contracts;
     using PhotoArtSystem.Services.Web.Contracts;
+    using Ploeh.AutoFixture;
     using Web.Controllers;
-    using Web.ViewModels.MainInfoModels;
+    using Web.ViewModels.PhotocourseModels;
 
     [TestFixture]
-    public class HomeControllerTest
+    public class PhotocourseControllerTest
     {
         [Test]
         public void Index_ViewResult_Should_NotBeNull_WhenControllerArgumentsAre_NotNull()
         {
             // Arrange
-            var mockedMainInfoService = new Mock<IMainInfoService>();
             var mockedPhotocourseService = new Mock<IPhotocourseService>();
             var mockedAutoMapperService = new Mock<IAutoMapperService>();
             var mockedHttpCacheService = new Mock<ICacheService>();
 
-            var controller = new HomeController(
-                mockedMainInfoService.Object,
+            var controller = new PhotocourseController(
                 mockedPhotocourseService.Object,
                 mockedAutoMapperService.Object,
                 mockedHttpCacheService.Object);
@@ -37,32 +36,31 @@
         }
 
         [Test]
-        public void Contact_ViewResult_Should_NotBeNull_WhenControllerArgumentsAre_NotNull()
+        public void Details_ViewResult_Should_NotBeNull_WhenControllerArgumentsAre_NotNull()
         {
             // Arrange
-            var mockedMainInfoService = new Mock<IMainInfoService>();
+            Fixture fixture = new Fixture();
+            var id = fixture.Create<Guid>();
             var mockedPhotocourseService = new Mock<IPhotocourseService>();
             var mockedAutoMapperService = new Mock<IAutoMapperService>();
             var mockedHttpCacheService = new Mock<ICacheService>();
 
-            var controller = new HomeController(
-                mockedMainInfoService.Object,
+            var controller = new PhotocourseController(
                 mockedPhotocourseService.Object,
                 mockedAutoMapperService.Object,
                 mockedHttpCacheService.Object);
 
             // Act
-            ViewResult result = controller.Contact() as ViewResult;
+            ViewResult result = controller.Details(id) as ViewResult;
 
             // Assert
             Assert.IsNotNull(result);
         }
 
         [Test]
-        public void GetCarouselData_PartialViewResult_Should_NotBeNull_WhenArgumentsAre_NotNull()
+        public void GetAllPhotocourses_PartialViewResult_Should_NotBeNull_WhenArgumentsAre_NotNull()
         {
             // Arrange
-            var mockedMainInfoService = new Mock<IMainInfoService>();
             var mockedPhotocourseService = new Mock<IPhotocourseService>();
             var mockedAutoMapperService = new Mock<IAutoMapperService>();
             var mockedHttpCacheService = new Mock<ICacheService>();
@@ -70,8 +68,8 @@
 
             mockedPhotocourseService.Setup(x => x.GetAll()).Returns(It.IsAny<IEnumerable<PhotocourseTransitional>>());
 
-            mockedAutoMapperService.Setup(x => x.Map<IEnumerable<CarouselDataViewModel>>(It.IsAny<IEnumerable<PhotocourseTransitional>>()))
-                .Returns(It.IsAny<IEnumerable<CarouselDataViewModel>>());
+            mockedAutoMapperService.Setup(x => x.Map<IEnumerable<PhotocourseViewModel>>(It.IsAny<IEnumerable<PhotocourseTransitional>>()))
+                .Returns(It.IsAny<IEnumerable<PhotocourseViewModel>>());
 
             mockedHttpCacheService.Setup(x => x.Get(
                 It.IsAny<string>(),
@@ -79,33 +77,33 @@
                 It.IsAny<uint>()))
                 .Returns(partialView);
 
-            var controller = new HomeController(
-                mockedMainInfoService.Object,
+            var controller = new PhotocourseController(
                 mockedPhotocourseService.Object,
                 mockedAutoMapperService.Object,
                 mockedHttpCacheService.Object);
 
             // Act
-            PartialViewResult result = controller.GetCarouselData() as PartialViewResult;
+            PartialViewResult result = controller.GetAllPhotocourses() as PartialViewResult;
 
             // Assert
             Assert.IsNotNull(result);
         }
 
         [Test]
-        public void GetPhotoArtInfos_PartialViewResult_Should_NotBeNull_WhenArgumentsAre_NotNull()
+        public void GetPhotocourse_PartialViewResult_Should_NotBeNull_WhenArgumentsAre_NotNull()
         {
             // Arrange
-            var mockedMainInfoService = new Mock<IMainInfoService>();
+            Fixture fixture = new Fixture();
+            var id = fixture.Create<Guid>();
             var mockedPhotocourseService = new Mock<IPhotocourseService>();
             var mockedAutoMapperService = new Mock<IAutoMapperService>();
             var mockedHttpCacheService = new Mock<ICacheService>();
             var partialView = new PartialViewResult();
 
-            mockedMainInfoService.Setup(x => x.GetAll()).Returns(It.IsAny<IEnumerable<MainInfoTransitional>>());
+            mockedPhotocourseService.Setup(x => x.GetById(id)).Returns(It.IsAny<PhotocourseTransitional>());
 
-            mockedAutoMapperService.Setup(x => x.Map<IEnumerable<MainInfoViewModel>>(It.IsAny<IEnumerable<MainInfoTransitional>>()))
-                .Returns(It.IsAny<IEnumerable<MainInfoViewModel>>());
+            mockedAutoMapperService.Setup(x => x.Map<PhotocourseDetailsViewModel>(It.IsAny<PhotocourseTransitional>()))
+                .Returns(It.IsAny<PhotocourseDetailsViewModel>());
 
             mockedHttpCacheService.Setup(x => x.Get(
                 It.IsAny<string>(),
@@ -113,14 +111,13 @@
                 It.IsAny<uint>()))
                 .Returns(partialView);
 
-            var controller = new HomeController(
-                mockedMainInfoService.Object,
+            var controller = new PhotocourseController(
                 mockedPhotocourseService.Object,
                 mockedAutoMapperService.Object,
                 mockedHttpCacheService.Object);
 
             // Act
-            PartialViewResult result = controller.GetPhotoArtInfos() as PartialViewResult;
+            PartialViewResult result = controller.GetPhotocourse(id) as PartialViewResult;
 
             // Assert
             Assert.IsNotNull(result);

@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\Global\HomeControllerTest.cs" />
+    <Compile Include="Controllers\Global\PhotocourseControllerTest.cs" />
     <Compile Include="Data\DbModels\BaseModelGuidTests.cs" />
     <Compile Include="Data\DbModels\BaseModelIntClassTests.cs" />
     <Compile Include="Data\DbModels\ImageTests.cs" />
