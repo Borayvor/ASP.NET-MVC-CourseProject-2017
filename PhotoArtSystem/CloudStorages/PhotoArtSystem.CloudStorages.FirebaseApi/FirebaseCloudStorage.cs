@@ -2,11 +2,11 @@
 {
     using System;
     using System.IO;
+    using System.Threading.Tasks;
     using Common.Validators;
     using Contracts;
 
-    public class FirebaseCloudStorage :
-        ICloudStorage, IImageCloudStorage, IVideoCloudStorage
+    public class FirebaseCloudStorage : ICloudStorage
     {
         ////private const string ApiKey = "AIzaSyDtgXR3Tmmnn1g6eFRXzVCFceiAxeR_uWI";
         ////private const string Bucket = "photoartsystem.appspot.com";
@@ -21,31 +21,31 @@
         ////    this.auth = new FirebaseAuthProvider(new FirebaseConfig(ApiKey));
         ////}
 
-        public string UploadFile(Stream stream, string filename, string filetype, string path = "/")
+        public Task<string> UploadFile(Stream stream, string filename, string filetype, string path = "/")
         {
             UploadFileValidator.ValidateStream(stream);
             UploadFileValidator.ValidateFileName(filename);
             UploadFileValidator.ValidateFileType(filetype);
 
             // TODO: Implement UploadFile
-            return string.Empty;
+            throw new NotImplementedException();
         }
 
-        public string UploadFile(byte[] bytes, string filename, string filetype, string path = "/")
+        public async Task<string> UploadFile(byte[] bytes, string filename, string filetype, string path = "/")
         {
             UploadFileValidator.ValidateByteArray(bytes);
 
-            return this.UploadFile(new MemoryStream(bytes), filename, filetype, path);
+            return await this.UploadFile(new MemoryStream(bytes), filename, filetype, path);
         }
 
-        public string UploadFile(string base64, string filename, string filetype, string path = "/")
+        public async Task<string> UploadFile(string base64, string filename, string filetype, string path = "/")
         {
             UploadFileValidator.ValidateBase64(base64);
 
-            return this.UploadFile(Convert.FromBase64String(base64), filename, filetype, path);
+            return await this.UploadFile(Convert.FromBase64String(base64), filename, filetype, path);
         }
 
-        public bool DeleteFile(string filename)
+        public Task<bool> DeleteFile(string filename)
         {
             ////var meta = this.client.Delete(filename);
 

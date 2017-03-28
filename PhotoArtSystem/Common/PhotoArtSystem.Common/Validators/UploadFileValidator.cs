@@ -15,7 +15,7 @@
 
         public static void ValidateFileName(string filename)
         {
-            if (string.IsNullOrEmpty(filename))
+            if (string.IsNullOrWhiteSpace(filename))
             {
                 throw new ArgumentException("filename");
             }
@@ -23,7 +23,7 @@
 
         public static void ValidateFileType(string filetype)
         {
-            if (string.IsNullOrEmpty(filetype))
+            if (string.IsNullOrWhiteSpace(filetype))
             {
                 throw new ArgumentException("filetype");
             }
@@ -39,7 +39,7 @@
 
         public static void ValidateBase64(string base64)
         {
-            if (string.IsNullOrEmpty(base64))
+            if (string.IsNullOrWhiteSpace(base64))
             {
                 throw new ArgumentException("base 64");
             }
