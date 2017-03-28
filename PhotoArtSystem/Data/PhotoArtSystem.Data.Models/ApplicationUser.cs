@@ -37,6 +37,12 @@
 
         public DateTime? ModifiedOn { get; set; }
 
+        [Required]
+        [EmailAddress]
+        [Display(Name = "Email")]
+        [RegularExpression(AuthConstants.EmailRegEx, ErrorMessage = GlobalConstants.EmailNotValidValidationMessages)]
+        public override string Email { get; set; }
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType

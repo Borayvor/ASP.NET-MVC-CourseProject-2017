@@ -13,7 +13,11 @@
         private readonly IPhotocourseService photocourseService;
         private readonly IAutoMapperService mapper;
 
-        public HomeController(IMainInfoService mainInfoService, IPhotocourseService photocourseService, IAutoMapperService mapper, ICacheService cache)
+        public HomeController(
+            IMainInfoService mainInfoService,
+            IPhotocourseService photocourseService,
+            IAutoMapperService mapper,
+            ICacheService cache)
             : base(cache)
         {
             this.mainInfoService = mainInfoService;
@@ -55,15 +59,6 @@
                     GlobalConstants.MainInfoAllPartialCacheDuration));
 
             return result;
-        }
-
-        public ActionResult Contact()
-        {
-            this.ViewBag.Message = "Your contact page.";
-
-            ////throw new ArgumentException();
-
-            return this.View();
         }
     }
 }

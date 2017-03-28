@@ -8,6 +8,5 @@
         public const int PasswordMaxLength = 100;
 
         public const string AdministratorRoleName = "Administrator";
-        public const string AdministratorAreaName = "Administration";
     }
 }

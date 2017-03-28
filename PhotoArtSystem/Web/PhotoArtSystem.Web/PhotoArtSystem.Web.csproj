@@ -215,6 +215,7 @@
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\BaseAdminController.cs" />
     <Compile Include="Areas\Administration\Controllers\PhotocourseSetupController.cs" />
+    <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\Account\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\EController.cs" />
@@ -332,6 +333,7 @@
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\Site\app.js" />
     <Content Include="Scripts\Vegas\vegas.js" />
     <Content Include="Scripts\Vegas\vegas.min.js" />
     <Content Include="Scripts\_references.js" />
@@ -348,7 +350,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\E\E400.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -385,6 +386,7 @@
     <Content Include="Views\Photocourse\_PhotocoursesAllPartial.cshtml" />
     <Content Include="Views\Home\_MainInfoAllPartial.cshtml" />
     <Content Include="Views\Home\_CarouselDataPartial.cshtml" />
+    <Content Include="Views\AboutUs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
