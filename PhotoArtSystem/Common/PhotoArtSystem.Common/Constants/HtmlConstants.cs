@@ -4,8 +4,7 @@
     {
         // Global
         public const string HomeLinkName = "Home";
-        public const string AboutLinkName = "About";
-        public const string ContactLinkName = "Contact";
+        public const string AboutUsLinkName = "About us";
         public const string PhotocoursesLinkName = "Photocourses";
 
         // Administration

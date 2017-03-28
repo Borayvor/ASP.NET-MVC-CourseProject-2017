@@ -37,28 +37,6 @@
         }
 
         [Test]
-        public void Contact_ViewResult_Should_NotBeNull_WhenControllerArgumentsAre_NotNull()
-        {
-            // Arrange
-            var mockedMainInfoService = new Mock<IMainInfoService>();
-            var mockedPhotocourseService = new Mock<IPhotocourseService>();
-            var mockedAutoMapperService = new Mock<IAutoMapperService>();
-            var mockedHttpCacheService = new Mock<ICacheService>();
-
-            var controller = new HomeController(
-                mockedMainInfoService.Object,
-                mockedPhotocourseService.Object,
-                mockedAutoMapperService.Object,
-                mockedHttpCacheService.Object);
-
-            // Act
-            ViewResult result = controller.Contact() as ViewResult;
-
-            // Assert
-            Assert.IsNotNull(result);
-        }
-
-        [Test]
         public void GetCarouselData_PartialViewResult_Should_NotBeNull_WhenArgumentsAre_NotNull()
         {
             // Arrange

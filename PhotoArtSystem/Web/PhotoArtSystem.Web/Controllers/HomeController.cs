@@ -60,14 +60,5 @@
 
             return result;
         }
-
-        public ActionResult Contact()
-        {
-            this.ViewBag.Message = "Your contact page.";
-
-            ////throw new ArgumentException();
-
-            return this.View();
-        }
     }
 }
