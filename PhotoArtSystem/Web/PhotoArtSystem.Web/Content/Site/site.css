@@ -31,6 +31,8 @@
     font-size: 20px;
     font-style: italic;
     font-weight: 500; }
+    body .photoArtSystem-home-content .panel {
+      background-color: inherit; }
     body .photoArtSystem-home-content h1, body .photoArtSystem-home-content h2, body .photoArtSystem-home-content h3, body .photoArtSystem-home-content h4, body .photoArtSystem-home-content h5 {
       font-weight: 500; }
     body .photoArtSystem-home-content #photoartsystem-carousel-home {
@@ -45,4 +47,7 @@
       font-size: 3vw; }
     body .photoArtSystem-home-content .photoArtSystem-info-panel .photoArtSystem-info-panel-body {
       font-size: 2vw; } }
+  @media (max-width: 991px) {
+    body .photoArtSystem-home-content .photoArtSystem-info-panel {
+      letter-spacing: 1px; } }
 
