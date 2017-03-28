@@ -6,9 +6,9 @@
 
         // TODO: Set Cache Duration !!!
         // Cache duration
-        public const uint PhotoArtServicesPartialCacheDuration = 60 * 5; //// * 24; // sec * min * hours
-        public const uint PhotocoursePartialCacheDuration = 60 * 5; //// * 24; // sec * min * hours
-        public const uint PhotocoursesAllPartialCacheDuration = 60 * 5; //// * 24; // sec * min * hours
+        public const uint PhotoArtServicesPartialCacheDuration = 0; //// * 5 * 24; // sec * min * hours
+        public const uint PhotocoursePartialCacheDuration = 0; //// * 5 * 24; // sec * min * hours
+        public const uint PhotocoursesAllPartialCacheDuration = 0; //// * 5 * 24; // sec * min * hours
         public const uint CarouselDataPartialCacheDuration = 0; //// * 5 * 24; // sec * min * hours
         public const uint MainInfoAllPartialCacheDuration = 0; //// * 5 * 24; // sec * min * hours
 
