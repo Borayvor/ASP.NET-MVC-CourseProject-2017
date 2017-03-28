@@ -98,7 +98,7 @@
                 // Log stuff
             }
 
-            return delResult != null && (delResult.StatusCode == HttpStatusCode.Created);
+            return delResult.StatusCode == HttpStatusCode.OK;
         }
     }
 }
