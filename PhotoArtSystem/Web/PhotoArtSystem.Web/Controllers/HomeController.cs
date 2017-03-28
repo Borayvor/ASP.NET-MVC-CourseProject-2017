@@ -13,7 +13,11 @@
         private readonly IPhotocourseService photocourseService;
         private readonly IAutoMapperService mapper;
 
-        public HomeController(IMainInfoService mainInfoService, IPhotocourseService photocourseService, IAutoMapperService mapper, ICacheService cache)
+        public HomeController(
+            IMainInfoService mainInfoService,
+            IPhotocourseService photocourseService,
+            IAutoMapperService mapper,
+            ICacheService cache)
             : base(cache)
         {
             this.mainInfoService = mainInfoService;

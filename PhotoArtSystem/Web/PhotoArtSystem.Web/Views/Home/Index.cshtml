@@ -4,10 +4,23 @@
     ViewBag.Title = "Home Page";
 }
 
-<div>
+<div class="photoArtSystem-home-content">
     @(Html.Action<HomeController>(c => c.GetCarouselData()))
-    <br />
-    <hr />
-    <br />
+    <div class="panel page-header">
+        <h1 class="text-capitalize text-center photoArtSystem-headline">
+            Are you ready to capture the moment ?
+        </h1>
+    </div>
     @(Html.Action<HomeController>(c => c.GetPhotoArtInfos()))
 </div>
+
+@section scripts{
+    <script>
+        (function () {
+            $('.carousel').carousel({
+                interval: 5000,
+                pause: null
+            })
+        }())
+    </script>
+}

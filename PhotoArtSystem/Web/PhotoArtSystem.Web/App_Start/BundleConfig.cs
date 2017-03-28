@@ -39,6 +39,9 @@
 
             bundles.Add(new ScriptBundle("~/bundles/vegas").Include(
                       "~/Scripts/Vegas/vegas.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/siteJs").Include(
+                      "~/Scripts/Site/app.js"));
         }
 
         private static void RegisterStyles(BundleCollection bundles)

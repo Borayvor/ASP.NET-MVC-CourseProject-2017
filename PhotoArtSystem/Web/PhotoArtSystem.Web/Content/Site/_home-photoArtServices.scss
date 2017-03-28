@@ -1,29 +1,44 @@
 ﻿
 
 .photoArtSystem-home-content {
-    margin-top: 20px;
-}
+    font-family: Gabriola;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 500;
 
-.home-window {    
-    min-height: 650px;
-    position: relative;
-    overflow: hidden;
-}
+    h1, h2, h3, h4, h5 {
+        font-weight: 500;
+    }
 
-@media (max-width: 1199px) {
-    .home-window {
-        min-height: 550px;
+    #photoartsystem-carousel-home {
+        margin-left: -15px;
+        margin-right: -15px;
+
+        .carousel-inner {
+            .item {
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .photoArtSystem-headline {
+        font-size: 7vw;
     }
 }
 
-@media (max-width: 991px) {
-    .home-window {
-        min-height: 450px;
-    }
-}
+@media (min-width: 992px) {
+    .photoArtSystem-home-content {
 
-@media (max-width: 767px) {
-    .home-window {
-        min-height: 350px;
+        .photoArtSystem-info-panel {
+            .photoArtSystem-info-panel-heading {
+                font-size: 3vw;
+            }
+
+            .photoArtSystem-info-panel-body {
+                font-size: 2vw;
+            }
+        }
     }
 }

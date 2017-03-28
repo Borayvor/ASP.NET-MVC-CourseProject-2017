@@ -1,12 +1,13 @@
 ﻿@using PhotoArtSystem.Web.ViewModels.MainInfoModels
 @model IEnumerable<MainInfoViewModel>
 
-<div class="row">
-    @foreach (var info in Model)
-    {
-        <div class="col-sm-3">
-            <h4 class="text-center">@info.Title</h4>
-            <div>@info.Description</div>
-        </div>
-    }
-</div>
+
+@foreach (var info in Model)
+{
+    <div class="panel panel-default photoArtSystem-info-panel">
+        <div class="panel-heading">
+            <h3 class="text-center photoArtSystem-info-panel-heading">@info.Title</h3>
+        </div>        
+        <div class="panel-body photoArtSystem-info-panel-body">@info.Description</div>
+    </div>
+}
