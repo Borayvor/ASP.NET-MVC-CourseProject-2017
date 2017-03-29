@@ -6,6 +6,8 @@
     using Autofac;
     using Autofac.Integration.Mvc;
     using AutoMapper;
+    using CloudStorages.CloudinaryApi;
+    using CloudStorages.Contracts;
     using Controllers;
     using Data;
     using Data.Common.EfDbContexts;
@@ -68,12 +70,15 @@
                 .As<IAutoMapperService>()
                 .InstancePerRequest();
 
-            builder.Register(x => new DateTimeProvider())
-                .As<IDateTimeProvider>();
-
             builder.Register(c => AutoMapperConfig.Configuration.CreateMapper())
                 .As<IMapper>()
                 .InstancePerLifetimeScope();
+
+            builder.RegisterType<CloudinaryCloudStorage>()
+                .As<IImageCloudStorage>();
+
+            builder.Register(x => new DateTimeProvider())
+                .As<IDateTimeProvider>();
 
             var userServicesAssembly = Assembly.GetAssembly(typeof(ApplicationUserProfileService));
             builder.RegisterAssemblyTypes(userServicesAssembly).AsImplementedInterfaces();

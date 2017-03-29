@@ -73,7 +73,7 @@
                 FileName = "World-of-Warcraft-Legion-Cinematic-Trailer-3",
                 FileExtension = "jpg",
                 UrlPath = "https://dl.dropboxusercontent.com/1/view/zkg913bztl4zrla/Apps/EntertainmentSystem/91cee43d-0904-4b58-983a-565e09ccd433.jpg",
-                FileSize = FileSizeType.Width1200
+                Format = ImageFormatType.LargeOrdinary
             };
 
             context.Images.Add(imageLink1);
@@ -83,7 +83,7 @@
                 FileName = "Warcraft-Movie-Mobile-Wallpapers-1200x675",
                 FileExtension = "jpg",
                 UrlPath = "https://dl.dropboxusercontent.com/1/view/i1j0hpk6lpv2mjt/Apps/EntertainmentSystem/bb3f265e-6e89-4d66-9007-b0edeec2796e.jpg",
-                FileSize = FileSizeType.Width1200
+                Format = ImageFormatType.LargeOrdinary
             };
 
             context.Images.Add(imageLink2);
@@ -93,7 +93,7 @@
                 FileName = "Throll",
                 FileExtension = "jpg",
                 UrlPath = "https://dl.dropboxusercontent.com/1/view/rm2au5232q8p5w8/Apps/EntertainmentSystem/a7403049-0d01-42dc-8718-7edb884c63b2.jpg",
-                FileSize = FileSizeType.Width1200
+                Format = ImageFormatType.LargeOrdinary
             };
 
             context.Images.Add(imageLink3);

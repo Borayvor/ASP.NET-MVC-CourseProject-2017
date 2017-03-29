@@ -10,6 +10,7 @@
     using PhotoArtSystem.Data.Common.EfDbContexts;
     using PhotoArtSystem.Data.Common.Repositories;
     using PhotoArtSystem.Data.Models;
+    using PhotoArtSystem.Data.Models.EnumTypes;
     using PhotoArtSystem.Data.Models.TransitionalModels;
     using Web.Contracts;
 
@@ -61,7 +62,7 @@
             return result;
         }
 
-        public void Create(ImageTransitional entity)
+        public async void Create(ImageTransitional entity)
         {
             Guard.WhenArgument(entity, GlobalConstants.ImageTransitionalRequiredExceptionMessage)
                 .IsNull()
@@ -69,7 +70,19 @@
 
             var entityDb = this.mapper.Map<Image>(entity);
 
-            ////var url = this.storage.UploadFile(entity.Stream, entity.FileName, entity.FileExtension, (uint)entity.FileSize, 4);
+            string url = null;
+
+            if (entity.Format == ImageFormatType.SmallOrdinary)
+            {
+                url = await this.storage.UploadFile(
+                entity.Stream,
+                entity.FileName,
+                entity.FileExtension,
+                GlobalConstants.ImageWidth300,
+                GlobalConstants.ImageHeight200,
+                null,
+                null);
+            }
 
             this.images.Create(entityDb);
             this.context.Save();

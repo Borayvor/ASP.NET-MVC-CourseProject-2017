@@ -15,6 +15,6 @@
 
         public string UrlPath { get; set; }
 
-        public FileSizeType FileSize { get; set; }
+        public ImageFormatType Format { get; set; }
     }
 }

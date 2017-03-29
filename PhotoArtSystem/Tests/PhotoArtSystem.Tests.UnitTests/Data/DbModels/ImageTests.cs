@@ -17,7 +17,7 @@
             var expectedFileName = fixture.Create<string>();
             var expectedFileExtension = fixture.Create<string>();
             var expectedUrlPath = fixture.Create<string>();
-            var expectedFileSize = fixture.Create<FileSizeType>();
+            var expectedFileSize = fixture.Create<ImageFormatType>();
             var expectedPhotocourseId = fixture.Create<Guid>();
 
             var image = new Image
@@ -25,7 +25,7 @@
                 FileName = expectedFileName,
                 FileExtension = expectedFileExtension,
                 UrlPath = expectedUrlPath,
-                FileSize = expectedFileSize,
+                Format = expectedFileSize,
                 PhotocourseId = expectedPhotocourseId,
                 Photocourse = null
             };
@@ -34,7 +34,7 @@
             Assert.AreEqual(expectedFileName, image.FileName);
             Assert.AreEqual(expectedFileExtension, image.FileExtension);
             Assert.AreEqual(expectedUrlPath, image.UrlPath);
-            Assert.AreEqual(expectedFileSize, image.FileSize);
+            Assert.AreEqual(expectedFileSize, image.Format);
             Assert.AreEqual(expectedPhotocourseId, image.PhotocourseId);
             Assert.AreEqual(null, image.Photocourse);
         }

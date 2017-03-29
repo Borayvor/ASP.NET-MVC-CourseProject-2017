@@ -4,6 +4,15 @@
     {
         public const string StringEmpty = "";
 
+        // Image Size
+        public const int ImageWidth100 = 100;
+        public const int ImageWidth300 = 300;
+        public const int ImageWidth960 = 960;
+        public const int ImageHeight100 = 100;
+        public const int ImageHeight200 = 200;
+        public const int ImageHeight360 = 360;
+        public const int ImageHeight640 = 640;
+
         // TODO: Set Cache Duration !!!
         // Cache duration
         public const uint PhotoArtServicesPartialCacheDuration = 0; //// * 5 * 24; // sec * min * hours

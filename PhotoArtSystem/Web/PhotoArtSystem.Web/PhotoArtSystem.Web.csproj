@@ -397,6 +397,14 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\CloudStorages\PhotoArtSystem.CloudStorages.CloudinaryApi\PhotoArtSystem.CloudStorages.CloudinaryApi.csproj">
+      <Project>{6ebb439c-049e-40e1-b644-e4d4c0cfe564}</Project>
+      <Name>PhotoArtSystem.CloudStorages.CloudinaryApi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CloudStorages\PhotoArtSystem.CloudStorages.Contracts\PhotoArtSystem.CloudStorages.Contracts.csproj">
+      <Project>{02e3f3a6-28b7-4b9d-9ae4-ca92bc6dea7e}</Project>
+      <Name>PhotoArtSystem.CloudStorages.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Common\PhotoArtSystem.Common\PhotoArtSystem.Common.csproj">
       <Project>{de595403-0a05-4c28-9fc0-e17da5b88b28}</Project>
       <Name>PhotoArtSystem.Common</Name>

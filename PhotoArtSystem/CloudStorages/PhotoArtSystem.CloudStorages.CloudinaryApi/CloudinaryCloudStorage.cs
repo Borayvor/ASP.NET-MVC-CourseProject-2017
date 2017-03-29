@@ -43,6 +43,8 @@
             Guard.WhenArgument(fileType, nameof(fileType)).IsNullOrWhiteSpace().Throw();
             Guard.WhenArgument(width, nameof(width)).IsLessThanOrEqual(0).Throw();
             Guard.WhenArgument(height, nameof(height)).IsLessThanOrEqual(0).Throw();
+            Guard.WhenArgument(cropMode, nameof(cropMode)).IsNullOrWhiteSpace().Throw();
+            Guard.WhenArgument(outputFormat, nameof(outputFormat)).IsNullOrWhiteSpace().Throw();
 
             if (!stream.CanRead)
             {
