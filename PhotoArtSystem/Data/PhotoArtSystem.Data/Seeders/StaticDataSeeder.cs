@@ -147,28 +147,28 @@
             context.SaveChanges();
         }
 
-        public static void SeedMainInfo(ApplicationDbContext context)
+        public static void SeedInformation(ApplicationDbContext context)
         {
-            if (context.MainInfos.Any())
+            if (context.Informations.Any())
             {
                 return;
             }
 
-            var info_1 = new MainInfo()
+            var info_1 = new Information()
             {
                 Title = "Test Info 111",
                 Description = "Luctus placerat scelerisque euismod"
             };
 
-            context.MainInfos.Add(info_1);
+            context.Informations.Add(info_1);
 
-            var info_2 = new MainInfo()
+            var info_2 = new Information()
             {
                 Title = "Test Info 222",
                 Description = "Tincidunt integer eu augue"
             };
 
-            context.MainInfos.Add(info_2);
+            context.Informations.Add(info_2);
 
             //// End add.
             context.SaveChanges();

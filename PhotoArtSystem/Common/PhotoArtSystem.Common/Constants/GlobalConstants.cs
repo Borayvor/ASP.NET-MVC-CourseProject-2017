@@ -19,14 +19,14 @@
         public const uint PhotocoursePartialCacheDuration = 0; //// * 5 * 24; // sec * min * hours
         public const uint PhotocoursesAllPartialCacheDuration = 0; //// * 5 * 24; // sec * min * hours
         public const uint CarouselDataPartialCacheDuration = 0; //// * 5 * 24; // sec * min * hours
-        public const uint MainInfoAllPartialCacheDuration = 0; //// * 5 * 24; // sec * min * hours
+        public const uint InformationAllPartialCacheDuration = 0; //// * 5 * 24; // sec * min * hours
 
         // Cache item names
         public const string PhotoArtServicesCacheName = "PhotoArtServices";
         public const string PhotocoursesAllCacheName = "PhotocoursesAll";
         public const string PhotocourseCacheName = "Photocourse_";
         public const string CarouselDataCacheName = "CarouselData";
-        public const string MainInfoAllCacheName = "MainInfoAll";
+        public const string InformationAllCacheName = "InformationAll";
 
         // Validation messages
         public const string EmailNotValidValidationMessages = "The Email field is not a valid e-mail address.";
@@ -54,9 +54,9 @@
         public const string EfDbRepositoryStudentRequiredExceptionMessage = "An instance of EfDbRepository of Student is required !";
         public const string StudentTransitionalRequiredExceptionMessage = "An instance of StudentTransitional is required !";
 
-        // MainInfoService Exception messages
-        public const string EfDbRepositoryMainInfoRequiredExceptionMessage = "An instance of EfDbRepository of MainInfo is required !";
-        public const string MainInfoTransitionalRequiredExceptionMessage = "An instance of MainInfoTransitional is required !";
+        // InformationService Exception messages
+        public const string EfDbRepositoryInformationRequiredExceptionMessage = "An instance of EfDbRepository of Information is required !";
+        public const string InformationTransitionalRequiredExceptionMessage = "An instance of InformationTransitional is required !";
 
         // ImageService Exception messages
         public const string EfDbRepositoryImageRequiredExceptionMessage = "An instance of EfDbRepository of Image is required !";

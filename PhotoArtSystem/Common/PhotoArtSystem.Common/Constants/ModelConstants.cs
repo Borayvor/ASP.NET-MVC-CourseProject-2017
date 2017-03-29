@@ -9,11 +9,11 @@
         public const int ApplicationUserNamesMaxLength = 100;
         public const int ApplicationUserNamesMinLength = 2;
 
-        // MainInfo
-        public const int MainInfoTitleMaxLength = 200;
-        public const int MainInfoTitleMinLength = 2;
-        public const int MainInfoDescriptionMaxLength = 1000;
-        public const int MainInfoDescriptionMinLength = 2;
+        // Information
+        public const int InformationTitleMaxLength = 200;
+        public const int InformationTitleMinLength = 2;
+        public const int InformationDescriptionMaxLength = 1000;
+        public const int InformationDescriptionMinLength = 2;
 
         // Photocourse
         public const int PhotocourseNameMaxLength = 100;

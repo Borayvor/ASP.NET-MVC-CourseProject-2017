@@ -239,7 +239,7 @@
     <Compile Include="ViewModels\BaseDbKeyViewModel{TKey}.cs" />
     <Compile Include="ViewModels\BaseInfoViewModel{TKey}.cs" />
     <Compile Include="ViewModels\MainInfoModels\CarouselDataViewModel.cs" />
-    <Compile Include="ViewModels\MainInfoModels\MainInfoViewModel.cs" />
+    <Compile Include="ViewModels\MainInfoModels\InformationViewModel.cs" />
     <Compile Include="ViewModels\Manage\AddPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\Manage\ChangePasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\ConfigureTwoFactorViewModel.cs" />

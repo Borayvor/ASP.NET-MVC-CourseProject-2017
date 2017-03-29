@@ -5,16 +5,16 @@
     using Common.Models;
     using PhotoArtSystem.Common.Constants;
 
-    public class MainInfo : BaseModelGuid, IBaseModel<Guid>, IAuditInfo, IDeletableEntity
+    public class Information : BaseModelGuid, IBaseModel<Guid>, IAuditInfo, IDeletableEntity
     {
         [Required]
-        [MaxLength(ModelConstants.MainInfoTitleMaxLength)]
-        [MinLength(ModelConstants.MainInfoTitleMinLength)]
+        [MaxLength(ModelConstants.InformationTitleMaxLength)]
+        [MinLength(ModelConstants.InformationTitleMinLength)]
         public string Title { get; set; }
 
         [Required]
-        [MaxLength(ModelConstants.MainInfoDescriptionMaxLength)]
-        [MinLength(ModelConstants.MainInfoDescriptionMinLength)]
+        [MaxLength(ModelConstants.InformationDescriptionMaxLength)]
+        [MinLength(ModelConstants.InformationDescriptionMinLength)]
         public string Description { get; set; }
     }
 }

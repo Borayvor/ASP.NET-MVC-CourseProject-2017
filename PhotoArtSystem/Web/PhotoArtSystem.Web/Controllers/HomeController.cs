@@ -5,16 +5,16 @@
     using Common.Constants;
     using Services.Data.Contracts;
     using Services.Web.Contracts;
-    using ViewModels.MainInfoModels;
+    using ViewModels.InformationModels;
 
     public class HomeController : BaseController
     {
-        private readonly IMainInfoService mainInfoService;
+        private readonly IInformationService mainInfoService;
         private readonly IPhotocourseService photocourseService;
         private readonly ICacheService cache;
 
         public HomeController(
-            IMainInfoService mainInfoService,
+            IInformationService mainInfoService,
             IPhotocourseService photocourseService,
             ICacheService cache,
             IAutoMapperService mapper)
@@ -55,12 +55,12 @@
             var mainInfoes = this.mainInfoService.GetAll();
 
             var mainInfoAllViewModel = this.Mapper
-                .Map<IEnumerable<MainInfoViewModel>>(mainInfoes);
+                .Map<IEnumerable<InformationViewModel>>(mainInfoes);
 
             var result = this.cache.Get(
-                    GlobalConstants.MainInfoAllCacheName,
+                    GlobalConstants.InformationAllCacheName,
                     () => this.PartialView("_MainInfoAllPartial", mainInfoAllViewModel),
-                    GlobalConstants.MainInfoAllPartialCacheDuration);
+                    GlobalConstants.InformationAllPartialCacheDuration);
 
             return result;
         }

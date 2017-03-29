@@ -9,7 +9,7 @@
     using PhotoArtSystem.Services.Data.Contracts;
     using PhotoArtSystem.Services.Web.Contracts;
     using Web.Controllers;
-    using Web.ViewModels.MainInfoModels;
+    using Web.ViewModels.InformationModels;
 
     [TestFixture]
     public class HomeControllerTest
@@ -18,13 +18,13 @@
         public void Index_ViewResult_Should_NotBeNull_WhenControllerArgumentsAre_NotNull()
         {
             // Arrange
-            var mockedMainInfoService = new Mock<IMainInfoService>();
+            var mockedInformationService = new Mock<IInformationService>();
             var mockedPhotocourseService = new Mock<IPhotocourseService>();
             var mockedAutoMapperService = new Mock<IAutoMapperService>();
             var mockedHttpCacheService = new Mock<ICacheService>();
 
             var controller = new HomeController(
-                mockedMainInfoService.Object,
+                mockedInformationService.Object,
                 mockedPhotocourseService.Object,
                 mockedHttpCacheService.Object,
                 mockedAutoMapperService.Object);
@@ -40,7 +40,7 @@
         public void GetCarouselData_PartialViewResult_Should_NotBeNull_WhenArgumentsAre_NotNull()
         {
             // Arrange
-            var mockedMainInfoService = new Mock<IMainInfoService>();
+            var mockedInformationService = new Mock<IInformationService>();
             var mockedPhotocourseService = new Mock<IPhotocourseService>();
             var mockedAutoMapperService = new Mock<IAutoMapperService>();
             var mockedHttpCacheService = new Mock<ICacheService>();
@@ -58,7 +58,7 @@
                 .Returns(partialView);
 
             var controller = new HomeController(
-                mockedMainInfoService.Object,
+                mockedInformationService.Object,
                 mockedPhotocourseService.Object,
                 mockedHttpCacheService.Object,
                 mockedAutoMapperService.Object);
@@ -74,16 +74,16 @@
         public void GetPhotoArtInfos_PartialViewResult_Should_NotBeNull_WhenArgumentsAre_NotNull()
         {
             // Arrange
-            var mockedMainInfoService = new Mock<IMainInfoService>();
+            var mockedInformationService = new Mock<IInformationService>();
             var mockedPhotocourseService = new Mock<IPhotocourseService>();
             var mockedAutoMapperService = new Mock<IAutoMapperService>();
             var mockedHttpCacheService = new Mock<ICacheService>();
             var partialView = new PartialViewResult();
 
-            mockedMainInfoService.Setup(x => x.GetAll()).Returns(It.IsAny<IEnumerable<MainInfoTransitional>>());
+            mockedInformationService.Setup(x => x.GetAll()).Returns(It.IsAny<IEnumerable<InformationTransitional>>());
 
-            mockedAutoMapperService.Setup(x => x.Map<IEnumerable<MainInfoViewModel>>(It.IsAny<IEnumerable<MainInfoTransitional>>()))
-                .Returns(It.IsAny<IEnumerable<MainInfoViewModel>>());
+            mockedAutoMapperService.Setup(x => x.Map<IEnumerable<InformationViewModel>>(It.IsAny<IEnumerable<InformationTransitional>>()))
+                .Returns(It.IsAny<IEnumerable<InformationViewModel>>());
 
             mockedHttpCacheService.Setup(x => x.Get(
                 It.IsAny<string>(),
@@ -92,7 +92,7 @@
                 .Returns(partialView);
 
             var controller = new HomeController(
-                mockedMainInfoService.Object,
+                mockedInformationService.Object,
                 mockedPhotocourseService.Object,
                 mockedHttpCacheService.Object,
                 mockedAutoMapperService.Object);

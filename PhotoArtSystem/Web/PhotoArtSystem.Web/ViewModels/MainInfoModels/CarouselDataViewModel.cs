@@ -1,4 +1,4 @@
-﻿namespace PhotoArtSystem.Web.ViewModels.MainInfoModels
+﻿namespace PhotoArtSystem.Web.ViewModels.InformationModels
 {
     using System;
     using AutoMapper;

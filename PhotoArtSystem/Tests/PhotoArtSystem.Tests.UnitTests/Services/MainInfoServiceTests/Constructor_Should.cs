@@ -1,4 +1,4 @@
-﻿namespace PhotoArtSystem.Tests.UnitTests.Services.MainInfoServiceTests
+﻿namespace PhotoArtSystem.Tests.UnitTests.Services.InformationServiceTests
 {
     using Common.Constants;
     using Moq;
@@ -17,11 +17,11 @@
         {
             // Arange
             var mockedEfDbContext = new Mock<IEfDbContextSaveChanges>();
-            var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<MainInfo>>();
+            var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<Information>>();
 
             // Act & Assert
             Assert.That(
-                () => new MainInfoService(null, mockedEfDbContext.Object, mockedIEfDbRepository.Object),
+                () => new InformationService(null, mockedEfDbContext.Object, mockedIEfDbRepository.Object),
                             Throws.ArgumentNullException.With.Message.Contains(
                                 GlobalConstants.AutoMapperServiceRequiredExceptionMessage));
         }
@@ -31,17 +31,17 @@
         {
             // Arange
             var mockedMapper = new Mock<IAutoMapperService>();
-            var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<MainInfo>>();
+            var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<Information>>();
 
             // Act & Assert
             Assert.That(
-                () => new MainInfoService(mockedMapper.Object, null, mockedIEfDbRepository.Object),
+                () => new InformationService(mockedMapper.Object, null, mockedIEfDbRepository.Object),
                             Throws.ArgumentNullException.With.Message.Contains(
                                 GlobalConstants.EfDbContextRequiredExceptionMessage));
         }
 
         [Test]
-        public void Throw_ArgumentNullException_WithProperMessage_When_EfDbRepositoryOf_MainInfo_IsNull()
+        public void Throw_ArgumentNullException_WithProperMessage_When_EfDbRepositoryOf_Information_IsNull()
         {
             // Arange
             var mockedMapper = new Mock<IAutoMapperService>();
@@ -49,9 +49,9 @@
 
             // Act & Assert
             Assert.That(
-                () => new MainInfoService(mockedMapper.Object, mockedEfDbContext.Object, null),
+                () => new InformationService(mockedMapper.Object, mockedEfDbContext.Object, null),
                             Throws.ArgumentNullException.With.Message.Contains(
-                                GlobalConstants.EfDbRepositoryMainInfoRequiredExceptionMessage));
+                                GlobalConstants.EfDbRepositoryInformationRequiredExceptionMessage));
         }
 
         [Test]
@@ -60,10 +60,10 @@
             // Arange
             var mockedMapper = new Mock<IAutoMapperService>();
             var mockedEfDbContext = new Mock<IEfDbContextSaveChanges>();
-            var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<MainInfo>>();
+            var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<Information>>();
 
             // Act & Assert
-            Assert.DoesNotThrow(() => new MainInfoService(
+            Assert.DoesNotThrow(() => new InformationService(
                 mockedMapper.Object,
                 mockedEfDbContext.Object,
                 mockedIEfDbRepository.Object));

@@ -1,10 +1,10 @@
-﻿namespace PhotoArtSystem.Web.ViewModels.MainInfoModels
+﻿namespace PhotoArtSystem.Web.ViewModels.InformationModels
 {
     using System;
     using Data.Models.TransitionalModels;
     using Infrastructure.Mapping;
 
-    public class MainInfoViewModel : BaseDbKeyViewModel<Guid>, IMapFrom<MainInfoTransitional>
+    public class InformationViewModel : BaseDbKeyViewModel<Guid>, IMapFrom<InformationTransitional>
     {
         public string Title { get; set; }
 

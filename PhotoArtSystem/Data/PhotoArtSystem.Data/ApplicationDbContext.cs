@@ -15,7 +15,7 @@
         {
         }
 
-        public IDbSet<MainInfo> MainInfos { get; set; }
+        public IDbSet<Information> Informations { get; set; }
 
         public IDbSet<Photocourse> Photocourses { get; set; }
 

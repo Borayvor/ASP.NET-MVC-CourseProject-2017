@@ -1,4 +1,4 @@
-﻿namespace PhotoArtSystem.Tests.UnitTests.Services.MainInfoServiceTests
+﻿namespace PhotoArtSystem.Tests.UnitTests.Services.InformationServiceTests
 {
     using System;
     using Moq;
@@ -20,14 +20,14 @@
             // Arange
             Fixture fixture = new Fixture();
             var id = fixture.Create<Guid>();
-            var mockedEntity = new Mock<MainInfo>();
+            var mockedEntity = new Mock<Information>();
             var mockedMapper = new Mock<IAutoMapperService>();
             var mockedEfDbContext = new Mock<IEfDbContextSaveChanges>();
-            var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<MainInfo>>();
+            var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<Information>>();
 
             mockedIEfDbRepository.Setup(x => x.GetById(id)).Returns(mockedEntity.Object);
 
-            var service = new MainInfoService(mockedMapper.Object, mockedEfDbContext.Object, mockedIEfDbRepository.Object);
+            var service = new InformationService(mockedMapper.Object, mockedEfDbContext.Object, mockedIEfDbRepository.Object);
 
             // Act
             var result = service.GetById(id);
@@ -42,18 +42,18 @@
             // Arange
             Fixture fixture = new Fixture();
             var id = fixture.Create<Guid>();
-            var mockedEntity = new Mock<MainInfo>();
-            var expectedMockedEntity = new Mock<MainInfoTransitional>();
+            var mockedEntity = new Mock<Information>();
+            var expectedMockedEntity = new Mock<InformationTransitional>();
             var mockedMapper = new Mock<IAutoMapperService>();
             mockedMapper
-               .Setup(x => x.Map<MainInfoTransitional>(It.IsAny<MainInfo>()))
+               .Setup(x => x.Map<InformationTransitional>(It.IsAny<Information>()))
                .Returns(expectedMockedEntity.Object);
 
             var mockedEfDbContext = new Mock<IEfDbContextSaveChanges>();
-            var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<MainInfo>>();
+            var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<Information>>();
             mockedIEfDbRepository.Setup(x => x.GetById(id)).Returns(mockedEntity.Object);
 
-            var service = new MainInfoService(mockedMapper.Object, mockedEfDbContext.Object, mockedIEfDbRepository.Object);
+            var service = new InformationService(mockedMapper.Object, mockedEfDbContext.Object, mockedIEfDbRepository.Object);
 
             // Act
             var actual = service.GetById(id);

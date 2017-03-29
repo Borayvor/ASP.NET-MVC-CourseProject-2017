@@ -4,8 +4,8 @@
     using Models;
     using Web.Infrastructure.Mapping;
 
-    public class MainInfoTransitional : BaseModelTransitional<Guid>,
-        IMapFrom<MainInfo>, IMapTo<MainInfo>
+    public class InformationTransitional : BaseModelTransitional<Guid>,
+        IMapFrom<Information>, IMapTo<Information>
     {
         public string Title { get; set; }
 
