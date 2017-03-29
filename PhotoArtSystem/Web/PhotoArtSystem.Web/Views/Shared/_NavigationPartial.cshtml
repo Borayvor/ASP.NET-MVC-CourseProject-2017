@@ -1,39 +1,41 @@
 ﻿@using PhotoArtSystem.Web.Controllers
 @using PhotoArtSystem.Web.Areas.Administration.Controllers
 
-<div class="navbar navbar-inverse navbar-fixed-top photoartsystem-navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand photoartsystem-navbar-brand" href="@(Url.Action<HomeController>(c => c.Index()))">
-                <img src="~/Images/logoOriginal.png" />
-            </a>
-        </div>
+<header>
+    <div class="navbar navbar-inverse navbar-fixed-top photoartsystem-navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand photoartsystem-navbar-brand" href="@(Url.Action<HomeController>(c => c.Index()))">
+                    <img src="~/Images/logoOriginal.png" />
+                </a>
+            </div>
 
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li>
-                    @(Html.ActionLink<HomeController>(HtmlConstants.HomeLinkName, c => c.Index()))
-                </li>
-                <li>
-                    @(Html.ActionLink<PhotocourseController>(HtmlConstants.PhotocoursesLinkName, c => c.Index()))
-                </li>
-                <li>
-                    @(Html.ActionLink<AboutUsController>(HtmlConstants.AboutUsLinkName, c => c.Index()))
-                </li>
-                @if (Request.IsAuthenticated && User.IsInRole(AuthConstants.AdministratorRoleName))
-                {
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
                     <li>
-                        @(Html.ActionLink<PhotocourseSetupController>(HtmlConstants.AdministrationAreaName, c => c.Index(), new { area = HtmlConstants.AdministrationAreaName }))
+                        @(Html.ActionLink<HomeController>(HtmlConstants.HomeLinkName, c => c.Index()))
                     </li>
-                }
-            </ul>
-            @Html.Partial("_LoginPartial")
+                    <li>
+                        @(Html.ActionLink<PhotocourseController>(HtmlConstants.PhotocoursesLinkName, c => c.Index()))
+                    </li>
+                    <li>
+                        @(Html.ActionLink<AboutUsController>(HtmlConstants.AboutUsLinkName, c => c.Index()))
+                    </li>
+                    @if (Request.IsAuthenticated && User.IsInRole(AuthConstants.AdministratorRoleName))
+                    {
+                        <li>
+                            @(Html.ActionLink<PhotocourseSetupController>(HtmlConstants.AdministrationAreaName, c => c.Index(), new { area = HtmlConstants.AdministrationAreaName }))
+                        </li>
+                    }
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
         </div>
     </div>
-</div>
+</header>

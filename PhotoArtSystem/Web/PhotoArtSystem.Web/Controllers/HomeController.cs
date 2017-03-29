@@ -5,7 +5,7 @@
     using Common.Constants;
     using Services.Data.Contracts;
     using Services.Web.Contracts;
-    using ViewModels.InformationModels;
+    using ViewModels.HomePageModels;
 
     public class HomeController : BaseController
     {

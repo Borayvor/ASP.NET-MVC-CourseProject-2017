@@ -1,4 +1,4 @@
-﻿namespace PhotoArtSystem.Web.ViewModels.InformationModels
+﻿namespace PhotoArtSystem.Web.ViewModels.HomePageModels
 {
     using System;
     using Data.Models.TransitionalModels;

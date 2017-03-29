@@ -4,4 +4,50 @@
 }
 
 <h2>@ViewBag.Title</h2>
+<br />
+<hr />
+<br />
+
+@using (Ajax.BeginForm<PhotocourseSetupController>(c => c.Create()))
+{
+
+}
+
+<div>
+    @Html.TextBox("Name")
+    <h2>name</h2>
+    <br />
+    @Html.TextBox("ImageFiles")
+    <div class="row">
+        <div class="col-sm-3">Image</div>
+    </div>
+    <br />
+    @Html.TextBox("DescriptionShort")
+    <div>DescriptionShort</div>
+    <br />
+    @Html.TextBox("DurationHours")
+    <div>DurationHours</div>
+    <br />
+    @Html.TextBox("StartDate")
+    <div>StartDate</div>
+    <br />
+    @Html.TextBox("EndDate")
+    <div>EndDate</div>
+    <br />
+    @Html.TextBox("MaxStudents")
+    <div>MaxStudents</div>
+    <br />
+    @Html.TextBox("Description")
+    <div>Description</div>
+    <br />
+    @Html.TextBox("OtherInfo")
+    <div>OtherInfo</div>
+    <br />
+    @Html.TextBox("Teacher")
+    <div>Teacher</div>
+</div>
+
+
+
+
 
