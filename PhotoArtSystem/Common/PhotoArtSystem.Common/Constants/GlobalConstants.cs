@@ -48,5 +48,16 @@
         // MainInfoService Exception messages
         public const string EfDbRepositoryMainInfoRequiredExceptionMessage = "An instance of EfDbRepository of MainInfo is required !";
         public const string MainInfoTransitionalRequiredExceptionMessage = "An instance of MainInfoTransitional is required !";
+
+        // ImageService Exception messages
+        public const string EfDbRepositoryImageRequiredExceptionMessage = "An instance of EfDbRepository of Image is required !";
+        public const string ImageTransitionalRequiredExceptionMessage = "An instance of ImageTransitional is required !";
+        public const string UploadImageServiceRequiredExceptionMessage = "An instance of UploadImageService is required !";
+
+        // UploadImageService Exception messages
+        public const string CloudStorageRequiredExceptionMessage = "An instance of CloudStorage is required !";
+        public const string FileStreamRequiredExceptionMessage = "File stream is required !";
+        public const string FilenameRequiredExceptionMessage = "File name is required !";
+        public const string MimeTypeRequiredExceptionMessage = "Mime type is required !";
     }
 }

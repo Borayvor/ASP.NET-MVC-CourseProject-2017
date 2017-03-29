@@ -15,8 +15,8 @@
     public class MainInfoService : IMainInfoService
     {
         private readonly IAutoMapperService mapper;
-        private readonly IPhotoArtSystemEfDbRepository<MainInfo> mainInfo;
         private readonly IEfDbContextSaveChanges context;
+        private readonly IPhotoArtSystemEfDbRepository<MainInfo> mainInfo;
 
         public MainInfoService(IAutoMapperService mapper, IEfDbContextSaveChanges context, IPhotoArtSystemEfDbRepository<MainInfo> mainInfo)
         {

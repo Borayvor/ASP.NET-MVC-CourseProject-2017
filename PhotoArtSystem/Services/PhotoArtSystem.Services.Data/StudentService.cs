@@ -15,8 +15,8 @@
     public class StudentService : IStudentService
     {
         private readonly IAutoMapperService mapper;
-        private readonly IPhotoArtSystemEfDbRepository<Student> students;
         private readonly IEfDbContextSaveChanges context;
+        private readonly IPhotoArtSystemEfDbRepository<Student> students;
 
         public StudentService(IAutoMapperService mapper, IEfDbContextSaveChanges context, IPhotoArtSystemEfDbRepository<Student> students)
         {
@@ -31,8 +31,8 @@
                 GlobalConstants.EfDbRepositoryStudentRequiredExceptionMessage).IsNull().Throw();
 
             this.mapper = mapper;
-            this.students = students;
             this.context = context;
+            this.students = students;
         }
 
         public IEnumerable<StudentTransitional> GetAll()

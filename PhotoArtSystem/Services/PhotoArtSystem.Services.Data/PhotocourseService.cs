@@ -15,8 +15,8 @@
     public class PhotocourseService : IPhotocourseService
     {
         private readonly IAutoMapperService mapper;
-        private readonly IPhotoArtSystemEfDbRepository<Photocourse> photocourses;
         private readonly IEfDbContextSaveChanges context;
+        private readonly IPhotoArtSystemEfDbRepository<Photocourse> photocourses;
 
         public PhotocourseService(IAutoMapperService mapper, IEfDbContextSaveChanges context, IPhotoArtSystemEfDbRepository<Photocourse> photocourses)
         {
