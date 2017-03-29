@@ -46,6 +46,8 @@
             Guard.WhenArgument(stream, nameof(stream)).IsNull().Throw();
             Guard.WhenArgument(fileName, nameof(fileName)).IsNullOrWhiteSpace().Throw();
             Guard.WhenArgument(fileType, nameof(fileType)).IsNullOrWhiteSpace().Throw();
+            Guard.WhenArgument(width, nameof(width)).IsLessThanOrEqual(0).Throw();
+            Guard.WhenArgument(height, nameof(height)).IsLessThanOrEqual(0).Throw();
 
             if (!stream.CanRead)
             {
