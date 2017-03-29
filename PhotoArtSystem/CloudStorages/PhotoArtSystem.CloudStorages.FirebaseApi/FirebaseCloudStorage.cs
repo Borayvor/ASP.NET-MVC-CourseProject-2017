@@ -3,7 +3,6 @@
     using System;
     using System.IO;
     using System.Threading.Tasks;
-    using Common.Validators;
     using Contracts;
 
     public class FirebaseCloudStorage : ICloudStorage
@@ -23,25 +22,17 @@
 
         public Task<string> UploadFile(Stream stream, string filename, string filetype, string path = "/")
         {
-            UploadFileValidator.ValidateStream(stream);
-            UploadFileValidator.ValidateFileName(filename);
-            UploadFileValidator.ValidateFileType(filetype);
-
             // TODO: Implement UploadFile
             throw new NotImplementedException();
         }
 
         public async Task<string> UploadFile(byte[] bytes, string filename, string filetype, string path = "/")
         {
-            UploadFileValidator.ValidateByteArray(bytes);
-
             return await this.UploadFile(new MemoryStream(bytes), filename, filetype, path);
         }
 
         public async Task<string> UploadFile(string base64, string filename, string filetype, string path = "/")
         {
-            UploadFileValidator.ValidateBase64(base64);
-
             return await this.UploadFile(Convert.FromBase64String(base64), filename, filetype, path);
         }
 

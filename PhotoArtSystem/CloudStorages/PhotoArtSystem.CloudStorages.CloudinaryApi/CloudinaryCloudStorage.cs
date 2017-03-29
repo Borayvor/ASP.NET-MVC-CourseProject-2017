@@ -8,7 +8,6 @@
     using Bytes2you.Validation;
     using CloudinaryDotNet;
     using CloudinaryDotNet.Actions;
-    using Common.Validators;
     using Contracts;
 
     public class CloudinaryCloudStorage : IImageCloudStorage
@@ -39,10 +38,6 @@
             string cropMode = DefaultCropMode,
             string outputFormat = DefaultOutputFormat)
         {
-            UploadFileValidator.ValidateStream(stream);
-            UploadFileValidator.ValidateFileName(fileName);
-            UploadFileValidator.ValidateFileType(fileType);
-
             Guard.WhenArgument(stream, nameof(stream)).IsNull().Throw();
             Guard.WhenArgument(fileName, nameof(fileName)).IsNullOrWhiteSpace().Throw();
             Guard.WhenArgument(fileType, nameof(fileType)).IsNullOrWhiteSpace().Throw();
