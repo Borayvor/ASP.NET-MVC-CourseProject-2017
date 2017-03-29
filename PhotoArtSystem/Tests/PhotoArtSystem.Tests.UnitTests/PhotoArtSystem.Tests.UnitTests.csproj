@@ -175,10 +175,6 @@
       <Project>{154e4497-81d1-4437-96e2-1a51fdb8740a}</Project>
       <Name>PhotoArtSystem.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Services\PhotoArtSystem.Services.Common\PhotoArtSystem.Services.Common.csproj">
-      <Project>{f70892f7-da64-4acc-87e5-92287e7e7d6b}</Project>
-      <Name>PhotoArtSystem.Services.Common</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Services\PhotoArtSystem.Services.Data\PhotoArtSystem.Services.Data.csproj">
       <Project>{0678e417-b113-4242-ab11-94238343bf4f}</Project>
       <Name>PhotoArtSystem.Services.Data</Name>
