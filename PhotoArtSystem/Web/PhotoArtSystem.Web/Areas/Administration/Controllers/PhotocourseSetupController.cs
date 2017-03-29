@@ -5,8 +5,8 @@
 
     public class PhotocourseSetupController : BaseAdminController
     {
-        public PhotocourseSetupController(ICacheService cache)
-            : base(cache)
+        public PhotocourseSetupController(IAutoMapperService mapper)
+            : base(mapper)
         {
         }
 

@@ -26,8 +26,8 @@
             var controller = new HomeController(
                 mockedMainInfoService.Object,
                 mockedPhotocourseService.Object,
-                mockedAutoMapperService.Object,
-                mockedHttpCacheService.Object);
+                mockedHttpCacheService.Object,
+                mockedAutoMapperService.Object);
 
             // Act
             ViewResult result = controller.Index() as ViewResult;
@@ -60,8 +60,8 @@
             var controller = new HomeController(
                 mockedMainInfoService.Object,
                 mockedPhotocourseService.Object,
-                mockedAutoMapperService.Object,
-                mockedHttpCacheService.Object);
+                mockedHttpCacheService.Object,
+                mockedAutoMapperService.Object);
 
             // Act
             PartialViewResult result = controller.GetCarouselData() as PartialViewResult;
@@ -94,8 +94,8 @@
             var controller = new HomeController(
                 mockedMainInfoService.Object,
                 mockedPhotocourseService.Object,
-                mockedAutoMapperService.Object,
-                mockedHttpCacheService.Object);
+                mockedHttpCacheService.Object,
+                mockedAutoMapperService.Object);
 
             // Act
             PartialViewResult result = controller.GetPhotoArtInfos() as PartialViewResult;
