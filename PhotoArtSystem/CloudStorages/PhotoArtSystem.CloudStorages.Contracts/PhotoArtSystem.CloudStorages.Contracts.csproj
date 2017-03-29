@@ -43,7 +43,6 @@
   <ItemGroup>
     <Compile Include="ICloudStorage.cs" />
     <Compile Include="IImageCloudStorage.cs" />
-    <Compile Include="IVideoCloudStorage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using Bytes2you.Validation;
+    using CloudStorages.Contracts;
     using Common.Constants;
     using Contracts;
     using PhotoArtSystem.Data.Common.EfDbContexts;
@@ -17,13 +18,13 @@
         private readonly IAutoMapperService mapper;
         private readonly IEfDbContextSaveChanges context;
         private readonly IPhotoArtSystemEfDbRepository<Image> images;
-        private readonly IUploadImageService uploadImageService;
+        private readonly IImageCloudStorage storage;
 
         public ImageService(
             IAutoMapperService mapper,
             IEfDbContextSaveChanges context,
             IPhotoArtSystemEfDbRepository<Image> images,
-            IUploadImageService uploadImageService)
+            IImageCloudStorage storage)
         {
             Guard.WhenArgument(
                 mapper,
@@ -35,16 +36,13 @@
                 images,
                 GlobalConstants.EfDbRepositoryImageRequiredExceptionMessage).IsNull().Throw();
             Guard.WhenArgument(
-                uploadImageService,
-                GlobalConstants.UploadImageServiceRequiredExceptionMessage).IsNull().Throw();
-            Guard.WhenArgument(
-                uploadImageService,
+                storage,
                 GlobalConstants.CloudStorageRequiredExceptionMessage).IsNull().Throw();
 
             this.mapper = mapper;
             this.context = context;
             this.images = images;
-            this.uploadImageService = uploadImageService;
+            this.storage = storage;
         }
 
         public IEnumerable<ImageTransitional> GetAll()
@@ -70,6 +68,8 @@
                 .Throw();
 
             var entityDb = this.mapper.Map<Image>(entity);
+
+            ////var url = this.storage.UploadFile(entity.Stream, entity.FileName, entity.FileExtension, (uint)entity.FileSize, 4);
 
             this.images.Create(entityDb);
             this.context.Save();

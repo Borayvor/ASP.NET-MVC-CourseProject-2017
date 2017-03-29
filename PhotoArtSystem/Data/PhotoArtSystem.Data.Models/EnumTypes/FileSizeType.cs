@@ -2,10 +2,9 @@
 {
     public enum FileSizeType
     {
-        Avatar = 0,
-        Width320 = 1,
-        Width768 = 2,
-        Width992 = 3,
-        Width1200 = 4
+        Width100 = 100,
+        Width300 = 300,
+        Width960 = 960,
+        Width1200 = 1200
     }
 }
