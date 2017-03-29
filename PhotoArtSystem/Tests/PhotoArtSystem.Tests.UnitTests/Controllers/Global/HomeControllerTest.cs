@@ -9,7 +9,7 @@
     using PhotoArtSystem.Services.Data.Contracts;
     using PhotoArtSystem.Services.Web.Contracts;
     using Web.Controllers;
-    using Web.ViewModels.InformationModels;
+    using Web.ViewModels.HomePageModels;
 
     [TestFixture]
     public class HomeControllerTest
