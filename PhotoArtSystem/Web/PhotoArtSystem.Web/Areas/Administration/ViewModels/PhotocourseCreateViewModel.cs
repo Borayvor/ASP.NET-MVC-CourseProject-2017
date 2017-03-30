@@ -17,12 +17,14 @@
         [Required]
         [MaxLength(ModelConstants.PhotocourseDescriptionShortMaxLength)]
         [MinLength(ModelConstants.PhotocourseDescriptionShortMinLength)]
-        [Display(Name = "Short description")]
+        [UIHint("TinyMce")]
+        [Display(Name = "Short Description")]
         public string DescriptionShort { get; set; }
 
         [Required]
         [MaxLength(ModelConstants.PhotocourseDescriptionMaxLength)]
         [MinLength(ModelConstants.PhotocourseDescriptionMinLength)]
+        [UIHint("TinyMce")]
         public string Description { get; set; }
 
         [MaxLength(ModelConstants.PhotocourseOtherInfoMaxLength)]

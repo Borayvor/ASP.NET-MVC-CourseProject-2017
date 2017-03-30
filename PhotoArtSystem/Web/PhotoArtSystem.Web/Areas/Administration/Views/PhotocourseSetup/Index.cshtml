@@ -10,46 +10,79 @@
 <br />
 <hr />
 <br />
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        @using (Ajax.BeginForm<PhotocourseSetupController>(c => c.Create(), null, null, new { @class = "form-horizontal" }))
+        {
+            <fieldset>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Name, new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Name, string.Empty, new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.DurationHours, new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.DurationHours, new { type = "number", @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.DurationHours, string.Empty, new { @class = "text-danger" })
+                </div>
 
-@using (Ajax.BeginForm<PhotocourseSetupController>(c => c.Create()))
-{
+                @Html.EditorFor(m => m.DescriptionShort)
 
-}
+                @Html.EditorFor(m => m.Description)
 
-<div>
-    @Html.TextBox("Name")   
-    <br />
-    @Html.TextBox("ImageFiles")
-    <div class="row">
-        <div class="col-sm-3">Image</div>
+                <div class="form-group">                   
+                        @Html.Submit("Submit", new { @class = "btn btn-default" })                  
+                </div>
+            </fieldset>
+        }
     </div>
-    <br />
-    @Html.TextBox("DescriptionShort")
-    <div>DescriptionShort</div>
-    <br />
-    @Html.TextBox("DurationHours")
-    <div>DurationHours</div>
-    <br />
-    @Html.TextBox("StartDate")
-    <div>StartDate</div>
-    <br />
-    @Html.TextBox("EndDate")
-    <div>EndDate</div>
-    <br />
-    @Html.TextBox("MaxStudents")
-    <div>MaxStudents</div>
-    <br />
-    @Html.TextBox("Description")
-    <div>Description</div>
-    <br />
-    @Html.TextBox("OtherInfo")
-    <div>OtherInfo</div>
-    <br />
-    @Html.TextBox("Teacher")
-    <div>Teacher</div>
 </div>
 
+@* ======================================================== *@
+<br />
+@Html.EditorFor(m => m.Images)
+<div class="row">
+    <div class="col-sm-3">Image</div>
+</div>
+<br />
+
+@Html.TextBox("DurationHours")
+<div>DurationHours</div>
+<br />
+@Html.TextBox("StartDate")
+<div>StartDate</div>
+<br />
+@Html.TextBox("EndDate")
+<div>EndDate</div>
+<br />
+@Html.TextBox("MaxStudents")
+<div>MaxStudents</div>
+<br />
+@Html.TextBox("Description")
+<div>Description</div>
+<br />
+@Html.TextBox("OtherInfo")
+<div>OtherInfo</div>
+<br />
+@Html.TextBox("Teacher")
+<div>Teacher</div>
 
 
-
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/tinymceJs")
+    <script type="text/javascript">
+        tinymce.init({
+            selector: '.photoartsystem-tinymce',
+            theme: 'modern',
+            height: 150,
+            plugins: [
+              'advlist autolink link lists charmap hr anchor pagebreak spellchecker',
+              'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime nonbreaking',
+              'save table contextmenu directionality emoticons template paste textcolor'
+            ],
+            toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link | forecolor backcolor emoticons'
+        });
+    </script>
+}
 

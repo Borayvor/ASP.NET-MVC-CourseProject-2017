@@ -37,6 +37,9 @@
             bundles.Add(new ScriptBundle("~/bundles/owlCarousel").Include(
                       "~/Scripts/owl.carousel.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/tinymceJs").Include(
+                     "~/Scripts/tinymce/tinymce.min.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/vegas").Include(
                       "~/Scripts/Vegas/vegas.js"));
 
