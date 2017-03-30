@@ -10,11 +10,10 @@
 <br />
 <hr />
 <br />
-<div class="row">
-    <div class="col-md-8 col-md-offset-2">
+<div class="container">
+   
         @using (Ajax.BeginForm<PhotocourseSetupController>(c => c.Create(), null, null, new { @class = "form-horizontal" }))
-        {
-            <fieldset>
+        {           
                 <div class="form-group">
                     @Html.LabelFor(m => m.Name, new { @class = "control-label" })
                     @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
@@ -32,10 +31,9 @@
 
                 <div class="form-group">                   
                         @Html.Submit("Submit", new { @class = "btn btn-default" })                  
-                </div>
-            </fieldset>
+                </div>            
         }
-    </div>
+  
 </div>
 
 @* ======================================================== *@
