@@ -215,6 +215,7 @@
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\BaseAdminController.cs" />
     <Compile Include="Areas\Administration\Controllers\PhotocourseSetupController.cs" />
+    <Compile Include="Areas\Administration\ViewModels\PhotocourseCreateViewModel.cs" />
     <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\Account\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -390,7 +391,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Administration\ViewModels\" />
     <Folder Include="Views\Shared\DisplayTemplates\" />
   </ItemGroup>
   <ItemGroup>

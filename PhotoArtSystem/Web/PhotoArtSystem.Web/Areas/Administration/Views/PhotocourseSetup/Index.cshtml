@@ -1,4 +1,7 @@
 ﻿
+@using PhotoArtSystem.Web.Areas.Administration.ViewModels
+@model PhotocourseCreateViewModel
+
 @{
     ViewBag.Title = @HtmlConstants.AdministrationAreaName;
 }
@@ -14,8 +17,7 @@
 }
 
 <div>
-    @Html.TextBox("Name")
-    <h2>name</h2>
+    @Html.TextBox("Name")   
     <br />
     @Html.TextBox("ImageFiles")
     <div class="row">
