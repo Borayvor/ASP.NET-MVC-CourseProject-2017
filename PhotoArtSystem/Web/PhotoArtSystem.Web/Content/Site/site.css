@@ -50,4 +50,16 @@
   @media (max-width: 991px) {
     body .photoArtSystem-home-content .photoArtSystem-info-panel {
       letter-spacing: 1px; } }
+  body #photoartsystem-photocourse-create .input {
+    position: relative;
+    display: block; }
+    body #photoartsystem-photocourse-create .input .input-readonly {
+      background-color: white;
+      padding-left: 70px; }
+    body #photoartsystem-photocourse-create .input .button {
+      position: absolute; }
+  @media (min-width: 992px) {
+    body #photoartsystem-photocourse-create .input-block {
+      padding-left: 15px;
+      padding-right: 15px; } }
 

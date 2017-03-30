@@ -3,15 +3,17 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.Web;
     using Common.Constants;
     using Data.Models.TransitionalModels;
-    using Web.ViewModels;
+    using Infrastructure.Filters;
 
-    public class PhotocourseCreateViewModel : BaseDbKeyViewModel<Guid>
+    public class PhotocourseCreateViewModel
     {
         [Required]
         [MaxLength(ModelConstants.PhotocourseNameMaxLength)]
         [MinLength(ModelConstants.PhotocourseNameMinLength)]
+        [UIHint("StringLine")]
         public string Name { get; set; }
 
         [Required]
@@ -29,9 +31,11 @@
 
         [MaxLength(ModelConstants.PhotocourseOtherInfoMaxLength)]
         [Display(Name = "Additional information")]
+        [UIHint("TinyMce")]
         public string OtherInfo { get; set; }
 
         [Range(1, 1000)]
+        [UIHint("Number")]
         public int DurationHours { get; set; }
 
         [Display(Name = "Start date")]
@@ -41,13 +45,19 @@
         public DateTime EndDate { get; set; }
 
         [MaxLength(ModelConstants.PhotocourseTeacherMaxLength)]
+        [UIHint("StringLine")]
         public string Teacher { get; set; }
 
         [Range(1, 50)]
         [Display(Name = "Max students")]
+        [UIHint("Number")]
         public int MaxStudents { get; set; }
 
         public Guid? MainImageId { get; set; }
+
+        [Required]
+        [ValidateImageFile]
+        public IEnumerable<HttpPostedFileBase> Files { get; set; }
 
         public IEnumerable<ImageTransitional> Images { get; set; }
 

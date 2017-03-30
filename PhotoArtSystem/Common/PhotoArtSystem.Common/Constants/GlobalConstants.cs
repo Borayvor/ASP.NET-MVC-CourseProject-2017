@@ -4,6 +4,10 @@
     {
         public const string StringEmpty = "";
 
+        // File Mime types
+        public const string ImageJpeg = "image/jpeg";
+        public const string ImagePng = "image/png";
+
         // Image Size
         public const int ImageWidth100 = 100;
         public const int ImageWidth300 = 300;

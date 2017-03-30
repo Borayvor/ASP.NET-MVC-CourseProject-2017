@@ -294,12 +294,16 @@
     <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Administration\Views\PhotocourseSetup\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\StringLine.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Number.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\DateTime.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
-    <Content Include="Content\Site\_home-photoArtServices.scss" />
+    <Content Include="Content\Site\_home-page.scss" />
     <Content Include="Content\Vegas\vegas.min.css.map" />
+    <Content Include="Content\Site\_photocourse-create.scss" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Images\960px.png" />
     <Content Include="Images\cover14.jpg" />
@@ -556,7 +560,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Administration\Views\Shared\EditorTemplates\" />
     <Folder Include="Views\Shared\DisplayTemplates\" />
   </ItemGroup>
   <ItemGroup>
