@@ -4,8 +4,8 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.Web;
+    using System.Web.Mvc;
     using Common.Constants;
-    using Data.Models.TransitionalModels;
     using Infrastructure.Filters;
 
     public class PhotocourseCreateViewModel
@@ -17,21 +17,24 @@
         public string Name { get; set; }
 
         [Required]
-        [MaxLength(ModelConstants.PhotocourseDescriptionShortMaxLength)]
-        [MinLength(ModelConstants.PhotocourseDescriptionShortMinLength)]
+        [AllowHtml]
         [UIHint("TinyMce")]
         [Display(Name = "Short Description")]
+        [MaxLength(ModelConstants.PhotocourseDescriptionShortMaxLength)]
+        [MinLength(ModelConstants.PhotocourseDescriptionShortMinLength)]
         public string DescriptionShort { get; set; }
 
         [Required]
+        [AllowHtml]
+        [UIHint("TinyMce")]
         [MaxLength(ModelConstants.PhotocourseDescriptionMaxLength)]
         [MinLength(ModelConstants.PhotocourseDescriptionMinLength)]
-        [UIHint("TinyMce")]
         public string Description { get; set; }
 
-        [MaxLength(ModelConstants.PhotocourseOtherInfoMaxLength)]
-        [Display(Name = "Additional information")]
+        [AllowHtml]
         [UIHint("TinyMce")]
+        [Display(Name = "Additional information")]
+        [MaxLength(ModelConstants.PhotocourseOtherInfoMaxLength)]
         public string OtherInfo { get; set; }
 
         [Range(1, 1000)]
@@ -59,8 +62,8 @@
         [ValidateImageFile]
         public IEnumerable<HttpPostedFileBase> Files { get; set; }
 
-        public IEnumerable<ImageTransitional> Images { get; set; }
+        ////public IEnumerable<ImageTransitional> Images { get; set; }
 
-        public IEnumerable<StudentTransitional> Students { get; set; }
+        ////public IEnumerable<StudentTransitional> Students { get; set; }
     }
 }

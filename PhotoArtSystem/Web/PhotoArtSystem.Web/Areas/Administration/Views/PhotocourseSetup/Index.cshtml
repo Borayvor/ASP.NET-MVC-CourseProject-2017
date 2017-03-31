@@ -11,7 +11,7 @@
     <h2>Create Photocource</h2>
     <hr />
 
-    @using (Ajax.BeginForm<PhotocourseSetupController>(c => c.Create(), null, null, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+    @using (Html.BeginForm<PhotocourseSetupController>(c => c.Create(), FormMethod.Post, null, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
     {
         <div class="row">
             <div class="col-md-4">
@@ -54,12 +54,12 @@
                 <input type="text" readonly="readonly" class="form-control input-readonly" />
             </label>
             @Html.TextBoxFor(m => m.Files, new { type = "file", multiple = "multiple", @class = "hidden" })
+            @Html.ValidationMessageFor(m => m.Files, string.Empty, new { @class = "text-danger" })
         </div>
 
         <div class="form-group">
             @Html.Submit("Submit", new { @class = "btn btn-default" })
-        </div>
-        @Html.ValidationSummary()
+        </div>        
     }
 
 </div>
@@ -79,26 +79,12 @@
     @Scripts.Render("~/bundles/tinymceJs")
     <script type="text/javascript">
         $(function () {
-            tinymce.init({
-                selector: '.photoartsystem-tinymce',
-                theme: 'modern',
-                height: 150,
-                plugins: [
-                  'advlist autolink link lists charmap hr anchor pagebreak spellchecker',
-                  'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime nonbreaking',
-                  'save table contextmenu directionality emoticons template paste textcolor'
-                ],
-                toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link | forecolor backcolor emoticons'
-            });
-
             $.validator.setDefaults({
                 ignore: ""
             });
 
             $('#btn-images').click(function (e) {
-                e.preventDefault;
-                e.stopImmediatePropagation();
-
+                
                 $('#Files').click();
             });
         });

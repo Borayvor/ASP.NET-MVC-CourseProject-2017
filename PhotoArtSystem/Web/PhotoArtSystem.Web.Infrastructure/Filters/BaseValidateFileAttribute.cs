@@ -5,12 +5,12 @@
     using System.ComponentModel.DataAnnotations;
     using System.Web;
 
-    [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
+    [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = true)]
     public class BaseValidateFileAttribute : ValidationAttribute
     {
-        private const int MbSizeAsBytes = 1024 * 1024;
+        private const int MbSizeAsBytes = 1024 * 1024; // 1 Mb
 
-        protected void ValidateOrThrowException(object value, int allowedMaxSize, IList<string> allowedMimeTypes)
+        protected void ValidateOrThrowException(object value, int allowedMaxSize, ICollection<string> allowedMimeTypes)
         {
             ICollection<HttpPostedFileBase> files = value as ICollection<HttpPostedFileBase>;
 
@@ -26,6 +26,11 @@
 
             foreach (HttpPostedFileBase file in files)
             {
+                if (file == null)
+                {
+                    throw new ValidationException("Please upload a file !");
+                }
+
                 if (file.ContentLength == 0)
                 {
                     throw new ValidationException("Please upload a non-empty file !");

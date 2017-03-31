@@ -2,6 +2,7 @@
 {
     using System.Web.Mvc;
     using Services.Web.Contracts;
+    using ViewModels;
 
     public class PhotocourseSetupController : BaseAdminController
     {
@@ -15,9 +16,21 @@
             return this.View();
         }
 
+        [HttpGet]
         public ActionResult Create()
         {
-            return this.View();
+            return this.View("Index");
+        }
+
+        [HttpPost]
+        public ActionResult Create(PhotocourseCreateViewModel model)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View("Index");
+            }
+
+            return this.RedirectToAction("Index", "Home", new { area = string.Empty });
         }
     }
 }
