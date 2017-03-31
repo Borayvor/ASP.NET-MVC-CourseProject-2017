@@ -50,6 +50,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -67,6 +68,7 @@
     <Compile Include="TransitionalModels\FileInfoTransitional.cs" />
     <Compile Include="TransitionalModels\ImageTransitional.cs" />
     <Compile Include="TransitionalModels\InformationTransitional.cs" />
+    <Compile Include="TransitionalModels\PhotocourseExtendedTransitional.cs" />
     <Compile Include="TransitionalModels\PhotocourseTransitional.cs" />
     <Compile Include="TransitionalModels\StudentTransitional.cs" />
     <Compile Include="OriginalImage.cs" />

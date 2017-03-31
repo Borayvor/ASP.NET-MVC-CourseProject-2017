@@ -10,16 +10,21 @@
     using PhotoArtSystem.Data.Common.Repositories;
     using PhotoArtSystem.Data.Models;
     using PhotoArtSystem.Data.Models.TransitionalModels;
+    using PhotoArtSystem.Web.Infrastructure.Sanitizer;
     using Web.Contracts;
 
     public class PhotocourseService : IPhotocourseService
     {
+        private readonly ISanitizer sanitizer;
         private readonly IAutoMapperService mapper;
         private readonly IEfDbContextSaveChanges context;
         private readonly IPhotoArtSystemEfDbRepository<Photocourse> photocourses;
 
-        public PhotocourseService(IAutoMapperService mapper, IEfDbContextSaveChanges context, IPhotoArtSystemEfDbRepository<Photocourse> photocourses)
+        public PhotocourseService(ISanitizer sanitizer, IAutoMapperService mapper, IEfDbContextSaveChanges context, IPhotoArtSystemEfDbRepository<Photocourse> photocourses)
         {
+            Guard.WhenArgument(
+               sanitizer,
+               nameof(sanitizer)).IsNull().Throw();
             Guard.WhenArgument(
                 mapper,
                 GlobalConstants.AutoMapperServiceRequiredExceptionMessage).IsNull().Throw();
@@ -30,6 +35,7 @@
                 photocourses,
                 GlobalConstants.EfDbRepositoryPhotocourseRequiredExceptionMessage).IsNull().Throw();
 
+            this.sanitizer = sanitizer;
             this.mapper = mapper;
             this.context = context;
             this.photocourses = photocourses;
@@ -53,12 +59,18 @@
 
         public void Create(PhotocourseTransitional entity)
         {
-            Guard.WhenArgument(entity, GlobalConstants.PhotocourseTransitionalRequiredExceptionMessage).IsNull().Throw();
+            Guard.WhenArgument(entity, GlobalConstants.PhotocourseTransitionalRequiredExceptionMessage)
+                .IsNull()
+                .Throw();
+
+            entity.Description = this.sanitizer.Sanitize(entity.Description);
+            entity.DescriptionShort = this.sanitizer.Sanitize(entity.DescriptionShort);
+            entity.OtherInfo = this.sanitizer.Sanitize(entity.OtherInfo);
 
             var entityDb = this.mapper.Map<Photocourse>(entity);
 
-            this.photocourses.Create(entityDb);
-            this.context.Save();
+            ////this.photocourses.Create(entityDb);
+            ////this.context.Save();
         }
 
         public void Update(PhotocourseTransitional entity)

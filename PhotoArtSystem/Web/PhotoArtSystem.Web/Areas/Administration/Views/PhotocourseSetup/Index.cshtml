@@ -78,13 +78,8 @@
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/tinymceJs")
     <script type="text/javascript">
-        $(function () {
-            $.validator.setDefaults({
-                ignore: ""
-            });
-
-            $('#btn-images').click(function (e) {
-                
+        $(function () {            
+            $('#btn-images').click(function (e) {                
                 $('#Files').click();
             });
         });

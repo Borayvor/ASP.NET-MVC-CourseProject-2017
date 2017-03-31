@@ -6,9 +6,11 @@
     using System.Web;
     using System.Web.Mvc;
     using Common.Constants;
+    using Data.Models.TransitionalModels;
     using Infrastructure.Filters;
+    using Infrastructure.Mapping;
 
-    public class PhotocourseCreateViewModel
+    public class PhotocourseCreateViewModel : IMapTo<PhotocourseExtendedTransitional>
     {
         [Required]
         [MaxLength(ModelConstants.PhotocourseNameMaxLength)]
@@ -61,9 +63,5 @@
         [Required]
         [ValidateImageFile]
         public IEnumerable<HttpPostedFileBase> Files { get; set; }
-
-        ////public IEnumerable<ImageTransitional> Images { get; set; }
-
-        ////public IEnumerable<StudentTransitional> Students { get; set; }
     }
 }
