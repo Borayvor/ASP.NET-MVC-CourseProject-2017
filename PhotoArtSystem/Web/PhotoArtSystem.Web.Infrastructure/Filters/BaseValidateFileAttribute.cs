@@ -14,6 +14,7 @@
         {
             ICollection<HttpPostedFileBase> files = value as ICollection<HttpPostedFileBase>;
 
+            // TODO: Extract constants
             if (files == null)
             {
                 throw new ValidationException("Please upload a file !");
@@ -22,6 +23,11 @@
             if (files.Count < 3)
             {
                 throw new ValidationException("Please upload at least 3 files !");
+            }
+
+            if (files.Count > 15)
+            {
+                throw new ValidationException("Please upload at most 15 files !");
             }
 
             foreach (HttpPostedFileBase file in files)
