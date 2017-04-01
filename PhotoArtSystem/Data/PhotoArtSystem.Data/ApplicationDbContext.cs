@@ -3,6 +3,7 @@
     using System;
     using System.Data.Entity;
     using System.Linq;
+    using System.Threading.Tasks;
     using Common.Models;
     using Microsoft.AspNet.Identity.EntityFramework;
     using Models;
@@ -35,6 +36,13 @@
             this.ApplyAuditInfoRules();
 
             return base.SaveChanges();
+        }
+
+        public async override Task<int> SaveChangesAsync()
+        {
+            this.ApplyAuditInfoRules();
+
+            return await base.SaveChangesAsync();
         }
 
         private void ApplyAuditInfoRules()

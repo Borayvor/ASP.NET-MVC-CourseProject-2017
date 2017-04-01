@@ -13,7 +13,7 @@
                         <h2 class="photoartsystem-card-title">@photocourse.Name</h2>
                         <div>@photocourse.DurationHours <span>astronomic hours.</span></div>
                         <div class="photoartsystem-card-description">
-                            @photocourse.Description
+                            @Html.Raw(@photocourse.DescriptionShort)                            
                         </div>
                     </div>
                 </div>

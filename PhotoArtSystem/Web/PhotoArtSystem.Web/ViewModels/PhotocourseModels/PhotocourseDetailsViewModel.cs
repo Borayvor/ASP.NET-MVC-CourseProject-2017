@@ -7,6 +7,12 @@
 
     public class PhotocourseDetailsViewModel : BaseDbKeyViewModel<Guid>, IMapFrom<PhotocourseTransitional>
     {
+        public string Name { get; set; }
+
+        public int DurationHours { get; set; }
+
+        public string Description { get; set; }
+
         public string OtherInfo { get; set; }
 
         public IEnumerable<ImageTransitional> Images { get; set; }

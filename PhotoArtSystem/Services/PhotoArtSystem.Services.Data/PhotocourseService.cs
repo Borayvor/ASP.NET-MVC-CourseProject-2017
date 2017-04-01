@@ -67,12 +67,26 @@
             entity.DescriptionShort = this.sanitizer.Sanitize(entity.DescriptionShort);
             entity.OtherInfo = this.sanitizer.Sanitize(entity.OtherInfo);
 
-            var entityDb = this.mapper.Map<Photocourse>(entity);
+            ////var entityDb = this.mapper.Map<Photocourse>(entity);
 
-            ////this.imageService.Create()
+            var entityDb = new Photocourse
+            {
+                Name = entity.Name,
+                DescriptionShort = entity.DescriptionShort,
+                Description = entity.Description,
+                OtherInfo = entity.OtherInfo,
+                DurationHours = entity.DurationHours,
+                MaxStudents = entity.MaxStudents,
+                Teacher = entity.Teacher,
+                StartDate = entity.StartDate,
+                EndDate = entity.EndDate,
+                Images = entity.Images.ToList(),
+                MainImageId = entity.Images.FirstOrDefault().Id,
+                Students = new List<Student>()
+            };
 
-            ////this.photocourses.Create(entityDb);
-            ////this.context.Save();
+            this.photocourses.Create(entityDb);
+            this.context.Save();
         }
 
         public void Update(PhotocourseTransitional entity)

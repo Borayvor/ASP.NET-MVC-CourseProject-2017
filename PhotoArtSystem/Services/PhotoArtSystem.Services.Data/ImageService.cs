@@ -81,6 +81,7 @@
                 null);
 
             entityDb.UrlPath = url;
+            entityDb.Format = ImageFormatType.SmallOrdinary;
 
             this.images.Create(entityDb);
 
@@ -101,19 +102,27 @@
                 .IsNull()
                 .Throw();
 
-                var entityDb = this.mapper.Map<Image>(entity);
+                ////var entityDb = this.mapper.Map<Image>(entity);
 
                 string url = await this.storage.UploadFile(
                     entity.FileStream,
                     entity.FileName,
                     entity.FileExtension,
-                    GlobalConstants.ImageWidth300,
-                    GlobalConstants.ImageHeight200,
+                    GlobalConstants.ImageWidth960,
+                    GlobalConstants.ImageHeight640,
                     null,
                     null);
 
-                entityDb.UrlPath = url;
-                entityDb.Format = ImageFormatType.SmallOrdinary;
+                ////entityDb.UrlPath = url;
+                ////entityDb.Format = ImageFormatType.SmallOrdinary;
+
+                var entityDb = new Image
+                {
+                    FileName = entity.FileName,
+                    FileExtension = entity.FileExtension,
+                    Format = ImageFormatType.SmallOrdinary,
+                    UrlPath = url
+                };
 
                 this.images.Create(entityDb);
                 imageList.Add(entityDb);
