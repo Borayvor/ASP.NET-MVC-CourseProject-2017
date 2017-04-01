@@ -29,8 +29,16 @@
                     </li>
                     @if (Request.IsAuthenticated && User.IsInRole(AuthConstants.AdministratorRoleName))
                     {
-                        <li>
-                            @(Html.ActionLink<PhotocourseSetupController>(HtmlConstants.AdministrationAreaName, c => c.Index(), new { area = HtmlConstants.AdministrationAreaName }))
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@HtmlConstants.AdministrationAreaName <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    @(Html.ActionLink<PhotocourseSetupController>(HtmlConstants.NewPhotocourseLinkName, c => c.NewPhotocourse(), new { area = HtmlConstants.AdministrationAreaName }))
+                                </li>
+                                @*<li>
+                                    @(Html.ActionLink<PhotocourseSetupController>(HtmlConstants.NewPhotocourseLinkName, c => c.NewPhotocourse(), new { area = HtmlConstants.AdministrationAreaName }))
+                                </li>*@
+                            </ul>
                         </li>
                     }
                 </ul>

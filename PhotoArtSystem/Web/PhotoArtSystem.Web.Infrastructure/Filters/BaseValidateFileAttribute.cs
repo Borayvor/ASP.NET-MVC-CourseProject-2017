@@ -5,7 +5,7 @@
     using System.ComponentModel.DataAnnotations;
     using System.Web;
 
-    [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = true)]
+    [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property, AllowMultiple = false, Inherited = true)]
     public class BaseValidateFileAttribute : ValidationAttribute
     {
         private const int MbSizeAsBytes = 1024 * 1024; // 1 Mb

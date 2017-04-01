@@ -7,7 +7,7 @@
 
     public abstract class FileInfoTransitional : BaseModelTransitional<Guid>, IBaseModel<Guid>, IAuditInfo, IDeletableEntity
     {
-        public Stream Stream { get; set; }
+        public Stream FileStream { get; set; }
 
         public string FileName { get; set; }
 

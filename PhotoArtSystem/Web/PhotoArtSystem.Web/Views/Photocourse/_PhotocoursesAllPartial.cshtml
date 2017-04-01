@@ -1,21 +1,22 @@
 ﻿@using PhotoArtSystem.Web.ViewModels.PhotocourseModels
 @model IEnumerable<PhotocourseViewModel>
 
-<div class="row">
+<div id="photocourse-all" class="row">
 
     @foreach (var photocourse in Model)
     {
-        <article class="col-md-3 col-sm-4 col-xs-6">
+        <article class="col-md-3 col-sm-4">
             <a href="@(Url.Action<PhotocourseController>(c => c.Details(@photocourse.Id)))">
-                <div>                    
-                    <img src="@photocourse.CoverImage" class="img-thumbnail img-responsive" />                    
-                    <div class="photoartsystem-card-text">                        
+                <div class="photoartsystem-card img-thumbnail">
+                    <img src="@photocourse.CoverImage" class="img-thumbnail img-responsive" />
+                    <div class="photoartsystem-card-text text-center">
                         <h2 class="photoartsystem-card-title">@photocourse.Name</h2>
+                        <div>@photocourse.DurationHours <span>astronomic hours.</span></div>
                         <div class="photoartsystem-card-description">
                             @photocourse.Description
                         </div>
                     </div>
-                </div>                
+                </div>
             </a>
         </article>
     }

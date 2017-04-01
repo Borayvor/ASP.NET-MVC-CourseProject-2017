@@ -1,16 +1,13 @@
 ﻿namespace PhotoArtSystem.Web.Areas.Administration.ViewModels
 {
     using System;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.Web;
     using System.Web.Mvc;
     using Common.Constants;
     using Data.Models.TransitionalModels;
-    using Infrastructure.Filters;
     using Infrastructure.Mapping;
 
-    public class PhotocourseCreateViewModel : IMapTo<PhotocourseExtendedTransitional>
+    public class PhotocourseCreateViewModel : IMapTo<PhotocourseTransitional>
     {
         [Required]
         [MaxLength(ModelConstants.PhotocourseNameMaxLength)]
@@ -59,9 +56,5 @@
         public int MaxStudents { get; set; }
 
         public Guid? MainImageId { get; set; }
-
-        [Required]
-        [ValidateImageFile]
-        public IEnumerable<HttpPostedFileBase> Files { get; set; }
     }
 }

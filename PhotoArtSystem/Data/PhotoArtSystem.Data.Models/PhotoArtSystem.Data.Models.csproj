@@ -68,7 +68,6 @@
     <Compile Include="TransitionalModels\FileInfoTransitional.cs" />
     <Compile Include="TransitionalModels\ImageTransitional.cs" />
     <Compile Include="TransitionalModels\InformationTransitional.cs" />
-    <Compile Include="TransitionalModels\PhotocourseExtendedTransitional.cs" />
     <Compile Include="TransitionalModels\PhotocourseTransitional.cs" />
     <Compile Include="TransitionalModels\StudentTransitional.cs" />
     <Compile Include="OriginalImage.cs" />

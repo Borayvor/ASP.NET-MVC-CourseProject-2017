@@ -10,6 +10,8 @@
     {
         public string Name { get; set; }
 
+        public int DurationHours { get; set; }
+
         public string Description { get; set; }
 
         public string CoverImage { get; set; }

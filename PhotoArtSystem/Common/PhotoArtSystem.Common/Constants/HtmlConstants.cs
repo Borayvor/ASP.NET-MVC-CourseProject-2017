@@ -9,5 +9,7 @@
 
         // Administration
         public const string AdministrationAreaName = "Administration";
+
+        public const string NewPhotocourseLinkName = "New photo course";
     }
 }

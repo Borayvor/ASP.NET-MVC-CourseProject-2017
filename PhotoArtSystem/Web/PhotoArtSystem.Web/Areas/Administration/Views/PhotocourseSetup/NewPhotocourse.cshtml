@@ -1,6 +1,6 @@
 ﻿
 @using PhotoArtSystem.Web.Areas.Administration.ViewModels
-@model PhotocourseCreateViewModel
+@model PhotocourseSetupViewModel
 
 @{
     ViewBag.Title = @HtmlConstants.AdministrationAreaName;
@@ -11,39 +11,52 @@
     <h2>Create Photocource</h2>
     <hr />
 
-    @using (Html.BeginForm<PhotocourseSetupController>(c => c.Create(), FormMethod.Post, null, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+    @*@using (Ajax.BeginForm<PhotocourseSetupController>(
+    c => c.NewPhotocourse(null),
+    null,
+    new AjaxOptions
+    {
+        HttpMethod = "POST",
+        LoadingElementId = "loading",
+    },
+    new { @class = "form-horizontal", enctype = "multipart/form-data" }))*@
+
+    @using (Html.BeginForm<PhotocourseSetupController>(c => c.NewPhotocourse(),
+    FormMethod.Post,
+    null,
+    new { @class = "form-horizontal", enctype = "multipart/form-data" }))
     {
         <div class="row">
             <div class="col-md-4">
-                @Html.EditorFor(m => m.Name)
+                @Html.EditorFor(m => m.PhotocourseCreate.Name)
             </div>
             <div class="col-md-4">
-                @Html.EditorFor(m => m.MaxStudents)
+                @Html.EditorFor(m => m.PhotocourseCreate.MaxStudents)
             </div>
             <div class="col-md-4">
-                @Html.EditorFor(m => m.Teacher)
+                @Html.EditorFor(m => m.PhotocourseCreate.Teacher)
             </div>
         </div>
 
         <div class="row">
             <div class="col-md-4">
-                @Html.EditorFor(m => m.DurationHours)
+                @Html.EditorFor(m => m.PhotocourseCreate.DurationHours)
             </div>
             <div class="col-md-4">
-                @Html.EditorFor(m => m.StartDate)
+                @Html.EditorFor(m => m.PhotocourseCreate.StartDate)
             </div>
             <div class="col-md-4">
-                @Html.EditorFor(m => m.EndDate)
+                @Html.EditorFor(m => m.PhotocourseCreate.EndDate)
             </div>
         </div>
 
-        @Html.EditorFor(m => m.DescriptionShort)
+        @Html.EditorFor(m => m.PhotocourseCreate.DescriptionShort)
 
-        @Html.EditorFor(m => m.Description)
+        @Html.EditorFor(m => m.PhotocourseCreate.Description)
 
-        @Html.EditorFor(m => m.OtherInfo)
+        @Html.EditorFor(m => m.PhotocourseCreate.OtherInfo)
 
-        @Html.HiddenFor(m => m.MainImageId)
+        @Html.HiddenFor(m => m.PhotocourseCreate.MainImageId)
 
         <div class="form-group">
             @Html.LabelFor(m => m.Files, new { @class = "control-label" })
@@ -59,27 +72,21 @@
 
         <div class="form-group">
             @Html.Submit("Submit", new { @class = "btn btn-default" })
-        </div>        
+        </div>
     }
-
 </div>
-
-@* ======================================================== *@
-
-@*@Html.EditorFor(m => m.Images)
-    <div class="row">
-        <div class="col-sm-3">Image</div>
-    </div>*@
-
-
 
 @section scripts{
     @Scripts.Render("~/bundles/jqueryUnobtrusive")
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/tinymceJs")
     <script type="text/javascript">
-        $(function () {            
-            $('#btn-images').click(function (e) {                
+        $(function () {
+            $.validator.setDefaults({
+                ignore: ""
+            });
+
+            $('#btn-images').click(function (e) {
                 $('#Files').click();
             });
         });

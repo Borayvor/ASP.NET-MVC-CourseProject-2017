@@ -2,6 +2,28 @@
 {
     public static class StringExtensions
     {
+        public static string GetFileName(this string fileFullname)
+        {
+            if (string.IsNullOrWhiteSpace(fileFullname))
+            {
+                return string.Empty;
+            }
+
+            var extensionIndex = fileFullname.LastIndexOf(".");
+
+            if (extensionIndex == 0)
+            {
+                return string.Empty;
+            }
+
+            if (extensionIndex > 0)
+            {
+                return fileFullname.Remove(extensionIndex);
+            }
+
+            return fileFullname;
+        }
+
         public static string GetFileContentType(this string filename)
         {
             if (string.IsNullOrWhiteSpace(filename))

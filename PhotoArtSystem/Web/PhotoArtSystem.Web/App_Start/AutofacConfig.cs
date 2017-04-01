@@ -8,11 +8,14 @@
     using AutoMapper;
     using CloudStorages.CloudinaryApi;
     using CloudStorages.Contracts;
+    using Common.Providers;
+    using Common.Providers.Contracts;
     using Controllers;
     using Data;
     using Data.Common.EfDbContexts;
     using Data.Common.Repositories;
     using Infrastructure.Mapping;
+    using Infrastructure.Sanitizer;
     using Services.Data;
     using Services.Web;
     using Services.Web.Contracts;
@@ -50,6 +53,10 @@
 
         private static void RegisterServices(ContainerBuilder builder)
         {
+            builder.Register(x => new CloudStorageConfigurationProvider())
+                .As<ICloudStorageConfigurationProvider>()
+                .SingleInstance();
+
             builder.Register(x => new ApplicationDbContext())
                 .As<DbContext>()
                 .InstancePerRequest();
@@ -63,7 +70,11 @@
                 .InstancePerRequest();
 
             builder.Register(x => new HttpCacheService())
-                .As<ICacheService>()
+               .As<ICacheService>()
+               .InstancePerRequest();
+
+            builder.Register(x => new HtmlSanitizerAdapter())
+                .As<ISanitizer>()
                 .InstancePerRequest();
 
             builder.RegisterType<AutoMapperService>()

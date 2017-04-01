@@ -10,6 +10,11 @@
 </head>
 <body>
     @Html.Partial("_NavigationPartial")
+    <div id="loading">
+        <span class="vh-center">
+            <i class="fa fa-cog fa-spin fa-5x"></i>
+        </span>
+    </div>
     <div class="photoartsystem-content photoartsystem-padding-sides-15">
         <div class="photoartsystem-content-body">
             @RenderBody()

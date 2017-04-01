@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Threading.Tasks;
     using Bytes2you.Validation;
     using CloudStorages.Contracts;
     using Common.Constants;
@@ -70,29 +71,29 @@
 
             var entityDb = this.mapper.Map<Image>(entity);
 
-            string url = null;
-
-            if (entity.Format == ImageFormatType.SmallOrdinary)
-            {
-                url = await this.storage.UploadFile(
-                entity.Stream,
+            string url = await this.storage.UploadFile(
+                entity.FileStream,
                 entity.FileName,
                 entity.FileExtension,
                 GlobalConstants.ImageWidth300,
                 GlobalConstants.ImageHeight200,
                 null,
                 null);
-            }
+
+            entityDb.UrlPath = url;
 
             this.images.Create(entityDb);
-            this.context.Save();
+
+            await this.context.SaveAsync();
         }
 
-        public async void Create(IEnumerable<ImageTransitional> entities)
+        public async Task<ICollection<Image>> Create(IEnumerable<ImageTransitional> entities)
         {
             Guard.WhenArgument(entities, GlobalConstants.ImageTransitionalRequiredExceptionMessage)
                 .IsNull()
                 .Throw();
+
+            ICollection<Image> imageList = new List<Image>();
 
             foreach (var entity in entities)
             {
@@ -102,24 +103,25 @@
 
                 var entityDb = this.mapper.Map<Image>(entity);
 
-                string url = null;
-
-                if (entity.Format == ImageFormatType.SmallOrdinary)
-                {
-                    url = await this.storage.UploadFile(
-                    entity.Stream,
+                string url = await this.storage.UploadFile(
+                    entity.FileStream,
                     entity.FileName,
                     entity.FileExtension,
                     GlobalConstants.ImageWidth300,
                     GlobalConstants.ImageHeight200,
                     null,
                     null);
-                }
+
+                entityDb.UrlPath = url;
+                entityDb.Format = ImageFormatType.SmallOrdinary;
 
                 this.images.Create(entityDb);
+                imageList.Add(entityDb);
             }
 
-            this.context.Save();
+            await this.context.SaveAsync();
+
+            return imageList;
         }
 
         public void Update(ImageTransitional entity)

@@ -22,7 +22,7 @@
 
             var rule = new ModelClientValidationRule
             {
-                ValidationType = displayName,
+                ValidationType = displayName + "validation",
                 ErrorMessage = this.ErrorMessageString
             };
 

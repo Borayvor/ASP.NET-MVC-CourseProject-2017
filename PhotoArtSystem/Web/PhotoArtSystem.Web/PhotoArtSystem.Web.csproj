@@ -215,7 +215,10 @@
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\BaseAdminController.cs" />
     <Compile Include="Areas\Administration\Controllers\PhotocourseSetupController.cs" />
+    <Compile Include="Areas\Administration\ViewModels\HttpPostedFileBaseViewModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\ImageCreateViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\PhotocourseCreateViewModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\PhotocourseSetupViewModel.cs" />
     <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\Account\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -293,7 +296,7 @@
     <Content Include="Areas\Administration\Views\web.config" />
     <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Administration\Views\PhotocourseSetup\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\PhotocourseSetup\NewPhotocourse.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\StringLine.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Number.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\DateTime.cshtml" />
@@ -304,6 +307,8 @@
     <Content Include="Content\Site\_home-page.scss" />
     <Content Include="Content\Vegas\vegas.min.css.map" />
     <Content Include="Content\Site\_photocourse-create.scss" />
+    <Content Include="Content\Site\_loading.scss" />
+    <Content Include="Content\Site\_photocourses-all-page.scss" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Images\960px.png" />
     <Content Include="Images\cover14.jpg" />

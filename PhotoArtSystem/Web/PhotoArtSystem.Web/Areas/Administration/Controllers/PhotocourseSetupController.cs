@@ -1,5 +1,7 @@
 ﻿namespace PhotoArtSystem.Web.Areas.Administration.Controllers
 {
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
     using System.Web.Mvc;
     using Data.Models.TransitionalModels;
     using Services.Data.Contracts;
@@ -8,37 +10,42 @@
 
     public class PhotocourseSetupController : BaseAdminController
     {
+        private readonly IImageService imageService;
         private readonly IPhotocourseService photocourseService;
 
-        public PhotocourseSetupController(IPhotocourseService photocourseService, IAutoMapperService mapper)
+        public PhotocourseSetupController(IImageService imageService, IPhotocourseService photocourseService, IAutoMapperService mapper)
             : base(mapper)
         {
+            this.imageService = imageService;
             this.photocourseService = photocourseService;
         }
 
-        public ActionResult Index()
+        [HttpGet]
+        public ActionResult NewPhotocourse()
         {
             return this.View();
         }
 
-        [HttpGet]
-        public ActionResult Create()
-        {
-            return this.View("Index");
-        }
-
         [HttpPost]
-        public ActionResult Create(PhotocourseCreateViewModel model)
+        public async Task<ActionResult> NewPhotocourse(PhotocourseSetupViewModel model)
         {
             if (!this.ModelState.IsValid)
             {
-                return this.View("Index");
+                return this.View();
             }
 
-            var photocourseViewModel = this.Mapper
-                .Map<PhotocourseExtendedTransitional>(model);
+            var photocourseTransitional = this.Mapper
+                .Map<PhotocourseTransitional>(model.PhotocourseCreate);
 
-            this.photocourseService.Create(photocourseViewModel);
+            var files = this.Mapper
+                .Map<IEnumerable<HttpPostedFileBaseViewModel>>(model.Files);
+
+            var imageTransitional = this.Mapper
+                .Map<IEnumerable<ImageTransitional>>(files);
+
+            photocourseTransitional.Images = await this.imageService.Create(imageTransitional);
+
+            this.photocourseService.Create(photocourseTransitional);
 
             return this.RedirectToAction("Index", "Home", new { area = string.Empty });
         }

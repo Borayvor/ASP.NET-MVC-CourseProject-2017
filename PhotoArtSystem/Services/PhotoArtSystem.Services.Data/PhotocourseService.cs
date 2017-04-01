@@ -69,6 +69,8 @@
 
             var entityDb = this.mapper.Map<Photocourse>(entity);
 
+            ////this.imageService.Create()
+
             ////this.photocourses.Create(entityDb);
             ////this.context.Save();
         }
