@@ -145,6 +145,10 @@ body {
       padding-left: 80px; }
     body #photoartsystem-photocourse-create .input .button {
       position: absolute; }
+  body #photoartsystem-photocourse-create #images-preview-container {
+    margin-bottom: 35px; }
+    body #photoartsystem-photocourse-create #images-preview-container .form-control {
+      padding-top: 0; }
   @media (min-width: 992px) {
     body #photoartsystem-photocourse-create .input-block {
       padding-left: 15px;

@@ -17,6 +17,14 @@
             position: absolute;
         }
     }
+
+    #images-preview-container{        
+        margin-bottom: 35px;
+
+        .form-control{
+            padding-top: 0; 
+        }
+    }
 }
 
 @media (min-width: 992px) {

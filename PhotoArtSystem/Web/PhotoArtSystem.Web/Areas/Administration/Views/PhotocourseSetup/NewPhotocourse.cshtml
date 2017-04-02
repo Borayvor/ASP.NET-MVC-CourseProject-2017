@@ -21,10 +21,10 @@
         },
         new { @class = "form-horizontal", enctype = "multipart/form-data" }))*@
 
-@using (Html.BeginForm<PhotocourseSetupController>(c => c.CreateNewPhotocourse(null),
-    FormMethod.Post,
-    null,
-    new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+    @using (Html.BeginForm<PhotocourseSetupController>(c => c.CreateNewPhotocourse(null),
+                    FormMethod.Post,
+                    null,
+                    new { @class = "form-horizontal", enctype = "multipart/form-data" }))
     {
         <div class="row">
             <div class="col-md-4">
@@ -56,7 +56,7 @@
 
         @Html.EditorFor(m => m.PhotocourseCreate.OtherInfo)
 
-        @Html.HiddenFor(m => m.PhotocourseCreate.MainImageId)
+        @Html.HiddenFor(m => m.ImageCoverFullName)
 
         <div class="form-group">
             @Html.LabelFor(m => m.Files, new { @class = "control-label" })
@@ -68,6 +68,11 @@
             </label>
             @Html.TextBoxFor(m => m.Files, new { type = "file", multiple = "multiple", @class = "hidden" })
             @Html.ValidationMessageFor(m => m.Files, string.Empty, new { @class = "text-danger" })
+        </div>
+        <div class="text-center hidden" id="image-loading">
+            <i class="fa fa-spin fa-spinner font-size-2em"></i> <span class="font-size-2em">Adding images...</span>
+        </div>
+        <div id="images-preview-container" class="form-group">
         </div>
 
         <div class="form-group">
@@ -94,17 +99,40 @@
                 var files = $(this)[0].files;
                 var length = files.length;
                 var i,
-                    result = "";
+                    strResult = "",
+                    arrResult = [];
 
                 for (i = 0; i < length; i += 1) {
-                    result += files[i].name;
+                    strResult += files[i].name;
+                    arrResult.push(files[i].name);
 
                     if (i < length - 1) {
-                        result += ", ";
+                        strResult += ", ";
                     }
                 }
 
-                $('.input-readonly').val(result);
+                $('.input-readonly').val(strResult);
+
+                var container = $('#images-preview-container');
+                container.html('');
+
+                var label = $('<label />').attr('for', 'select-cover').addClass('control-label').html('Select cover image :');
+                var s = $('<select />').attr('id', 'select-cover').addClass('form-control');
+
+                for (var val in arrResult) {
+                    $('<option />', { value: arrResult[val], text: arrResult[val] }).appendTo(s);
+                }
+
+                label.appendTo(container);
+                s.appendTo(container);
+
+                var selected = $('#select-cover option:selected').val();
+                
+                $('#select-cover').change(function () {
+                    selected = $(this).val();
+                });
+
+                $('#ImageCoverFullName').val(selected);
             });
         });
     </script>

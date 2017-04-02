@@ -2,7 +2,7 @@
 @model PhotocourseDetailsViewModel
 
 <div class="row">
-    @foreach (var image in Model.ImagesSmall)
+    @foreach (var image in Model.Images)
     {
         <div class="col-sm-3">
             <img src="@image.UrlPath" class="img-thumbnail img-responsive" />
@@ -12,7 +12,7 @@
 <div class="row">
     <div class="photoartsystem-card-text text-center">
         <h2 class="photoartsystem-card-title">@Model.Name</h2>
-        <div>@Model.DurationHours <span>astronomic hours.</span></div>
+        <div>@Model.DurationHours <span>astronomic hours.</span></div>        
         <div class="photoartsystem-card-description">
             @Html.Raw(@Model.Description)
         </div>

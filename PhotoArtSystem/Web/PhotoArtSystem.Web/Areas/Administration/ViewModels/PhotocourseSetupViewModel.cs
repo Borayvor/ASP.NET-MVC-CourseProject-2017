@@ -15,6 +15,7 @@
         [ValidateImageFile]
         public IEnumerable<HttpPostedFileBase> Files { get; set; }
 
+        [Required]
         [HiddenInput(DisplayValue = false)]
         [MaxLength(ModelConstants.FileInfoFileNameMaxLength + ModelConstants.FileInfoFileExtensionMaxLength)]
         public string ImageCoverFullName { get; set; }
