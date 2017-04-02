@@ -57,7 +57,7 @@
             return result;
         }
 
-        public void Create(PhotocourseTransitional entity)
+        public Photocourse Create(PhotocourseTransitional entity)
         {
             Guard.WhenArgument(entity, GlobalConstants.PhotocourseTransitionalRequiredExceptionMessage)
                 .IsNull()
@@ -66,8 +66,6 @@
             entity.Description = this.sanitizer.Sanitize(entity.Description);
             entity.DescriptionShort = this.sanitizer.Sanitize(entity.DescriptionShort);
             entity.OtherInfo = this.sanitizer.Sanitize(entity.OtherInfo);
-
-            ////var entityDb = this.mapper.Map<Photocourse>(entity);
 
             var entityDb = new Photocourse
             {
@@ -87,6 +85,8 @@
 
             this.photocourses.Create(entityDb);
             this.context.Save();
+
+            return entityDb;
         }
 
         public void Update(PhotocourseTransitional entity)

@@ -63,35 +63,21 @@
             return result;
         }
 
-        public async void Create(ImageTransitional entity)
+        public async Task<Image> Create(ImageTransitional entity)
         {
             Guard.WhenArgument(entity, GlobalConstants.ImageTransitionalRequiredExceptionMessage)
                 .IsNull()
                 .Throw();
 
-            string url = await this.storage.UploadFile(
-                entity.FileStream,
-                entity.FileName,
-                entity.FileExtension,
-                GlobalConstants.ImageWidth300,
-                GlobalConstants.ImageHeight200,
-                null,
-                null);
-
-            var entityDb = new Image
-            {
-                FileName = entity.FileName,
-                FileExtension = entity.FileExtension,
-                Format = ImageFormatType.SmallOrdinary,
-                UrlPath = url
-            };
+            var entityDb = await this.CreateImage(entity, null, null);
 
             this.images.Create(entityDb);
+            this.context.Save();
 
-            await this.context.SaveAsync();
+            return entityDb;
         }
 
-        public async Task<ICollection<Image>> Create(IEnumerable<ImageTransitional> entities)
+        public async Task<IEnumerable<Image>> Create(IEnumerable<ImageTransitional> entities)
         {
             Guard.WhenArgument(entities, GlobalConstants.ImageTransitionalRequiredExceptionMessage)
                 .IsNull()
@@ -105,22 +91,7 @@
                 .IsNull()
                 .Throw();
 
-                string url = await this.storage.UploadFile(
-                    entity.FileStream,
-                    entity.FileName,
-                    entity.FileExtension,
-                    GlobalConstants.ImageWidth960,
-                    GlobalConstants.ImageHeight640,
-                    null,
-                    null);
-
-                var entityDb = new Image
-                {
-                    FileName = entity.FileName,
-                    FileExtension = entity.FileExtension,
-                    Format = ImageFormatType.SmallOrdinary,
-                    UrlPath = url
-                };
+                var entityDb = await this.CreateImage(entity, null, null);
 
                 this.images.Create(entityDb);
                 imageList.Add(entityDb);
@@ -153,6 +124,71 @@
 
             this.images.Delete(entityDb);
             this.context.Save();
+        }
+
+        private async Task<Image> CreateImage(
+            ImageTransitional entity,
+            string cropMode,
+            string outputFormat)
+        {
+            int width, height;
+
+            switch (entity.Format)
+            {
+                case ImageFormatType.LargeOrdinary:
+                    {
+                        width = GlobalConstants.ImageWidth1200;
+                        height = GlobalConstants.ImageHeight800;
+                        break;
+                    }
+
+                case ImageFormatType.SmallOrdinary:
+                    {
+                        width = GlobalConstants.ImageWidth767;
+                        height = GlobalConstants.ImageHeight511;
+                        break;
+                    }
+
+                case ImageFormatType.LargeCarousel:
+                    {
+                        width = GlobalConstants.ImageWidth1200;
+                        height = GlobalConstants.ImageCarouselHeight450;
+                        break;
+                    }
+
+                case ImageFormatType.SmallCarousel:
+                    {
+                        width = GlobalConstants.ImageWidth767;
+                        height = GlobalConstants.ImageCarouselHeight228;
+                        break;
+                    }
+
+                default:
+                    {
+                        width = GlobalConstants.ImageWidth100;
+                        height = GlobalConstants.ImageHeight100;
+                        break;
+                    }
+            }
+
+            string url = await this.storage.UploadFile(
+                    entity.FileStream,
+                    entity.FileName,
+                    entity.FileExtension,
+                    width,
+                    height,
+                    cropMode,
+                    outputFormat);
+
+            var newImage = new Image
+            {
+                FileName = entity.FileName,
+                FileExtension = entity.FileExtension,
+                Format = entity.Format,
+                UrlPath = url
+            };
+
+            return newImage;
         }
     }
 }

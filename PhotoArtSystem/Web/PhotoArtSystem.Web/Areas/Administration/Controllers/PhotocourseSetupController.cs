@@ -3,10 +3,12 @@
     using System.Collections.Generic;
     using System.Threading.Tasks;
     using System.Web.Mvc;
+    using System.Web.Mvc.Expressions;
     using Data.Models.TransitionalModels;
     using Services.Data.Contracts;
     using Services.Web.Contracts;
     using ViewModels;
+    using Web.Controllers;
 
     public class PhotocourseSetupController : BaseAdminController
     {
@@ -44,9 +46,9 @@
 
             photocourseTransitional.Images = await this.imageService.Create(imageTransitional);
 
-            this.photocourseService.Create(photocourseTransitional);
+            var photocourse = this.photocourseService.Create(photocourseTransitional);
 
-            return this.RedirectToAction("Index", "Home", new { area = string.Empty });
+            return this.RedirectToAction<PhotocourseController>(c => c.Details(photocourse.Id), new { area = string.Empty });
         }
     }
 }

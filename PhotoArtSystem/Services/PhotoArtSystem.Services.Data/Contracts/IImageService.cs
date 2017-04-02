@@ -6,11 +6,13 @@
     using PhotoArtSystem.Data.Models;
     using PhotoArtSystem.Data.Models.TransitionalModels;
 
-    public interface IImageService : IBaseCreateService<ImageTransitional>,
+    public interface IImageService :
         IBaseGetService<ImageTransitional, Guid>,
         IBaseUpdateService<ImageTransitional>,
         IBaseDeleteService<ImageTransitional>
     {
-        Task<ICollection<Image>> Create(IEnumerable<ImageTransitional> entities);
+        Task<Image> Create(ImageTransitional entity);
+
+        Task<IEnumerable<Image>> Create(IEnumerable<ImageTransitional> entities);
     }
 }
