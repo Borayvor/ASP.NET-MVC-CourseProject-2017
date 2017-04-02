@@ -12,16 +12,16 @@
     <hr />
 
     @*@using (Ajax.BeginForm<PhotocourseSetupController>(
-    c => c.NewPhotocourse(null),
-    null,
-    new AjaxOptions
-    {
-        HttpMethod = "POST",
-        LoadingElementId = "loading",
-    },
-    new { @class = "form-horizontal", enctype = "multipart/form-data" }))*@
+        c => c.CreateNewPhotocourse(null),
+        null,
+        new AjaxOptions
+        {
+            HttpMethod = "POST",
+            LoadingElementId = "loading",
+        },
+        new { @class = "form-horizontal", enctype = "multipart/form-data" }))*@
 
-    @using (Html.BeginForm<PhotocourseSetupController>(c => c.NewPhotocourse(),
+@using (Html.BeginForm<PhotocourseSetupController>(c => c.CreateNewPhotocourse(null),
     FormMethod.Post,
     null,
     new { @class = "form-horizontal", enctype = "multipart/form-data" }))
@@ -88,6 +88,23 @@
 
             $('#btn-images').click(function (e) {
                 $('#Files').click();
+            });
+
+            $('#Files').change(function (e) {
+                var files = $(this)[0].files;
+                var length = files.length;
+                var i,
+                    result = "";
+
+                for (i = 0; i < length; i += 1) {
+                    result += files[i].name;
+
+                    if (i < length - 1) {
+                        result += ", ";
+                    }
+                }
+
+                $('.input-readonly').val(result);
             });
         });
     </script>

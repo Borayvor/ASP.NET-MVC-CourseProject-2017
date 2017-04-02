@@ -69,8 +69,6 @@
                 .IsNull()
                 .Throw();
 
-            var entityDb = this.mapper.Map<Image>(entity);
-
             string url = await this.storage.UploadFile(
                 entity.FileStream,
                 entity.FileName,
@@ -80,8 +78,13 @@
                 null,
                 null);
 
-            entityDb.UrlPath = url;
-            entityDb.Format = ImageFormatType.SmallOrdinary;
+            var entityDb = new Image
+            {
+                FileName = entity.FileName,
+                FileExtension = entity.FileExtension,
+                Format = ImageFormatType.SmallOrdinary,
+                UrlPath = url
+            };
 
             this.images.Create(entityDb);
 
@@ -102,8 +105,6 @@
                 .IsNull()
                 .Throw();
 
-                ////var entityDb = this.mapper.Map<Image>(entity);
-
                 string url = await this.storage.UploadFile(
                     entity.FileStream,
                     entity.FileName,
@@ -112,9 +113,6 @@
                     GlobalConstants.ImageHeight640,
                     null,
                     null);
-
-                ////entityDb.UrlPath = url;
-                ////entityDb.Format = ImageFormatType.SmallOrdinary;
 
                 var entityDb = new Image
                 {
@@ -128,7 +126,7 @@
                 imageList.Add(entityDb);
             }
 
-            await this.context.SaveAsync();
+            this.context.Save();
 
             return imageList;
         }

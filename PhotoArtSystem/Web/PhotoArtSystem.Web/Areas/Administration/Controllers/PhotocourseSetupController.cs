@@ -26,12 +26,11 @@
             return this.View();
         }
 
-        [HttpPost]
-        public async Task<ActionResult> NewPhotocourse(PhotocourseSetupViewModel model)
+        public async Task<ActionResult> CreateNewPhotocourse(PhotocourseSetupViewModel model)
         {
             if (!this.ModelState.IsValid)
             {
-                return this.View();
+                return this.View("NewPhotocourse");
             }
 
             var photocourseTransitional = this.Mapper

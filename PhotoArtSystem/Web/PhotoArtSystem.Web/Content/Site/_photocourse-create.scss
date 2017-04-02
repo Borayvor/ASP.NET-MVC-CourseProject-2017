@@ -10,7 +10,7 @@
 
         .input-readonly{
             background-color: white;
-            padding-left: 70px;
+            padding-left: 80px;
         }        
 
         .button{
@@ -21,8 +21,7 @@
 
 @media (min-width: 992px) {
     #photoartsystem-photocourse-create {
-        .input-block{
-            // from main css
+        .input-block{            
             @include padding_sides(15px);
         }
     }

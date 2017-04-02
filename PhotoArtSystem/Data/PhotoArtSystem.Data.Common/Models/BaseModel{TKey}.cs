@@ -7,7 +7,6 @@
     public abstract class BaseModel<TKey> : IBaseModel<TKey>, IAuditInfo, IDeletableEntity
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public TKey Id { get; set; }
 
         public DateTime CreatedOn { get; set; }
