@@ -7,6 +7,7 @@
     using System.Web.Mvc.Expressions;
     using Data.Models.EnumTypes;
     using Data.Models.TransitionalModels;
+    using EntertainmentSystem.Common.ExtensionMethods;
     using Services.Data.Contracts;
     using Services.Web.Contracts;
     using ViewModels;
@@ -48,7 +49,10 @@
 
             photocourseTransitional.Images = await this.imageService.Create(imageTransitional, ImageFormatType.Ordinary);
 
-            photocourseTransitional.ImageCover = photocourseTransitional.Images.FirstOrDefault();
+            photocourseTransitional.ImageCover = photocourseTransitional
+                .Images
+                .FirstOrDefault(x => x.FileName == model.ImageCoverFullName.GetFileName()
+                && x.FileExtension == model.ImageCoverFullName.GetFileExtension());
 
             var photocourse = this.photocourseService.Create(photocourseTransitional);
 
