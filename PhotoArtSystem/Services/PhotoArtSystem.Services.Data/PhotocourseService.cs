@@ -79,7 +79,7 @@
                 StartDate = entity.StartDate,
                 EndDate = entity.EndDate,
                 Images = entity.Images.ToList(),
-                MainImageId = entity.Images.FirstOrDefault().Id,
+                ImageCoverId = entity.Images.FirstOrDefault().Id,
                 Students = new List<Student>()
             };
 

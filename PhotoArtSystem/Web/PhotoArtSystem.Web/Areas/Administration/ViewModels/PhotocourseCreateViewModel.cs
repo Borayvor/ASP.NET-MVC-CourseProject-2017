@@ -55,6 +55,6 @@
         [UIHint("Number")]
         public int MaxStudents { get; set; }
 
-        public Guid? MainImageId { get; set; }
+        public Guid? ImageCoverId { get; set; }
     }
 }

@@ -1,9 +1,11 @@
 ﻿namespace PhotoArtSystem.Web.Areas.Administration.Controllers
 {
     using System.Collections.Generic;
+    using System.Linq;
     using System.Threading.Tasks;
     using System.Web.Mvc;
     using System.Web.Mvc.Expressions;
+    using Data.Models.EnumTypes;
     using Data.Models.TransitionalModels;
     using Services.Data.Contracts;
     using Services.Web.Contracts;
@@ -44,7 +46,9 @@
             var imageTransitional = this.Mapper
                 .Map<IEnumerable<ImageTransitional>>(files);
 
-            photocourseTransitional.Images = await this.imageService.Create(imageTransitional);
+            photocourseTransitional.Images = await this.imageService.Create(imageTransitional, ImageFormatType.Ordinary);
+
+            photocourseTransitional.ImageCover = photocourseTransitional.Images.FirstOrDefault();
 
             var photocourse = this.photocourseService.Create(photocourseTransitional);
 

@@ -63,36 +63,39 @@
             return result;
         }
 
-        public async Task<Image> Create(ImageTransitional entity)
+        public async Task<Image> Create(ImageTransitional entity, ImageFormatType format)
         {
-            Guard.WhenArgument(entity, GlobalConstants.ImageTransitionalRequiredExceptionMessage)
+            Guard.WhenArgument(entity, nameof(entity))
                 .IsNull()
                 .Throw();
 
+            entity.Format = format;
             var entityDb = await this.CreateImage(entity, null, null);
-
             this.images.Create(entityDb);
-            this.context.Save();
 
+            this.context.Save();
             return entityDb;
         }
 
-        public async Task<IEnumerable<Image>> Create(IEnumerable<ImageTransitional> entities)
+        public async Task<IEnumerable<Image>> Create(
+            IEnumerable<ImageTransitional> entities,
+            ImageFormatType format)
         {
-            Guard.WhenArgument(entities, GlobalConstants.ImageTransitionalRequiredExceptionMessage)
+            Guard.WhenArgument(entities, nameof(entities))
                 .IsNull()
                 .Throw();
 
             ICollection<Image> imageList = new List<Image>();
+            Image entityDb;
 
             foreach (var entity in entities)
             {
-                Guard.WhenArgument(entity, GlobalConstants.ImageTransitionalRequiredExceptionMessage)
+                Guard.WhenArgument(entity, nameof(entity))
                 .IsNull()
                 .Throw();
 
-                var entityDb = await this.CreateImage(entity, null, null);
-
+                entity.Format = format;
+                entityDb = await this.CreateImage(entity, null, null);
                 this.images.Create(entityDb);
                 imageList.Add(entityDb);
             }
@@ -135,45 +138,33 @@
 
             switch (entity.Format)
             {
-                case ImageFormatType.LargeOrdinary:
+                case ImageFormatType.Ordinary:
                     {
-                        width = GlobalConstants.ImageWidth1200;
-                        height = GlobalConstants.ImageHeight800;
+                        width = GlobalConstants.ImageWidth;
+                        height = GlobalConstants.ImageHeight;
                         break;
                     }
 
-                case ImageFormatType.SmallOrdinary:
+                case ImageFormatType.Cover:
                     {
-                        width = GlobalConstants.ImageWidth767;
-                        height = GlobalConstants.ImageHeight511;
-                        break;
-                    }
-
-                case ImageFormatType.LargeCarousel:
-                    {
-                        width = GlobalConstants.ImageWidth1200;
-                        height = GlobalConstants.ImageCarouselHeight450;
-                        break;
-                    }
-
-                case ImageFormatType.SmallCarousel:
-                    {
-                        width = GlobalConstants.ImageWidth767;
-                        height = GlobalConstants.ImageCarouselHeight228;
+                        width = GlobalConstants.ImageCoverWidth;
+                        height = GlobalConstants.ImageCoverHeight;
                         break;
                     }
 
                 default:
                     {
-                        width = GlobalConstants.ImageWidth100;
-                        height = GlobalConstants.ImageHeight100;
+                        width = GlobalConstants.ImageAvatarWidth;
+                        height = GlobalConstants.ImageAvatarHeight;
                         break;
                     }
             }
 
+            var uniqueName = Guid.NewGuid().ToString();
+
             string url = await this.storage.UploadFile(
                     entity.FileStream,
-                    entity.FileName,
+                    entity.FileName + "_" + uniqueName,
                     entity.FileExtension,
                     width,
                     height,

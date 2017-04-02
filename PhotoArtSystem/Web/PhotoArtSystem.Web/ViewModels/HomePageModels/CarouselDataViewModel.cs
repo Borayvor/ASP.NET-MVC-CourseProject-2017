@@ -10,12 +10,20 @@
     {
         public string Name { get; set; }
 
-        public string CoverImage { get; set; }
+        public string CoverImageSmall { get; set; }
+
+        public string CoverImageLarge { get; set; }
 
         public void CreateMappings(IMapperConfigurationExpression configuration)
         {
+            // TODO: refactor
             configuration.CreateMap<PhotocourseTransitional, CarouselDataViewModel>()
-                .ForMember(m => m.CoverImage, opt => opt.MapFrom(x => x.MainImage.UrlPath));
+                .ForMember(
+                m => m.CoverImageSmall,
+                opt => opt.MapFrom(x => x.ImageCover.UrlPath))
+                .ForMember(
+                m => m.CoverImageLarge,
+                opt => opt.MapFrom(x => x.ImageCover.UrlPath));
         }
     }
 }

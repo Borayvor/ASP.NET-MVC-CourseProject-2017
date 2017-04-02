@@ -11,6 +11,9 @@
 
     public static class StaticDataSeeder
     {
+        private static Guid imageFirstId;
+        private static Guid imageSecondId;
+
         public static void SeedRoles(ApplicationDbContext context)
         {
             if (context.Roles.Any())
@@ -72,20 +75,22 @@
             {
                 FileName = "World-of-Warcraft-Legion-Cinematic-Trailer-3",
                 FileExtension = "jpg",
-                UrlPath = "https://dl.dropboxusercontent.com/1/view/zkg913bztl4zrla/Apps/EntertainmentSystem/91cee43d-0904-4b58-983a-565e09ccd433.jpg",
-                Format = ImageFormatType.LargeOrdinary
+                UrlPath = "https://firebasestorage.googleapis.com/v0/b/photoartsystem.appspot.com/o/cover14.jpg?alt=media&token=78ad7e9c-de8b-47d7-87d9-7654bdb3cc00",
+                Format = ImageFormatType.Cover
             };
 
+            imageFirstId = imageLink1.Id;
             context.Images.Add(imageLink1);
 
             var imageLink2 = new Image()
             {
                 FileName = "Warcraft-Movie-Mobile-Wallpapers-1200x675",
                 FileExtension = "jpg",
-                UrlPath = "https://dl.dropboxusercontent.com/1/view/i1j0hpk6lpv2mjt/Apps/EntertainmentSystem/bb3f265e-6e89-4d66-9007-b0edeec2796e.jpg",
-                Format = ImageFormatType.LargeOrdinary
+                UrlPath = "https://firebasestorage.googleapis.com/v0/b/photoartsystem.appspot.com/o/Photo_Kurs_Plovdiv.png?alt=media&token=75758313-481f-4259-a7ef-99a79b7e361f",
+                Format = ImageFormatType.Cover
             };
 
+            imageSecondId = imageLink2.Id;
             context.Images.Add(imageLink2);
 
             var imageLink3 = new Image()
@@ -93,7 +98,7 @@
                 FileName = "Throll",
                 FileExtension = "jpg",
                 UrlPath = "https://dl.dropboxusercontent.com/1/view/rm2au5232q8p5w8/Apps/EntertainmentSystem/a7403049-0d01-42dc-8718-7edb884c63b2.jpg",
-                Format = ImageFormatType.LargeOrdinary
+                Format = ImageFormatType.Ordinary
             };
 
             context.Images.Add(imageLink3);
@@ -109,8 +114,6 @@
                 return;
             }
 
-            var mainImageId_1 = context.Images.FirstOrDefault().Id;
-
             var photocourses1 = new Photocourse()
             {
                 Name = "Photo courses 1",
@@ -120,13 +123,11 @@
                 StartDate = DateTime.UtcNow.AddDays(7),
                 EndDate = DateTime.UtcNow.AddDays(49),
                 MaxStudents = 10,
-                MainImageId = mainImageId_1,
-                Images = context.Images.AsQueryable().Where(x => x.FileName != "Throll").ToList()
+                ImageCoverId = imageFirstId,
+                Images = context.Images.AsQueryable().Where(x => x.FileName == "Throll").ToList()
             };
 
             context.Photocourses.Add(photocourses1);
-
-            var mainImageId_2 = context.Images.FirstOrDefault(x => x.Id != mainImageId_1).Id;
 
             var photocourses2 = new Photocourse()
             {
@@ -137,7 +138,7 @@
                 StartDate = DateTime.UtcNow.AddDays(4),
                 EndDate = DateTime.UtcNow.AddDays(28),
                 MaxStudents = 7,
-                MainImageId = mainImageId_2,
+                ImageCoverId = imageSecondId,
                 Images = context.Images.AsQueryable().Where(x => x.FileName == "Throll").ToList()
             };
 

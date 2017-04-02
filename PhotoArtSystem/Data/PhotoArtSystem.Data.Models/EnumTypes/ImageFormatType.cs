@@ -3,9 +3,7 @@
     public enum ImageFormatType
     {
         Avatar = 0,
-        SmallOrdinary = 1,
-        LargeOrdinary = 2,
-        SmallCarousel = 3,
-        LargeCarousel = 4
+        Ordinary = 1,
+        Cover = 2
     }
 }

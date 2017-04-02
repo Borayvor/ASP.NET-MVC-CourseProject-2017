@@ -14,12 +14,14 @@
 
         public string DescriptionShort { get; set; }
 
-        public string CoverImage { get; set; }
+        public string ImageCover { get; set; }
 
         public void CreateMappings(IMapperConfigurationExpression configuration)
         {
             configuration.CreateMap<PhotocourseTransitional, PhotocourseViewModel>()
-                .ForMember(m => m.CoverImage, opt => opt.MapFrom(x => x.MainImage.UrlPath));
+                .ForMember(
+                m => m.ImageCover,
+                opt => opt.MapFrom(x => x.ImageCover.UrlPath));
         }
     }
 }

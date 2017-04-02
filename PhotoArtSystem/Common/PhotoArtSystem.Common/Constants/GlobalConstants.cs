@@ -9,14 +9,12 @@
         public const string ImagePng = "image/png";
 
         // Image Size
-        public const int ImageWidth100 = 100;
-        public const int ImageWidth767 = 767;
-        public const int ImageWidth1200 = 1200;
-        public const int ImageHeight100 = 100;
-        public const int ImageCarouselHeight228 = 228;
-        public const int ImageCarouselHeight450 = 450;
-        public const int ImageHeight511 = 511;
-        public const int ImageHeight800 = 800;
+        public const int ImageAvatarWidth = 100;
+        public const int ImageWidth = 960;
+        public const int ImageCoverWidth = 960;
+        public const int ImageAvatarHeight = 100;
+        public const int ImageHeight = 640;
+        public const int ImageCoverHeight = 360;
 
         // TODO: Set Cache Duration !!!
         // Cache duration

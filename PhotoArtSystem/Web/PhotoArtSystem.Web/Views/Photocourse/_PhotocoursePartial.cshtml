@@ -2,10 +2,10 @@
 @model PhotocourseDetailsViewModel
 
 <div class="row">
-    @foreach (var image in Model.Images)
+    @foreach (var image in Model.ImagesSmall)
     {
         <div class="col-sm-3">
-            <img src="@image.UrlPath" class="img-thumbnail img-responsive" />            
+            <img src="@image.UrlPath" class="img-thumbnail img-responsive" />
         </div>
     }
 </div>
@@ -17,7 +17,7 @@
             @Html.Raw(@Model.Description)
         </div>
         <div>@Html.Raw(@Model.OtherInfo)</div>
-    </div>    
+    </div>
     <div class="col-sm-4">
         <ul>
             @foreach (var student in Model.Students)
@@ -26,7 +26,7 @@
                     @student.FirstName
                 </li>
             }
-        </ul>       
+        </ul>
     </div>
 </div>
 

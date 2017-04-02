@@ -8,11 +8,11 @@
     {
         @Html.AntiForgeryToken()
 
-        <ul class="nav navbar-nav navbar-right">
-            <li>
-                @(Html.ActionLink<ManageController>("Hello " + User.Identity.GetUserName() + "!", c => c.Index(null), null, new { title = "Manage" }))
-            </li>
-            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+        <ul class="nav navbar-nav navbar-right">            
+                <li>
+                    @(Html.ActionLink<ManageController>("Hello " + User.Identity.GetUserName() + "!", c => c.Index(null), null, new { title = "Manage" }))
+                </li>
+                <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>                 
         </ul>
     }
 }
