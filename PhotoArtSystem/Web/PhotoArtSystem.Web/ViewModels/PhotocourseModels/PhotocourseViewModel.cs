@@ -10,14 +10,18 @@
     {
         public string Name { get; set; }
 
-        public string Description { get; set; }
+        public int DurationHours { get; set; }
 
-        public string CoverImage { get; set; }
+        public string DescriptionShort { get; set; }
+
+        public string ImageCoverUrl { get; set; }
 
         public void CreateMappings(IMapperConfigurationExpression configuration)
         {
             configuration.CreateMap<PhotocourseTransitional, PhotocourseViewModel>()
-                .ForMember(m => m.CoverImage, opt => opt.MapFrom(x => x.MainImage.UrlPath));
+                .ForMember(
+                m => m.ImageCoverUrl,
+                opt => opt.MapFrom(x => x.ImageCover.UrlPath));
         }
     }
 }

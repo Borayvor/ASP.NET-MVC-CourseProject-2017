@@ -10,7 +10,14 @@
     }
 </div>
 <div class="row">
-    <div class="col-sm-8">@Model.OtherInfo</div>
+    <div class="photoartsystem-card-text text-center">
+        <h2 class="photoartsystem-card-title">@Model.Name</h2>
+        <div>@Model.DurationHours <span>astronomic hours.</span></div>        
+        <div class="photoartsystem-card-description">
+            @Html.Raw(@Model.Description)
+        </div>
+        <div>@Html.Raw(@Model.OtherInfo)</div>
+    </div>
     <div class="col-sm-4">
         <ul>
             @foreach (var student in Model.Students)
@@ -19,7 +26,7 @@
                     @student.FirstName
                 </li>
             }
-        </ul>       
+        </ul>
     </div>
 </div>
 

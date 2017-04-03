@@ -5,24 +5,24 @@
     using Common.Constants;
     using Services.Data.Contracts;
     using Services.Web.Contracts;
-    using ViewModels.MainInfoModels;
+    using ViewModels.HomePageModels;
 
     public class HomeController : BaseController
     {
-        private readonly IMainInfoService mainInfoService;
+        private readonly IInformationService mainInfoService;
         private readonly IPhotocourseService photocourseService;
-        private readonly IAutoMapperService mapper;
+        private readonly ICacheService cache;
 
         public HomeController(
-            IMainInfoService mainInfoService,
+            IInformationService mainInfoService,
             IPhotocourseService photocourseService,
-            IAutoMapperService mapper,
-            ICacheService cache)
-            : base(cache)
+            ICacheService cache,
+            IAutoMapperService mapper)
+            : base(mapper)
         {
             this.mainInfoService = mainInfoService;
             this.photocourseService = photocourseService;
-            this.mapper = mapper;
+            this.cache = cache;
         }
 
         [HttpGet]
@@ -35,13 +35,15 @@
         [ChildActionOnly]
         public ActionResult GetCarouselData()
         {
-            var result = this.ExceptionHandlerActionResult(
-                () => this.mapper
-                .Map<IEnumerable<CarouselDataViewModel>>(this.photocourseService.GetAll()),
-                (carouselDataViewModel) => this.Cache.Get(
+            var photocourses = this.photocourseService.GetAll();
+
+            var carouselDataViewModel = this.Mapper
+                .Map<IEnumerable<CarouselDataViewModel>>(photocourses);
+
+            var result = this.cache.Get(
                     GlobalConstants.CarouselDataCacheName,
                     () => this.PartialView("_CarouselDataPartial", carouselDataViewModel),
-                    GlobalConstants.CarouselDataPartialCacheDuration));
+                    GlobalConstants.CarouselDataPartialCacheDuration);
 
             return result;
         }
@@ -50,13 +52,15 @@
         [ChildActionOnly]
         public ActionResult GetPhotoArtInfos()
         {
-            var result = this.ExceptionHandlerActionResult(
-                () => this.mapper
-                .Map<IEnumerable<MainInfoViewModel>>(this.mainInfoService.GetAll()),
-                (mainInfoAllViewModel) => this.Cache.Get(
-                    GlobalConstants.MainInfoAllCacheName,
+            var mainInfoes = this.mainInfoService.GetAll();
+
+            var mainInfoAllViewModel = this.Mapper
+                .Map<IEnumerable<InformationViewModel>>(mainInfoes);
+
+            var result = this.cache.Get(
+                    GlobalConstants.InformationAllCacheName,
                     () => this.PartialView("_MainInfoAllPartial", mainInfoAllViewModel),
-                    GlobalConstants.MainInfoAllPartialCacheDuration));
+                    GlobalConstants.InformationAllPartialCacheDuration);
 
             return result;
         }

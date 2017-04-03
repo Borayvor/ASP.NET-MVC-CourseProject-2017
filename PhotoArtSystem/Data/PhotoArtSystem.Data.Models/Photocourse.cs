@@ -48,9 +48,9 @@
         [Range(1, 50)]
         public int MaxStudents { get; set; }
 
-        public Guid? MainImageId { get; set; }
+        public Guid? ImageCoverId { get; set; }
 
-        public virtual Image MainImage { get; set; }
+        public virtual Image ImageCover { get; set; }
 
         public virtual ICollection<Image> Images
         {

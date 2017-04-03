@@ -3,6 +3,7 @@
     using System;
     using System.Data.Entity;
     using System.Linq;
+    using System.Threading.Tasks;
     using Common.Models;
     using Microsoft.AspNet.Identity.EntityFramework;
     using Models;
@@ -15,7 +16,7 @@
         {
         }
 
-        public IDbSet<MainInfo> MainInfos { get; set; }
+        public IDbSet<Information> Informations { get; set; }
 
         public IDbSet<Photocourse> Photocourses { get; set; }
 
@@ -35,6 +36,13 @@
             this.ApplyAuditInfoRules();
 
             return base.SaveChanges();
+        }
+
+        public async override Task<int> SaveChangesAsync()
+        {
+            this.ApplyAuditInfoRules();
+
+            return await base.SaveChangesAsync();
         }
 
         private void ApplyAuditInfoRules()

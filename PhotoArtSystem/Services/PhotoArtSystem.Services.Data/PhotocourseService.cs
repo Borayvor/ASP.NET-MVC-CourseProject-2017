@@ -10,16 +10,21 @@
     using PhotoArtSystem.Data.Common.Repositories;
     using PhotoArtSystem.Data.Models;
     using PhotoArtSystem.Data.Models.TransitionalModels;
+    using PhotoArtSystem.Web.Infrastructure.Sanitizer;
     using Web.Contracts;
 
     public class PhotocourseService : IPhotocourseService
     {
+        private readonly ISanitizer sanitizer;
         private readonly IAutoMapperService mapper;
-        private readonly IPhotoArtSystemEfDbRepository<Photocourse> photocourses;
         private readonly IEfDbContextSaveChanges context;
+        private readonly IPhotoArtSystemEfDbRepository<Photocourse> photocourses;
 
-        public PhotocourseService(IAutoMapperService mapper, IEfDbContextSaveChanges context, IPhotoArtSystemEfDbRepository<Photocourse> photocourses)
+        public PhotocourseService(ISanitizer sanitizer, IAutoMapperService mapper, IEfDbContextSaveChanges context, IPhotoArtSystemEfDbRepository<Photocourse> photocourses)
         {
+            Guard.WhenArgument(
+               sanitizer,
+               GlobalConstants.SanitizerRequiredExceptionMessage).IsNull().Throw();
             Guard.WhenArgument(
                 mapper,
                 GlobalConstants.AutoMapperServiceRequiredExceptionMessage).IsNull().Throw();
@@ -30,6 +35,7 @@
                 photocourses,
                 GlobalConstants.EfDbRepositoryPhotocourseRequiredExceptionMessage).IsNull().Throw();
 
+            this.sanitizer = sanitizer;
             this.mapper = mapper;
             this.context = context;
             this.photocourses = photocourses;
@@ -51,14 +57,37 @@
             return result;
         }
 
-        public void Create(PhotocourseTransitional entity)
+        public Photocourse Create(PhotocourseTransitional entity)
         {
-            Guard.WhenArgument(entity, GlobalConstants.PhotocourseTransitionalRequiredExceptionMessage).IsNull().Throw();
+            Guard.WhenArgument(entity, GlobalConstants.PhotocourseTransitionalRequiredExceptionMessage)
+                .IsNull()
+                .Throw();
 
-            var entityDb = this.mapper.Map<Photocourse>(entity);
+            entity.Description = this.sanitizer.Sanitize(entity.Description);
+            entity.DescriptionShort = this.sanitizer.Sanitize(entity.DescriptionShort);
+            entity.OtherInfo = this.sanitizer.Sanitize(entity.OtherInfo);
+            var entityImages = entity.Images as ICollection<Image>;
+
+            var entityDb = new Photocourse
+            {
+                Name = entity.Name,
+                DescriptionShort = entity.DescriptionShort,
+                Description = entity.Description,
+                OtherInfo = entity.OtherInfo,
+                DurationHours = entity.DurationHours,
+                MaxStudents = entity.MaxStudents,
+                Teacher = entity.Teacher,
+                StartDate = entity.StartDate,
+                EndDate = entity.EndDate,
+                Images = entityImages,
+                ImageCover = entity.ImageCover,
+                Students = new List<Student>()
+            };
 
             this.photocourses.Create(entityDb);
             this.context.Save();
+
+            return entityDb;
         }
 
         public void Update(PhotocourseTransitional entity)

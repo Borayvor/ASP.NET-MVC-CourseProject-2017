@@ -10,6 +10,7 @@
     using PhotoArtSystem.Services.Data;
     using PhotoArtSystem.Services.Web.Contracts;
     using Ploeh.AutoFixture;
+    using Web.Infrastructure.Sanitizer;
 
     [TestFixture]
     public class GetById_Should
@@ -21,13 +22,14 @@
             Fixture fixture = new Fixture();
             var id = fixture.Create<Guid>();
             var mockedEntity = new Mock<Photocourse>();
+            var mockedSanitizer = new Mock<ISanitizer>();
             var mockedMapper = new Mock<IAutoMapperService>();
             var mockedEfDbContext = new Mock<IEfDbContextSaveChanges>();
             var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<Photocourse>>();
 
             mockedIEfDbRepository.Setup(x => x.GetById(id)).Returns(mockedEntity.Object);
 
-            var service = new PhotocourseService(mockedMapper.Object, mockedEfDbContext.Object, mockedIEfDbRepository.Object);
+            var service = new PhotocourseService(mockedSanitizer.Object, mockedMapper.Object, mockedEfDbContext.Object, mockedIEfDbRepository.Object);
 
             // Act
             var result = service.GetById(id);
@@ -44,6 +46,7 @@
             var id = fixture.Create<Guid>();
             var mockedEntity = new Mock<Photocourse>();
             var expectedMockedEntity = new Mock<PhotocourseTransitional>();
+            var mockedSanitizer = new Mock<ISanitizer>();
             var mockedMapper = new Mock<IAutoMapperService>();
             mockedMapper
                .Setup(x => x.Map<PhotocourseTransitional>(It.IsAny<Photocourse>()))
@@ -53,7 +56,7 @@
             var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<Photocourse>>();
             mockedIEfDbRepository.Setup(x => x.GetById(id)).Returns(mockedEntity.Object);
 
-            var service = new PhotocourseService(mockedMapper.Object, mockedEfDbContext.Object, mockedIEfDbRepository.Object);
+            var service = new PhotocourseService(mockedSanitizer.Object, mockedMapper.Object, mockedEfDbContext.Object, mockedIEfDbRepository.Object);
 
             // Act
             var actual = service.GetById(id);

@@ -25,8 +25,8 @@
 
             var controller = new PhotocourseController(
                 mockedPhotocourseService.Object,
-                mockedAutoMapperService.Object,
-                mockedHttpCacheService.Object);
+                mockedHttpCacheService.Object,
+                mockedAutoMapperService.Object);
 
             // Act
             ViewResult result = controller.Index() as ViewResult;
@@ -47,8 +47,8 @@
 
             var controller = new PhotocourseController(
                 mockedPhotocourseService.Object,
-                mockedAutoMapperService.Object,
-                mockedHttpCacheService.Object);
+                mockedHttpCacheService.Object,
+                mockedAutoMapperService.Object);
 
             // Act
             ViewResult result = controller.Details(id) as ViewResult;
@@ -79,8 +79,8 @@
 
             var controller = new PhotocourseController(
                 mockedPhotocourseService.Object,
-                mockedAutoMapperService.Object,
-                mockedHttpCacheService.Object);
+                mockedHttpCacheService.Object,
+                mockedAutoMapperService.Object);
 
             // Act
             PartialViewResult result = controller.GetAllPhotocourses() as PartialViewResult;
@@ -113,8 +113,8 @@
 
             var controller = new PhotocourseController(
                 mockedPhotocourseService.Object,
-                mockedAutoMapperService.Object,
-                mockedHttpCacheService.Object);
+                mockedHttpCacheService.Object,
+                mockedAutoMapperService.Object);
 
             // Act
             PartialViewResult result = controller.GetPhotocourse(id) as PartialViewResult;

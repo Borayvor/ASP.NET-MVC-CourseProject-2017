@@ -50,6 +50,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -59,14 +60,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationUser.cs" />
-    <Compile Include="EnumTypes\FileSizeType.cs" />
+    <Compile Include="EnumTypes\ImageFormatType.cs" />
     <Compile Include="FileInfo.cs" />
-    <Compile Include="MainInfo.cs" />
+    <Compile Include="Information.cs" />
     <Compile Include="TransitionalModels\ApplicationUserTransitional.cs" />
     <Compile Include="TransitionalModels\BaseModelTransitional{TKey}.cs" />
     <Compile Include="TransitionalModels\FileInfoTransitional.cs" />
     <Compile Include="TransitionalModels\ImageTransitional.cs" />
-    <Compile Include="TransitionalModels\MainInfoTransitional.cs" />
+    <Compile Include="TransitionalModels\InformationTransitional.cs" />
     <Compile Include="TransitionalModels\PhotocourseTransitional.cs" />
     <Compile Include="TransitionalModels\StudentTransitional.cs" />
     <Compile Include="OriginalImage.cs" />

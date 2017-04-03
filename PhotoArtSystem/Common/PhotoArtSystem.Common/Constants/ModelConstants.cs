@@ -9,19 +9,19 @@
         public const int ApplicationUserNamesMaxLength = 100;
         public const int ApplicationUserNamesMinLength = 2;
 
-        // MainInfo
-        public const int MainInfoTitleMaxLength = 200;
-        public const int MainInfoTitleMinLength = 2;
-        public const int MainInfoDescriptionMaxLength = 1000;
-        public const int MainInfoDescriptionMinLength = 2;
+        // Information
+        public const int InformationTitleMaxLength = 200;
+        public const int InformationTitleMinLength = 2;
+        public const int InformationDescriptionMaxLength = 1000;
+        public const int InformationDescriptionMinLength = 2;
 
         // Photocourse
         public const int PhotocourseNameMaxLength = 100;
         public const int PhotocourseNameMinLength = 2;
-        public const int PhotocourseDescriptionShortMaxLength = 200;
-        public const int PhotocourseDescriptionShortMinLength = 2;
+        public const int PhotocourseDescriptionShortMaxLength = 500;
+        public const int PhotocourseDescriptionShortMinLength = 10;
         public const int PhotocourseDescriptionMaxLength = 2500;
-        public const int PhotocourseDescriptionMinLength = 2;
+        public const int PhotocourseDescriptionMinLength = 10;
         public const int PhotocourseOtherInfoMaxLength = 2000;
         public const int PhotocourseTeacherMaxLength = 201;
 

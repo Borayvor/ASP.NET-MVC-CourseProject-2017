@@ -8,8 +8,8 @@
     [Authorize(Roles = AuthConstants.AdministratorRoleName)]
     public abstract class BaseAdminController : BaseController
     {
-        public BaseAdminController(ICacheService cache)
-            : base(cache)
+        public BaseAdminController(IAutoMapperService mapper)
+            : base(mapper)
         {
         }
     }

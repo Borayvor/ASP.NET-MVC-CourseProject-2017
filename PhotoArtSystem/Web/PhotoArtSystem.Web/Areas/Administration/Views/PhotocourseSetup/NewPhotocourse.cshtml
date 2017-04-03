@@ -1,0 +1,136 @@
+﻿
+@using PhotoArtSystem.Web.Areas.Administration.ViewModels
+@model PhotocourseSetupViewModel
+
+@{
+    ViewBag.Title = @HtmlConstants.AdministrationAreaName;
+}
+
+
+<div id="photoartsystem-photocourse-create" class="container">
+    <h2>Create Photocource</h2>
+    <hr />
+
+    @*@using (Ajax.BeginForm<PhotocourseSetupController>(
+        c => c.CreateNewPhotocourse(null),
+        null,
+        new AjaxOptions
+        {
+            HttpMethod = "POST",
+            LoadingElementId = "loading",
+        },
+        new { @class = "form-horizontal", enctype = "multipart/form-data" }))*@
+
+    @using (Html.BeginForm<PhotocourseSetupController>(c => c.CreateNewPhotocourse(null),
+                            FormMethod.Post,
+                            null,
+                            new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+    {
+        <div class="row">
+            <div class="col-md-4">
+                @Html.EditorFor(m => m.PhotocourseCreate.Name)
+            </div>
+            <div class="col-md-4">
+                @Html.EditorFor(m => m.PhotocourseCreate.MaxStudents)
+            </div>
+            <div class="col-md-4">
+                @Html.EditorFor(m => m.PhotocourseCreate.Teacher)
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                @Html.EditorFor(m => m.PhotocourseCreate.DurationHours)
+            </div>
+            <div class="col-md-4">
+                @Html.EditorFor(m => m.PhotocourseCreate.StartDate)
+            </div>
+            <div class="col-md-4">
+                @Html.EditorFor(m => m.PhotocourseCreate.EndDate)
+            </div>
+        </div>
+
+        @Html.EditorFor(m => m.PhotocourseCreate.DescriptionShort)
+
+        @Html.EditorFor(m => m.PhotocourseCreate.Description)
+
+        @Html.EditorFor(m => m.PhotocourseCreate.OtherInfo)
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Files, new { @class = "control-label" })
+            <label class="input">
+                <span id="btn-images" class="button btn btn-success">
+                    Browse
+                </span>
+                <input id="readonly-images" type="text" readonly="readonly" class="form-control input-readonly" />
+            </label>
+            @Html.TextBoxFor(m => m.Files, new { type = "file", multiple = "multiple", @class = "hidden" })
+            @Html.ValidationMessageFor(m => m.Files, string.Empty, new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.CoverImage, new { @class = "control-label" })
+            <label class="input">
+                <span id="btn-cover-image" class="button btn btn-success">
+                    Browse
+                </span>
+                <input id="readonly-cover-image" type="text" readonly="readonly" class="form-control input-readonly" />
+            </label>
+            @Html.TextBoxFor(m => m.CoverImage, new { type = "file", @class = "hidden" })
+            @Html.ValidationMessageFor(m => m.CoverImage, string.Empty, new { @class = "text-danger" })
+        </div>
+        <div class="text-center hidden" id="image-loading">
+            <i class="fa fa-spin fa-spinner font-size-2em"></i> <span class="font-size-2em">Processing...</span>
+        </div>
+
+        <div class="form-group">
+            @Html.Submit("Submit", new { @class = "btn btn-default" })
+        </div>
+    }
+</div>
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryUnobtrusive")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/tinymceJs")
+    <script type="text/javascript">
+        $(function () {
+            $.validator.setDefaults({
+                ignore: ""
+            });
+
+            $('#btn-images').click(function (e) {
+                $('#Files').click();
+            });
+
+            $('#Files').change(function (e) {
+                var files = $(this)[0].files;
+                var length = files.length;
+                var i,
+                    strResult = "",
+                    arrResult = [];
+
+                for (i = 0; i < length; i += 1) {
+                    strResult += files[i].name;
+                    arrResult.push(files[i].name);
+
+                    if (i < length - 1) {
+                        strResult += ", ";
+                    }
+                }
+
+                $('#readonly-images').val(strResult);
+            });
+
+            $('#btn-cover-image').click(function (e) {
+                $('#CoverImage').click();
+            });
+
+            $('#CoverImage').change(function (e) {
+                var strResult = $(this)[0].name;
+                
+                $('#readonly-cover-image').val(strResult);
+            });
+        });
+    </script>
+}
+

@@ -9,6 +9,7 @@
     using PhotoArtSystem.Data.Models.TransitionalModels;
     using PhotoArtSystem.Services.Data;
     using PhotoArtSystem.Services.Web.Contracts;
+    using Web.Infrastructure.Sanitizer;
 
     [TestFixture]
     public class Delete_Should
@@ -17,10 +18,11 @@
         public void Throw_ArgumentNullException_WithProperMessage_When_Photocourse_IsNull()
         {
             // Arange
+            var mockedSanitizer = new Mock<ISanitizer>();
             var mockedMapper = new Mock<IAutoMapperService>();
             var mockedEfDbContext = new Mock<IEfDbContextSaveChanges>();
             var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<Photocourse>>();
-            var service = new PhotocourseService(mockedMapper.Object, mockedEfDbContext.Object, mockedIEfDbRepository.Object);
+            var service = new PhotocourseService(mockedSanitizer.Object, mockedMapper.Object, mockedEfDbContext.Object, mockedIEfDbRepository.Object);
 
             // Act & Assert
             Assert.That(
@@ -33,10 +35,11 @@
         public void CallOnce_EfDbContextSave_When_Photocourse_IsNotNull()
         {
             // Arange
+            var mockedSanitizer = new Mock<ISanitizer>();
             var mockedMapper = new Mock<IAutoMapperService>();
             var mockedEfDbContext = new Mock<IEfDbContextSaveChanges>();
             var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<Photocourse>>();
-            var service = new PhotocourseService(mockedMapper.Object, mockedEfDbContext.Object, mockedIEfDbRepository.Object);
+            var service = new PhotocourseService(mockedSanitizer.Object, mockedMapper.Object, mockedEfDbContext.Object, mockedIEfDbRepository.Object);
 
             // Act
             service.Delete(new PhotocourseTransitional());

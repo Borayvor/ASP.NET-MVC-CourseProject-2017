@@ -1,0 +1,36 @@
+﻿@mixin padding_sides($sizePx) {    
+    padding-left: $sizePx;
+    padding-right: $sizePx;
+}
+
+#photoartsystem-photocourse-create {
+    .input{
+        position: relative;
+        display: block;
+
+        .input-readonly{
+            background-color: white;
+            padding-left: 80px;
+        }        
+
+        .button{
+            position: absolute;
+        }
+    }
+
+    #images-preview-container{        
+        margin-bottom: 35px;
+
+        .form-control{
+            padding-top: 0; 
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    #photoartsystem-photocourse-create {
+        .input-block{            
+            @include padding_sides(15px);
+        }
+    }
+}

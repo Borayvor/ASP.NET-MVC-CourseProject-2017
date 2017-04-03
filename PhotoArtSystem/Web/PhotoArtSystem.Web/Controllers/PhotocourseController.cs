@@ -10,16 +10,16 @@
 
     public class PhotocourseController : BaseController
     {
-        private readonly IAutoMapperService mapper;
         private readonly IPhotocourseService photocourseService;
+        private readonly ICacheService cache;
 
         public PhotocourseController(
             IPhotocourseService photocourseService,
-            IAutoMapperService mapper,
-            ICacheService cache)
-            : base(cache)
+            ICacheService cache,
+            IAutoMapperService mapper)
+            : base(mapper)
         {
-            this.mapper = mapper;
+            this.cache = cache;
             this.photocourseService = photocourseService;
         }
 
@@ -39,13 +39,15 @@
         [ChildActionOnly]
         public ActionResult GetAllPhotocourses()
         {
-            var result = this.ExceptionHandlerActionResult(
-                () => this.mapper
-                .Map<IEnumerable<PhotocourseViewModel>>(this.photocourseService.GetAll()),
-                (photocoursesAllViewModel) => this.Cache.Get(
+            var photocourses = this.photocourseService.GetAll();
+
+            var photocoursesAllViewModel = this.Mapper
+                .Map<IEnumerable<PhotocourseViewModel>>(photocourses);
+
+            var result = this.cache.Get(
                     GlobalConstants.PhotocoursesAllCacheName,
                     () => this.PartialView("_PhotocoursesAllPartial", photocoursesAllViewModel),
-                    GlobalConstants.PhotocoursesAllPartialCacheDuration));
+                    GlobalConstants.PhotocoursesAllPartialCacheDuration);
 
             return result;
         }
@@ -54,13 +56,15 @@
         [ChildActionOnly]
         public ActionResult GetPhotocourse(Guid id)
         {
-            var result = this.ExceptionHandlerActionResult(
-                () => this.mapper
-                .Map<PhotocourseDetailsViewModel>(this.photocourseService.GetById(id)),
-                (photocourseViewModel) => this.Cache.Get(
+            var photocourse = this.photocourseService.GetById(id);
+
+            var photocourseViewModel = this.Mapper
+                .Map<PhotocourseDetailsViewModel>(photocourse);
+
+            var result = this.cache.Get(
                     GlobalConstants.PhotocourseCacheName + id,
                     () => this.PartialView("_PhotocoursePartial", photocourseViewModel),
-                    GlobalConstants.PhotocoursePartialCacheDuration));
+                    GlobalConstants.PhotocoursePartialCacheDuration);
 
             return result;
         }

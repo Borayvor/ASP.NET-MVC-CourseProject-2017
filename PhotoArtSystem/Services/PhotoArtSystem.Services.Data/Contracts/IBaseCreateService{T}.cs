@@ -10,7 +10,7 @@
         /// <summary>
         /// Create new <"T">.
         /// </summary>
-        /// <param name="content"><"T"> to be created.</param>
+        /// <param name="entity"><"T"> to be created.</param>
         void Create(T entity);
     }
 }

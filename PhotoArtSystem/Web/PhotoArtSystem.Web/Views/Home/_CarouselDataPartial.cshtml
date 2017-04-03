@@ -1,4 +1,4 @@
-﻿@using PhotoArtSystem.Web.ViewModels.MainInfoModels
+﻿@using PhotoArtSystem.Web.ViewModels.HomePageModels
 @model IEnumerable<CarouselDataViewModel>
 
 @{
@@ -6,11 +6,6 @@
 }
 
 <div id="photoartsystem-carousel-home" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    @*<ol class="carousel-indicators">
-            <li data-target="#photoartsystem-carousel-home" data-slide-to="0" class="active"></li>
-        </ol>*@
-    <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
         @for (var i = 0; i < @Model.Count(); i++)
         {
@@ -19,12 +14,11 @@
                 itemActive = string.Empty;
             }
 
-            <div class="item @itemActive text-center">
-                <img src="@Model.ElementAt(i).CoverImage" alt="Image" class="img-responsive" />                
+            <div class="item @itemActive text-center">               
+                    <img src="@Model.ElementAt(i).ImageCoverUrl" alt="Image" class="img-responsive" />
             </div>
         }
     </div>
-
     <!-- Controls -->
     <a class="left carousel-control" href="#photoartsystem-carousel-home" role="button" data-slide="prev">
         <span class="icon-prev" aria-hidden="true"></span>

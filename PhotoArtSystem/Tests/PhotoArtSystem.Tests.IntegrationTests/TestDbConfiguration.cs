@@ -19,7 +19,7 @@
 
             StaticDataSeeder.SeedImages(context);
             StaticDataSeeder.SeedPhotocourses(context);
-            StaticDataSeeder.SeedMainInfo(context);
+            StaticDataSeeder.SeedInformation(context);
             StaticDataSeeder.SeedStudents(context);
         }
     }

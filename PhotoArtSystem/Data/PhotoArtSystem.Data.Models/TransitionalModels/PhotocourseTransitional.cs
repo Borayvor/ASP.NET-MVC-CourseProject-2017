@@ -26,9 +26,9 @@
 
         public int MaxStudents { get; set; }
 
-        public Guid? MainImageId { get; set; }
+        public Guid? ImageCoverId { get; set; }
 
-        public Image MainImage { get; set; }
+        public Image ImageCover { get; set; }
 
         public IEnumerable<Image> Images { get; set; }
 

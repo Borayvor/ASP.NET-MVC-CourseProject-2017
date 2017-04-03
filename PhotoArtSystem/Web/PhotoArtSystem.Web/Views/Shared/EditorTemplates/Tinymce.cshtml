@@ -1,0 +1,8 @@
+﻿@model string
+@* TINYMCE *@
+
+<div class="form-group">
+    @Html.LabelFor(m => m, new { @class = "control-label" })
+    @Html.TextAreaFor(m => m, new { @class = "photoartsystem-tinymce form-control hidden" })
+    @Html.ValidationMessageFor(m => m, string.Empty, new { @class = "text-danger" })
+</div>
