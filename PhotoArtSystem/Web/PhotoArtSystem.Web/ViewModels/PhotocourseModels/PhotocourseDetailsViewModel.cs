@@ -15,6 +15,8 @@
 
         public int DurationHours { get; set; }
 
+        public string DescriptionShort { get; set; }
+
         public string Description { get; set; }
 
         public string OtherInfo { get; set; }

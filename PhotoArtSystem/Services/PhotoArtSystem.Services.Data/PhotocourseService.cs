@@ -79,8 +79,8 @@
                 StartDate = entity.StartDate,
                 EndDate = entity.EndDate,
                 Images = entity.Images.ToList(),
-                ImageCoverId = entity.Images.FirstOrDefault().Id,
-                Students = new List<Student>()
+                ImageCover = entity.ImageCover,
+                Students = new Student[entity.MaxStudents]
             };
 
             this.photocourses.Create(entityDb);

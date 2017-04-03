@@ -13,46 +13,60 @@
         protected void ValidateOrThrowException(object value, int allowedMaxSize, ICollection<string> allowedMimeTypes)
         {
             ICollection<HttpPostedFileBase> files = value as ICollection<HttpPostedFileBase>;
+            HttpPostedFileBase singleFile = value as HttpPostedFileBase;
 
             // TODO: Extract constants
-            if (files == null)
+            if (files != null)
+            {
+                if (files.Count < 3)
+                {
+                    throw new ValidationException("Please upload at least 3 files !");
+                }
+
+                if (files.Count > 15)
+                {
+                    throw new ValidationException("Please upload at most 15 files !");
+                }
+
+                foreach (HttpPostedFileBase file in files)
+                {
+                    this.ValidateFile(file, allowedMaxSize, allowedMimeTypes);
+                }
+
+                return;
+            }
+            else if (singleFile != null)
+            {
+                this.ValidateFile(singleFile, allowedMaxSize, allowedMimeTypes);
+
+                return;
+            }
+
+            throw new ValidationException("Please upload a file !");
+        }
+
+        private void ValidateFile(HttpPostedFileBase file, int allowedMaxSize, ICollection<string> allowedMimeTypes)
+        {
+            if (file == null)
             {
                 throw new ValidationException("Please upload a file !");
             }
 
-            if (files.Count < 3)
+            if (file.ContentLength == 0)
             {
-                throw new ValidationException("Please upload at least 3 files !");
+                throw new ValidationException("Please upload a non-empty file !");
             }
 
-            if (files.Count > 15)
+            if (file.ContentLength > allowedMaxSize)
             {
-                throw new ValidationException("Please upload at most 15 files !");
+                throw new ValidationException(string.Format(
+                    "File size can not exceed {0} mb !",
+                    allowedMaxSize / MbSizeAsBytes));
             }
 
-            foreach (HttpPostedFileBase file in files)
+            if (!allowedMimeTypes.Contains(file.ContentType))
             {
-                if (file == null)
-                {
-                    throw new ValidationException("Please upload a file !");
-                }
-
-                if (file.ContentLength == 0)
-                {
-                    throw new ValidationException("Please upload a non-empty file !");
-                }
-
-                if (file.ContentLength > allowedMaxSize)
-                {
-                    throw new ValidationException(string.Format(
-                        "File size can not exceed {0} mb !",
-                        allowedMaxSize / MbSizeAsBytes));
-                }
-
-                if (!allowedMimeTypes.Contains(file.ContentType))
-                {
-                    throw new ValidationException("File type not supported !");
-                }
+                throw new ValidationException("File type not supported !");
             }
         }
     }

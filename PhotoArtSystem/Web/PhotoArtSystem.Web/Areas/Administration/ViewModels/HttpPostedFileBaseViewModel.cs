@@ -20,7 +20,7 @@
             configuration.CreateMap<HttpPostedFileBase, HttpPostedFileBaseViewModel>()
                 .ForMember(m => m.FileStream, opt => opt.MapFrom(x => x.InputStream))
                 .ForMember(m => m.FileName, opt => opt.MapFrom(x => x.FileName.GetFileName()))
-                .ForMember(m => m.FileExtension, opt => opt.MapFrom(x => x.ContentType.GetFileExtension()));
+                .ForMember(m => m.FileExtension, opt => opt.MapFrom(x => x.ContentType.GetFileExtensionFromContentType()));
         }
     }
 }

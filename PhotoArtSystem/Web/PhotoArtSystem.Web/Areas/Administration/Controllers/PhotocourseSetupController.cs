@@ -1,13 +1,12 @@
 ﻿namespace PhotoArtSystem.Web.Areas.Administration.Controllers
 {
     using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
+    using System.Web;
     using System.Web.Mvc;
     using System.Web.Mvc.Expressions;
     using Data.Models.EnumTypes;
     using Data.Models.TransitionalModels;
-    using EntertainmentSystem.Common.ExtensionMethods;
     using Services.Data.Contracts;
     using Services.Web.Contracts;
     using ViewModels;
@@ -38,21 +37,26 @@
                 return this.View("NewPhotocourse");
             }
 
+            var newFileList = new List<HttpPostedFileBase>(model.Files);
+
             var photocourseTransitional = this.Mapper
                 .Map<PhotocourseTransitional>(model.PhotocourseCreate);
 
             var files = this.Mapper
                 .Map<IEnumerable<HttpPostedFileBaseViewModel>>(model.Files);
 
+            var imagesTransitional = this.Mapper
+               .Map<IEnumerable<ImageTransitional>>(files);
+
+            photocourseTransitional.Images = await this.imageService.Create(imagesTransitional, ImageFormatType.Ordinary);
+
+            var coverImageFile = this.Mapper
+                .Map<HttpPostedFileBaseViewModel>(model.CoverImage);
+
             var imageTransitional = this.Mapper
-                .Map<IEnumerable<ImageTransitional>>(files);
+               .Map<ImageTransitional>(coverImageFile);
 
-            photocourseTransitional.Images = await this.imageService.Create(imageTransitional, ImageFormatType.Ordinary);
-
-            photocourseTransitional.ImageCover = photocourseTransitional
-                .Images
-                .FirstOrDefault(x => x.FileName == model.ImageCoverFullName.GetFileName()
-                && x.FileExtension == model.ImageCoverFullName.GetFileExtension());
+            photocourseTransitional.ImageCover = await this.imageService.Create(imageTransitional, ImageFormatType.Cover);
 
             var photocourse = this.photocourseService.Create(photocourseTransitional);
 

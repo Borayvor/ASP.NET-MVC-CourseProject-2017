@@ -24,6 +24,25 @@
             return fileFullname;
         }
 
+        public static string GetFileExtension(this string fileFullname)
+        {
+            if (string.IsNullOrWhiteSpace(fileFullname))
+            {
+                return string.Empty;
+            }
+
+            var extensionIndex = fileFullname.LastIndexOf(".");
+
+            if (extensionIndex < 0 || extensionIndex == fileFullname.Length - 1)
+            {
+                return string.Empty;
+            }
+
+            var extension = fileFullname.Substring(extensionIndex);
+
+            return extension;
+        }
+
         public static string GetFileContentType(this string filename)
         {
             if (string.IsNullOrWhiteSpace(filename))
@@ -55,7 +74,7 @@
             }
         }
 
-        public static string GetFileExtension(this string contentType)
+        public static string GetFileExtensionFromContentType(this string contentType)
         {
             if (string.IsNullOrEmpty(contentType))
             {

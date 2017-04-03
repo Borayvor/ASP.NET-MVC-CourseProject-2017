@@ -5,20 +5,21 @@
 
     @foreach (var photocourse in Model)
     {
-        <article class="col-md-3 col-sm-4">
-            <a href="@(Url.Action<PhotocourseController>(c => c.Details(@photocourse.Id)))">
-                <div class="photoartsystem-card img-thumbnail">
-                    <img src="@photocourse.ImageCover" class="img-thumbnail img-responsive" />
-                    <div class="photoartsystem-card-text text-center">
-                        <h2 class="photoartsystem-card-title">@photocourse.Name</h2>
-                        <div>@photocourse.DurationHours <span>astronomic hours.</span></div>
-                        <div class="photoartsystem-card-description">
-                            @Html.Raw(@photocourse.DescriptionShort)                            
+        <article class="col-lg-3 col-md-4 col-sm-6">
+            <div class="photoartsystem-card">
+                <a href="@(Url.Action<PhotocourseController>(c => c.Details(@photocourse.Id)))">
+                    <div class="img-thumbnail">
+                        <img src="@photocourse.ImageCoverUrl" class="img-thumbnail img-responsive" />
+                        <div class="photoartsystem-card-text text-center">
+                            <h2 class="photoartsystem-card-title">@photocourse.Name</h2>
+                            <div>@photocourse.DurationHours <span>astronomic hours.</span></div>
+                            <div class="photoartsystem-card-description">
+                                @Html.Raw(@photocourse.DescriptionShort)
+                            </div>
                         </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            </div>
         </article>
     }
-
 </div>
