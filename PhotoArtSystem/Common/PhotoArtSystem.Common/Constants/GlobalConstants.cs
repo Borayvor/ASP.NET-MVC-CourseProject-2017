@@ -34,9 +34,13 @@
         // Validation messages
         public const string EmailNotValidValidationMessages = "The Email field is not a valid e-mail address.";
 
+        // HtmlSanitizerAdapter
+        public const string HtmlStringRequiredExceptionMessage = "Html string is required !";
+
         // Common Exception messages
         public const string DbContextRequiredExceptionMessage = "An instance of DbContext is required !";
         public const string EfDbContextRequiredExceptionMessage = "An instance of EfDbContext is required !";
+        public const string SanitizerRequiredExceptionMessage = "An instance of Sanitizer is required !";
         public const string AutoMapperServiceRequiredExceptionMessage = "An instance of AutoMapperService is required !";
         public const string MapperRequiredExceptionMessage = "An instance of Mapper is required !";
         public const string SourceObjectRequiredExceptionMessage = "An instance of Source object is required !";

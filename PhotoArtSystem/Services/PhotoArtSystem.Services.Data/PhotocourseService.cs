@@ -24,7 +24,7 @@
         {
             Guard.WhenArgument(
                sanitizer,
-               nameof(sanitizer)).IsNull().Throw();
+               GlobalConstants.SanitizerRequiredExceptionMessage).IsNull().Throw();
             Guard.WhenArgument(
                 mapper,
                 GlobalConstants.AutoMapperServiceRequiredExceptionMessage).IsNull().Throw();
@@ -66,6 +66,7 @@
             entity.Description = this.sanitizer.Sanitize(entity.Description);
             entity.DescriptionShort = this.sanitizer.Sanitize(entity.DescriptionShort);
             entity.OtherInfo = this.sanitizer.Sanitize(entity.OtherInfo);
+            var entityImages = entity.Images as ICollection<Image>;
 
             var entityDb = new Photocourse
             {
@@ -78,9 +79,9 @@
                 Teacher = entity.Teacher,
                 StartDate = entity.StartDate,
                 EndDate = entity.EndDate,
-                Images = entity.Images.ToList(),
+                Images = entityImages,
                 ImageCover = entity.ImageCover,
-                Students = new Student[entity.MaxStudents]
+                Students = new List<Student>()
             };
 
             this.photocourses.Create(entityDb);

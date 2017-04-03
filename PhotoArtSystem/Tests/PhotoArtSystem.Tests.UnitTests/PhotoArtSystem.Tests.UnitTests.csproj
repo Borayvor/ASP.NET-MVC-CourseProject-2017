@@ -130,12 +130,12 @@
     <Compile Include="Services\DateTimeProviderTests\Now_Should.cs" />
     <Compile Include="Services\HttpCacheServiceTests\Get_Should.cs" />
     <Compile Include="Services\HttpCacheServiceTests\Remove_Should.cs" />
-    <Compile Include="Services\MainInfoServiceTests\Constructor_Should.cs" />
-    <Compile Include="Services\MainInfoServiceTests\Create_Should.cs" />
-    <Compile Include="Services\MainInfoServiceTests\Delete_Should.cs" />
-    <Compile Include="Services\MainInfoServiceTests\GetAll_Should.cs" />
-    <Compile Include="Services\MainInfoServiceTests\GetById_Should.cs" />
-    <Compile Include="Services\MainInfoServiceTests\Update_Should.cs" />
+    <Compile Include="Services\InformationServiceTests\Constructor_Should.cs" />
+    <Compile Include="Services\InformationServiceTests\Create_Should.cs" />
+    <Compile Include="Services\InformationServiceTests\Delete_Should.cs" />
+    <Compile Include="Services\InformationServiceTests\GetAll_Should.cs" />
+    <Compile Include="Services\InformationServiceTests\GetById_Should.cs" />
+    <Compile Include="Services\InformationServiceTests\Update_Should.cs" />
     <Compile Include="Services\PhotocourseServiceTests\Constructor_Should.cs" />
     <Compile Include="Services\PhotocourseServiceTests\Create_Should.cs" />
     <Compile Include="Services\PhotocourseServiceTests\Delete_Should.cs" />
@@ -182,6 +182,10 @@
     <ProjectReference Include="..\..\Services\PhotoArtSystem.Services.Web\PhotoArtSystem.Services.Web.csproj">
       <Project>{102ebc87-8326-4c25-8f3a-84196d6ffb99}</Project>
       <Name>PhotoArtSystem.Services.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Web\PhotoArtSystem.Web.Infrastructure\PhotoArtSystem.Web.Infrastructure.csproj">
+      <Project>{906bcf66-f8e2-4437-9a19-068465ad1409}</Project>
+      <Name>PhotoArtSystem.Web.Infrastructure</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Web\PhotoArtSystem.Web\PhotoArtSystem.Web.csproj">
       <Project>{1f68dbc4-280e-4e3a-9d04-4be895656516}</Project>
