@@ -5,6 +5,8 @@
     using System.Web.Mvc;
     using Common.Constants;
     using Data.Models.TransitionalModels;
+    using Infrastructure.Common;
+    using Infrastructure.Filters;
     using Infrastructure.Mapping;
 
     public class PhotocourseCreateViewModel : IMapTo<PhotocourseTransitional>
@@ -44,6 +46,9 @@
         public DateTime StartDate { get; set; }
 
         [Display(Name = "End date")]
+        [CompareDate(
+            CompareToPropertyName = "StartDate",
+            OperatorName = GenericCompareOperator.GreaterThanOrEqual)]
         public DateTime EndDate { get; set; }
 
         [MaxLength(ModelConstants.PhotocourseTeacherMaxLength)]

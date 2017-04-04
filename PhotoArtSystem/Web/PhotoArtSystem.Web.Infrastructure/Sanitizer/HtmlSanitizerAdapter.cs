@@ -1,8 +1,8 @@
 ﻿namespace PhotoArtSystem.Web.Infrastructure.Sanitizer
 {
     using Bytes2you.Validation;
-    using Common.Constants;
     using Ganss.XSS;
+    using PhotoArtSystem.Common.Constants;
 
     public class HtmlSanitizerAdapter : ISanitizer
     {

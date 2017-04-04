@@ -87,9 +87,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\GenericCompareOperator.cs" />
     <Compile Include="Filters\AjaxGetAttribute.cs" />
     <Compile Include="Filters\AjaxPostAttribute.cs" />
     <Compile Include="Filters\BaseValidateFileAttribute.cs" />
+    <Compile Include="Filters\CompareDateAttribute.cs" />
     <Compile Include="Filters\ValidateImageFileAttribute.cs" />
     <Compile Include="HtmlHelpers\Common.cs" />
     <Compile Include="Mapping\AutoMapperConfig.cs" />

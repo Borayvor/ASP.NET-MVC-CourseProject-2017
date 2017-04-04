@@ -3,9 +3,12 @@
 }
 
 <div id="photoartsystem-administration-wrapper">
+
+    @Scripts.Render("~/bundles/jqueryval")
+
     @RenderBody()
 </div>
 
-@section Scripts {    
+@section Scripts { 
     @RenderSection("scripts", required: false)
 }

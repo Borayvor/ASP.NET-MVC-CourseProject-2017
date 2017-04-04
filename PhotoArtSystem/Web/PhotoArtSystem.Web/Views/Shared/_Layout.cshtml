@@ -18,13 +18,17 @@
     <div class="photoartsystem-content container-fluid">
         <div class="photoartsystem-content-body">
             @RenderBody()
-        </div>       
+        </div>
         @Html.Partial("_FooterPartial")
-    </div>       
+    </div>
 
     @* -- Scripts -- *@
-    @Scripts.Render("~/bundles/jquery")    
+    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryUnobtrusive")
+
+    @*@Scripts.Render("~/bundles/jqueryval")*@
+
     @Scripts.Render("~/bundles/siteJs")
     @RenderSection("scripts", required: false)
 </body>
