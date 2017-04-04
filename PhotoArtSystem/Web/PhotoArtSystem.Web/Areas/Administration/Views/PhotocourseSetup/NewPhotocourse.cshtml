@@ -6,8 +6,6 @@
     ViewBag.Title = @HtmlConstants.AdministrationAreaName;
 }
 
-@Scripts.Render("~/bundles/jqueryval")
-
 <div id="photoartsystem-photocourse-create" class="container">
     <h2>Create Photocource</h2>
     <hr />
@@ -23,9 +21,9 @@
         new { @class = "form-horizontal", enctype = "multipart/form-data" }))*@
 
     @using (Html.BeginForm<PhotocourseSetupController>(c => c.CreateNewPhotocourse(null),
-                                                    FormMethod.Post,
-                                                    null,
-                                                    new { id = "CreateNewPhotocourse", @class = "form-horizontal", enctype = "multipart/form-data" }))
+                                                            FormMethod.Post,
+                                                            null,
+                                                            new { id = "CreateNewPhotocourse", @class = "form-horizontal", enctype = "multipart/form-data" }))
     {
         <div class="row">
             <div class="col-md-4">
@@ -91,6 +89,7 @@
 
 @section scripts{
     @Scripts.Render("~/bundles/jqueryUnobtrusive")
+    @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/tinymceJs")
     <script type="text/javascript">
         $(function () {
