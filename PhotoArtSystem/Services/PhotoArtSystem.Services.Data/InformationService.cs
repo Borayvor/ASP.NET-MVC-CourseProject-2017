@@ -40,7 +40,7 @@
 
         public IEnumerable<InformationTransitional> GetAll()
         {
-            var entityDbList = this.information.GetAll().ToList();
+            var entityDbList = this.information.GetAll().OrderBy(x => x.CreatedOn).ToList();
             var result = this.mapper.Map<IEnumerable<InformationTransitional>>(entityDbList);
 
             return result;

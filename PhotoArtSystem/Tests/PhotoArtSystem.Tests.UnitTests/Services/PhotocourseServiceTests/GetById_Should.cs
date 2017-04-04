@@ -6,6 +6,7 @@
     using PhotoArtSystem.Data.Common.EfDbContexts;
     using PhotoArtSystem.Data.Common.Repositories;
     using PhotoArtSystem.Data.Models;
+    using PhotoArtSystem.Data.Models.Factories;
     using PhotoArtSystem.Data.Models.TransitionalModels;
     using PhotoArtSystem.Services.Data;
     using PhotoArtSystem.Services.Web.Contracts;
@@ -21,6 +22,7 @@
             // Arange
             Fixture fixture = new Fixture();
             var id = fixture.Create<Guid>();
+            var mockedModelDbFactory = new Mock<IModelDbFactory>();
             var mockedEntity = new Mock<Photocourse>();
             var mockedSanitizer = new Mock<ISanitizer>();
             var mockedMapper = new Mock<IAutoMapperService>();
@@ -29,7 +31,12 @@
 
             mockedIEfDbRepository.Setup(x => x.GetById(id)).Returns(mockedEntity.Object);
 
-            var service = new PhotocourseService(mockedSanitizer.Object, mockedMapper.Object, mockedEfDbContext.Object, mockedIEfDbRepository.Object);
+            var service = new PhotocourseService(
+                mockedModelDbFactory.Object,
+                mockedSanitizer.Object,
+                mockedMapper.Object,
+                mockedEfDbContext.Object,
+                mockedIEfDbRepository.Object);
 
             // Act
             var result = service.GetById(id);
@@ -46,6 +53,7 @@
             var id = fixture.Create<Guid>();
             var mockedEntity = new Mock<Photocourse>();
             var expectedMockedEntity = new Mock<PhotocourseTransitional>();
+            var mockedModelDbFactory = new Mock<IModelDbFactory>();
             var mockedSanitizer = new Mock<ISanitizer>();
             var mockedMapper = new Mock<IAutoMapperService>();
             mockedMapper
@@ -56,7 +64,12 @@
             var mockedIEfDbRepository = new Mock<IPhotoArtSystemEfDbRepository<Photocourse>>();
             mockedIEfDbRepository.Setup(x => x.GetById(id)).Returns(mockedEntity.Object);
 
-            var service = new PhotocourseService(mockedSanitizer.Object, mockedMapper.Object, mockedEfDbContext.Object, mockedIEfDbRepository.Object);
+            var service = new PhotocourseService(
+                mockedModelDbFactory.Object,
+                mockedSanitizer.Object,
+                mockedMapper.Object,
+                mockedEfDbContext.Object,
+                mockedIEfDbRepository.Object);
 
             // Act
             var actual = service.GetById(id);

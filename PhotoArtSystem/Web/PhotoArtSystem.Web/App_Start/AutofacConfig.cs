@@ -14,6 +14,7 @@
     using Data;
     using Data.Common.EfDbContexts;
     using Data.Common.Repositories;
+    using Data.Models.Factories;
     using Infrastructure.Mapping;
     using Infrastructure.Sanitizer;
     using Services.Data;
@@ -81,15 +82,21 @@
                 .As<IAutoMapperService>()
                 .InstancePerRequest();
 
+            builder.RegisterType<CloudinaryCloudStorage>()
+                .As<IImageCloudStorage>()
+                .InstancePerRequest();
+
             builder.Register(c => AutoMapperConfig.Configuration.CreateMapper())
                 .As<IMapper>()
                 .InstancePerLifetimeScope();
 
-            builder.RegisterType<CloudinaryCloudStorage>()
-                .As<IImageCloudStorage>();
+            builder.Register(x => new ModelDbFactory())
+                .As<IModelDbFactory>()
+                .SingleInstance();
 
             builder.Register(x => new DateTimeProvider())
-                .As<IDateTimeProvider>();
+                .As<IDateTimeProvider>()
+                .SingleInstance();
 
             var userServicesAssembly = Assembly.GetAssembly(typeof(ApplicationUserProfileService));
             builder.RegisterAssemblyTypes(userServicesAssembly).AsImplementedInterfaces();

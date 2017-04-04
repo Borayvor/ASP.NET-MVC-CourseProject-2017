@@ -37,7 +37,7 @@
 
         public IEnumerable<StudentTransitional> GetAll()
         {
-            var entityDbList = this.students.GetAll().ToList();
+            var entityDbList = this.students.GetAll().OrderBy(x => x.CreatedOn).ToList();
             var result = this.mapper.Map<IEnumerable<StudentTransitional>>(entityDbList);
 
             return result;

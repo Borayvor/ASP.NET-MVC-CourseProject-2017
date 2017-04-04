@@ -30,7 +30,7 @@
 
         public IEnumerable<ApplicationUserTransitional> GetAll()
         {
-            var entityDbList = this.users.GetAll().ToList();
+            var entityDbList = this.users.GetAll().OrderBy(x => x.CreatedOn).ToList();
             var result = this.mapper.Map<IEnumerable<ApplicationUserTransitional>>(entityDbList);
 
             return result;

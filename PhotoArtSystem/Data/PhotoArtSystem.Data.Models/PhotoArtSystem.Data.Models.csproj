@@ -61,6 +61,8 @@
   <ItemGroup>
     <Compile Include="ApplicationUser.cs" />
     <Compile Include="EnumTypes\ImageFormatType.cs" />
+    <Compile Include="Factories\IModelDbFactory.cs" />
+    <Compile Include="Factories\ModelDbFactory.cs" />
     <Compile Include="FileInfo.cs" />
     <Compile Include="Information.cs" />
     <Compile Include="TransitionalModels\ApplicationUserTransitional.cs" />

@@ -12,22 +12,28 @@
     using PhotoArtSystem.Data.Common.Repositories;
     using PhotoArtSystem.Data.Models;
     using PhotoArtSystem.Data.Models.EnumTypes;
+    using PhotoArtSystem.Data.Models.Factories;
     using PhotoArtSystem.Data.Models.TransitionalModels;
     using Web.Contracts;
 
     public class ImageService : IImageService
     {
+        private readonly IModelDbFactory modelDbFactory;
         private readonly IAutoMapperService mapper;
         private readonly IEfDbContextSaveChanges context;
         private readonly IPhotoArtSystemEfDbRepository<Image> images;
         private readonly IImageCloudStorage storage;
 
         public ImageService(
+            IModelDbFactory modelDbFactory,
             IAutoMapperService mapper,
             IEfDbContextSaveChanges context,
             IPhotoArtSystemEfDbRepository<Image> images,
             IImageCloudStorage storage)
         {
+            Guard.WhenArgument(
+                modelDbFactory,
+                GlobalConstants.ModelDbFactoryRequiredExceptionMessage).IsNull().Throw();
             Guard.WhenArgument(
                 mapper,
                 GlobalConstants.AutoMapperServiceRequiredExceptionMessage).IsNull().Throw();
@@ -41,6 +47,7 @@
                 storage,
                 GlobalConstants.CloudStorageRequiredExceptionMessage).IsNull().Throw();
 
+            this.modelDbFactory = modelDbFactory;
             this.mapper = mapper;
             this.context = context;
             this.images = images;
@@ -49,7 +56,7 @@
 
         public IEnumerable<ImageTransitional> GetAll()
         {
-            var entityDbList = this.images.GetAll().ToList();
+            var entityDbList = this.images.GetAll().OrderBy(x => x.CreatedOn).ToList();
             var result = this.mapper.Map<IEnumerable<ImageTransitional>>(entityDbList);
 
             return result;
@@ -171,13 +178,13 @@
                     cropMode,
                     outputFormat);
 
-            var newImage = new Image
-            {
-                FileName = entity.FileName,
-                FileExtension = entity.FileExtension,
-                Format = entity.Format,
-                UrlPath = url
-            };
+            var newImage = this.modelDbFactory.CreateImage(
+                entity.FileName,
+                entity.FileExtension,
+                url,
+                entity.Format,
+                null,
+                null);
 
             return newImage;
         }
