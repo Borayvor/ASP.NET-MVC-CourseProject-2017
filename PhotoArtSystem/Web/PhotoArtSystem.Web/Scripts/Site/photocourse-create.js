@@ -110,12 +110,16 @@
     });
 
     $('#CoverImage').change(function (e) {
-        var strResult = $(this)[0].name;
+        var strResult = $(this)[0].files[0].name;
 
         $('#readonly-cover-image').val(strResult);
     });
 
     $('#CreateNewPhotocourse').submit(function (e) {
+       
+        if (!$(this).valid()) {
+            return;
+        }
 
         $("#loading").show();
         var url = $(this).attr("action");
