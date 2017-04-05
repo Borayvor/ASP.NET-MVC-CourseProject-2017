@@ -5,10 +5,11 @@
     <div class="col-xs-12">
         <div id="photoartsystem-owl-carousel" class="owl-carousel owl-theme">
             @foreach (var image in Model.Images)
-            { <div class="owl-item">
-                <img src="@image.UrlPath" class="img-responsive img-thumbnail" />               
-            </div>
-            }            
+            {
+                <a href="@image.UrlPath" data-fancybox="images">
+                    <img src="@image.UrlPath" class="img-responsive img-thumbnail" />
+                </a>
+            }
         </div>
     </div>
 </div>

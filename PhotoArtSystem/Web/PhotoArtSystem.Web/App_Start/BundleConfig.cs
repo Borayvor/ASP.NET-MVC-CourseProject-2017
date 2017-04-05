@@ -38,8 +38,11 @@
                       "~/Scripts/OwlCarousel2/owl.carousel.js",
                       "~/Scripts/Site/owl-carousel-init.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/fancybox").Include(
+                     "~/Scripts/Fancybox3/jquery.fancybox.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/tinymceJs").Include(
-                     "~/Scripts/tinymce/tinymce.min.js",
+                     "~/Scripts/Tinymce/tinymce.min.js",
                      "~/Scripts/Site/tinymce-init.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/photocourseCreate").Include(
@@ -56,7 +59,8 @@
                 "~/Content/bootstrap.css",
                 "~/Content/font-awesome.css",
                 "~/Content/OwlCarousel2/owl.carousel.css",
-                "~/Content/OwlCarousel2/owl.theme.default.css"));
+                "~/Content/OwlCarousel2/owl.theme.default.css",
+                "~/Content/Fancybox3/jquery.fancybox.css"));
         }
     }
 }
