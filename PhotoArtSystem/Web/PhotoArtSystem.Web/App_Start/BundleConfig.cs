@@ -41,11 +41,8 @@
                      "~/Scripts/tinymce/tinymce.min.js",
                      "~/Scripts/Site/tinymce-init.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/vegas").Include(
-                      "~/Scripts/Vegas/vegas.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/siteJs").Include(
-                      "~/Scripts/Site/app.js"));
+            bundles.Add(new ScriptBundle("~/bundles/photocourseCreate").Include(
+                      "~/Scripts/Site/photocourse-create.js"));
         }
 
         private static void RegisterStyles(BundleCollection bundles)
@@ -56,8 +53,8 @@
             bundles.Add(new StyleBundle("~/Content/toolsCss")
                 .Include(
                 "~/Content/bootstrap.css",
-                "~/Content/owl.carousel.css",
-                "~/Content/Vegas/vegas.css"));
+                "~/Content/font-awesome.css",
+                "~/Content/owl.carousel.css"));
         }
     }
 }

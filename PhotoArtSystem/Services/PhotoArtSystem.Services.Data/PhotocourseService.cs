@@ -9,19 +9,29 @@
     using PhotoArtSystem.Data.Common.EfDbContexts;
     using PhotoArtSystem.Data.Common.Repositories;
     using PhotoArtSystem.Data.Models;
+    using PhotoArtSystem.Data.Models.Factories;
     using PhotoArtSystem.Data.Models.TransitionalModels;
     using PhotoArtSystem.Web.Infrastructure.Sanitizer;
     using Web.Contracts;
 
     public class PhotocourseService : IPhotocourseService
     {
+        private readonly IModelDbFactory modelDbFactory;
         private readonly ISanitizer sanitizer;
         private readonly IAutoMapperService mapper;
         private readonly IEfDbContextSaveChanges context;
         private readonly IPhotoArtSystemEfDbRepository<Photocourse> photocourses;
 
-        public PhotocourseService(ISanitizer sanitizer, IAutoMapperService mapper, IEfDbContextSaveChanges context, IPhotoArtSystemEfDbRepository<Photocourse> photocourses)
+        public PhotocourseService(
+            IModelDbFactory modelDbFactory,
+            ISanitizer sanitizer,
+            IAutoMapperService mapper,
+            IEfDbContextSaveChanges context,
+            IPhotoArtSystemEfDbRepository<Photocourse> photocourses)
         {
+            Guard.WhenArgument(
+                modelDbFactory,
+                GlobalConstants.ModelDbFactoryRequiredExceptionMessage).IsNull().Throw();
             Guard.WhenArgument(
                sanitizer,
                GlobalConstants.SanitizerRequiredExceptionMessage).IsNull().Throw();
@@ -35,6 +45,7 @@
                 photocourses,
                 GlobalConstants.EfDbRepositoryPhotocourseRequiredExceptionMessage).IsNull().Throw();
 
+            this.modelDbFactory = modelDbFactory;
             this.sanitizer = sanitizer;
             this.mapper = mapper;
             this.context = context;
@@ -43,7 +54,7 @@
 
         public IEnumerable<PhotocourseTransitional> GetAll()
         {
-            var entityDbList = this.photocourses.GetAll().ToList();
+            var entityDbList = this.photocourses.GetAll().OrderBy(x => x.CreatedOn).ToList();
             var result = this.mapper.Map<IEnumerable<PhotocourseTransitional>>(entityDbList);
 
             return result;

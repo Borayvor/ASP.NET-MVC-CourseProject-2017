@@ -40,7 +40,7 @@
             var newFileList = new List<HttpPostedFileBase>(model.Files);
 
             var photocourseTransitional = this.Mapper
-                .Map<PhotocourseTransitional>(model.PhotocourseCreate);
+               .Map<PhotocourseTransitional>(model.PhotocourseCreate);
 
             var files = this.Mapper
                 .Map<IEnumerable<HttpPostedFileBaseViewModel>>(model.Files);

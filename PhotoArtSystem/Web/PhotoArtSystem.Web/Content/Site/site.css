@@ -50,12 +50,18 @@ body {
     top: 0;
     left: 0;
     z-index: 9999;
-    background-color: #7f8c8d;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.2);
     display: none;
     -webkit-animation: fadeIn 1s;
     -moz-animation: fadeIn 1s;
     animation: fadeIn 1s; }
+    body #loading .vh-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); }
+      body #loading .vh-center i {
+        color: #c100ee; }
   body #loading .active {
     -webkit-animation: fadeOut 1s;
     -moz-animation: fadeOut 1s;
@@ -96,11 +102,6 @@ body {
     opacity: 1; }
   to {
     opacity: 0; } }
-  body .vh-center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); }
   body .photoArtSystem-home-content .panel {
     background-color: inherit; }
   body .photoArtSystem-home-content h1, body .photoArtSystem-home-content h2, body .photoArtSystem-home-content h3, body .photoArtSystem-home-content h4, body .photoArtSystem-home-content h5 {

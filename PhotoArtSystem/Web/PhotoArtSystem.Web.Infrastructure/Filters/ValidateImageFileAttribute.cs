@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.Web.Mvc;
-    using Common.Constants;
+    using PhotoArtSystem.Common.Constants;
 
     public class ValidateImageFileAttribute : BaseValidateFileAttribute, IClientValidatable
     {
@@ -18,15 +18,13 @@
 
         public IEnumerable<ModelClientValidationRule> GetClientValidationRules(ModelMetadata metadata, ControllerContext context)
         {
-            var displayName = metadata.GetDisplayName().ToLower();
+            string errorMessage = this.FormatErrorMessage(metadata.DisplayName);
 
-            var rule = new ModelClientValidationRule
-            {
-                ValidationType = displayName + "validation",
-                ErrorMessage = this.ErrorMessageString
-            };
+            ModelClientValidationRule rule = new ModelClientValidationRule();
+            rule.ErrorMessage = errorMessage;
+            rule.ValidationType = "validateimagefile";
 
-            rule.ValidationParameters.Add(displayName + "types", string.Join(",", this.allowedMimeTypes));
+            rule.ValidationParameters.Add("validtypes", string.Join(",", this.allowedMimeTypes));
 
             yield return rule;
         }
