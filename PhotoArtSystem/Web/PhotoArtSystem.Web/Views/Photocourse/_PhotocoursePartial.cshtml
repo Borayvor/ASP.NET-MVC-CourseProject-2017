@@ -2,31 +2,37 @@
 @model PhotocourseDetailsViewModel
 
 <div class="row">
-    @foreach (var image in Model.Images)
-    {
-        <div class="col-sm-3">
-            <img src="@image.UrlPath" class="img-thumbnail img-responsive" />
+    <div class="col-xs-12">
+        <div id="photoartsystem-owl-carousel" class="owl-carousel owl-theme">
+            @foreach (var image in Model.Images)
+            { <div class="owl-item">
+                <img src="@image.UrlPath" class="img-responsive img-thumbnail" />               
+            </div>
+            }            
         </div>
-    }
+    </div>
 </div>
 <div class="row">
-    <div class="photoartsystem-card-text text-center">
-        <h2 class="photoartsystem-card-title">@Model.Name</h2>
-        <div>@Model.DurationHours <span>astronomic hours.</span></div>        
-        <div class="photoartsystem-card-description">
-            @Html.Raw(@Model.Description)
+    <div class="col-xs-12">
+        <div class="photoartsystem-card-text text-center">
+            <h2 class="photoartsystem-card-title">@Model.Name</h2>
+            <div>@Model.DurationHours <span>astronomic hours.</span></div>
+            <div class="photoartsystem-card-description">
+                @Html.Raw(@Model.DescriptionShort)
+                @Html.Raw(@Model.Description)
+            </div>
+            <div>@Html.Raw(@Model.OtherInfo)</div>
         </div>
-        <div>@Html.Raw(@Model.OtherInfo)</div>
-    </div>
-    <div class="col-sm-4">
-        <ul>
-            @foreach (var student in Model.Students)
+        <div class="col-sm-4">
+            <ul>
+                @foreach (var student in Model.Students)
             {
-                <li>
-                    @student.FirstName
-                </li>
-            }
-        </ul>
+                    <li>
+                        @student.FirstName
+                    </li>
+                }
+            </ul>
+        </div>
     </div>
 </div>
 

@@ -264,7 +264,14 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
-    <Content Include="Content\owl.carousel.css" />
+    <Content Include="Content\OwlCarousel2\ajax-loader.gif" />
+    <Content Include="Content\OwlCarousel2\owl.carousel.css" />
+    <Content Include="Content\OwlCarousel2\owl.carousel.min.css" />
+    <Content Include="Content\OwlCarousel2\owl.theme.default.css" />
+    <Content Include="Content\OwlCarousel2\owl.theme.default.min.css" />
+    <Content Include="Content\OwlCarousel2\owl.theme.green.css" />
+    <Content Include="Content\OwlCarousel2\owl.theme.green.min.css" />
+    <Content Include="Content\OwlCarousel2\owl.video.play.png" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\Site\site.css">
       <DependentUpon>site.scss</DependentUpon>
@@ -341,11 +348,13 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\owl.carousel.js" />
+    <Content Include="Scripts\OwlCarousel2\owl.carousel.js" />
+    <Content Include="Scripts\OwlCarousel2\owl.carousel.min.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\Site\owl-carousel-init.js" />
     <Content Include="Scripts\Site\photocourse-create.js" />
     <Content Include="Scripts\Site\tinymce-init.js" />
     <Content Include="Scripts\tinymce\jquery.tinymce.min.js" />
@@ -574,6 +583,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\fancybox3\" />
+    <Folder Include="Scripts\fancybox3\" />
     <Folder Include="Views\Shared\DisplayTemplates\" />
   </ItemGroup>
   <ItemGroup>

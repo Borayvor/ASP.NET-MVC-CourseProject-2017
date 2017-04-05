@@ -61,7 +61,7 @@ body {
       left: 50%;
       transform: translate(-50%, -50%); }
       body #loading .vh-center i {
-        color: #c100ee; }
+        color: #449D44; }
   body #loading .active {
     -webkit-animation: fadeOut 1s;
     -moz-animation: fadeOut 1s;

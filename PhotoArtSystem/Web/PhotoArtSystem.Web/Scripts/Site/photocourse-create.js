@@ -3,7 +3,7 @@
         ignore: ""
     });
 
-    //// =====================================================
+    //// client validation compare dateTime =====================================================
 
     $.validator.addMethod("comparedate", function (value, element, params) {
         var propElementName = params.split(",")[0];
@@ -44,7 +44,7 @@
         options.messages["comparedate"] = options.message;
     });
 
-    //// =====================================================
+    //// client validation image file =====================================================
 
     $.validator.unobtrusive.adapters.add('validateimagefile', ['validtypes'], function (options) {
         options.rules['validateimagefile'] = { validtypes: options.params.validtypes.split(',') };
@@ -78,7 +78,7 @@
         return null;
     }
 
-    //// =====================================================
+    //// load files =====================================================
 
     $('#btn-images').click(function (e) {
         $('#Files').click();
@@ -113,7 +113,9 @@
         $('#readonly-cover-image').val(strResult);
     });
 
-    $('#CreateNewPhotocourse').submit(function (e) {
+    //// loading screen =====================================================
+
+    $('#CreateNewPhotocourse').submit(function (e) {       
        
         if (!$(this).valid()) {
             return;

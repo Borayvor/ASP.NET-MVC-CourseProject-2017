@@ -35,7 +35,8 @@
                       "~/Scripts/respond.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/owlCarousel").Include(
-                      "~/Scripts/owl.carousel.js"));
+                      "~/Scripts/OwlCarousel2/owl.carousel.js",
+                      "~/Scripts/Site/owl-carousel-init.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/tinymceJs").Include(
                      "~/Scripts/tinymce/tinymce.min.js",
@@ -54,7 +55,8 @@
                 .Include(
                 "~/Content/bootstrap.css",
                 "~/Content/font-awesome.css",
-                "~/Content/owl.carousel.css"));
+                "~/Content/OwlCarousel2/owl.carousel.css",
+                "~/Content/OwlCarousel2/owl.theme.default.css"));
         }
     }
 }

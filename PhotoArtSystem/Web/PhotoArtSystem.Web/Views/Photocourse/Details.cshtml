@@ -2,3 +2,9 @@
 
 @(Html.Action<PhotocourseController>(c => c.GetPhotocourse(Model)))
 
+
+@section scripts{
+    @Scripts.Render("~/bundles/owlCarousel")
+    
+}
+
