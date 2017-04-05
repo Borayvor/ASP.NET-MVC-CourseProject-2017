@@ -9,7 +9,6 @@
         var propElementName = params.split(",")[0];
         var operatorName = params.split(",")[1];
 
-        debugger;
         if (params == undefined || params == null || params.length == 0 ||
         value == undefined || value == null || value.length == 0 ||
         propElementName == undefined || propElementName == null || propElementName.length == 0 ||
@@ -40,7 +39,6 @@
 
     $.validator.unobtrusive.adapters.add("comparedate",
     ["comparetopropertyname", "operatorname"], function (options) {
-        debugger;
         options.rules["comparedate"] = "#" +
         options.params.comparetopropertyname + "," + options.params.operatorname;
         options.messages["comparedate"] = options.message;
@@ -133,4 +131,5 @@
             contentType: false
         })
     });
+
 });

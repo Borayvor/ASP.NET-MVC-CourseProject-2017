@@ -42,6 +42,7 @@
         [UIHint("Number")]
         public int DurationHours { get; set; }
 
+        [ValidateDateTimeNow]
         [Display(Name = "Start date")]
         public DateTime StartDate { get; set; }
 
