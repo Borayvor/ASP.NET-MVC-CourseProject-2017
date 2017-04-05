@@ -124,7 +124,7 @@
         $("#loading").show();
         var url = $(this).attr("action");
         var formData = $(this);
-
+             
         $.ajax({
             url: url,
             type: "POST",

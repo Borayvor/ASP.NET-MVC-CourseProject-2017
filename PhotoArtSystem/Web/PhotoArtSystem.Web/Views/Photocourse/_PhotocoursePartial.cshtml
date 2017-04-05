@@ -1,6 +1,8 @@
 ﻿@using PhotoArtSystem.Web.ViewModels.PhotocourseModels
 @model PhotocourseDetailsViewModel
 
+<h2>@Model.Name</h2>
+<br />
 <div class="row">
     <div class="col-xs-12">
         <div id="photoartsystem-owl-carousel" class="owl-carousel owl-theme">
@@ -14,25 +16,29 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-xs-12">
-        <div class="photoartsystem-card-text text-center">
-            <h2 class="photoartsystem-card-title">@Model.Name</h2>
-            <div>@Model.DurationHours <span>astronomic hours.</span></div>
-            <div class="photoartsystem-card-description">
-                @Html.Raw(@Model.DescriptionShort)
-                @Html.Raw(@Model.Description)
-            </div>
-            <div>@Html.Raw(@Model.OtherInfo)</div>
+    <div class="col-xs-12">        
+        <div>
+            <span>@Model.StudentPositionCount</span><span> free seats.</span>
         </div>
-        <div class="col-sm-4">
-            <ul>
-                @foreach (var student in Model.Students)
-            {
-                    <li>
-                        @student.FirstName
-                    </li>
-                }
-            </ul>
+        <div>
+            <span>@Model.DurationHours</span><span> astronomic hours.</span>
+        </div>
+        <div>
+            <span>Start: </span><span>@Model.StartDate</span>
+            <span> - </span>
+            <span>End: </span><span>@Model.StartDate</span>
+        </div>
+        <div class="photoartsystem-text-warp">
+            @Html.Raw(@Model.DescriptionShort)
+        </div>
+        <div  class="photoartsystem-text-warp">
+            @Html.Raw(@Model.Description)
+        </div>
+        <div class="photoartsystem-text-warp">
+            @Html.Raw(@Model.OtherInfo)
+        </div>
+        <div>
+            <span class="pull-left">@Model.Teacher</span>
         </div>
     </div>
 </div>

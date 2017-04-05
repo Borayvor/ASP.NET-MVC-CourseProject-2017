@@ -30,6 +30,8 @@
             return this.View();
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> CreateNewPhotocourse(PhotocourseSetupViewModel model)
         {
             if (!this.ModelState.IsValid)
