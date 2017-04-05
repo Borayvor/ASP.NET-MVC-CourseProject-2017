@@ -8,10 +8,13 @@
 
     public class CompareDateAttribute : ValidationAttribute, IClientValidatable
     {
-        private const string GreaterThan = "greater than ";
-        private const string GreaterThanOrEqual = "greater than or equal to ";
-        private const string LessThan = "less than ";
-        private const string LessThanOrEqual = "less than or equal to ";
+        private const string GreaterThanString = "greater than ";
+        private const string GreaterThanOrEqualString = "greater than or equal to ";
+        private const string LessThanString = "less than ";
+        private const string LessThanOrEqualString = "less than or equal to ";
+        private const string ValidationTypeString = "comparedate";
+        private const string CompareToPropertyNameString = "comparetopropertyname";
+        private const string OperatorNameString = "operatorname";
 
         private GenericCompareOperator operatorName = GenericCompareOperator.GreaterThanOrEqual;
 
@@ -27,22 +30,24 @@
         public IEnumerable<ModelClientValidationRule> GetClientValidationRules(ModelMetadata metadata, ControllerContext context)
         {
             string errorMessage = this.FormatErrorMessage(metadata.DisplayName);
-            ModelClientValidationRule compareRule = new ModelClientValidationRule();
-            compareRule.ErrorMessage = errorMessage;
-            compareRule.ValidationType = "comparedate";
-            compareRule.ValidationParameters.Add("comparetopropertyname", this.CompareToPropertyName);
-            compareRule.ValidationParameters.Add("operatorname", this.OperatorName.ToString());
-            yield return compareRule;
+
+            ModelClientValidationRule rule = new ModelClientValidationRule();
+            rule.ErrorMessage = errorMessage;
+            rule.ValidationType = ValidationTypeString;
+            rule.ValidationParameters.Add(CompareToPropertyNameString, this.CompareToPropertyName);
+            rule.ValidationParameters.Add(OperatorNameString, this.OperatorName.ToString());
+
+            yield return rule;
         }
 
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
             string operString = this.OperatorName == GenericCompareOperator.GreaterThan ?
-                GreaterThan :
+                GreaterThanString :
                 (this.OperatorName == GenericCompareOperator.GreaterThanOrEqual ?
-                GreaterThanOrEqual :
-                (this.OperatorName == GenericCompareOperator.LessThan ? LessThan :
-                (this.OperatorName == GenericCompareOperator.LessThanOrEqual ? LessThanOrEqual : string.Empty)));
+                GreaterThanOrEqualString :
+                (this.OperatorName == GenericCompareOperator.LessThan ? LessThanString :
+                (this.OperatorName == GenericCompareOperator.LessThanOrEqual ? LessThanOrEqualString : string.Empty)));
 
             var basePropertyInfo = validationContext.ObjectType.GetProperty(this.CompareToPropertyName);
 
@@ -59,7 +64,7 @@
                 return new ValidationResult(this.ErrorMessage);
             }
 
-            return null;
+            return ValidationResult.Success;
         }
     }
 }

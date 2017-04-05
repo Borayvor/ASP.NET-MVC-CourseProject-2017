@@ -3,13 +3,12 @@
         ignore: ""
     });
 
-    //// =====================================================
+    //// client validation compare dateTime =====================================================
 
     $.validator.addMethod("comparedate", function (value, element, params) {
         var propElementName = params.split(",")[0];
         var operatorName = params.split(",")[1];
 
-        debugger;
         if (params == undefined || params == null || params.length == 0 ||
         value == undefined || value == null || value.length == 0 ||
         propElementName == undefined || propElementName == null || propElementName.length == 0 ||
@@ -40,13 +39,12 @@
 
     $.validator.unobtrusive.adapters.add("comparedate",
     ["comparetopropertyname", "operatorname"], function (options) {
-        debugger;
         options.rules["comparedate"] = "#" +
         options.params.comparetopropertyname + "," + options.params.operatorname;
         options.messages["comparedate"] = options.message;
     });
 
-    //// =====================================================
+    //// client validation image file =====================================================
 
     $.validator.unobtrusive.adapters.add('validateimagefile', ['validtypes'], function (options) {
         options.rules['validateimagefile'] = { validtypes: options.params.validtypes.split(',') };
@@ -80,7 +78,7 @@
         return null;
     }
 
-    //// =====================================================
+    //// load files =====================================================
 
     $('#btn-images').click(function (e) {
         $('#Files').click();
@@ -115,7 +113,9 @@
         $('#readonly-cover-image').val(strResult);
     });
 
-    $('#CreateNewPhotocourse').submit(function (e) {
+    //// loading screen =====================================================
+
+    $('#CreateNewPhotocourse').submit(function (e) {       
        
         if (!$(this).valid()) {
             return;
@@ -124,7 +124,7 @@
         $("#loading").show();
         var url = $(this).attr("action");
         var formData = $(this);
-
+             
         $.ajax({
             url: url,
             type: "POST",
@@ -133,4 +133,5 @@
             contentType: false
         })
     });
+
 });

@@ -2,8 +2,12 @@
 $text_shadow_white: 1px 1px 1px rgba(255, 255, 255, 0.75), 0 0 1em white, 0 0 0.7em white;
 
 $nav_base_background_color: rgb(231, 233, 233);
+$nav_anchor_background_color:  rgb(196, 200, 200);
 
 $font_size: 22px;
+$font_size_input: 20px;
+
+$line_height_input: 0.95;
 
 @mixin padding_sides($sizePx) {
     padding-left: $sizePx;
@@ -11,7 +15,7 @@ $font_size: 22px;
 }
 
 .dropdown-menu{
-    font-size: 20px;
+    font-size: $font_size_input;
     
     &>li{
         &>a{
@@ -22,12 +26,12 @@ $font_size: 22px;
 
 .btn{
     font-size: $font_size;
-    line-height: 0.95;    
+    line-height: $line_height_input;    
 }
 
 .form-control{
-    font-size: 20px;
-    line-height: 0.95;       
+    font-size: $font_size_input;
+    line-height: $line_height_input;       
 }
 
 body {
@@ -60,7 +64,7 @@ body {
 
         .open {
             & > a {
-                background-color: rgb(196, 200, 200) !important;
+                background-color: $nav_anchor_background_color !important;
             }
         }
 
@@ -92,6 +96,8 @@ body {
     @import "home-page";
 
     @import "photocourses-all-page";
+
+    @import "photocourse-details";
 
     @import "photocourse-create";
 }

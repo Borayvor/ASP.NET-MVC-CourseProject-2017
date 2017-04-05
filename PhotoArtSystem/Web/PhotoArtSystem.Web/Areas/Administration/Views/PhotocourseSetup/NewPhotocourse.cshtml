@@ -3,11 +3,11 @@
 @model PhotocourseSetupViewModel
 
 @{
-    ViewBag.Title = @HtmlConstants.AdministrationAreaName;
+    ViewBag.Title = "Create new photo cource";
 }
 
 <div id="photoartsystem-photocourse-create" class="container">
-    <h2>Create Photocource</h2>
+    <h2>@ViewBag.Title</h2>
     <hr />
 
     @using (Html.BeginForm<PhotocourseSetupController>(c => c.CreateNewPhotocourse(null),
@@ -15,6 +15,8 @@
                                                                     null,
                                                                     new { id = "CreateNewPhotocourse", @class = "form-horizontal", enctype = "multipart/form-data" }))
     {
+        @Html.AntiForgeryToken()
+
         <div class="row">
             <div class="col-md-4">
                 @Html.EditorFor(m => m.PhotocourseCreate.Name)

@@ -92,6 +92,7 @@
     <Compile Include="Filters\AjaxPostAttribute.cs" />
     <Compile Include="Filters\BaseValidateFileAttribute.cs" />
     <Compile Include="Filters\CompareDateAttribute.cs" />
+    <Compile Include="Filters\ValidateDateTimeNowAttribute.cs" />
     <Compile Include="Filters\ValidateImageFileAttribute.cs" />
     <Compile Include="HtmlHelpers\Common.cs" />
     <Compile Include="Mapping\AutoMapperConfig.cs" />

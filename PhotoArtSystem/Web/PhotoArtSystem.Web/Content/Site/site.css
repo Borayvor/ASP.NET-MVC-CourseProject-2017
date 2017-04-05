@@ -61,7 +61,7 @@ body {
       left: 50%;
       transform: translate(-50%, -50%); }
       body #loading .vh-center i {
-        color: #c100ee; }
+        color: #449D44; }
   body #loading .active {
     -webkit-animation: fadeOut 1s;
     -moz-animation: fadeOut 1s;
@@ -142,6 +142,8 @@ body {
         color: #464646;
         text-overflow: ellipsis;
         overflow: hidden; }
+  body #photoartsystem-photocourse-details .photoartsystem-text-warp p {
+    word-wrap: break-word !important; }
   body #photoartsystem-photocourse-create .input {
     position: relative;
     display: block; }

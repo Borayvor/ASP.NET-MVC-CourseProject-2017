@@ -2,4 +2,9 @@
     ViewBag.Title = "All photo courses";
 }
 
-@(Html.Action<PhotocourseController>(c => c.GetAllPhotocourses()))
+<div id="photoartsystem-photocourse-all" class="container">
+    <h2>@ViewBag.Title</h2>
+    <hr />
+
+    @(Html.Action<PhotocourseController>(c => c.GetAllPhotocourses()))
+</div>
