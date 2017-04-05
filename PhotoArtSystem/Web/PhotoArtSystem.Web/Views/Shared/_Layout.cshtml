@@ -12,7 +12,7 @@
     @Html.Partial("_NavigationPartial")
     <div id="loading">
         <span class="vh-center">
-            <i class="fa fa-cog fa-spin fa-5x"></i>
+            <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
         </span>
     </div>
     <div class="photoartsystem-content container-fluid">
@@ -24,8 +24,7 @@
 
     @* -- Scripts -- *@
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")   
-    @Scripts.Render("~/bundles/siteJs")
+    @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
 </html>
