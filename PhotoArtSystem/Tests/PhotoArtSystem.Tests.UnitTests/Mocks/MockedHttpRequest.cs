@@ -12,6 +12,9 @@
             this.queryString = new NameValueCollection();
         }
 
-        public override NameValueCollection QueryString => this.queryString;
+        public override NameValueCollection QueryString
+        {
+            get { return this.queryString; }
+        }
     }
 }

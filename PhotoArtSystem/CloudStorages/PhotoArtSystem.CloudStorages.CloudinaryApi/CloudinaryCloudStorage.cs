@@ -8,14 +8,12 @@
     using Bytes2you.Validation;
     using CloudinaryDotNet;
     using CloudinaryDotNet.Actions;
+    using Common.Constants;
     using Common.Providers.Contracts;
     using Contracts;
 
     public class CloudinaryCloudStorage : IImageCloudStorage
     {
-        ////private const string Name = "";
-        ////private const string Key = "";
-        ////private const string Secret = "";
         private const int DefaultWidth = 100;
         private const int DefaultHeight = 100;
         private const string DefaultCropMode = "fill";
@@ -42,17 +40,25 @@
             string cropMode,
             string outputFormat)
         {
-            Guard.WhenArgument(stream, nameof(stream)).IsNull().Throw();
-            Guard.WhenArgument(fileName, nameof(fileName)).IsNullOrWhiteSpace().Throw();
-            Guard.WhenArgument(fileType, nameof(fileType)).IsNullOrWhiteSpace().Throw();
-            Guard.WhenArgument(width, nameof(width)).IsLessThanOrEqual(0).Throw();
-            Guard.WhenArgument(height, nameof(height)).IsLessThanOrEqual(0).Throw();
-            ////Guard.WhenArgument(cropMode, nameof(cropMode)).IsNullOrWhiteSpace().Throw();
-            ////Guard.WhenArgument(outputFormat, nameof(outputFormat)).IsNullOrWhiteSpace().Throw();
+            Guard.WhenArgument(
+                stream,
+                GlobalConstants.StreamRequiredExceptionMessage).IsNull().Throw();
+            Guard.WhenArgument(
+                fileName,
+                GlobalConstants.FileNameRequiredExceptionMessage).IsNullOrWhiteSpace().Throw();
+            Guard.WhenArgument(
+                fileType,
+                GlobalConstants.FileTypeRequiredExceptionMessage).IsNullOrWhiteSpace().Throw();
+            Guard.WhenArgument(
+                width,
+                GlobalConstants.ImageWidthRequiredExceptionMessage).IsLessThanOrEqual(0).Throw();
+            Guard.WhenArgument(
+                height,
+                GlobalConstants.ImageHeightRequiredExceptionMessage).IsLessThanOrEqual(0).Throw();
 
             if (!stream.CanRead)
             {
-                throw new ArgumentException(nameof(stream));
+                throw new ArgumentException(GlobalConstants.StreamRequiredExceptionMessage);
             }
 
             if (width == 0)
@@ -102,7 +108,9 @@
 
         public async Task<bool> DeleteFile(string fileName)
         {
-            Guard.WhenArgument(fileName, nameof(fileName)).IsNullOrWhiteSpace().Throw();
+            Guard.WhenArgument(
+                fileName,
+                GlobalConstants.FileNameRequiredExceptionMessage).IsNullOrWhiteSpace().Throw();
 
             var delParams = new DelResParams()
             {
