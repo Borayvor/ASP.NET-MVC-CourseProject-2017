@@ -36,10 +36,10 @@
             configuration.CreateMap<PhotocourseTransitional, PhotocourseDetailsViewModel>()
                 .ForMember(
                 m => m.StartDate,
-                opt => opt.MapFrom(x => x.StartDate.ToLocalTime().ToShortDateString()))
+                opt => opt.MapFrom(x => x.StartDate.ToLocalTime().ToString("dd/MM/yyyy")))
                 .ForMember(
                 m => m.EndDate,
-                opt => opt.MapFrom(x => x.EndDate.ToLocalTime().ToShortDateString()))
+                opt => opt.MapFrom(x => x.EndDate.ToLocalTime().ToString("dd/MM/yyyy")))
                 .ForMember(
                 m => m.Images,
                 opt => opt.MapFrom(x => x.Images.Where(i => i.Format == ImageFormatType.Ordinary)))

@@ -11,20 +11,18 @@
                 nav: true,
                 dots: false
             },
-            768: {
+            550: {
+                items: 2,
+                nav: true,
+                dots: false
+            },
+            770: {
                 items: 3,                
                 nav: true,
                 dots: false
             },
-            992: {
+            995: {
                 items: 4,
-                nav: true,
-                loop: false,
-                dots: false
-            }
-            ,
-            1200: {
-                items: 5,
                 nav: true,
                 loop: false,
                 dots: false

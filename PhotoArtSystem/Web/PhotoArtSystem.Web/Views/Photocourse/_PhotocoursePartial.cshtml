@@ -1,7 +1,7 @@
 ﻿@using PhotoArtSystem.Web.ViewModels.PhotocourseModels
 @model PhotocourseDetailsViewModel
 
-<h2>@Model.Name</h2>
+<h2><strong>@Model.Name</strong></h2>
 <br />
 <div class="row">
     <div class="col-xs-12">
@@ -18,27 +18,30 @@
 <div class="row">
     <div class="col-xs-12">        
         <div>
-            <span>@Model.StudentPositionCount</span><span> free seats.</span>
+            <strong>@Model.StudentPositionCount</strong><span> free seats.</span>
         </div>
         <div>
-            <span>@Model.DurationHours</span><span> astronomic hours.</span>
+            <strong>@Model.DurationHours</strong><span> astronomic hours.</span>
         </div>
-        <div>
-            <span>Start: </span><span>@Model.StartDate</span>
+        <div class="photoartsystem-datetime">
+            <span>Start: </span><strong>@Model.StartDate</strong>
             <span> - </span>
-            <span>End: </span><span>@Model.StartDate</span>
+            <span>End: </span><strong>@Model.StartDate</strong>
         </div>
+        <br />
         <div class="photoartsystem-text-warp">
             @Html.Raw(@Model.DescriptionShort)
         </div>
+        <br />
         <div  class="photoartsystem-text-warp">
             @Html.Raw(@Model.Description)
         </div>
+        <br />
         <div class="photoartsystem-text-warp">
             @Html.Raw(@Model.OtherInfo)
         </div>
         <div>
-            <span class="pull-left">@Model.Teacher</span>
+            <span>Teacher: </span><span class="text-capitalize">@Model.Teacher</span>
         </div>
     </div>
 </div>
