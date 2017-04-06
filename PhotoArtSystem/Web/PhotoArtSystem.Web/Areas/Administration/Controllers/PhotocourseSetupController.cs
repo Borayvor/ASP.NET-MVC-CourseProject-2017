@@ -5,6 +5,7 @@
     using System.Web;
     using System.Web.Mvc;
     using System.Web.Mvc.Expressions;
+    using Common.Constants;
     using Data.Models.EnumTypes;
     using Data.Models.TransitionalModels;
     using Services.Data.Contracts;
@@ -14,12 +15,14 @@
 
     public class PhotocourseSetupController : BaseAdminController
     {
+        private readonly ICacheService cache;
         private readonly IImageService imageService;
         private readonly IPhotocourseService photocourseService;
 
-        public PhotocourseSetupController(IImageService imageService, IPhotocourseService photocourseService, IAutoMapperService mapper)
+        public PhotocourseSetupController(ICacheService cache, IImageService imageService, IPhotocourseService photocourseService, IAutoMapperService mapper)
             : base(mapper)
         {
+            this.cache = cache;
             this.imageService = imageService;
             this.photocourseService = photocourseService;
         }
@@ -61,6 +64,9 @@
             photocourseTransitional.ImageCover = await this.imageService.Create(imageTransitional, ImageFormatType.Cover);
 
             var photocourse = this.photocourseService.Create(photocourseTransitional);
+
+            this.cache.Remove(GlobalConstants.CarouselDataCacheName);
+            this.cache.Remove(GlobalConstants.PhotocoursesAllCacheName);
 
             return this.RedirectToAction<PhotocourseController>(c => c.Details(photocourse.Id), new { area = string.Empty });
         }

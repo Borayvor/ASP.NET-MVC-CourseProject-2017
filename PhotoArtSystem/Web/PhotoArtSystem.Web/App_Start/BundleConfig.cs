@@ -42,7 +42,6 @@
                      "~/Scripts/Fancybox3/jquery.fancybox.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/tinymceJs").Include(
-                     "~/Scripts/Tinymce/tinymce.min.js",
                      "~/Scripts/Site/tinymce-init.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/photocourseCreate").Include(

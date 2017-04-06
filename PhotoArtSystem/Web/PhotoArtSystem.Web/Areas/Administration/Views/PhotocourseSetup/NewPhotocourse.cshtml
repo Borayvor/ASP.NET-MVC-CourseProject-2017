@@ -11,9 +11,9 @@
     <hr />
 
     @using (Html.BeginForm<PhotocourseSetupController>(c => c.CreateNewPhotocourse(null),
-                                                                    FormMethod.Post,
-                                                                    null,
-                                                                    new { id = "CreateNewPhotocourse", @class = "form-horizontal", enctype = "multipart/form-data" }))
+                                                                            FormMethod.Post,
+                                                                            null,
+                                                                            new { id = "CreateNewPhotocourse", @class = "form-horizontal", enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
 
@@ -79,7 +79,8 @@
 @section scripts{
     @Scripts.Render("~/bundles/jqueryUnobtrusive")
     @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript" src='@Url.Content("~/Scripts/tinymce/tinymce.min.js")'></script>
     @Scripts.Render("~/bundles/tinymceJs")
-    @Scripts.Render("~/bundles/photocourseCreate")    
+    @Scripts.Render("~/bundles/photocourseCreate")
 }
 

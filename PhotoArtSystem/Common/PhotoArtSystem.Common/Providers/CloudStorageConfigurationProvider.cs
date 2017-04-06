@@ -6,11 +6,29 @@
 
     public class CloudStorageConfigurationProvider : ICloudStorageConfigurationProvider
     {
-        public string ImageUploadName => GetConfigValue(nameof(this.ImageUploadName));
+        public string ImageUploadName
+        {
+            get
+            {
+                return GetConfigValue("ImageUploadName");
+            }
+        }
 
-        public string ImageUploadApiKey => GetConfigValue(nameof(this.ImageUploadApiKey));
+        public string ImageUploadApiKey
+        {
+            get
+            {
+                return GetConfigValue("ImageUploadApiKey");
+            }
+        }
 
-        public string ImageUploadApiSecret => GetConfigValue(nameof(this.ImageUploadApiSecret));
+        public string ImageUploadApiSecret
+        {
+            get
+            {
+                return GetConfigValue("ImageUploadApiSecret");
+            }
+        }
 
         private static string GetConfigValue(string settingName)
         {

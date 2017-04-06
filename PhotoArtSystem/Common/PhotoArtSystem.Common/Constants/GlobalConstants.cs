@@ -18,11 +18,11 @@
 
         // TODO: Set Cache Duration !!!
         // Cache duration
-        public const uint PhotoArtServicesPartialCacheDuration = 0; //// * 5 * 24; // sec * min * hours
-        public const uint PhotocoursePartialCacheDuration = 0; //// * 5 * 24; // sec * min * hours
-        public const uint PhotocoursesAllPartialCacheDuration = 0; //// * 5 * 24; // sec * min * hours
-        public const uint CarouselDataPartialCacheDuration = 0; //// * 5 * 24; // sec * min * hours
-        public const uint InformationAllPartialCacheDuration = 0; //// * 5 * 24; // sec * min * hours
+        public const uint PhotoArtServicesPartialCacheDuration = 60 * 60 * 24; // sec * min * hours
+        public const uint PhotocoursePartialCacheDuration = 60 * 60 * 24; // sec * min * hours
+        public const uint PhotocoursesAllPartialCacheDuration = 60 * 60 * 24; // sec * min * hours
+        public const uint CarouselDataPartialCacheDuration = 60 * 60 * 24; // sec * min * hours
+        public const uint InformationAllPartialCacheDuration = 60 * 60 * 24; // sec * min * hours
 
         // Cache item names
         public const string PhotoArtServicesCacheName = "PhotoArtServices";
@@ -45,6 +45,13 @@
         public const string ModelDbFactoryRequiredExceptionMessage = "An instance of ModelDbFactory is required !";
         public const string SanitizerRequiredExceptionMessage = "An instance of Sanitizer is required !";
         public const string SourceObjectRequiredExceptionMessage = "An instance of Source object is required !";
+
+        // CloudinaryCloudStorage Exception messages
+        public const string StreamRequiredExceptionMessage = "Stream is required !";
+        public const string FileNameRequiredExceptionMessage = "File name is required !";
+        public const string FileTypeRequiredExceptionMessage = "File type is required !";
+        public const string ImageWidthRequiredExceptionMessage = "Image width is required !";
+        public const string ImageHeightRequiredExceptionMessage = "Image height is required !";
 
         // HttpCacheService Exception messages
         public const string ItemNameRequiredExceptionMessage = "Item name is required !";
@@ -70,6 +77,8 @@
         public const string EfDbRepositoryImageRequiredExceptionMessage = "An instance of EfDbRepository of Image is required !";
         public const string ImageTransitionalRequiredExceptionMessage = "An instance of ImageTransitional is required !";
         public const string UploadImageServiceRequiredExceptionMessage = "An instance of UploadImageService is required !";
+        public const string ImageTransitionalCollectionRequiredExceptionMessage = "An instance of IEnumerable<ImageTransitional> is required !";
+        public const string ImageRequiredExceptionMessage = "An instance of Image is required !";
 
         // UploadImageService Exception messages
         public const string CloudStorageRequiredExceptionMessage = "An instance of CloudStorage is required !";

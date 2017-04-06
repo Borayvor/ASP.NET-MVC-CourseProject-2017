@@ -72,7 +72,9 @@
 
         public async Task<Image> Create(ImageTransitional entity, ImageFormatType format)
         {
-            Guard.WhenArgument(entity, nameof(entity))
+            Guard.WhenArgument(
+                entity,
+                GlobalConstants.ImageTransitionalRequiredExceptionMessage)
                 .IsNull()
                 .Throw();
 
@@ -88,7 +90,9 @@
             IEnumerable<ImageTransitional> entities,
             ImageFormatType format)
         {
-            Guard.WhenArgument(entities, nameof(entities))
+            Guard.WhenArgument(
+                entities,
+                GlobalConstants.ImageTransitionalCollectionRequiredExceptionMessage)
                 .IsNull()
                 .Throw();
 
@@ -97,7 +101,9 @@
 
             foreach (var entity in entities)
             {
-                Guard.WhenArgument(entity, nameof(entity))
+                Guard.WhenArgument(
+                    entity,
+                    GlobalConstants.ImageRequiredExceptionMessage)
                 .IsNull()
                 .Throw();
 
@@ -114,7 +120,9 @@
 
         public void Update(ImageTransitional entity)
         {
-            Guard.WhenArgument(entity, GlobalConstants.ImageTransitionalRequiredExceptionMessage)
+            Guard.WhenArgument(
+                entity,
+                GlobalConstants.ImageTransitionalRequiredExceptionMessage)
                 .IsNull()
                 .Throw();
 
