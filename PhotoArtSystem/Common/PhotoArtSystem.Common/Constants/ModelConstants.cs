@@ -18,9 +18,9 @@
         // Photocourse
         public const int PhotocourseNameMaxLength = 100;
         public const int PhotocourseNameMinLength = 2;
-        public const int PhotocourseDescriptionShortMaxLength = 500;
+        public const int PhotocourseDescriptionShortMaxLength = 700;
         public const int PhotocourseDescriptionShortMinLength = 10;
-        public const int PhotocourseDescriptionMaxLength = 2500;
+        public const int PhotocourseDescriptionMaxLength = 3500;
         public const int PhotocourseDescriptionMinLength = 10;
         public const int PhotocourseOtherInfoMaxLength = 2000;
         public const int PhotocourseTeacherMaxLength = 201;

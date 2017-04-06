@@ -5,7 +5,7 @@
 
     @foreach (var photocourse in Model)
     {
-        <article class="col-lg-3 col-md-4 col-sm-6">
+        <article class="col-md-4 col-sm-6">
             <div class="photoartsystem-card">
                 <a href="@(Url.Action<PhotocourseController>(c => c.Details(@photocourse.Id)))">
                     <div class="img-thumbnail">
