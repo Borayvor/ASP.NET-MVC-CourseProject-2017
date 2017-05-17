@@ -9,7 +9,9 @@
 
         // Administration
         public const string AdministrationAreaName = "Administration";
-
         public const string NewPhotocourseLinkName = "New photo course";
+
+        // Forum
+        public const string ForumAreaName = "Forum";
     }
 }
