@@ -1,11 +1,11 @@
-﻿ 
-#loading {
+﻿
+#photoartsystem-loading {
     width: 100%;
     height: 100%;
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 9999;    
+    z-index: 9999;
     background-color: rgba(0, 0, 0, 0.2);
     display: none;
     -webkit-animation: fadeIn 1s;
@@ -15,16 +15,16 @@
     .vh-center {
         position: absolute;
         top: 50%;
-        left: 50%;        
-        transform: translate(-50%, -50%); 
-        
-        i{
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        i {
             color: #449D44;
-        }       
+        }
     }
 }
 
-#loading .active {
+#photoartsystem-loading .active {
     -webkit-animation: fadeOut 1s;
     -moz-animation: fadeOut 1s;
     animation: fadeOut 1s;

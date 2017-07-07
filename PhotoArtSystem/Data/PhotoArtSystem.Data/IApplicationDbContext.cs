@@ -14,7 +14,7 @@
 
         IDbSet<Image> Images { get; set; }
 
-        IDbSet<OriginalImage> OriginalImages { get; set; }
+        IDbSet<Multimedia> Multimedia { get; set; }
 
         DbSet<TEntity> Set<TEntity>()
             where TEntity : class;

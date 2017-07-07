@@ -2,7 +2,6 @@
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using System.Web;
     using System.Web.Mvc;
     using System.Web.Mvc.Expressions;
     using Common.Constants;
@@ -19,7 +18,11 @@
         private readonly IImageService imageService;
         private readonly IPhotocourseService photocourseService;
 
-        public PhotocourseSetupController(ICacheService cache, IImageService imageService, IPhotocourseService photocourseService, IAutoMapperService mapper)
+        public PhotocourseSetupController(
+            ICacheService cache,
+            IImageService imageService,
+            IPhotocourseService photocourseService,
+            IAutoMapperService mapper)
             : base(mapper)
         {
             this.cache = cache;
@@ -42,18 +45,17 @@
                 return this.View("NewPhotocourse");
             }
 
-            var newFileList = new List<HttpPostedFileBase>(model.Files);
-
             var photocourseTransitional = this.Mapper
                .Map<PhotocourseTransitional>(model.PhotocourseCreate);
 
-            var files = this.Mapper
+            var imageFiles = this.Mapper
                 .Map<IEnumerable<HttpPostedFileBaseViewModel>>(model.Files);
 
             var imagesTransitional = this.Mapper
-               .Map<IEnumerable<ImageTransitional>>(files);
+               .Map<IEnumerable<ImageTransitional>>(imageFiles);
 
-            photocourseTransitional.Images = await this.imageService.Create(imagesTransitional, ImageFormatType.Ordinary);
+            photocourseTransitional.Images = await this.imageService
+                .Create(imagesTransitional, ImageFormatType.Ordinary);
 
             var coverImageFile = this.Mapper
                 .Map<HttpPostedFileBaseViewModel>(model.CoverImage);
@@ -61,14 +63,17 @@
             var imageTransitional = this.Mapper
                .Map<ImageTransitional>(coverImageFile);
 
-            photocourseTransitional.ImageCover = await this.imageService.Create(imageTransitional, ImageFormatType.Cover);
+            photocourseTransitional.ImageCover = await this.imageService
+                .Create(imageTransitional, ImageFormatType.Cover);
 
             var photocourse = this.photocourseService.Create(photocourseTransitional);
 
             this.cache.Remove(GlobalConstants.CarouselDataCacheName);
             this.cache.Remove(GlobalConstants.PhotocoursesAllCacheName);
 
-            return this.RedirectToAction<PhotocourseController>(c => c.Details(photocourse.Id), new { area = string.Empty });
+            return this.RedirectToAction<PhotocourseController>(
+                c => c.Details(photocourse.Id),
+                new { area = string.Empty });
         }
     }
 }

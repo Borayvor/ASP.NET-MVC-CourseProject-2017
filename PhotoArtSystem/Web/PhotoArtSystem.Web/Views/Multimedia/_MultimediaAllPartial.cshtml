@@ -1,0 +1,12 @@
+﻿@using PhotoArtSystem.Web.ViewModels.MultimediaModels
+@model IEnumerable<MultimediaViewModel>
+
+<section id="multimedia-all" class="row">
+
+    @foreach (var multimedia in Model)
+    {
+        <article class="col-md-4 col-sm-6">
+            @Html.Partial("_MultimediaPartial", multimedia)
+        </article>
+    }
+</section>

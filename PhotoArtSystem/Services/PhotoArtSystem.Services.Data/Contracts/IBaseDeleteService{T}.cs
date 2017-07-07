@@ -1,11 +1,13 @@
 ﻿namespace PhotoArtSystem.Services.Data.Contracts
 {
+    using PhotoArtSystem.Data.Common.Models;
+
     /// <summary>
     /// Common Delete service.
     /// </summary>
-    /// <typeparam name="T">Must be IAuditInfo and IDeletableEntity.</typeparam>
+    /// <typeparam name="T">Type of entity. Must be IAuditInfo and IDeletableEntity.</typeparam>
     public interface IBaseDeleteService<T>
-        where T : class
+        where T : class, IAuditInfo, IDeletableEntity
     {
         /// <summary>
         /// Delete <"T">. Not permanent.

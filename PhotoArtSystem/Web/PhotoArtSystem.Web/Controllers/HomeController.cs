@@ -9,18 +9,18 @@
 
     public class HomeController : BaseController
     {
-        private readonly IInformationService mainInfoService;
-        private readonly IPhotocourseService photocourseService;
+        private readonly IInformationGetService informationService;
+        private readonly IPhotocourseGetService photocourseService;
         private readonly ICacheService cache;
 
         public HomeController(
-            IInformationService mainInfoService,
-            IPhotocourseService photocourseService,
+            IInformationGetService informationService,
+            IPhotocourseGetService photocourseService,
             ICacheService cache,
             IAutoMapperService mapper)
             : base(mapper)
         {
-            this.mainInfoService = mainInfoService;
+            this.informationService = informationService;
             this.photocourseService = photocourseService;
             this.cache = cache;
         }
@@ -52,7 +52,7 @@
         [ChildActionOnly]
         public ActionResult GetPhotoArtInfos()
         {
-            var mainInfoes = this.mainInfoService.GetAll();
+            var mainInfoes = this.informationService.GetAll();
 
             var mainInfoAllViewModel = this.Mapper
                 .Map<IEnumerable<InformationViewModel>>(mainInfoes);

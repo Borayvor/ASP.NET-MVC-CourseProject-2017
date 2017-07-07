@@ -1,0 +1,18 @@
+﻿
+
+@{
+    ViewBag.Title = "Multimedia";
+}
+
+<div id="photoartsystem-photocourse-all" class="container">
+    <h2>@ViewBag.Title</h2>
+    <hr />
+
+    @(Html.Action<MultimediaController>(c => c.GetAllMultimedia()))
+</div>
+
+
+@section scripts{
+    @Scripts.Render("~/bundles/fancybox")
+}
+

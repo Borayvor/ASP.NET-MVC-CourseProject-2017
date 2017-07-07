@@ -121,7 +121,7 @@
             return;
         }
 
-        $("#loading").show();
+        $("#photoartsystem-loading").show();
         var url = $(this).attr("action");
         var formData = $(this);
              

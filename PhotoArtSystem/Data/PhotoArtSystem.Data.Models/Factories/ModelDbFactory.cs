@@ -40,6 +40,16 @@
             ICollection<Image> images,
             ICollection<Student> students)
         {
+            if (images == null)
+            {
+                images = new List<Image>();
+            }
+
+            if (students == null)
+            {
+                students = new List<Student>();
+            }
+
             return new Photocourse
             {
                 Name = name,
@@ -55,6 +65,26 @@
                 ImageCover = imageCover,
                 Images = images,
                 Students = students
+            };
+        }
+
+        public Multimedia CreateMultimedia(
+            string title,
+            string description,
+            string urlPath,
+            string imageUrlPath)
+        {
+            if (string.IsNullOrWhiteSpace(description))
+            {
+                description = string.Empty;
+            }
+
+            return new Multimedia
+            {
+                Title = title,
+                Description = description,
+                UrlPath = urlPath,
+                ImageUrlPath = imageUrlPath
             };
         }
     }

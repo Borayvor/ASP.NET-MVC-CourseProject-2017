@@ -116,7 +116,7 @@
                     mockedEfDbContext.Object,
                     null),
                             Throws.ArgumentNullException.With.Message.Contains(
-                                GlobalConstants.EfDbRepositoryPhotocourseRequiredExceptionMessage));
+                                GlobalConstants.PhotocourseEfDbRepositoryRequiredExceptionMessage));
         }
 
         [Test]

@@ -1,0 +1,45 @@
+﻿
+@using PhotoArtSystem.Web.Areas.Administration.ViewModels
+@model MultimediaCreateViewModel
+
+@{
+    ViewBag.Title = "Create new multimedia";
+}
+
+<div id="photoartsystem-multimedia-create" class="container">
+    <h2>@ViewBag.Title</h2>
+    <hr />
+
+    @using (Ajax.BeginForm<MultimediaSetupController>(
+        c => c.CreateNewMultimedia(null),
+        null,
+        new AjaxOptions {
+            HttpMethod = "POST",
+            UpdateTargetId = "photoartsystem-multimedia-preview",
+            LoadingElementId = "photoartsystem-loading",
+            InsertionMode = InsertionMode.Replace },
+        new { id = "CreateNewMultimedia", @class = "form-horizontal" }))
+    {
+        @Html.AntiForgeryToken()        
+
+        @Html.EditorFor(m => m.Title)  
+        @Html.EditorFor(m => m.UrlPath)
+        @(Html.EditorFor(m => m.Description))
+
+        <div class="form-group">
+            @Html.Submit("Submit", new { id = "CreateNewMultimedia-Submit", @class = "btn btn-default" })
+        </div>
+    }
+
+    <div id="photoartsystem-multimedia-preview">
+
+    </div>
+</div>
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryUnobtrusive")
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript" src='@Url.Content("~/Scripts/tinymce/tinymce.min.js")'></script>
+    @Scripts.Render("~/bundles/tinymceJs")
+}
+

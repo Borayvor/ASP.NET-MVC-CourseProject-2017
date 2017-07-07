@@ -51,7 +51,7 @@
             Assert.That(
                 () => new InformationService(mockedMapper.Object, mockedEfDbContext.Object, null),
                             Throws.ArgumentNullException.With.Message.Contains(
-                                GlobalConstants.EfDbRepositoryInformationRequiredExceptionMessage));
+                                GlobalConstants.InformationEfDbRepositoryRequiredExceptionMessage));
         }
 
         [Test]
