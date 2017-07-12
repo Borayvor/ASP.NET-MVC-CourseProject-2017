@@ -83,6 +83,7 @@
             this.images.Create(entityDb);
 
             this.context.Save();
+
             return entityDb;
         }
 

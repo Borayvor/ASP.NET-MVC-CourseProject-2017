@@ -77,6 +77,7 @@
             entity.Description = this.sanitizer.Sanitize(entity.Description);
             entity.DescriptionShort = this.sanitizer.Sanitize(entity.DescriptionShort);
             entity.OtherInfo = this.sanitizer.Sanitize(entity.OtherInfo);
+
             var entityImages = entity.Images as ICollection<Image>;
             var entityStudents = entity.Students as ICollection<Student>;
 

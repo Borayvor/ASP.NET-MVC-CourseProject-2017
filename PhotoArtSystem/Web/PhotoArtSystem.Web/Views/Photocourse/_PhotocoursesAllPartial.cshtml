@@ -9,7 +9,7 @@
             <div class="photoartsystem-card">
                 <a href="@(Url.Action<PhotocourseController>(c => c.Details(@photocourse.Id)))">
                     <div class="img-thumbnail">
-                        <img src="@photocourse.ImageCoverUrl" class="img-thumbnail img-responsive" />
+                        <img src="@photocourse.ImageCoverUrl" alt="CoverImage" class="img-thumbnail img-responsive" />
                         <div class="photoartsystem-card-text text-center">
                             <h2 class="photoartsystem-card-title">@photocourse.Name</h2>
                             <div>@photocourse.DurationHours <span>astronomic hours.</span></div>

@@ -118,8 +118,9 @@ body {
                 display: flex;
                 height: 150px;
                 color: #464646;
+                padding-right: 5px;
                 text-overflow: ellipsis;
-                overflow: hidden;
+                overflow-y: scroll;
             }
         }
     }
