@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     using EnumTypes;
 
     public class ModelDbFactory : IModelDbFactory
@@ -42,12 +43,12 @@
         {
             if (images == null)
             {
-                images = new List<Image>();
+                images = new Collection<Image>();
             }
 
             if (students == null)
             {
-                students = new List<Student>();
+                students = new Collection<Student>();
             }
 
             return new Photocourse
