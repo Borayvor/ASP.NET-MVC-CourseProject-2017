@@ -41,14 +41,17 @@
             ICollection<Image> images,
             ICollection<Student> students)
         {
-            if (images == null)
+            ICollection<Image> currentImages = new Collection<Image>();
+            ICollection<Student> currentStudents = new Collection<Student>();
+
+            if (images != null)
             {
-                images = new Collection<Image>();
+                currentImages = images;
             }
 
-            if (students == null)
+            if (students != null)
             {
-                students = new Collection<Student>();
+                currentStudents = students;
             }
 
             return new Photocourse
@@ -64,8 +67,8 @@
                 EndDate = endDate,
                 ImageCoverId = imageCoverId,
                 ImageCover = imageCover,
-                Images = images,
-                Students = students
+                Images = currentImages,
+                Students = currentStudents
             };
         }
 
