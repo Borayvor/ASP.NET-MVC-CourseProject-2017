@@ -79,6 +79,7 @@
         public const string InformationTransitionalRequiredExceptionMessage = "An instance of InformationTransitional is required !";
 
         // ImageService Exception messages
+        public const string ImageServiceRequiredExceptionMessage = "An instance of ImageService is required !";
         public const string ImageEfDbRepositoryRequiredExceptionMessage = "An instance of EfDbRepository of Image is required !";
         public const string ImageTransitionalRequiredExceptionMessage = "An instance of ImageTransitional is required !";
         public const string ImageServiceRequiredExceptionMessage = "An instance of ImageService is required !";

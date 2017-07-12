@@ -60,11 +60,11 @@
             var coverImageFile = this.Mapper
                 .Map<HttpPostedFileBaseViewModel>(model.CoverImage);
 
-            var imageTransitional = this.Mapper
+            var coverImageTransitional = this.Mapper
                .Map<ImageTransitional>(coverImageFile);
 
             photocourseTransitional.ImageCover = await this.imageService
-                .Create(imageTransitional, ImageFormatType.Cover);
+                .Create(coverImageTransitional, ImageFormatType.Cover);
 
             var photocourse = this.photocourseService.Create(photocourseTransitional);
 
