@@ -78,7 +78,6 @@
             entity.DescriptionShort = this.sanitizer.Sanitize(entity.DescriptionShort);
             entity.OtherInfo = this.sanitizer.Sanitize(entity.OtherInfo);
             var entityImages = entity.Images as ICollection<Image>;
-            var entityStudents = entity.Students as ICollection<Student>;
 
             Photocourse entityDb = this.modelDbFactory.CreatePhotocourse(
                 entity.Name,
@@ -93,7 +92,7 @@
                 entity.ImageCoverId,
                 entity.ImageCover,
                 entityImages,
-                entityStudents);
+                null);
 
             this.photocourses.Create(entityDb);
             this.context.Save();

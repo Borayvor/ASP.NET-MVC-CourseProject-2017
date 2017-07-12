@@ -16,6 +16,10 @@
 
     public class MultimediaService : IMultimediaService
     {
+        private const string YouTubeUrlPathStart = "https://youtu.be/";
+        private const string YouTubeImageUrlPathStart = "https://i.ytimg.com/vi/";
+        private const string YouTubeImageUrlPathEnd = "/0.jpg";
+
         private readonly IModelDbFactory modelDbFactory;
         private readonly ISanitizer sanitizer;
         private readonly IAutoMapperService mapper;
@@ -74,7 +78,7 @@
               .IsNull()
               .Throw();
 
-            if (!entity.UrlPath.StartsWith("https://youtu.be/"))
+            if (!entity.UrlPath.StartsWith(YouTubeUrlPathStart))
             {
                 throw new ArgumentException(GlobalConstants.YouTubeRequiredExceptionMessage);
             }
@@ -84,7 +88,7 @@
             var imageId = entity.UrlPath
                 .Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries).Last();
 
-            entity.ImageUrlPath = "https://i.ytimg.com/vi/" + imageId + "/0.jpg";
+            entity.ImageUrlPath = YouTubeImageUrlPathStart + imageId + YouTubeImageUrlPathEnd;
 
             Multimedia entityDb = this.modelDbFactory.CreateMultimedia(
                   entity.Title,

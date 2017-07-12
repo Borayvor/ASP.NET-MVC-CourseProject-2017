@@ -11,8 +11,12 @@
         IBaseUpdateService<ImageTransitional>,
         IBaseDeleteService<ImageTransitional>
     {
-        Task<Image> Create(ImageTransitional entity, ImageFormatType format);
+        Task<Image> Create(
+            ImageTransitional entity,
+            ImageFormatType format);
 
-        Task<IEnumerable<Image>> Create(IEnumerable<ImageTransitional> entities, ImageFormatType format);
+        Task<IEnumerable<Image>> Create(
+            IEnumerable<ImageTransitional> entities,
+            ImageFormatType format);
     }
 }

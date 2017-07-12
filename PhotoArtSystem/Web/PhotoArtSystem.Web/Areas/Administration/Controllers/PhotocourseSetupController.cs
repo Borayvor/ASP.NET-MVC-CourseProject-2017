@@ -5,8 +5,8 @@
     using System.Web.Mvc;
     using System.Web.Mvc.Expressions;
     using Common.Constants;
-    using Data.Models.EnumTypes;
     using Data.Models.TransitionalModels;
+    using PhotoArtSystem.Data.Models.EnumTypes;
     using Services.Data.Contracts;
     using Services.Web.Contracts;
     using ViewModels;

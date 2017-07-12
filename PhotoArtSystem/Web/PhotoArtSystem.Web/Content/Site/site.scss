@@ -2,7 +2,7 @@
 $text_shadow_white: 1px 1px 1px rgba(255, 255, 255, 0.75), 0 0 1em white, 0 0 0.7em white;
 
 $nav_base_background_color: rgb(231, 233, 233);
-$nav_anchor_background_color:  rgb(196, 200, 200);
+$nav_anchor_background_color: rgb(196, 200, 200);
 
 $font_size: 22px;
 $font_size_input: 20px;
@@ -14,24 +14,24 @@ $line_height_input: 0.95;
     padding-right: $sizePx;
 }
 
-.dropdown-menu{
+.dropdown-menu {
     font-size: $font_size_input;
-    
-    &>li{
-        &>a{
+
+    & > li {
+        & > a {
             line-height: 1;
         }
     }
 }
 
-.btn{
+.btn {
     font-size: $font_size;
-    line-height: $line_height_input;    
+    line-height: $line_height_input;
 }
 
-.form-control{
+.form-control {
     font-size: $font_size_input;
-    line-height: $line_height_input;       
+    line-height: $line_height_input;
 }
 
 body {
@@ -118,8 +118,9 @@ body {
                 display: flex;
                 height: 150px;
                 color: #464646;
+                padding-right: 5px;
                 text-overflow: ellipsis;
-                overflow: hidden;
+                overflow-y: scroll;
             }
         }
     }
