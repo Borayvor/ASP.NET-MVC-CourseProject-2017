@@ -214,11 +214,14 @@
     <Compile Include="App_Start\ViewEnginesConfig.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\BaseAdminController.cs" />
+    <Compile Include="Areas\Administration\Controllers\MultimediaSetupController.cs" />
     <Compile Include="Areas\Administration\Controllers\PhotocourseSetupController.cs" />
     <Compile Include="Areas\Administration\ViewModels\HttpPostedFileBaseViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\ImageCreateViewModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\MultimediaCreateViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\PhotocourseCreateViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\PhotocourseSetupViewModel.cs" />
+    <Compile Include="Controllers\MultimediaController.cs" />
     <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\Account\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -252,6 +255,7 @@
     <Compile Include="ViewModels\Manage\ManageLoginsViewModel.cs" />
     <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
+    <Compile Include="ViewModels\MultimediaModels\MultimediaViewModel.cs" />
     <Compile Include="ViewModels\PaginationViewModel.cs" />
     <Compile Include="ViewModels\PhotocourseModels\PhotocourseDetailsViewModel.cs" />
     <Compile Include="ViewModels\PhotocourseModels\PhotocourseViewModel.cs" />
@@ -313,6 +317,7 @@
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Number.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\DateTime.cshtml" />
     <Content Include="CloudStorage.config" />
+    <Content Include="Areas\Administration\Views\MultimediaSetup\NewMultimedia.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -328,6 +333,7 @@
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="Content\Site\_photocourse-details.scss" />
+    <Content Include="Content\Site\_multimedia-all-page.scss" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Images\960px.png" />
     <Content Include="Images\cover14.jpg" />
@@ -586,6 +592,9 @@
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\readme.md" />
     <Content Include="Scripts\tinymce\langs\readme.md" />
     <Content Include="Views\Shared\EditorTemplates\TinyMce.cshtml" />
+    <Content Include="Views\Multimedia\Index.cshtml" />
+    <Content Include="Views\Multimedia\_MultimediaAllPartial.cshtml" />
+    <Content Include="Views\Multimedia\_MultimediaPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

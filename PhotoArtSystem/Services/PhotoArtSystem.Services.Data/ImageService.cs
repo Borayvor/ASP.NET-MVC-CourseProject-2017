@@ -42,7 +42,7 @@
                 GlobalConstants.EfDbContextRequiredExceptionMessage).IsNull().Throw();
             Guard.WhenArgument(
                 images,
-                GlobalConstants.EfDbRepositoryImageRequiredExceptionMessage).IsNull().Throw();
+                GlobalConstants.ImageEfDbRepositoryRequiredExceptionMessage).IsNull().Throw();
             Guard.WhenArgument(
                 storage,
                 GlobalConstants.CloudStorageRequiredExceptionMessage).IsNull().Throw();
@@ -83,6 +83,7 @@
             this.images.Create(entityDb);
 
             this.context.Save();
+
             return entityDb;
         }
 

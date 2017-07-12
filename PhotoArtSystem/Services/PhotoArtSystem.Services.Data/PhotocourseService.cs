@@ -43,7 +43,7 @@
                 GlobalConstants.EfDbContextRequiredExceptionMessage).IsNull().Throw();
             Guard.WhenArgument(
                 photocourses,
-                GlobalConstants.EfDbRepositoryPhotocourseRequiredExceptionMessage).IsNull().Throw();
+                GlobalConstants.PhotocourseEfDbRepositoryRequiredExceptionMessage).IsNull().Throw();
 
             this.modelDbFactory = modelDbFactory;
             this.sanitizer = sanitizer;
@@ -77,23 +77,24 @@
             entity.Description = this.sanitizer.Sanitize(entity.Description);
             entity.DescriptionShort = this.sanitizer.Sanitize(entity.DescriptionShort);
             entity.OtherInfo = this.sanitizer.Sanitize(entity.OtherInfo);
-            var entityImages = entity.Images as ICollection<Image>;
 
-            var entityDb = new Photocourse
-            {
-                Name = entity.Name,
-                DescriptionShort = entity.DescriptionShort,
-                Description = entity.Description,
-                OtherInfo = entity.OtherInfo,
-                DurationHours = entity.DurationHours,
-                MaxStudents = entity.MaxStudents,
-                Teacher = entity.Teacher,
-                StartDate = entity.StartDate,
-                EndDate = entity.EndDate,
-                Images = entityImages,
-                ImageCover = entity.ImageCover,
-                Students = new List<Student>()
-            };
+            var entityImages = entity.Images as ICollection<Image>;
+            ////var entityStudents = entity.Students as ICollection<Student>;
+
+            Photocourse entityDb = this.modelDbFactory.CreatePhotocourse(
+                entity.Name,
+                entity.DescriptionShort,
+                entity.Description,
+                entity.OtherInfo,
+                entity.Teacher,
+                entity.DurationHours,
+                entity.MaxStudents,
+                entity.StartDate,
+                entity.EndDate,
+                entity.ImageCoverId,
+                entity.ImageCover,
+                entityImages,
+                null);
 
             this.photocourses.Create(entityDb);
             this.context.Save();

@@ -31,7 +31,7 @@
                 GlobalConstants.EfDbContextRequiredExceptionMessage).IsNull().Throw();
             Guard.WhenArgument(
                 information,
-                GlobalConstants.EfDbRepositoryInformationRequiredExceptionMessage).IsNull().Throw();
+                GlobalConstants.InformationEfDbRepositoryRequiredExceptionMessage).IsNull().Throw();
 
             this.mapper = mapper;
             this.context = context;

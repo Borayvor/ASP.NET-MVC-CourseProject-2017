@@ -12,7 +12,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand photoartsystem-navbar-brand" href="@(Url.Action<HomeController>(c => c.Index()))">
-                    <img src="~/Images/logoOriginal.png" />
+                    <img src="~/Images/logoOriginal.png" alt="logo" />
                 </a>
             </div>
 
@@ -25,19 +25,22 @@
                         @(Html.ActionLink<PhotocourseController>(HtmlConstants.PhotocoursesLinkName, c => c.Index()))
                     </li>
                     <li>
+                        @(Html.ActionLink<MultimediaController>(HtmlConstants.MultimediaLinkName, c => c.Index()))
+                    </li>
+                    <li>
                         @(Html.ActionLink<AboutUsController>(HtmlConstants.AboutUsLinkName, c => c.Index()))
                     </li>
                     @if (Request.IsAuthenticated && User.IsInRole(AuthConstants.AdministratorRoleName))
-                    {
+                    {                       
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@HtmlConstants.AdministrationAreaName <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li>
                                     @(Html.ActionLink<PhotocourseSetupController>(HtmlConstants.NewPhotocourseLinkName, c => c.NewPhotocourse(), new { area = HtmlConstants.AdministrationAreaName }))
-                                </li>
-                                @*<li>
-                                    @(Html.ActionLink<PhotocourseSetupController>(HtmlConstants.NewPhotocourseLinkName, c => c.NewPhotocourse(), new { area = HtmlConstants.AdministrationAreaName }))
-                                </li>*@
+                                </li> 
+                                <li>
+                                    @(Html.ActionLink<MultimediaSetupController>(HtmlConstants.NewMultimediaLinkName, c => c.NewMultimedia(), new { area = HtmlConstants.AdministrationAreaName }))
+                                </li>   
                             </ul>
                         </li>
                     }

@@ -65,14 +65,15 @@
     <Compile Include="Factories\ModelDbFactory.cs" />
     <Compile Include="FileInfo.cs" />
     <Compile Include="Information.cs" />
+    <Compile Include="Multimedia.cs" />
     <Compile Include="TransitionalModels\ApplicationUserTransitional.cs" />
     <Compile Include="TransitionalModels\BaseModelTransitional{TKey}.cs" />
     <Compile Include="TransitionalModels\FileInfoTransitional.cs" />
     <Compile Include="TransitionalModels\ImageTransitional.cs" />
     <Compile Include="TransitionalModels\InformationTransitional.cs" />
+    <Compile Include="TransitionalModels\MultimediaTransitional.cs" />
     <Compile Include="TransitionalModels\PhotocourseTransitional.cs" />
     <Compile Include="TransitionalModels\StudentTransitional.cs" />
-    <Compile Include="OriginalImage.cs" />
     <Compile Include="Photocourse.cs" />
     <Compile Include="Student.cs" />
     <Compile Include="Image.cs" />

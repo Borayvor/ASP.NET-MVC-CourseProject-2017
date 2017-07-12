@@ -4,6 +4,9 @@
     {
         public const string StringEmpty = "";
 
+        // Validate YouTube
+        public const string YouTubeRequiredExceptionMessage = "Only YouTube video is allowed !";
+
         // File Mime types
         public const string ImageJpeg = "image/jpeg";
         public const string ImagePng = "image/png";
@@ -23,6 +26,7 @@
         public const uint PhotocoursesAllPartialCacheDuration = 60 * 60 * 24; // sec * min * hours
         public const uint CarouselDataPartialCacheDuration = 60 * 60 * 24; // sec * min * hours
         public const uint InformationAllPartialCacheDuration = 60 * 60 * 24; // sec * min * hours
+        public const uint MultimediaAllPartialCacheDuration = 60 * 60 * 24; // sec * min * hours
 
         // Cache item names
         public const string PhotoArtServicesCacheName = "PhotoArtServices";
@@ -30,6 +34,7 @@
         public const string PhotocourseCacheName = "Photocourse_";
         public const string CarouselDataCacheName = "CarouselData";
         public const string InformationAllCacheName = "InformationAll";
+        public const string MultimediaAllCacheName = "MultimediaAll";
 
         // Validation messages
         public const string EmailNotValidValidationMessages = "The Email field is not a valid e-mail address.";
@@ -58,25 +63,25 @@
         public const string DurationInSecondsMustExceptionMessage = "Duration in seconds must be positive integer !";
 
         // ApplicationUserProfileService Exception messages
-        public const string EfDbRepositoryApplicationUserRequiredExceptionMessage = "An instance of EfDbRepository of ApplicationUser is required !";
+        public const string ApplicationUserEfDbRepositoryRequiredExceptionMessage = "An instance of EfDbRepository of ApplicationUser is required !";
         public const string ApplicationUserTransitionalRequiredExceptionMessage = "An instance of ApplicationUserTransitional is required !";
 
         // PhotocourseService Exception messages
-        public const string EfDbRepositoryPhotocourseRequiredExceptionMessage = "An instance of EfDbRepository of Photocourse is required !";
+        public const string PhotocourseEfDbRepositoryRequiredExceptionMessage = "An instance of EfDbRepository of Photocourse is required !";
         public const string PhotocourseTransitionalRequiredExceptionMessage = "An instance of PhotocourseTransitional is required !";
 
         // StudentService Exception messages
-        public const string EfDbRepositoryStudentRequiredExceptionMessage = "An instance of EfDbRepository of Student is required !";
+        public const string StudentEfDbRepositoryRequiredExceptionMessage = "An instance of EfDbRepository of Student is required !";
         public const string StudentTransitionalRequiredExceptionMessage = "An instance of StudentTransitional is required !";
 
         // InformationService Exception messages
-        public const string EfDbRepositoryInformationRequiredExceptionMessage = "An instance of EfDbRepository of Information is required !";
+        public const string InformationEfDbRepositoryRequiredExceptionMessage = "An instance of EfDbRepository of Information is required !";
         public const string InformationTransitionalRequiredExceptionMessage = "An instance of InformationTransitional is required !";
 
         // ImageService Exception messages
-        public const string EfDbRepositoryImageRequiredExceptionMessage = "An instance of EfDbRepository of Image is required !";
+        public const string ImageServiceRequiredExceptionMessage = "An instance of ImageService is required !";
+        public const string ImageEfDbRepositoryRequiredExceptionMessage = "An instance of EfDbRepository of Image is required !";
         public const string ImageTransitionalRequiredExceptionMessage = "An instance of ImageTransitional is required !";
-        public const string UploadImageServiceRequiredExceptionMessage = "An instance of UploadImageService is required !";
         public const string ImageTransitionalCollectionRequiredExceptionMessage = "An instance of IEnumerable<ImageTransitional> is required !";
         public const string ImageRequiredExceptionMessage = "An instance of Image is required !";
 
@@ -85,5 +90,9 @@
         public const string FileStreamRequiredExceptionMessage = "File stream is required !";
         public const string FilenameRequiredExceptionMessage = "File name is required !";
         public const string MimeTypeRequiredExceptionMessage = "Mime type is required !";
+
+        // MultimediaService Exception messages
+        public const string MultimediaEfDbRepositoryRequiredExceptionMessage = "An instance of EfDbRepository of Multimedia is required !";
+        public const string MultimediaTransitionalRequiredExceptionMessage = "An instance of MultimediaTransitional is required !";
     }
 }

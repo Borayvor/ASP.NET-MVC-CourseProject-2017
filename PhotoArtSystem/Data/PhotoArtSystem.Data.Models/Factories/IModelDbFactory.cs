@@ -28,5 +28,11 @@
             Image imageCover,
             ICollection<Image> images,
             ICollection<Student> students);
+
+        Multimedia CreateMultimedia(
+            string title,
+            string description,
+            string urlPath,
+            string imageUrlPath);
     }
 }

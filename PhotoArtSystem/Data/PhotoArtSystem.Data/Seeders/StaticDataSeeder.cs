@@ -309,5 +309,26 @@
             //// End add.
             context.SaveChanges();
         }
+
+        public static void SeedMultimedia(ApplicationDbContext context)
+        {
+            if (context.Multimedia.Any())
+            {
+                return;
+            }
+
+            var multimedia = new Multimedia()
+            {
+                Title = "Фотопленер до Луната",
+                Description = "Един чудесен фотопленер до островът на лунните пейзажи - Лансароте. Неземно и прекрасно! Един от най-добрите ни фотопленери, предизвикал небивал интерес. Следващият фотопленер до Луната ще се проведе от 3 до 9 ноември 2015 г.",
+                UrlPath = "https://youtu.be/sCar2V9S4cI",
+                ImageUrlPath = "https://i.ytimg.com/vi/sCar2V9S4cI/maxresdefault.jpg"
+            };
+
+            context.Multimedia.Add(multimedia);
+
+            //// End add.
+            context.SaveChanges();
+        }
     }
 }

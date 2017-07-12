@@ -1,8 +1,8 @@
 ﻿namespace PhotoArtSystem.Tests.UnitTests.Services.PhotocourseServiceTests
 {
-    using Common.Constants;
     using Moq;
     using NUnit.Framework;
+    using PhotoArtSystem.Common.Constants;
     using PhotoArtSystem.Data.Common.EfDbContexts;
     using PhotoArtSystem.Data.Common.Repositories;
     using PhotoArtSystem.Data.Models;
@@ -116,7 +116,7 @@
                     mockedEfDbContext.Object,
                     null),
                             Throws.ArgumentNullException.With.Message.Contains(
-                                GlobalConstants.EfDbRepositoryPhotocourseRequiredExceptionMessage));
+                                GlobalConstants.PhotocourseEfDbRepositoryRequiredExceptionMessage));
         }
 
         [Test]

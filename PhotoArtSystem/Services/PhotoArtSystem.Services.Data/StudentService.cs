@@ -28,7 +28,7 @@
                 GlobalConstants.EfDbContextRequiredExceptionMessage).IsNull().Throw();
             Guard.WhenArgument(
                 students,
-                GlobalConstants.EfDbRepositoryStudentRequiredExceptionMessage).IsNull().Throw();
+                GlobalConstants.StudentEfDbRepositoryRequiredExceptionMessage).IsNull().Throw();
 
             this.mapper = mapper;
             this.context = context;

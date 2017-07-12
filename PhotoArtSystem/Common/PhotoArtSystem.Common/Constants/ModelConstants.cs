@@ -31,5 +31,11 @@
         public const int FileInfoFileNameMinLength = 2;
         public const int FileInfoFileExtensionMaxLength = 5;
         public const int FileInfoFileExtensionMinLength = 2;
+
+        // Multimedia
+        public const int MultimediaTitleMaxLength = 50;
+        public const int MultimediaTitleMinLength = 2;
+        public const int MultimediaDescriptionMaxLength = 3000;
+        public const int MultimediaUrlPathMaxLength = 1000;
     }
 }

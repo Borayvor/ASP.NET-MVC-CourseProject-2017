@@ -1,11 +1,13 @@
 ﻿namespace PhotoArtSystem.Services.Data.Contracts
 {
+    using PhotoArtSystem.Data.Common.Models;
+
     /// <summary>
     /// Common Update service.
     /// </summary>
-    /// <typeparam name="T">Must be IAuditInfo and IDeletableEntity.</typeparam>
+    /// <typeparam name="T">Type of entity. Must be IAuditInfo and IDeletableEntity.</typeparam>
     public interface IBaseUpdateService<T>
-        where T : class
+        where T : class, IAuditInfo, IDeletableEntity
     {
         /// <summary>
         /// Update <"T">.

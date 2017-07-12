@@ -24,7 +24,7 @@
 
         public IDbSet<Image> Images { get; set; }
 
-        public IDbSet<OriginalImage> OriginalImages { get; set; }
+        public IDbSet<Multimedia> Multimedia { get; set; }
 
         public static ApplicationDbContext Create()
         {

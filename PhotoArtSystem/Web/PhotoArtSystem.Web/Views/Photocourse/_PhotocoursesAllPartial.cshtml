@@ -1,7 +1,7 @@
 ﻿@using PhotoArtSystem.Web.ViewModels.PhotocourseModels
 @model IEnumerable<PhotocourseViewModel>
 
-<div id="photocourse-all" class="row">
+<section id="photocourse-all" class="row">
 
     @foreach (var photocourse in Model)
     {
@@ -9,12 +9,12 @@
             <div class="photoartsystem-card">
                 <a href="@(Url.Action<PhotocourseController>(c => c.Details(@photocourse.Id)))">
                     <div class="img-thumbnail">
-                        <img src="@photocourse.ImageCoverUrl" class="img-thumbnail img-responsive" />
+                        <img src="@photocourse.ImageCoverUrl" alt="CoverImage" class="img-thumbnail img-responsive" />
                         <div class="photoartsystem-card-text text-center">
                             <h2 class="photoartsystem-card-title">@photocourse.Name</h2>
                             <div>@photocourse.DurationHours <span>astronomic hours.</span></div>
                             <div class="photoartsystem-card-description">
-                                @Html.Raw(@photocourse.DescriptionShort)
+                                @Html.Raw(photocourse.DescriptionShort)
                             </div>
                         </div>
                     </div>
@@ -22,4 +22,4 @@
             </div>
         </article>
     }
-</div>
+</section>

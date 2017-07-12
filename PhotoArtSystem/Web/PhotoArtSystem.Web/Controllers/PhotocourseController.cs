@@ -10,7 +10,7 @@
 
     public class PhotocourseController : BaseController
     {
-        private readonly IPhotocourseService photocourseService;
+        private readonly IPhotocourseGetService photocourseService;
         private readonly ICacheService cache;
 
         public PhotocourseController(
@@ -19,8 +19,8 @@
             IAutoMapperService mapper)
             : base(mapper)
         {
-            this.cache = cache;
             this.photocourseService = photocourseService;
+            this.cache = cache;
         }
 
         [HttpGet]

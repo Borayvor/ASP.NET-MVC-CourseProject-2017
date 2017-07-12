@@ -36,7 +36,7 @@
             Assert.That(
                 () => new ApplicationUserProfileService(mockedMapper.Object, null),
                             Throws.ArgumentNullException.With.Message.Contains(
-                                GlobalConstants.EfDbRepositoryApplicationUserRequiredExceptionMessage));
+                                GlobalConstants.ApplicationUserEfDbRepositoryRequiredExceptionMessage));
         }
 
         [Test]

@@ -22,7 +22,7 @@
                 GlobalConstants.AutoMapperServiceRequiredExceptionMessage).IsNull().Throw();
             Guard.WhenArgument(
                  users,
-                 GlobalConstants.EfDbRepositoryApplicationUserRequiredExceptionMessage).IsNull().Throw();
+                 GlobalConstants.ApplicationUserEfDbRepositoryRequiredExceptionMessage).IsNull().Throw();
 
             this.mapper = mapper;
             this.users = users;

@@ -1,0 +1,16 @@
+﻿@using PhotoArtSystem.Web.ViewModels.MultimediaModels
+@model MultimediaViewModel
+
+<div class="photoartsystem-card">
+    <a href="@Model.UrlPath" data-fancybox="video">
+        <div class="img-thumbnail">
+            <img src="@Model.ImageUrlPath" alt="Image" class="img-thumbnail img-responsive" />
+            <div class="photoartsystem-card-text text-center">
+                <h2 class="photoartsystem-card-title">@Model.Title</h2>
+                <div class="photoartsystem-card-description">
+                    @Html.Raw(Model.Description)
+                </div>
+            </div>
+        </div>
+    </a>
+</div>

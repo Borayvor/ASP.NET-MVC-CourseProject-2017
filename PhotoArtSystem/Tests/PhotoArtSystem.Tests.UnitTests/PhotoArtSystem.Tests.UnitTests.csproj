@@ -112,7 +112,6 @@
     <Compile Include="Data\DbModels\BaseModelGuidTests.cs" />
     <Compile Include="Data\DbModels\BaseModelIntClassTests.cs" />
     <Compile Include="Data\DbModels\ImageTests.cs" />
-    <Compile Include="Data\DbModels\OriginalImageTests.cs" />
     <Compile Include="Data\DbModels\PhotocourseTests.cs" />
     <Compile Include="Data\EfDbContextSaveChangesTests\Constructor_Should.cs" />
     <Compile Include="Data\EfDbContextSaveChangesTests\Save_Should.cs" />

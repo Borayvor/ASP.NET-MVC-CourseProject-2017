@@ -34,6 +34,9 @@
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/signalR")
+                .Include("~/Scripts/jquery.signalR-2.2.2.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/owlCarousel").Include(
                       "~/Scripts/OwlCarousel2/owl.carousel.js",
                       "~/Scripts/Site/owl-carousel-init.js"));

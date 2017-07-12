@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     using EnumTypes;
 
     public class ModelDbFactory : IModelDbFactory
@@ -40,6 +41,19 @@
             ICollection<Image> images,
             ICollection<Student> students)
         {
+            ICollection<Image> currentImages = new Collection<Image>();
+            ICollection<Student> currentStudents = new Collection<Student>();
+
+            if (images != null)
+            {
+                currentImages = images;
+            }
+
+            if (students != null)
+            {
+                currentStudents = students;
+            }
+
             return new Photocourse
             {
                 Name = name,
@@ -53,8 +67,28 @@
                 EndDate = endDate,
                 ImageCoverId = imageCoverId,
                 ImageCover = imageCover,
-                Images = images,
-                Students = students
+                Images = currentImages,
+                Students = currentStudents
+            };
+        }
+
+        public Multimedia CreateMultimedia(
+            string title,
+            string description,
+            string urlPath,
+            string imageUrlPath)
+        {
+            if (string.IsNullOrWhiteSpace(description))
+            {
+                description = string.Empty;
+            }
+
+            return new Multimedia
+            {
+                Title = title,
+                Description = description,
+                UrlPath = urlPath,
+                ImageUrlPath = imageUrlPath
             };
         }
     }

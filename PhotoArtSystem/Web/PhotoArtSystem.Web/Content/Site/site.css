@@ -43,7 +43,29 @@ body {
     padding-bottom: 30px; }
     body .photoartsystem-content .photoartsystem-content-body {
       padding-bottom: 30px; }
-  body #loading {
+  body .photoartsystem-card {
+    padding-bottom: 25px;
+    padding-left: 5px;
+    padding-right: 5px; }
+    body .photoartsystem-card a {
+      display: block; }
+      body .photoartsystem-card a:hover {
+        text-decoration: none; }
+    body .photoartsystem-card .photoartsystem-card-text {
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-bottom: 10px;
+      min-height: 240px !important; }
+      body .photoartsystem-card .photoartsystem-card-text .photoartsystem-card-title {
+        color: black; }
+      body .photoartsystem-card .photoartsystem-card-text .photoartsystem-card-description {
+        display: flex;
+        height: 150px;
+        color: #464646;
+        padding-right: 5px;
+        text-overflow: ellipsis;
+        overflow-y: scroll; }
+  body #photoartsystem-loading {
     width: 100%;
     height: 100%;
     position: fixed;
@@ -55,14 +77,14 @@ body {
     -webkit-animation: fadeIn 1s;
     -moz-animation: fadeIn 1s;
     animation: fadeIn 1s; }
-    body #loading .vh-center {
+    body #photoartsystem-loading .vh-center {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%); }
-      body #loading .vh-center i {
+      body #photoartsystem-loading .vh-center i {
         color: #449D44; }
-  body #loading .active {
+  body #photoartsystem-loading .active {
     -webkit-animation: fadeOut 1s;
     -moz-animation: fadeOut 1s;
     animation: fadeOut 1s; }
@@ -121,27 +143,6 @@ body {
   @media (max-width: 991px) {
     body .photoArtSystem-home-content .photoArtSystem-info-panel {
       letter-spacing: 1px; } }
-  body #photocourse-all a {
-    display: block; }
-    body #photocourse-all a:hover {
-      text-decoration: none; }
-  body #photocourse-all .photoartsystem-card {
-    padding-bottom: 25px;
-    padding-left: 5px;
-    padding-right: 5px; }
-    body #photocourse-all .photoartsystem-card .photoartsystem-card-text {
-      padding-left: 10px;
-      padding-right: 10px;
-      padding-bottom: 10px;
-      min-height: 240px !important; }
-      body #photocourse-all .photoartsystem-card .photoartsystem-card-text .photoartsystem-card-title {
-        color: black; }
-      body #photocourse-all .photoartsystem-card .photoartsystem-card-text .photoartsystem-card-description {
-        display: flex;
-        height: 150px;
-        color: #464646;
-        text-overflow: ellipsis;
-        overflow: hidden; }
   body #photoartsystem-photocourse-details .photoartsystem-text-warp p {
     word-wrap: break-word !important; }
   body #photoartsystem-photocourse-create .input {

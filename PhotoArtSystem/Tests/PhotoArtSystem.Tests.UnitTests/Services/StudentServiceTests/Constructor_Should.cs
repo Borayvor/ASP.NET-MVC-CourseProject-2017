@@ -51,7 +51,7 @@
             Assert.That(
                 () => new StudentService(mockedMapper.Object, mockedEfDbContext.Object, null),
                             Throws.ArgumentNullException.With.Message.Contains(
-                                GlobalConstants.EfDbRepositoryStudentRequiredExceptionMessage));
+                                GlobalConstants.StudentEfDbRepositoryRequiredExceptionMessage));
         }
 
         [Test]
