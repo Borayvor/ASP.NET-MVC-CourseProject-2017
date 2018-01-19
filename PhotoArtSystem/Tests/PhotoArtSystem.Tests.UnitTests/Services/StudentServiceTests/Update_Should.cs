@@ -25,8 +25,8 @@
             // Act & Assert
             Assert.That(
                 () => service.Update(null),
-                            Throws.ArgumentNullException.With.Message.Contains(
-                                GlobalConstants.StudentTransitionalRequiredExceptionMessage));
+                Throws.ArgumentNullException.With.Message.Contains(
+                    GlobalConstants.StudentTransitionalRequiredExceptionMessage));
         }
 
         [Test]
