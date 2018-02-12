@@ -130,6 +130,8 @@
     <Compile Include="Services\HttpCacheServiceTests\Get_Should.cs" />
     <Compile Include="Services\HttpCacheServiceTests\Remove_Should.cs" />
     <Compile Include="Services\ImageServiceTests\Constructor_Should.cs" />
+    <Compile Include="Services\ImageServiceTests\Create_Many_Should.cs" />
+    <Compile Include="Services\ImageServiceTests\Create_One_Should.cs" />
     <Compile Include="Services\InformationServiceTests\Constructor_Should.cs" />
     <Compile Include="Services\InformationServiceTests\Create_Should.cs" />
     <Compile Include="Services\InformationServiceTests\Delete_Should.cs" />

@@ -4,16 +4,22 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+
     using Bytes2you.Validation;
+
     using CloudStorages.Contracts;
+
     using Common.Constants;
+
     using Contracts;
+
     using PhotoArtSystem.Data.Common.EfDbContexts;
     using PhotoArtSystem.Data.Common.Repositories;
     using PhotoArtSystem.Data.Models;
     using PhotoArtSystem.Data.Models.EnumTypes;
     using PhotoArtSystem.Data.Models.Factories;
     using PhotoArtSystem.Data.Models.TransitionalModels;
+
     using Web.Contracts;
 
     public class ImageService : IImageService
@@ -82,7 +88,7 @@
             var entityDb = await this.CreateImage(entity, null, null);
             this.images.Create(entityDb);
 
-            this.context.Save();
+            await this.context.SaveAsync();
 
             return entityDb;
         }
@@ -114,7 +120,7 @@
                 imageList.Add(entityDb);
             }
 
-            this.context.Save();
+            await this.context.SaveAsync();
 
             return imageList;
         }
